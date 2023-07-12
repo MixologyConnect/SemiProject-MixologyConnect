@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/segoe-ui-4');
+
+* {
+    font-family: "Segoe UI";
+    color: rgb(60, 60, 60);
+}
+
+::-webkit-scrollbar { display: none; }
+
+body, p {
+    margin: 0;
+}
+
+main { min-height: calc(65vh - 3px); }
+
+nav {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+#nav-top {
+    display: flex;
+    width: 100%;
+    height: 15vh;
+    border-bottom: lightgray solid 1px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition-duration: 0.6s;
+}
+
+#nav-top > p {
+    margin-left: 1vw;
+    font-family: "Playfair Display";
+    font-style: italic;
+    font-size: 3rem;
+    color: rgb(0, 220, 244);
+}
+
+#nav-top > img {
+    height: 75%;
+}
+
+#account {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10vw;
+    height: 15vh;
+    z-index: 5;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#account > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
+}
+
+#account > div > input {
+    display: none;
+}
+
+#account > div > label {
+	display: flex;
+	justify-content: center;
+}
+
+#account > div > label > img {
+    width: 40%;
+    transition-duration: 1s;
+    filter: brightness(0);
+}
+
+#account > div > label > img:hover {
+    cursor: pointer;
+}
+
+#account > div > input:checked + label > img {
+    filter: brightness(1);
+}
+
+#account > div > p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    transition-duration: 1s;
+}
+
+#account > div > input:checked ~ p {
+    color: rgb(0, 220, 244);
+}
+
+#nav-bottom {
+    display: flex;
+    z-index: -1;
+    height: 5vh;
+    border-bottom: lightgray solid 1px;
+    justify-content: center;
+    background-color: white;
+    transition-duration: 0.6s;
+}
+
+#nav-bottom > section {
+    display: flex;
+    justify-content: space-around;
+}
+
+#nav-bottom > section > div {
+    display: flex;
+    width: 8vw;
+    border-color: rgb(0, 220, 244);
+    justify-content: center;
+    align-items: center;
+    transition-duration: 1s;
+}
+
+.nav-link {
+    padding: 10px;
+    /* font-size: 1rem; */
+    transition-duration: 0.3s;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+    color: rgb(0, 220, 244);
+}
+
+footer {
+    display: flex;
+    width: 100vw;
+    height: 15vh;
+    border-top: lightgray solid 1px;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > section {
+    display: flex;
+    height: 10vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+footer > section > div:first-of-type {
+    flex-basis: 50%;
+    display: flex;
+    width: 30vw;
+    border-bottom: lightgray solid 1px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer > section > div:last-of-type {
+    display: flex;
+    flex-basis: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > section > div:first-of-type > a:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+}
