@@ -1,0 +1,182 @@
+@charset "UTF-8";
+@import url('https://fonts.cdnfonts.com/css/segoe-ui-4');
+*{
+    font-family: "Segoe UI";
+    color: rgb(60, 60, 60);
+}
+
+*{box-sizing: border-box;}
+
+.container{
+    margin-top: 50px;
+    width: 100vw;
+    height: 100%;
+}
+
+.secon-container{
+    width: 65vw;
+    height: 100%;
+    margin: auto;
+}
+
+#banner{
+    width: 65vw;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+}
+
+/* 배너랑 컬럼 사이 검색창 */
+#searchArea{
+    height: 70px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+/* 검색 목록 선택 */
+#SearchOption{
+    height: 30px;
+    width: 80px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+/* 검색 input 설정 */
+#search{
+    height: 30px;
+    width: 300px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+/* 검색 버튼 */
+#searchBtn{
+    height: 30px;
+    width: 50px;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* 칵쓸신잡 배너 사진 */
+#bannerPic{
+    width: 80px;
+    height: 80px;
+}
+/* 칵쓸신잡 배너 글*/
+#banner1{
+    margin: 0;
+    font-size: 30px;
+}
+#banner2{
+    margin: 0;
+    font-size: 25px;
+}
+
+/* 칼럼 영역 */
+.content{
+    width: 65vw;
+    height: 300px;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+}
+/* 칼럼 div */
+.a{
+    width: 30%;
+    border-radius: 15px;
+    border: 1px solid gray;
+}
+
+/* 칼럼 사진 div*/
+.content div > div:nth-child(1){
+    height: 78%;
+    width: 100%;
+    padding: 15px;
+}
+/* 칼럼 제목 */
+.content div > div:nth-child(2){
+    height: 22%;
+    padding-left: 15px;
+}
+
+/* 칼럼 사진 */
+#test2{
+    width: 100%;
+    height: 100%;
+}
+
+/* 칼럼제목 */
+#colName{
+    margin: 0px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 칼럼 올린이 */
+#colPreview{
+    margin-top: 10px;
+
+}
+/* 칼럼 첫째줄 둘째줄 사이 공백 */
+#null{
+    height: 30px;
+}
+
+/* 페이지 넘기기 */
+.select{
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 페이지 넘기는 버튼 영역 */
+.select > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border: 0px;
+}
+
+/* 버튼 속성 */
+#pageCon1{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 15px;
+}
+#pageCon2{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 15px;
+}
+
+#pageCon1:hover{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+#pageCon2:hover{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+/* 화살표는 focus 할 필요 없음 */
+#pageCon2:focus{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
