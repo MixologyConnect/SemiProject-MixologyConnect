@@ -1,0 +1,272 @@
+* {
+    font-family: "Segoe UI";
+    color: rgb(60, 60, 60);
+}
+
+
+
+
+
+/* 칵테일추천 배너 */
+.banner{
+    width: 100vw;
+    height: 25vh;
+    background-image: linear-gradient(0deg, red, yellow, orange, pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+/* 배너 사진 */
+.banner > img{
+    height: 15vh;
+    margin-right: 50px;
+}
+/* 배너 문구 */
+.banner > p{
+    font-size: 100px;
+    margin-left: 50px;
+    margin-right: 70px;
+    color: white;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+
+main{
+    display: flex;
+    width: 65%;
+    height: 800px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: rgb(245, 245, 220);
+
+    /* display: flex;
+	width: calc(100vw - 100px);
+	max-width: 1280px;
+	margin: auto;
+	flex-direction: column;
+    align-items: center; */
+
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 술자리 사진 */
+.text > img{
+    height: 250px;
+    width: 450px;
+    border-radius: 10px;
+    margin-left: 70px;
+}
+/* 문구 */
+.text > pre{
+    color: orange;
+    font-size: 20px;
+    background-color: rgb(245, 245, 220);
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+/* 버튼 */
+.text > button{
+    width: 450px;
+    height: 60px;
+    margin-left: 65px;
+    border-radius: 10px;
+    background-color: orange;
+    border-color: orange;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.text > button:hover{
+    border: 5px solid rgb(61, 166, 214); ;
+}
+
+/* 화면 가리기 */
+.q1, .q2, .q3, .q4, .q5, .q6, .loading-page, .result, .result-two, .result-three, .result-four
+, .result-coke{
+    display: none;
+}
+
+
+
+/* 돌아가기 버튼 */
+.back{
+    width: 45px;
+    height: 35px;
+    margin-right: 10px;
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 10px;
+    border-color: orange;
+    
+}
+
+.range{
+    margin: 5px 0 10px 20px;
+}
+
+
+
+/* 슬라이드바 css */
+input[type=range] { 
+    -webkit-appearance: none; /*기본 스타일을 사용할지 말지 정하기 */
+    background: orange; /*바 선색, transparent 로 설정하면 배경생이랑 동일해진다. == 투명 */ 
+    border-radius: 10px;
+    width: 400px;
+  }
+
+  /* 넘어가는 숫자 */
+  .num{
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+
+  
+ 
+
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 질문번호 */
+.question{
+    font-weight: bold;
+}
+
+.content > div{
+    margin-top: 40px;
+    
+}
+
+/* 테스트 선택지 버튼  */
+.content button{
+    width: 400px;
+    height: 50px;
+    background-color: rgb(61, 166, 214);
+    border-color: rgb(61, 166, 214);;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.content button:hover{
+    border: 5px solid rgb(240, 143, 98);
+}
+
+.content > div:nth-child(1){
+    display: flex;
+    flex-basis: 20%;
+    font-size: 25px;
+}
+.content > div:nth-child(2){
+    display: flex;
+    flex-basis: 20%;
+    font-size: 17px;
+    
+}
+.content > div:nth-child(3){
+    display: flex;
+    flex-basis: 10%;
+}
+.content > div:nth-child(4){
+    display: flex;
+    flex-basis: 10%;
+}
+.content > div:nth-child(5){
+    display: flex;
+    flex-basis: 10%;
+}
+.content > div:nth-child(6){
+    display: flex;
+    flex-basis: 10%;
+}
+
+
+
+/* 로딩창 */
+.loading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.loading img{
+    width: 160px;
+    height: 120px;
+}
+
+.loading > div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(55, 101, 141);
+    margin-top: 40px;
+}
+
+/* 칵테일 화면 */
+.cocktail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 570px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+/* 칵테일 설명 문구 */
+.cocktail > div:nth-child(2){
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.cocktail img{
+    border-radius: 10px;
+}
+.cocktail > div:nth-child(3){
+    font-size: 17px;
+    padding: 10px 20px;
+    letter-spacing: 1px;
+    border-top: 1px solid #c3c2c2;
+}
+
+/* 다시하기 버튼 */
+.reset button{
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: orange;
+    border-color: orange;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.reset button:hover{
+    border: 5px solid rgb(61, 166, 214); ;
+}
+
