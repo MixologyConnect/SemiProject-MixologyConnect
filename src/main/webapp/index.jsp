@@ -12,8 +12,20 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"/>
-    <main></main>
+    <main class="themes-main-1">
+        <div id="banner">
+            <p>
+                THIS IS BANNER<br>
+                THIS IS BANNER<br>
+                THIS IS BANNER
+            </p>
+        </div>
+        <div id="populars" class="contents">
+            <p class="themes-content-1">Populars</p>
+            <p class="themes-content-1">인기글</p>
+        </div>
+    </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    <script src="resources/js/main.js"></script>
+    <script src="resources/js/main.js?v=1"></script>
 </body>
 </html>

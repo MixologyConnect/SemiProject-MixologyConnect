@@ -1,0 +1,38 @@
+main {
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+
+#banner {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 400px;
+    background-image: linear-gradient(135deg, rgb(0, 220, 244), violet);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#banner > p {
+    font-family: 'Playfair Display';
+    font-size: 80px;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.9);
+}
+
+#banner > p::selection {
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 1px rgb(0, 220, 244);
+}
+
+.contents { 
+    width: calc(100vw - 100px);
+	max-width: 1280px;
+}
+
+#populars > p {
+    font-weight: bold;
+}
