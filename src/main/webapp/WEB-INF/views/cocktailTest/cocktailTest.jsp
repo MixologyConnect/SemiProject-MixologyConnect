@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>칵테일 추천</title>
 
-    <link rel="stylesheet" href="../css/취향테스트.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/cocktailTest.css">
     <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
-    <script src="../js/jquery-3.7.0.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
 
     </header>
 
-    <nav id="mc-nav"></nav>
+    <jsp:include page="/WEB-INF/views/common/nav.jsp"/>
 
 
     <section class="banner">
@@ -40,7 +40,7 @@
 
             <br>
 
-            <img src="../img/술자리 이미지.jpeg">
+            <img src="${contextPath}/resources/images/술자리 이미지.jpeg">
 
             <br><br>
 
@@ -139,7 +139,7 @@
 
             <div class="loading">
                 <div>결과 분석중..</div>
-                <div><img src="../img/로딩.gif"></div>
+                <div><img src="${contextPath}/resources/images/로딩.gif"></div>
 
             </div>
 
@@ -219,9 +219,9 @@
         
     </main>
 
-    <div id="mc-footer"></div>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-    <script src="../js/취향테스트.js"></script>
+    <script src="${contextPath}/resources/js/cocktailTest.js"></script>
     
 </body>
 </html>
