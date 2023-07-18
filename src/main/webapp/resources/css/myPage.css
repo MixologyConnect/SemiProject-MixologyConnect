@@ -1,0 +1,486 @@
+
+
+
+
+
+
+main{
+    width: 75%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+} 
+
+/* main {
+	display: flex;
+	width: calc(100vw - 100px);
+	max-width: 1280px;
+	margin: auto;
+	flex-direction: column;
+    align-items: center;
+} */
+
+
+
+main > section{
+    display: flex;
+}
+
+
+main > section:nth-child(1){
+    display: flex;
+    flex-basis: 30%;
+}
+
+.follow{
+    display: flex;
+    align-items: start;
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+}
+
+.follow > section{
+}
+
+.follow > section:nth-child(1){
+    display: flex;
+    flex-basis: 30%;
+}
+
+.img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img > div:nth-child(1){
+    display: flex;
+    flex-basis: 80%;
+}
+
+.img > div:nth-child(2){
+    display: flex;
+    flex-basis: 20%;
+}
+
+
+/* 계정 사진 */
+.img  img{
+    width: 130px;
+    height: 130px;
+    margin-bottom: 10px;
+}
+
+.img button{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    border-radius: 30%;
+    border: 0;
+    background-color: rgb(159, 232, 235);
+}
+
+label{
+    cursor: pointer;
+}
+
+#chooseFile{
+    visibility: hidden;
+}
+
+.follow > section:nth-child(2){
+    display: flex;
+    flex-basis: 70%;
+}
+
+.follow2{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+.follow2 > div:nth-child(1){
+    display: flex;
+    flex-basis: 50%;
+}
+
+#top{
+    display: flex;
+    font-size: 35px;
+    font-weight: bold;
+    align-items: end;
+    margin-left: 10px;
+    margin-bottom: 40px;
+}
+.follow2 > div:nth-child(2){
+    display: flex;
+    flex-basis: 50%;
+}
+
+.bottom > span{
+    margin: 5px 10px 0px 10px;
+    font-size: 25px;
+}
+
+.bottom  a{
+    text-decoration: none;
+    color: black;
+}
+
+main > section:nth-child(2){
+    display: flex;
+    flex-basis: 3%;
+}
+
+#list{
+    display: flex;
+    align-items: center;
+    margin: 5px 0px 5px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 3px solid #ddd;
+    border-top: 3px solid #ddd;
+    justify-content: space-between;
+    
+}
+
+
+
+#list a:hover{
+    color: rgb(0, 220, 244);
+}
+
+
+
+#list a{
+    text-decoration: none;
+    color: black;
+}
+
+.thead{
+    margin-right: 100px;
+}
+
+#myAlarm{
+    list-style-type: none;
+}
+
+.sub-wrap{
+    border: 1px solid beige;
+    width: 500px;
+    height: 400px;
+    display: none;
+    position: absolute;;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.sub-wrap > div{
+    margin: 10px 10px;
+    font-weight: lighter;
+}
+
+.sub-wrap button{
+    background-color: rgb(159, 232, 235);
+    border: 1px solid rgb(159, 232, 235);
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+
+.sub-wrap a{
+    text-decoration: none;
+    color: black;
+}
+
+#alarm{
+    margin-right: 70px;
+}
+
+
+main > section:nth-child(3){
+    display: flex;
+    flex-basis: 20.25%;
+}
+
+.fir{
+    display: flex;
+    margin-left: 20px;
+    border: 3px solid white;
+    border-bottom: 3px solid #ddd;
+}
+
+.fir input{
+    margin-right: 15px; 
+    height: 15px; 
+    width: 15px;
+}
+
+
+
+.fir img{
+    width: 200px; 
+    height: 200px;
+}
+
+.fir > div:nth-child(1){
+    display: flex;
+    flex-basis: 80%;
+    font-size: 20px;
+    
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.left > div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.left >div:nth-child(1){
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.left a{
+    text-decoration: none;
+    color: black;
+}
+
+.left >div:nth-child(2){
+    font-size: 18px;
+}
+
+.left >div:nth-child(3){
+    font-size: 18px;
+    margin-top: 50px;
+    
+}
+
+.title > a{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+
+.fir > div:nth-child(2){
+    display: flex;
+    flex-basis: 20%;
+}
+
+/* 첫번째 게시물 사진 */
+.fir img{
+    margin: 10px 20px;
+    border-radius: 10px;
+    
+}
+
+.two > div{
+    font-size: 20px;
+}
+
+.two > div:nth-child(1){
+    display: flex;
+    flex-basis: 80%;
+}
+.two > div:nth-child(2){
+    display: flex;
+    flex-basis: 20%;
+}
+
+.image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.two  img{
+    width: 170px;
+    height: 120px;
+}
+
+.fir > div:nth-child(3){
+    display: flex;
+    flex-basis: 15%;
+}
+
+.thr{
+    border-bottom: 3px solid #ddd;
+}
+
+.thr > span{
+    margin-right: 40px;
+}
+
+main > section:nth-child(4){
+    display: flex;
+    flex-basis: 21.25%;
+}
+
+.sec{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.sec > div{
+}
+
+.sec > div:nth-child(1){
+    display: flex;
+    flex-basis: 15%;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0px 15px 0px;
+}
+.sec > div:nth-child(2){
+    display: flex;
+    flex-basis: 60%;
+}
+
+.two{
+    font-size: 18px;
+
+}
+
+.sec > div:nth-child(3){
+    display: flex;
+    flex-basis: 25%;
+}
+
+.thr{
+    border-bottom: 3px solid #ddd;
+}
+
+.thr > span{
+    margin-right: 40px;
+    margin-bottom: 5px;
+}
+
+main > section:nth-child(5){
+    display: flex;
+    flex-basis: 20.50%;
+}
+
+.third{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.third > div{
+}
+
+.third > div:nth-child(1){
+    display: flex;
+    flex-basis: 15%;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0px 15px 0px;
+}
+.third > div:nth-child(2){
+    display: flex;
+    flex-basis: 60%;
+}
+
+.two{
+    font-size: 18px;
+
+}
+
+.third > div:nth-child(3){
+    display: flex;
+    flex-basis: 25%;
+}
+
+.thr{
+    border-bottom: 3px solid #ddd;
+}
+
+.thr > span{
+    margin-right: 40px;
+}
+
+main > section:nth-child(6){
+    display: flex;
+    flex-basis: 5%;
+}
+
+.number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    justify-content: space-between;
+
+}
+
+#all{
+    margin: 0px 10px 0 20px;
+    font-size: 20px;
+
+}
+
+.number > span{
+    margin-right: 60px;
+}
+
+/* 페이지네이션(Pagination) */
+.pagination{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+
+}
+
+.pagination > li{
+    width: 20px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.pagination a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    letter-spacing: -2px;
+    color: black;
+    text-decoration: none;
+
+}
+
+/* 현재 페이지 번호 */
+.pagination .current{
+    background-color: rgb(0, 220, 244);
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+
+.number button{
+    cursor: pointer;
+}
+
+#delete button{
+    background-color: rgb(0, 220, 244);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+}
