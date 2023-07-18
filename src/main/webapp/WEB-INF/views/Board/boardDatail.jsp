@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상세 게시글</title>
-    <link rel="stylesheet" href="../css/boardDatail.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardDatail.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
@@ -49,7 +53,7 @@
             </div>
 
             <form>
-                <!-- 좋아요, 공유 -->
+                <!-- 좋아요, 북마크 -->
                     <div class="share">
                         <button type="button" id="bookBtn"><img isd="bookBtnImg" src="../images/bookmark.svg" onclick="bookBtnClick()"></button>
                         <button type="button" id="likeBtn"><img src="../images/heart.svg" id="likeBtnImg"
@@ -63,7 +67,7 @@
             </form>
             <!-- 댓글 -->
             <div class="comment">
-                <div class="profilePicture"><img src="../images/person-circle.svg"></div>
+                <div class="profilePicture"><img src="${contextPath}/resources/images/person-circle.svg"></div>
                 <div class="userName">
                     user01
                     <div class="commentContent">
@@ -72,7 +76,7 @@
                 </div>
             </div>
             <div class="comment">
-                <div class="profilePicture"><img src="../images/person-circle.svg"></div>
+                <div class="profilePicture"><img src="${contextPath}/resources/images/person-circle.svg"></div>
                 <div class="userName">
                     user02
                     <div class="commentContent">
@@ -86,7 +90,7 @@
 
     <div id="mc-footer"></div>
 
-    <script src="../../../js/boardDatail.js"></script>
+    <script src="${contextPath}/resources/js/boardDatail.js"></script>
 </body>
 
 </html>

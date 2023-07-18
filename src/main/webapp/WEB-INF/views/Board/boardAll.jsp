@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>게시글 목록</title>
 
-  <link rel="stylesheet" href="../css/boardAll.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/boardAll.css">
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -60,7 +64,7 @@
           <span>댓글수 5</span>
         </div>
       </div>
-      <div class="img"><img src="../images/이미지없음.jpg"></div>
+      <div class="img"><img src="${contextPath}/resources/images/이미지없음.jpg"></div>
     </a>
 
 
@@ -79,7 +83,7 @@
           <span>댓글수 5</span>
         </div>
       </div>
-      <div class="img"><img src="../images/이미지없음.jpg"></div>
+      <div class="img"><img src="${contextPath}/resources/images/이미지없음.jpg"></div>
     </a>
 
 
@@ -111,7 +115,7 @@
 
   <div id="mc-footer"></div>
 
-  <script src="../../../js/boardAll.js"></script>
+  <script src="${contextPath}/resources/js/boardAll.js"></script>
    <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
 </body>
 
