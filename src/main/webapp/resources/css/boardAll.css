@@ -1,0 +1,338 @@
+
+@import url('https://fonts.cdnfonts.com/css/segoe-ui-4');
+
+
+* {
+    font-family: "Segoe UI";
+    box-sizing: border-box;
+    color: rgb(60, 60, 60);
+  
+}
+
+
+
+main{
+  display: flex;
+	width: 1280px;
+	margin: auto;
+	flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+/* 게시글 목록 적혀있는 칸 */
+.top {
+  height: 100px;
+  width: 100%;
+  font-size: 35px;
+  font-weight: bold;
+  margin: auto;
+  margin-top: 30px;
+  
+}
+/* 전체 팔로잉 공지 버튼 있는 칸 */
+.top-2 {
+  height: 80px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  margin: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.right{
+  float: right;
+  display: block;
+  
+}
+/* 인기순 버튼 */
+#top {
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 25px;
+  color:rgb(60, 60, 60);
+  background-color: white;
+  
+}
+
+#top:hover {
+border: none;
+cursor: pointer;
+font-size: 18px;
+font-weight: bold;
+margin-top: 25px;
+color:rgb(0, 220, 244);
+background-color: white;
+}
+
+/* 최신순 버튼 */
+#new {
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 25px;
+  color:rgb(60, 60, 60);
+  background-color: white;
+}
+
+#new:hover {
+border: none;
+cursor: pointer;
+font-size: 18px;
+font-weight: bold;
+margin-top: 25px;
+color:rgb(0, 220, 244);
+background-color: white;
+}
+
+/* 공지 버튼 */
+#notice {
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 25px;
+  color:rgb(60, 60, 60);
+  background-color: white;
+}
+
+#notice:hover {
+border: none;
+cursor: pointer;
+font-size: 18px;
+font-weight: bold;
+margin-top: 25px;
+color:rgb(0, 220, 244);
+background-color: white;
+}
+
+/* 팔로잉 버튼 */
+#Following {
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 25px;
+  color:rgb(60, 60, 60);
+  background-color: white;
+}
+
+#Following:hover {
+border: none;
+cursor: pointer;
+font-size: 18px;
+font-weight: bold;
+margin-top: 25px;
+color:rgb(0, 220, 244);
+background-color: white;
+}
+
+/* 전체 버튼 */
+#all {
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 25px;
+  color:rgb(60, 60, 60);
+  background-color: white;
+}
+
+#all:hover {
+  cursor: pointer;
+  font-weight: bold;
+  color:rgb(0, 220, 244);
+  background-color: white;
+  }
+  
+
+.content{
+height: 1000px;
+}
+
+.fir a {
+  text-decoration: none;
+}
+
+
+.img img {
+  width: 200px; 
+  height: 200px;
+}
+
+main > section:nth-child(2){
+  display: flex;
+  flex-basis: 3%;
+}
+
+#list{
+  display: flex;
+  align-items: center;
+  margin: 5px 0px 5px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 3px solid #ddd;
+  border-top: 3px solid #ddd;
+  
+}
+
+
+#list a:hover{
+  color: rgb(0, 220, 244);
+}
+
+
+#list a{
+  text-decoration: none;
+  color: black;
+}
+
+#myAlarm{
+  list-style-type: none;
+}
+
+.sub-wrap{
+  border: 1px solid beige;
+  width: 500px;
+  height: 400px;
+  display: none;
+  position: absolute;
+  background-color: beige;
+  border-radius: 10px;
+}
+
+.sub-wrap > div{
+  margin: 10px 10px;
+  font-weight: lighter;
+}
+
+.sub-wrap button{
+  background-color: rgb(159, 232, 235);
+  border: 1px solid rgb(159, 232, 235);
+  border-radius: 3px;
+  cursor: pointer;
+
+}
+
+/* 첫번째 게시물 사진 */
+.fir img{
+  margin: 10px 20px;
+  border-radius: 10px;
+  
+}
+
+
+.sub-wrap a{
+  text-decoration: none;
+  color: black;
+}
+
+#alarm{
+  margin-left: 550px;
+}
+
+
+main > section:nth-child(3){
+  display: flex;
+  flex-basis: 20.25%;
+}
+
+.fir{
+  display: flex;
+  margin-left: 20px;
+  border: 3px solid white;
+  border-bottom: 3px solid #ddd;
+}
+
+
+.fir > div:nth-child(1){
+  display: flex;
+  flex-basis: 80%;
+  font-size: 20px;
+  
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.left > div{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.left >div:nth-child(1){
+  font-size: 20px;
+  font-weight: bold;
+  
+}
+
+
+
+.thr{
+  border-bottom: 3px solid #ddd;
+}
+
+.thr > span{
+  margin-right: 40px;
+}
+
+main > section:nth-child(6){
+  display: flex;
+  flex-basis: 5%;
+}
+
+.number{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: space-between;
+
+}
+
+#all{
+  margin-left: 20px;
+  font-size: 20px;
+
+}
+
+.number > span{
+  margin-right: 10px;
+}
+
+.number button{
+  cursor: pointer;
+}
+
+/* 삭제 버튼 */
+#delete button{
+  background-color:rgb(0, 220, 244);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  width: 80px;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+}
+
+#delete button:hover {
+  background-color: white;
+  border: 2px solid rgb(0, 220, 244);
+  color: rgb(0, 220, 244);
+}
+
+
+footer{
+  margin-top: 50px;
+  height: 150px;
+  border: 1px solid black;
+}
