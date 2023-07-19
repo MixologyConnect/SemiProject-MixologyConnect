@@ -31,6 +31,7 @@
     
     <main>
 
+
         <div class="text">
             <pre>
                 술자리 유형으로 알아보는 칵테일 추천!!
