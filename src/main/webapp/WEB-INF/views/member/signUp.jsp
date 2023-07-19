@@ -16,14 +16,14 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/index.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/join-signUp.css">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
 </head>
 <body>
-    <jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
+   
 
     <div id="signUp-area">
 
-        <form action="#" method="post" name="signUp-form" onsubmit="return signValidate()">
+        <form action="signUp" method="post" name="signUp-form" onsubmit="return signValidate()">
             <h2>회원가입</h2>
             <fieldset>
                 <p class="w-pct60 right" style="margin: 0 auto; padding-bottom: 5px; font-size: 13px;">* 는 필수 입력 항목입니다.</p>
@@ -113,7 +113,7 @@
         </form>
     </div>
 
-    <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>>
+    
 
     <!-- ----------------------------------------------------------------------------- -->
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>	<!-- 다음 우편번호 api -->
