@@ -17,12 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
-
-    <header>
-
-    </header>
-
-    <jsp:include page="/WEB-INF/views/common/nav.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 
     <section class="banner">
@@ -222,6 +217,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="${contextPath}/resources/js/cocktailTest.js"></script>
-    
+    <script src="${contextPath}/resources/js/main.js"></script>
 </body>
 </html>

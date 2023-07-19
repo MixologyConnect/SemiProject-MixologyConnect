@@ -6,30 +6,33 @@ function isScrolledToTop() {
 
 window.addEventListener('scroll', function() {
     if (isScrolledToTop()) {
-        $("#navBottom").css("transform", "none");
-        $("#navBottom").css("filter", "opacity(85%)");
+        $("nav").css("transform", "none");
+        $("nav").css("filter", "opacity(100%)");
     } else {
-        $("#navBottom").css("transform", "translateY(-50px)");
-        $("#navBottom").css("filter", "opacity(0%)");
+        $("nav").css("transform", "translateY(-45px)");
+        $("nav").css("filter", "opacity(0%)");
     }
 });
 
-$("nav > div").hover(function() {
-    $("#navBottom").css("transform", "none");
-    $("#navBottom").css("filter", "opacity(85%)");
+$("header, nav").hover(function() {
+        $("nav").css("transform", "none");
+        $("nav").css("filter", "opacity(100%)");
+
 }, function () {
     if (!isScrolledToTop()) {
-        $("#navBottom").css("transform", "translateY(-50px)");
-        $("#navBottom").css("filter", "opacity(0%)");
+        $("nav").css("transform", "translateY(-45px)");
+        $("nav").css("filter", "opacity(0%)");
     }
 });
 
-$("#navBottom > a").hover(function() {
-    $("nav > div").css("borderColor", "rgb(0, 220, 244)");
+$("nav > a").hover(function() {
+    $("header").css("borderColor", "rgb(0, 220, 244)");
+    $("nav ").css("borderColor", "rgb(0, 220, 244)");
 }, function () {
-    $("nav > div").css("borderColor", "lightgray");
+    $("header").css("borderColor", "lightgray");
+    $("nav").css("borderColor", "lightgray");
 });
 
 $("#login").change(function() {
-    alert("asdf");
+    alert(this.prop("checked"));
 })
