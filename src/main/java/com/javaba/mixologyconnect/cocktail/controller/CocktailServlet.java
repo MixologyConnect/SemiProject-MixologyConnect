@@ -1,4 +1,4 @@
-package com.javaba.mixologyconnect.member.controller;
+package com.javaba.mixologyconnect.cocktail.controller;
 
 import java.io.IOException;
 
@@ -8,16 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/member/signUpterms")
-public class SecessionServlet extends HttpServlet {
+@WebServlet("/cocktail/detail")
+public class CocktailServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String path ="/WEB-INF/views/member/signUpterms.jsp";
-		
-		req.getRequestDispatcher(path).forward(req, resp);
-	
 	}
 
 }

@@ -12,7 +12,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입약관</title>
-    <link rel="stylesheet" href="resources/css/join-terms.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/join-terms.css">
+	<link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
+	
+
 </head>
 <body>
     <div id="terms-area">
@@ -215,9 +218,9 @@
                     </p>
                 </div>
                 <div id="btn-area">
-                   <form action="join-signUp.html" onsubmit="return nextBtn()">
+                   <form action="signUp" method="get" onsubmit="return nextBtn()">
                        
-                      <a href="/${contextPath}/member/signUp"><button id="next-btn">다음</button></a>
+                     <button id="next-btn">다음</button>
                    </form>
                    
                     
@@ -228,4 +231,4 @@
     </div>
 
 
-    <script src="resources/js/join-terms.js"></script>
+    <script src="${contextPath}/resources/js/join-terms.js"></script>
