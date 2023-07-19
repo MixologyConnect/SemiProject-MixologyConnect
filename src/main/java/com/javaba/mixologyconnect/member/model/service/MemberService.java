@@ -1,5 +1,10 @@
 package com.javaba.mixologyconnect.member.model.service;
 
-public class MemberService {
+import com.javaba.mixologyconnect.member.model.dao.MemberDAO;
 
+public class MemberService {
+	private MemberDAO dao = new MemberDAO();
+	
+	
+	
 }
