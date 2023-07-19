@@ -12,7 +12,9 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"/>
-    <main></main>
+    <main>
+        <a href="${contextPath}/member/signUpterms">회원가입</a>
+    </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <script src="resources/js/main.js"></script>
 </body>
