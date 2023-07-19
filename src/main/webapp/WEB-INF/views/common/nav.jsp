@@ -16,7 +16,7 @@
         <section>
             <div><a class="nav-link">안내</a></div>
             <div><a class="nav-link">칼럼</a></div>
-            <div><a class="nav-link">커뮤니티</a></div>
+            <div><a href="${contextPath}/board/boardAll" class="nav-link">커뮤니티</a></div>
             <div><a class="nav-link">칵테일</a></div>
             <div><a class="nav-link">테스트</a></div>
         </section>
