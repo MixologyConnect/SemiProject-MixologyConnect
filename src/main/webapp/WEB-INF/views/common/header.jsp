@@ -20,4 +20,5 @@
     <a class="themes-content-1" href="${contextPath}/board/boardAll">커뮤니티</a>
     <a class="themes-content-1" href="${contextPath}/cocktail/list">칵테일</a>
     <a class="themes-content-1" href="${contextPath}/cocktailTest/cocktailTest">테스트</a>
+    <a class="themes-content-1" href="${contextPath}/member/signUpterms">회원가입</a>
 </nav>

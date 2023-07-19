@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="resources/css/index.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
-<body class="themes-main-1">
+<body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main class="themes-main-1">
         <div id="banner">
