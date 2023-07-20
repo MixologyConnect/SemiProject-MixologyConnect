@@ -19,13 +19,13 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
     <div id="signUp-area">
 
         <form action="#" method="post" name="signUp-form" onsubmit="return signValidate()">
-            <h2>회원가입</h2>
-            <fieldset>
+            <fieldset >
+                <h2>회원가입</h2>
+                <p>회원가입 후 회원들과 소통해보세요.</p>
                 <p class="w-pct60 right" style="margin: 0 auto; padding-bottom: 5px; font-size: 13px;">* 는 필수 입력 항목입니다.</p>
                 <table>
                     <tr>
@@ -41,11 +41,13 @@
                         <td>*아이디</td>
                         <td></td>
                         <td>
-                            <input type="text" id="memberId" name="memberId" class="chk size1" 
-                                maxlength="20" placeholder="아이디" required>
-                            
-                                <button id="btn-id" class="btn-fill-s" type="button"> 중복검사</button>
-                            
+                            <div id="info_id">
+                                <input type="text" id="memberId" name="memberId" class="chk size1" 
+                                    maxlength="20" placeholder="아이디" required>
+                                
+                                    <button id="btn-id" class="btn-fill-s" type="button"> 중복검사</button>
+                            </div>
+                             
                             <div class="signUp-message" id="idMessage" >아이디를 입력하세요.(영어 대소문자, 숫자 입력 가능) </div>
                         </td>
                     </tr>
@@ -78,8 +80,10 @@
                         <td>*이메일</td>
                         <td></td>
                         <td>
+                            
                             <input type="text" name="memberEmail" id="memberEmail" class="chk size" placeholder="이메일" required>
                             <div class="signUp-message" id="emailMessage">이메일을 입력해 주세요.</div>
+                            
                         </td>
                     </tr>
                     <tr>
@@ -87,8 +91,10 @@
                         <td>주소</td>
                         <td></td>
                         <td>
-                            <input type="text" id="sample6_postcode" name="address" placeholder="우편번호" readonly>
-                            <input type="button" id="postBtn" onclick="sample6_execDaumPostcode()" name="btn-fill-s" value="우편번호 찾기"><br>
+                            <div id="info-postNum">
+                                <input type="text" id="sample6_postcode" name="address" placeholder="우편번호" readonly>
+                                <input type="button" id="postBtn" onclick="sample6_execDaumPostcode()" name="btn-fill-s" value="우편번호찾기"><br>
+                            </div>
                             <input type="text" id="sample6_address" name="address" placeholder="주소" readonly><br>
                             <input type="text" id="sample6_detailAddress" name="address" placeholder="상세주소" >
                             <input type="text" id="sample6_extraAddress" name="address" placeholder="참고항목" readonly>
@@ -101,7 +107,7 @@
     
                     </tr>
                     
-                </table>    
+                </table>      
         
             </fieldset>
             
@@ -113,7 +119,6 @@
         </form>
     </div>
 
-    <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>>
 
     <!-- ----------------------------------------------------------------------------- -->
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>	<!-- 다음 우편번호 api -->
