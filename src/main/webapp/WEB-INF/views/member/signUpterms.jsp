@@ -12,15 +12,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입약관</title>
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/join-terms.css">
 	<link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
 	
 
 </head>
-<body>
-    <div id="terms-area">
+<body class="themes-main-1">
+    <div id="terms-area" class="themes-main-2">
 
-        <div id="content-area">
+        <div id="content-area" >
             <h3>약관동의</h3>
             
             <div id="terms">
