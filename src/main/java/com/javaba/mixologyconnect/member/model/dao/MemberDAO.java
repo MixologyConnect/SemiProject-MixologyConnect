@@ -101,5 +101,34 @@ public class MemberDAO {
 		return result;
 	}
 
+	/** 아이디 찾기 DAO
+	 * @param conn
+	 * @param memberName
+	 * @param memberTel
+	 * @return result
+	 * @throws Exception
+	 */
+	public int searchId(Connection conn, String memberName, String memberTel) throws Exception {
+		
+		int result =0;
+		
+		try {
+			
+			String sql = prop.getProperty("searchId");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			
+			
+			
+		} finally {
+			
+		}
+		
+		
+		
+		return result;
+	}
+
 	
 }
