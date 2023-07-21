@@ -15,14 +15,14 @@ import lombok.ToString;
 public class Member {
 	
 	private int memberNo;
-	private String memberName;
 	private String memberId;
 	private String memberPw;
 	private String memberTel;
-	private String memberEmail;
+	private String memberName;
 	private String memberAddress;
+	private String memberEmail;
 	private String profileImage;
-	private String enrollDate;
+	private String managerCode;
 	private String secessionFlag;
 
 }
