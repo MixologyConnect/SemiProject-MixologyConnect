@@ -28,10 +28,10 @@ public class SignUpServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// 파라미터 얻어오기 
-		String memberName = req.getParameter("memberEmail");
 		String memberId = req.getParameter("memberId");
 		String memberPw = req.getParameter("memberPw");
 		String memberTel = req.getParameter("memberTel");
+		String memberName = req.getParameter("memberName");
 		String memberEmail = req.getParameter("memberEmail");
 		
 		String[] address= req.getParameterValues("memberAddress");
@@ -45,6 +45,7 @@ public class SignUpServlet extends HttpServlet{
 	    
 	    mem.setMemberName(memberName);
 	    mem.setMemberId(memberId);
+	    mem.setMemberPw(memberPw);
 	    mem.setMemberTel(memberTel);
 	    mem.setMemberEmail(memberEmail);
 	    mem.setMemberAddress(memberAddress);
