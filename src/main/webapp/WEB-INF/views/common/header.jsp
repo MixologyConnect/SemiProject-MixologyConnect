@@ -16,7 +16,7 @@
 </header>
 <nav class="themes-main-2">
     <a class="themes-content-1">안내</a>
-    <a class="themes-content-1">칼럼</a>
+    <a class="themes-content-1" href="${contextPath}/column/columnAll">칼럼</a>
     <a class="themes-content-1" href="${contextPath}/board/boardAll">커뮤니티</a>
     <a class="themes-content-1" href="${contextPath}/cocktail/list">칵테일</a>
     <a class="themes-content-1" href="${contextPath}/cocktailTest/cocktailTest">테스트</a>

@@ -123,6 +123,9 @@
     <!-- ----------------------------------------------------------------------------- -->
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>	<!-- 다음 우편번호 api -->
 
+    <!--JQiery 라이브러리 추가 CAN방식-->
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    
     <script src="${contextPath}/resources/js/join-signUp.js"></script>
 </body>
 </html>

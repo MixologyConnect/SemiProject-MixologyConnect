@@ -33,6 +33,24 @@ public class MemberService {
 		
 		return result;
 	}
+
+
+
+	/**
+	 * 아이디 중복 검사
+	 * @param memberId
+	 * @return result
+	 * @throws Exception
+	 */
+	public int idDupCheck(String memberId) throws Exception{
+		Connection conn = getConnection(); //DBCP에서 만들어 둔 커넥션 얻어오기
+
+		int result = dao.idDupCheck(conn, memberId);
+
+		close(conn);
+
+		return result;
+	}
 	
 	
 	
