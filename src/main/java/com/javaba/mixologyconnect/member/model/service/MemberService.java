@@ -51,7 +51,30 @@ public class MemberService {
 
 		return result;
 	}
-	
-	
+
+
+
+	/** 아이디 찾기 Service
+	 * @param memberName
+	 * @param memberTel
+	 * @return result
+	 * @throws Exception
+	 */
+	public int searchId(String memberName, String memberTel) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result  = dao.searchId(conn, memberName, memberTel);
+		
+		close(conn);
+		
+		
+		return result;
+	}
+
+
+
+
+		
 	
 }
