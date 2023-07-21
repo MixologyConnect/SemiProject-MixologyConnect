@@ -6,12 +6,12 @@ var cnt = 1;
 function likeBtnClick() {
 
     const img = document.getElementById("likeBtnImg");
-    img.src = "../images/heart-fill.svg";
+    img.src = contextPath + "/resources/images/heart-fill.svg";
 
     if(cnt%2==1) {
-        img.src = "../images/heart-fill.svg";
+        img.src = contextPath + "/resources/images/heart-fill.svg";
     }else {
-        img.src = "../images/heart.svg";
+        img.src = contextPath + "/resources/images/heart.svg";
     }
     cnt++;
 }
@@ -19,12 +19,12 @@ function likeBtnClick() {
 function bookBtnClick() {
 
     const img = document.getElementById("bookBtnImg");
-    img.src = "../images/bookmark-fill.svg";
+    img.src = contextPath + "/resources/images/bookmark-fill.svg";
 
     if(cnt%2==1) {
-        img.src = "../images/bookmark-fill.svg";
+        img.src = contextPath + "/resources/images/bookmark-fill.svg";
     }else {
-        img.src = "../images/bookmark.svg";
+        img.src = contextPath + "/resources/images/bookmark.svg";
     }
     cnt++;
 }

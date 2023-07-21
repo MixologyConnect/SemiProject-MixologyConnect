@@ -15,7 +15,7 @@
     
 </head>
 <body style="overflow-x: hidden">
-    <nav id="mc-nav"></nav>
+   <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <div class="container">
 
 
@@ -58,7 +58,7 @@
 
         </div>
 
-        <div id="mc-footer"></div>
+       <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     </div>
     <script src="${contextPath}/resources/js/boardWrite.js"></script>
