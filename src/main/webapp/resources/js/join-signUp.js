@@ -74,7 +74,7 @@ memberEmail.addEventListener("input", function(){
         emailMessage.classList.add("confirm");
         emailMessage.classList.remove("error");
 
-        checkObj.memberEmail = false; 
+        checkObj.memberEmail = true; 
 
 
     }else{ //유효하지 않은 경우
@@ -104,15 +104,15 @@ memberName.addEventListener("input",function(){
         return;
     }
 
-    // 전화번호 정규식
+    //이름 정규식
     const regExp =/^[가-힣]{2,10}$/;
     
     if(regExp.test(memberName.value)){ //유효한 경우
+        checkObj.memberName = true;
         memberNameMessage.innerText="유효한 이름 형식입니다."
         memberNameMessage.classList.add("confirm");
         memberNameMessage.classList.remove("error");
 
-        checkObj.memberTel = true;
     
     }else{ // 유효하지 않은 경우
         memberNameMessage.innerText="이름 형식이 올바르지 않습니다."
@@ -215,12 +215,12 @@ memberId.addEventListener("input", function(){
     if(regExp.test(memberId.value)){ //유효한 경우 
     
 
-        ///************이메일 중복 검사 (ajax) 진행 예정************* */
+        ///************아이디 중복 검사 (ajax) 진행 예정************* */
 
         // $.ajax( {k:V , K:V}); //JQuery ajax의 기본 형태
 
 
-        // 입력된 이메일 == memberEmail.value
+        
         $.ajax({
             url : "idDupCheck", 
             // 필수 속성 url
@@ -244,7 +244,7 @@ memberId.addEventListener("input", function(){
                     idMessage.classList.add("error");
                     idMessage.classList.remove("confirm");
              
-                    checkObj.memberEmmemberIdail = false; 
+                    checkObj.memberId = false; 
                     
                 }else{//중복 X
                     idMessage.innerText="사용 가능한 아이디입니다."
@@ -319,6 +319,8 @@ function sample6_execDaumPostcode() {
             document.getElementById("sample6_address").value = addr;
             // 커서를 상세주소 필드로 이동한다.
             document.getElementById("sample6_detailAddress").focus();
+
+            
         }
     }).open();
 }

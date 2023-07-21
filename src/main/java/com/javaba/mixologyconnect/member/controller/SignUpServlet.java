@@ -39,7 +39,9 @@ public class SignUpServlet extends HttpServlet{
 		String memberAddress= null;
 	    if(!address[0].equals("")) { 
 	    	memberAddress = String.join(",,", address);
-	    } 
+	    }else {
+	    	memberAddress = "NULL";
+	    }
 	    
 	    Member mem = new Member();
 	    
