@@ -62,7 +62,7 @@
 
 
 		<div class="pagination-area">
-			<c:set var="url" value="list?type=${param.type}&cp="/>
+			<c:set var="url" value="boardAll?type=${param.type}&cp="/>
 
 
 
