@@ -22,7 +22,7 @@
 
     <div id="signUp-area">
 
-        <form action="#" method="post" name="signUp-form" onsubmit="return signValidate()">
+        <form action="signUp" method="post" name="signUp-form" onsubmit="return signValidate()">
             <fieldset >
                 <h2>회원가입</h2>
                 <p>회원가입 후 회원들과 소통해보세요.</p>
@@ -92,12 +92,12 @@
                         <td></td>
                         <td>
                             <div id="info-postNum">
-                                <input type="text" id="sample6_postcode" name="address" placeholder="우편번호" readonly>
+                                <input type="text" id="sample6_postcode" name="memberAddress" placeholder="우편번호" readonly>
                                 <input type="button" id="postBtn" onclick="sample6_execDaumPostcode()" name="btn-fill-s" value="우편번호찾기"><br>
                             </div>
-                            <input type="text" id="sample6_address" name="address" placeholder="주소" readonly><br>
-                            <input type="text" id="sample6_detailAddress" name="address" placeholder="상세주소" >
-                            <input type="text" id="sample6_extraAddress" name="address" placeholder="참고항목" readonly>
+                            <input type="text" id="sample6_address" name="memberAddress" placeholder="주소" readonly><br>
+                            <input type="text" id="sample6_detailAddress" name="memberAddress" placeholder="상세주소" >
+                            <input type="text" id="sample6_extraAddress" name="memberAddress" placeholder="참고항목" readonly>
                             <!-- <button id="postBtn" class="btn-fill-s" onclick="postNum">우편번호 찾기</button>
                             <input type="text" name="postNum" class="w-px60" readonly>
                             <input type="text" name="address" readonly>
