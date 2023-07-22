@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.javaba.mixologyconnect.board.model.dao.BoardDAO;
 import com.javaba.mixologyconnect.board.model.vo.Board;
+import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import com.javaba.mixologyconnect.board.model.vo.Pagination;
 
 
@@ -22,7 +23,6 @@ public class BoardService {
 	 * @throws Exception
 	 */
 	public Map<String, Object> selectBoardAll(int type, int cp) throws Exception{
-		 System.out.println("서비스 처음이야");
 		Connection conn = getConnection();
 		
 		// 게시글 제목
@@ -36,9 +36,6 @@ public class BoardService {
 	      // 3. 게시글 목록 조회
 	      List<Board> boardList = dao.selectBoardList(conn, pagination, type);
 	      
-	      System.out.println(boardTitle);
-	      System.out.println(pagination);
-	      System.out.println(boardList);
 	      
 	      // 4. Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장
 	      Map<String, Object> map = new HashMap<String, Object>();
@@ -47,12 +44,30 @@ public class BoardService {
 	      map.put("pagination", pagination);
 	      map.put("boardList", boardList);
 	      
-	      conn.close();
-	      
 	      close(conn);
-	      System.out.println("서버 끝이야");
 	      return map;
 	}
+
+
+	/** 게시글 상세 조회
+	 * @param boardNo
+	 * @return detail
+	 * @throws Exception
+	 */
+	public BoardDetail selectBoardDetail(int boardNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		BoardDetail detail = dao.selectBoardDetail(conn, boardNo);
+		
+		close(conn);
+		
+		
+		return detail;
+	}
+
+
+	
 
 
 }

@@ -16,7 +16,7 @@ public class BoardDetail {
 	private String boardContent;
 	private String boardDate;
 	private String modifyDate;
-	private int readDate; // 조회수
+	private int readCount; // 조회수
 	private String memberName;
 	private String profileImage;
 	private int memberNo;

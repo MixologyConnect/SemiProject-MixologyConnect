@@ -26,7 +26,7 @@
 			<jsp:include page="/WEB-INF/views/common/header.jsp" />
 			<main>
 				<div class="top">
-					<p>게시글 목록</p>
+					<p>${boardName}</p>
 				</div>
 
 				<!-- 전체, 팔로잉, 공지 -->
@@ -53,7 +53,7 @@
 						<section class="fir">
 							<div class="left">
 								<div class="board">
-									<a href="detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">${board.boardTitle}</a>
+									<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">${board.boardTitle}</a>
 								</div>
 								<div>삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬
 									삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬</div>

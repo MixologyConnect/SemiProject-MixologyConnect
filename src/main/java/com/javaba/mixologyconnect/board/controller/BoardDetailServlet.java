@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.javaba.mixologyconnect.board.model.service.BoardService;
+import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
+
+
 @WebServlet("/board/boardDetail")
 public class BoardDetailServlet extends HttpServlet {
 	
@@ -18,7 +22,13 @@ public class BoardDetailServlet extends HttpServlet {
 
 	try {
 		
-		//int boardNo = Integer.parseInt(req.getParameter("no"));
+		int boardNo = Integer.parseInt(req.getParameter("no"));
+		
+		BoardService service = new BoardService();
+		
+		BoardDetail detail = service.selectBoardDetail(boardNo);
+		
+		req.setAttribute("detail", detail);
 		
 		String path = "/WEB-INF/views/board/boardDetail.jsp";
 		RequestDispatcher dispatcher = req.getRequestDispatcher(path);

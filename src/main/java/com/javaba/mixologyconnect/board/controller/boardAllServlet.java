@@ -25,7 +25,6 @@ public class boardAllServlet extends HttpServlet {
 		try {
 			int type = Integer.parseInt(req.getParameter("type"));
 			
-			
 			// nav 메뉴(공지사항, 자유게시판, 질문게시판) 선택 시
 			// 쿼리스트링에 cp가 없음 --> cp = 1 고정
 			int cp = 1;
@@ -35,7 +34,6 @@ public class boardAllServlet extends HttpServlet {
 			if(req.getParameter("cp") != null) { // 쿼리스트링에 "cp"가 존재한다면
 				cp = Integer.parseInt(req.getParameter("cp"));
 			}
-			
 			
 			
 			BoardService service = new BoardService();
