@@ -17,5 +17,13 @@
 		AND SECESSION_FL='N'
 	</entry>
 	
+	<!-- 아이디 찾 -->
+	<entry key="searchId">
+		SELECT MEMBER_ID
+		FROM MEMBER
+		WHERE MEMBER_NAME =?
+		AND MEMBER_TEL=?
+	</entry>
+	
 
 </properties>
