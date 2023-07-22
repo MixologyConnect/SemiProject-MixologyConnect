@@ -14,8 +14,8 @@ public class Board {
 	   private int boardNo;
 	   private String boardTitle;
 	   private String memberName;
-	   private String boardDate;
-	   private int readDate; // 조회수
+	   private String CreateDate;
+	   private int readCount; // 조회수
 	   private String thumbnail;
 	   
 	   
