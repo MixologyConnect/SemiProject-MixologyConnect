@@ -21,4 +21,5 @@
     <a class="themes-content-1" href="${contextPath}/cocktail/list">칵테일</a>
     <a class="themes-content-1" href="${contextPath}/cocktailTest/cocktailTest">테스트</a>
     <a class="themes-content-1" href="${contextPath}/member/signUpterms">회원가입</a>
+    <a class="themes-content-1" href="${contextPath}/member/myPage/info">마이페이지</a>
 </nav>

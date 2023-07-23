@@ -9,7 +9,10 @@
 #terms-area{
     width: 700px;
     height: 750px;
-    border: 1px solid pink;
+    background: #FFFFFF;
+    border: 1px solid #AACDFF;
+    box-shadow: 7px 7px 39px rgba(0, 104, 255, 0.25);
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,7 +46,7 @@ label{
     font-size: 14px;
 }
 #scroll-box{
-    width: 650px;
+    width: 100%;
     height: 200px;
     border: 3px solid rgb(0, 220, 244);
     
@@ -57,7 +60,7 @@ p{
 
 }
 #terms{
-    width: 700px;
+    width: 100%;
     height: 600px;
 
     display: flex;

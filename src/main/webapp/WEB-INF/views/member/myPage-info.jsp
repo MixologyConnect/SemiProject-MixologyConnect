@@ -11,31 +11,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지 정보수정</title>
-    <link rel="stylesheet" href="resources/css/myPage-info.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/myPage-info.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
-<body>
-	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
-	<div id="main">
+<body>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+    <div id="main">
         <section class="left-side">
             <p>마이페이지 </p>
-
+    
             <ul  class="list-group">
                 <li><a href="#">내 피드</a></li>
                 <li> <a href="#">프로필 수정</a></li>
                 <li> <a href="#">내 정보 수정</a></li>
                 <li> <a href="#">회원 탈퇴</a></li>
-             
+                
             </ul>
-
+    
         </section>
-
         
-
         <section class="myInfo-area">
             <h3>회원 정보 수정</h3>
-            <form action="#" method="post" name="myPage-form">
+            <p></p>
+            <form action="info" method="post" name="myPage-form" onsubmit="return myInfoValidate()">
                 <fieldset>
                 
                     <table>
@@ -43,41 +43,49 @@
                             <td>성명</td>
                             <td></td>
                             <td> 
-                                <input id="memberName" name="memberName" type="text" class="size" value="로그인 회원의 이름">
+                                <input id="memberName" name="memberName" type="text" class="size" value="${loginMember.memberName}">
                             </td>
                         </tr>
-                        <tr>
-                            <td>비밀번호 변경</td>
-                            <td></td>
-                            <td>
-                                <input type="password" id="currentPw" name="currentPw" placeholder="기본 비밀번호"   maxlength="30">
+                        <form action="changePw">
+                            <tr>
                                 
-                                <input type="password" id="newPw" name="newPw" placeholder="새로운 비밀번호"   maxlength="30">
-                                <input type="password" name="newPwconfirm" id="newPwconfirm" placeholder="새로운 비밀번호 확인"  maxlength="30">
-                                <div id="pwMessage">영문 대/소문자 숫자를 포함해서 8자 이상을 입력하세요</div>
-                            </td>
-                        </tr>
+                                <td>비밀번호 변경</td>
+                                <td></td>
+                                <td>
+                                    <input type="password" id="currentPw" name="currentPw" placeholder="기존 비밀번호"   maxlength="30">
+                                    <button id="pw-update-btn" > 비밀번호 수정</button>
+                                    
+                                    <input type="password" id="newPw" name="newPw" placeholder="새로운 비밀번호"   maxlength="30">
+                                    <input type="password" name="newPwconfirm" id="newPwconfirm" placeholder="새로운 비밀번호 확인"  maxlength="30">
+                                    <div id="pwMessage">영문 대/소문자 숫자를 포함해서 8자 이상을 입력하세요</div>
+                                </td>
+
+                            </tr>
+
+                        </form>
                         
                         <tr>
                             <td>전화번호</td>
                             <td></td>
                             <td>
-                                <input type="text" name="memberTel" maxlength="" value="010"> -
-                               
+                                <input type="text" name="memberTel" maxlength="11" value="${loginMember.memberTel}" placeholder="(-)기호를 제외해주세요"> 
+                                
                             </td>
                         </tr>
                     
                     
                         <tr>
-                            
+                            <!--주소-->				<!-- fn:split(문자열,'구분자') -->
+                    		<c:set var="addr" value="${fn:split(loginMember.memberAddress,',,') }"/>
+                    
                             <td>주소</td>
                             <td></td>
                             <td>
-                                <input type="text" id="sample6_postcode" name="memberaddress" value="우편번호">
+                                <input type="text" id="sample6_postcode" name="memberaddress" value="${addr[0]}">
                                 <input type="button" id="postBtn" onclick="sample6_execDaumPostcode()" name="btn-fill-s" value="우편번호 찾기"><br>
-                                <input type="text" id="sample6_address" name="memberaddress" value="주소"><br>
-                                <input type="text" id="sample6_detailAddress" name="memberaddress" value="상세주소">
-                                <input type="text" id="sample6_extraAddress" name="memberaddress" value="참고항목">
+                                <input type="text" id="sample6_address" name="memberaddress" value="${addr[2]}"><br>
+                                <input type="text" id="sample6_detailAddress" name="memberaddress" value="${addr[2]}">
+                                <input type="text" id="sample6_extraAddress" name="memberaddress" value="${addr[3]}">
                                 <!-- <button id="postBtn" class="btn-fill-s" onclick="postNum">우편번호 찾기</button>
                                 <input type="text" name="postNum" class="w-px60" readonly>
                                 <input type="text" name="address" readonly>
@@ -103,10 +111,11 @@
         </section>
     </div>
 
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-
-
-
-	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+    <!-- ----------------------------------------------------------------------------- -->
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>	<!-- 다음 우편번호 api -->
+    
+    <script src="${contextPath}/resources/js/myPage-info.js"></script>
 </body>
 </html>
