@@ -20,7 +20,10 @@ body{
 #signUp-area{
     width: 700px;
     height: 800px;
-    border: 1px solid pink;
+   background: #FFFFFF;
+    border: 1px solid #AACDFF;
+    box-shadow: 7px 7px 39px rgba(0, 104, 255, 0.25);
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
