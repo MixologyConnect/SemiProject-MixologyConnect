@@ -1,6 +1,7 @@
 package com.javaba.mixologyconnect.board.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javaba.mixologyconnect.board.model.service.BoardService;
+import com.javaba.mixologyconnect.board.model.service.ReplyService;
 import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
+import com.javaba.mixologyconnect.board.model.vo.Reply;
+
 
 
 @WebServlet("/board/boardDetail")
@@ -27,6 +31,12 @@ public class BoardDetailServlet extends HttpServlet {
 		BoardService service = new BoardService();
 		
 		BoardDetail detail = service.selectBoardDetail(boardNo);
+		
+		
+//		if(detail != null) {
+//			List<Reply> rList = new ReplyService().selectReplyList(boardNo);
+//			req.setAttribute("rList", rList);
+//		}
 		
 		req.setAttribute("detail", detail);
 		
