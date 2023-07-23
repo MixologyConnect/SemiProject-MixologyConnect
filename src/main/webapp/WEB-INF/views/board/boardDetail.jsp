@@ -23,11 +23,11 @@
 
 
 				<div class="content">
-					<div class="title">롱아일랜드 아이스티!</div>
-					<div class="name">user</div>
+					<div class="title">${detail.boardTitle}</div>
+					<div class="name">${detail.boardName}</div>
 					<div class="date">
-						2023.07.12 오전 12:31
-						<div class="views">조회수 : 50</div>
+						${detail.boardDate}
+						<div class="views">조회수 : ${detail.readCount}</div>
 					</div>
 
 					<!-- 게시글 사진, 내용, 좋아요, 공유버튼 있는 칸 -->
