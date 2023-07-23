@@ -37,12 +37,19 @@
 
 	<!-- 게시글 상세 조회  -->
 	<entry key="selectBoardDetail">
-		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NM, BOARD_DT, READ_COUNT, MEMBER_PROFILE
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_DT, MODIFY_DT, READ_COUNT, MEMBER_NM, MEMBER_NO,  MEMBER_PROFILE, 
+		BOARD_NM 
 		FROM BOARD
 		JOIN MEMBER USING (MEMBER_NO)
 		JOIN BOARD_TYPE USING(BOARD_CD)
 		WHERE BOARD_NO = ?
-		AND BOARD_ST = 'Y'
+		AND BOARD_ST = 'N'
 
+	</entry>
+	
+	<!-- 게시글 이미지리스트 조회  -->
+	<entry key = "selectImageList">
+	SELECT * FROM BOARD_IMG
+	WHERE BOARD_NO = ?
 	</entry>
 </properties>

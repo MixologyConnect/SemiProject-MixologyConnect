@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
+import com.javaba.mixologyconnect.board.model.vo.BoardImage;
 import com.javaba.mixologyconnect.board.model.vo.Pagination;
 
 public class BoardDAO {
@@ -186,6 +187,7 @@ public class BoardDAO {
 				detail.setMemberName(rs.getString("MEMBER_NM"));
 				detail.setMemberNo(rs.getInt("MEMBER_NO"));
 				detail.setBoardName(rs.getString("BOARD_NM"));
+				detail.setProfileImage(rs.getString("MEMBER_PROFILE"));
 				
 			}
 
@@ -195,6 +197,49 @@ public class BoardDAO {
 		}
 
 		return detail;
+	}
+
+	/** 게시글 이미지 리스트 조회
+	 * @param conn
+	 * @param boardNo
+	 * @return imageList
+	 */
+	public List<BoardImage> selectImageList(Connection conn, int boardNo) throws Exception {
+		System.out.println("게시글 이미지 리스트 조회 다오 왔다");
+		List<BoardImage> imageList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("selectImageList");
+			
+			pstmt = conn.prepareStatement(sql);
+				
+			pstmt.setInt(1, boardNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				BoardImage image = new BoardImage();
+	            
+	            image.setImageNo(rs.getInt("IMG_NO"));
+	            image.setImageRename(rs.getString("IMG-RENAME"));
+	            image.setImageOriginal(rs.getString("IMG_ORIGINAL"));
+	            image.setImageLevel(rs.getInt("IMG_LEVEL"));
+	            image.setBoardNo(rs.getInt("BOARD_NO"));
+	            
+	            System.out.println("게시글 이미지 리스트 조회 다오 반복문이다");
+	            imageList.add(image);
+	            
+			}
+			System.out.println("imageList : " +  imageList);
+			
+					
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return imageList;
 	}
 
 

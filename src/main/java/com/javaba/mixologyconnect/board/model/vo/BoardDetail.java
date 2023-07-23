@@ -1,5 +1,7 @@
 package com.javaba.mixologyconnect.board.model.vo;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,5 +23,7 @@ public class BoardDetail {
 	private String profileImage;
 	private int memberNo;
 	private String boardName;
+	
+	private List<BoardImage> imageList;
 	
 }
