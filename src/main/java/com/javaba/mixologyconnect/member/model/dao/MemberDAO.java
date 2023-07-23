@@ -101,27 +101,40 @@ public class MemberDAO {
 		return result;
 	}
 
-	/** 아이디 찾기 DAO
+	/**@author 이미래
+	 *  아이디 찾기 DAO
 	 * @param conn
 	 * @param memberName
 	 * @param memberTel
-	 * @return result
 	 * @throws Exception
+	 * @return result
 	 */
 	public int searchId(Connection conn, String memberName, String memberTel) throws Exception {
 		
 		int result =0;
 		
 		try {
+			// sql 얻어오기 
 			
 			String sql = prop.getProperty("searchId");
 			
+			// pstmt 생성 및 세팅 
 			pstmt = conn.prepareStatement(sql);
 			
+			pstmt.setString(1, memberName);
+			pstmt.setString(2, memberTel);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+			}
 			
 			
 			
 		} finally {
+			
+			close(pstmt);
 			
 		}
 		
