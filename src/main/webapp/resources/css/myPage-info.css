@@ -51,7 +51,7 @@ body{
 /* 회원정보 수정 글 */
 h3{
     color: rgb(0, 220, 244);
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 15px;
     margin-top: 0px
 }
@@ -163,12 +163,13 @@ input[type=text]{
     font-size: 15px;
     background-color: white;
     border: 1px solid gray;
-    border-radius: 15%;
+    border-radius: 25px;
+    padding: 0 10px;
     cursor: pointer;
 }
 
 /* 회원정보수정완료 버튼 css */
-#info-update-btn{
+#info-update-btn,#changePw-btn{
     cursor: pointer;
     width: 200px;
     height: 50px;
@@ -178,11 +179,11 @@ input[type=text]{
     background-color: rgb(0, 220, 244);
     color:  white;
     border: none;
-    border-radius: 5%;
+    border-radius: 25px;
 
     margin: 10px 20px;
 }
-#info-update-btn:hover{
+#info-update-btn:hover,#changePw-btn:hover{
 
     color: rgb(0, 220, 244);
     background-color: white;
@@ -219,5 +220,9 @@ input {
     margin: 5px 0;
 }
 
-.error{color: red;}
-confirm{color : lime}
+/* 파란글씨 정렬 */
+article{
+    display: flex;
+    justify-content: left;
+    width: 800px;
+}

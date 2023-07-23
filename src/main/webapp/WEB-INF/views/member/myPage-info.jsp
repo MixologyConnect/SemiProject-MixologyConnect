@@ -33,11 +33,12 @@
         </section>
         
         <section class="myInfo-area">
-            <h3>회원 정보 수정</h3>
-            <p></p>
+            <article>
+                <h3>회원 정보 수정하기</h3>
+            </article>
+            
             <form action="info" method="post" name="myPage-form" onsubmit="return myInfoValidate()">
                 <fieldset>
-                
                     <table>
                         <tr>
                             <td>성명</td>
@@ -46,23 +47,6 @@
                                 <input id="memberName" name="memberName" type="text" class="size" value="${loginMember.memberName}">
                             </td>
                         </tr>
-                        <form action="changePw">
-                            <tr>
-                                
-                                <td>비밀번호 변경</td>
-                                <td></td>
-                                <td>
-                                    <input type="password" id="currentPw" name="currentPw" placeholder="기존 비밀번호"   maxlength="30">
-                                    <button id="pw-update-btn" > 비밀번호 수정</button>
-                                    
-                                    <input type="password" id="newPw" name="newPw" placeholder="새로운 비밀번호"   maxlength="30">
-                                    <input type="password" name="newPwconfirm" id="newPwconfirm" placeholder="새로운 비밀번호 확인"  maxlength="30">
-                                    <div id="pwMessage">영문 대/소문자 숫자를 포함해서 8자 이상을 입력하세요</div>
-                                </td>
-
-                            </tr>
-
-                        </form>
                         
                         <tr>
                             <td>전화번호</td>
@@ -93,9 +77,6 @@
                             
                             </td>
         
-        
-        
-        
                         </tr>
                         
                     </table>    
@@ -106,6 +87,33 @@
                     
                     <button id="info-update-btn" >수정 완료</button>
             
+                </div>
+            </form>
+            <br>
+            <article>
+                <h3>비밀번호 변경하기</h3>
+            </article>
+
+            <form action="changePw" method="post"  onsubmit="return changePwValidate()">
+                <fieldset>
+                    <table>
+                        
+                        <tr>
+                            <td>비밀번호 변경</td>
+                            <td></td>
+                            <td>
+                                <input type="password" id="currentPw" name="currentPw" placeholder="기존 비밀번호"   maxlength="30">
+                                <input type="password" id="newPw" name="newPw" placeholder="새로운 비밀번호"   maxlength="30">
+                                <input type="password" name="newPwconfirm" id="newPwconfirm" placeholder="새로운 비밀번호 확인"  maxlength="30">
+                                <div id="pwMessage">영문 대/소문자 숫자를 포함해서 8자 이상을 입력하세요</div>
+                            </td>
+
+                        </tr>
+
+                    </table>
+                </fieldset>
+                <div class="btn-area">
+                    <button id="changePw-btn">비밀번호 변경</button>
                 </div>
             </form>
         </section>
