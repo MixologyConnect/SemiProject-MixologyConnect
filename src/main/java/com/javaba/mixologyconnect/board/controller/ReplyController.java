@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.javaba.mixologyconnect.board.model.service.ReplyService;
 import com.javaba.mixologyconnect.board.model.vo.Reply;
 
-
+import com.google.gson.Gson;
 
 @WebServlet("/reply/*")
 public class ReplyController extends HttpServlet{
@@ -36,6 +36,8 @@ public class ReplyController extends HttpServlet{
 
 				// 댓글 목록 조회 서비스 호출 후 결과 반환 받기
 				List<Reply> rList = service.selectReplyList(boardNo);
+				
+				System.out.println("rList :" + rList);
 
 				// JSON 변환 + 응답
 				new Gson().toJson(rList, resp.getWriter());

@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -38,7 +39,7 @@ public class ReplyDAO {
 	
 	public List<Reply> selectReplyList(Connection conn, int boardNo) throws Exception {
 		
-		List<Reply> rList = null;
+		List<Reply> rList = new ArrayList<>();
 		
 		try {
 			

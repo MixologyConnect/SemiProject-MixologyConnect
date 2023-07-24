@@ -23,6 +23,7 @@ public class ReplyService {
 		
 		List<Reply> rList = dao.selectReplyList(conn, boardNo);
 		
+		
 		return rList;
 	}
 

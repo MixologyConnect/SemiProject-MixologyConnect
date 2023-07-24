@@ -4,7 +4,7 @@
     const goToBtn = document.getElementById("goToBtn");
 
     if(goToBtn != null) {
-        console.log(gotoBtn)
+        console.log(goToBtn)
         goToBtn.addEventListener("click", function(){
 
             const path = location.pathname; 
