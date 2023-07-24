@@ -2,7 +2,6 @@ package com.javaba.mixologyconnect.member.model.dao;
 
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
-
 import java.io.FileInputStream;
 import java.nio.file.ClosedDirectoryStreamException;
 import java.sql.Connection;
@@ -167,6 +166,36 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		return result;
+	}
+
+	/**
+	 * 비밀번호 변경 DAO
+	 * @param conn
+	 * @param currentPw
+	 * @param newPw
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int changePw(Connection conn, String currentPw, String newPw, int memberNo) throws Exception {
+		int result =0;
+		try {
+
+			String sql = prop.getProperty("changePw");
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, newPw);
+			pstmt.setInt(   2, memberNo);
+			pstmt.setString(3, currentPw);
+
+			result=pstmt.executeUpdate();
+
+		} finally {
+
+			close(pstmt);
+		}
+
+		return result;	
 	}
 
 
