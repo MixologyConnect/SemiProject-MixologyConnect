@@ -125,11 +125,8 @@ public class MemberDAO {
 			pstmt.setString(1, memberName);
 			pstmt.setString(2, memberTel);
 
-			rs = pstmt.executeQuery();
 
-			if(rs.next()) {
-
-			}
+			result=pstmt.executeUpdate();
 
 
 
