@@ -2,6 +2,7 @@ package com.javaba.mixologyconnect.member.model.service;
 
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
+
 import java.sql.Connection;
 
 import com.javaba.mixologyconnect.member.model.dao.MemberDAO;
@@ -69,6 +70,29 @@ public class MemberService {
 		close(conn);
 		
 		
+		return result;
+	}
+
+
+	/**@author 이지영
+	 * 회원정보 수정 서비스
+	 * @param mem
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateMember(Member mem)throws Exception {
+
+		Connection conn= getConnection();
+
+		int result= dao.updateMember(conn,mem);
+
+
+		if(result>0) commit(conn);
+		else rollback(conn);
+
+
+		close(getConnection());
+
 		return result;
 	}
 

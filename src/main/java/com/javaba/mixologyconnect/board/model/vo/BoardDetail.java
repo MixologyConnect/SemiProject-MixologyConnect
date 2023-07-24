@@ -1,5 +1,7 @@
 package com.javaba.mixologyconnect.board.model.vo;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,10 +18,12 @@ public class BoardDetail {
 	private String boardContent;
 	private String boardDate;
 	private String modifyDate;
-	private int readDate; // 조회수
+	private int readCount; // 조회수
 	private String memberName;
 	private String profileImage;
 	private int memberNo;
 	private String boardName;
+	
+	private List<BoardImage> imageList;
 	
 }

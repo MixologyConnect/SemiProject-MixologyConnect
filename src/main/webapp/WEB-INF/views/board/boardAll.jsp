@@ -1,28 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-
-
-		<!DOCTYPE html>
-		<html lang="en">
-
+	<c:set var="boardName" value="${map.boardName}"/>
+	<c:set var="pagination" value="${map.pagination}"/>
+	<c:set var="boardList" value="${map.boardList}"/>
+	
+	
+	<!DOCTYPE html>
+	<html lang="en">
+		
 		<head>
 			<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>게시글 목록</title>
+			<title>${boardName}</title>
 			<link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
 			<link rel="stylesheet" href="${contextPath}/resources/css/boardAll.css">
-
+			
 			<script src="https://code.jquery.com/jquery-3.7.0.min.js"
-				integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+			integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+			<script src="${contextPath}/resources/js/boardAll.js"></script>
+			<script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
 
 		<body style="overflow-x: hidden">
 
 			<jsp:include page="/WEB-INF/views/common/header.jsp" />
 			<main>
 				<div class="top">
-					<p>게시글 목록</p>
+					<p>${boardName}</p>
 				</div>
 
 				<!-- 전체, 팔로잉, 공지 -->
@@ -31,7 +35,7 @@
 					<button id="Following" name="Following">팔로잉</button>
 					<button id="notice" name="notice">공지</button>
 					<div class="right">
-						<button id="new" name="new">최신순</button>
+						<button id="new" name="new"><a href="${contextPath}/board/boardAll?type=1">최신순</a></button>
 						<button id="top" name="top">인기순</button>
 					</div>
 				</div>
@@ -42,16 +46,19 @@
 							<th>게시글이 존재하지 않습니다.</th>
 						</tr>
 					</c:when>
+
+					<c:otherwise>
+
 					<c:forEach var="board" items="${boardList}">
 						<section class="fir">
 							<div class="left">
 								<div class="board">
-									<a href="${contextPath}/board/boardDetail">${board.boardTitle}</a>
+									<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">${board.boardTitle}</a>
 								</div>
 								<div>삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬
 									삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬</div>
 								<div>
-									<span>@khacademy</span> <span>${board.boardDate}</span> <span>${board.readDate}</span>
+									<span>@khacademy</span> <span>${board.boardDate}</span> <span>${board.readCount}</span>
 								</div>
 							</div>
 							<div class="img">
@@ -60,12 +67,7 @@
 							</div>
 						</section>
 
-
-
 					</c:forEach>
-
-					<c:otherwise>
-
 
 					</c:otherwise>
 
@@ -110,8 +112,8 @@
 
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-			<script src="${contextPath}/resources/js/boardAll.js"></script>
-			<script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
+		
+			<script src="${contextPath}/resources/js/board/board.js"></script>
 		</body>
 
 		</html>

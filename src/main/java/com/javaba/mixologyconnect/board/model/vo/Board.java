@@ -1,9 +1,9 @@
 package com.javaba.mixologyconnect.board.model.vo;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.NoArgsConstructor;
 
 @Getter
 @Setter
@@ -14,8 +14,8 @@ public class Board {
 	   private int boardNo;
 	   private String boardTitle;
 	   private String memberName;
-	   private String boardDate;
-	   private int readDate; // 조회수
+	   private String BoardDate;
+	   private int readCount; // 조회수
 	   private String thumbnail;
 	   
 	   
