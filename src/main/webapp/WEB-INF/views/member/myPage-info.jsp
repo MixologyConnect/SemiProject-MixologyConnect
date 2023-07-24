@@ -23,10 +23,10 @@
             <p>마이페이지 </p>
     
             <ul  class="list-group">
-                <li><a href="#">내 피드</a></li>
-                <li> <a href="#">프로필 수정</a></li>
-                <li> <a href="#">내 정보 수정</a></li>
-                <li> <a href="#">회원 탈퇴</a></li>
+               
+                <li> <a href="${contextPath}/member/myPage/profile">프로필 수정</a></li>
+                <li> <a href="${contextPath}/member/myPage/info">내 정보 수정</a></li>
+                <li> <a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
                 
             </ul>
     
@@ -35,6 +35,7 @@
         <section class="myInfo-area">
             <article>
                 <h3>회원 정보 수정하기</h3>
+                <p>회원님의 개인 정보를 수정할 수 있습니다.</p>
             </article>
             
             <form action="info" method="post" name="myPage-form" onsubmit="return myInfoValidate()">
@@ -91,7 +92,8 @@
             </form>
             <br>
             <article>
-                <h3>비밀번호 변경하기</h3>
+                <h3>비밀번호 변경</h3>
+                <p>비밀번호 변경을 할 수 있습니다.</p>
             </article>
 
             <form action="changePw" method="post"  onsubmit="return changePwValidate()">
