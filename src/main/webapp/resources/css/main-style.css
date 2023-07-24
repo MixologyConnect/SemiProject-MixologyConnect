@@ -2,15 +2,21 @@
 @import url('https://fonts.cdnfonts.com/css/segoe-ui-4');
 
 @media (prefers-color-scheme: light) {
-    .themes-main-1 { background-color: white; }
-    .themes-main-2 { background-color: white; }
+    .themes-main-1 { background-color: rgb(255, 255, 255); }
+    .themes-main-2 { background-color: rgb(255, 255, 255); }
     .themes-content-1 { color: rgb(60, 60, 60); }
+    body { background-color: rgb(255, 255, 255); }
+    header { background-color: rgba(255, 255, 255, 0.9); }
+    nav { background-color: rgba(255, 255, 255, 0.9); }
 }
 
 @media (prefers-color-scheme: dark) {
     .themes-main-1 { background-color: rgb(30, 30, 30); }
     .themes-main-2 { background-color: rgb(40, 40, 40); }
     .themes-content-1 { color: white; }
+    body { background-color: rgb(30, 30, 30); }
+    header { background-color: rgba(40, 40, 40, 0.9); }
+    nav { background-color: rgba(40, 40, 40, 0.9); }
 }
 
 * {
@@ -29,17 +35,50 @@ div {
 }
 
 main {
-    min-height: calc(100vh - 146px);
+    min-height: calc(100vh - 166px);
+}
+
+#divider {
+	width: 100vw;
+	height: 1px;
+	background-color: rgb(180, 180, 180);
+}
+
+#full-divider {
+	width: 100%;
+	height: 1px;
+	background-color: rgb(180, 180, 180);
+}
+
+#half-divider {
+	width: 50%;
+	height: 1px;
+	background-color: rgb(180, 180, 180);
+}
+
+#fixed-divider {
+	width: 1024px;
+	height: 1px;
+	background-color: rgb(180, 180, 180);
+}
+
+#variable-divider {
+	width: calc(100vw - 100px);
+	max-width: 1024px;
+	height: 1px;
+	background-color: rgb(180, 180, 180);
 }
 
 header {
     position: sticky;
     top: 0;
     z-index: 1;
-    height: 100px;
+    height: 120px;
     border-bottom: 1px solid rgb(180, 180, 180);
     margin-bottom: 45px;
     transition-duration: 0.5s;
+  	backdrop-filter: blur(10px);
+  	-webkit-backdrop-filter: blur(10px);
 }
 
 #title {
@@ -49,14 +88,18 @@ header {
     align-items: center;
 }
 
-#title > img {
-    height: 75%;
-    padding: 2px;
-    border: 2px solid rgb(0, 220, 244);
-    border-radius: 50%;
+#title a {
+    text-decoration-line: none;
 }
 
-#title > p {
+#title img {
+    height: 72px;
+    border: 1px solid rgb(0, 220, 244);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#title p {
     font-family: "Playfair Display";
     font-style: italic;
     font-size: 2.5rem;
@@ -88,29 +131,32 @@ header {
 
 #account > label {
     display: flex;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 #account > label > img {
-    height: 40%;
-    filter: saturate(0);
+    height: 50px;
+    margin-bottom: 2px;
+    filter: saturate(0) opacity(0.6);
     cursor: pointer;
 }
 
 #account > label > p {
+	margin-top: 2px;
     font-weight: bold;
-    color: rgb(150, 150, 150);
+    color: rgba(150, 150, 150, 0.8);
+    letter-spacing: 1px;
     cursor: pointer;
 }
 
 nav {
     display: flex;
     position: fixed;
-    top: 101px;
+    top: 121px;
     width: 100vw;
     border-bottom: 1px solid rgb(180, 180, 180);
     justify-content: center;
@@ -167,4 +213,18 @@ footer {
     padding-top: 10px;
     justify-content: center;
     align-items: center;
+}
+
+#theme-switch {
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+#theme-switch > img {
+	width: 50px;
+	content: url("../images/moon.png");
 }

@@ -12,7 +12,7 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-    <main class="themes-main-1">
+    <main>
         <div id="banner">
             <p>
                 THIS IS BANNER<br>
@@ -20,9 +20,32 @@
                 THIS IS BANNER
             </p>
         </div>
-        <div id="populars" class="contents">
-            <p class="themes-content-1">Populars</p>
-            <p class="themes-content-1">인기글</p>
+        <div id="search">
+        	<img src="${contextPath}/resources/images/magnifier.png">
+        	<input type="text" placeholder="검색할 칵테일, 게시글">
+        </div>
+        <div id="ad"></div>
+        <div id="fixed-divider"></div>
+        <div id="populars">
+            <p class="themes-content-1">Columns</p>
+            <p class="themes-content-1">최근 칼럼</p>
+            <ul class="contents">
+            	<li><a></a></li>
+            	<li><a></a></li>
+            	<li><a></a></li>
+            	<li><a></a></li>
+            </ul>
+        </div>
+        <div id="fixed-divider"></div>
+        <div id="populars">
+            <p class="themes-content-1">Trending</p>
+            <p class="themes-content-1">실시간 인기 게시글</p>
+            <ul class="contents">
+            	<li><a></a></li>
+            	<li><a></a></li>
+            	<li><a></a></li>
+            	<li><a></a></li>
+            </ul>
         </div>
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
