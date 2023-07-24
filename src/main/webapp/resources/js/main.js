@@ -1,6 +1,5 @@
 function isScrolledToTop() {
     var scrollTop = window.scrollY || document.documentElement.scrollTop;
-    console.log(window.scrollY);
     return scrollTop === 0;
 }
 

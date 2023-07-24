@@ -1,0 +1,91 @@
+main {
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+
+#ad {
+	display: flex;
+	width: 1024px;
+	height: 80px;
+	border-radius: 20px;
+	margin-top: 40px;
+	background-image: linear-gradient(135deg, rgb(0, 220, 244), violet);
+	color: white;
+	font-size: 3rem;
+	justify-content: center;
+	align-items: center;
+}
+
+#head {
+	width: 1024px;
+	margin: 50px 0 20px 0;
+}
+
+#head > p:first-of-type {
+	color: white;
+	font-size: 2.4rem;
+	font-weight: bold;
+}
+
+#head > p:last-of-type {
+	font-size: 1.2rem;
+	color: rgb(180, 180, 180);
+}
+
+#search {
+	display: flex;
+	width: 1024px;
+	margin: 10px 0;
+	align-items: center;
+}
+
+#search > img {
+	width: 50px;
+	filter: invert(1);
+}
+
+#search > input {
+	width: 500px;
+	background-color: transparent;
+	font-size: 1.5rem;
+	outline: none;
+}
+
+#filter {
+	margin: 30px 0;
+}
+
+.contents {
+	display: flex;
+	box-sizing: border-box;
+	width: 1024px;
+	padding: 0;
+	margin: 30px 0;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.contents > li {
+	list-style: none;
+	width: 240px;
+	height: 240px;
+	border-radius: 10px;
+	margin: 10px 0;
+	box-shadow: inset 0 0 30px rgba(120, 120, 120, 0.3);
+	cursor: pointer;
+}
+
+.contents > li > a {
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+
+.contents > li > a > p {
+	margin: 0 0 10px 10px;
+	color: white;
+	font-size: 1.5rem;
+	font-weight: bold;
+	align-self: flex-end;
+}
