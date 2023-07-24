@@ -1,8 +1,4 @@
 
-
-
-
-
 /* 취향테스트 버튼 누르면 실행 */
 $(function(){
 
@@ -12,179 +8,333 @@ $(function(){
         $(".text").hide(0)
 
         $(".q1").show(700)
+        
+        
 
     })
 
 })
 
-/* q1 선택지 누르면 실행 */
+/* 뒤로가기 버튼(공통질문의) */
 $(function(){
+    $(".back-re").on("click", function(){
+        $(this).parent().parent().hide(0)
 
-    $(".q1-btn").on("click", function(){
-        // console.log("dd")
-
-
-        $(".q1").hide(0)
-
-        $(".q2").show(700)
-
-
+        $(this).parent().parent().prev().show(700)
     })
-
 })
 
 /* 뒤로가기 버튼 */
 $(function(){
     $(".back").on("click", function(){
-        $(this).parent().hide(0)
+        $(this).parent().parent().hide(0)
 
-        $(this).parent().prev().show(700)
+        $(".q1-soju").prev().show(700)
+    })
+})
+/* 뒤로가기 버튼 */
+$(function(){
+    $(".back-3").on("click", function(){
+        $(this).parent().parent().hide(0)
+
+        $(this).parent().parent().prev().show(700)
     })
 })
 
-/* q2 선택지 누르면 실행 */
+/* --------------------------------------------------------------------------- */
+
+
+
+/* q1(소주) 선택지 누르면 실행 */
 $(function(){
 
-    $(".q2-btn").on("click", function(){
+    $(".soju-btn").on("click", function(){
         // console.log("dd")
 
 
-        $(".q2").hide(0)
+        $(".q1").hide(0)
 
-        $(".q3").show(700)
+        $(".q1-2").show(700)
 
-    })
-
-})
-
-/* q3 선택지 누르면 실행 */
-$(function(){
-
-    $(".q3-btn").on("click", function(){
-        // console.log("dd")
-
-
-        $(".q3").hide(0)
-
-        $(".q4").show(700)
 
     })
 
 })
 
-/* q4 선택지 누르면 실행 */
+/* q1-2(소주) 선택지 누르면 실행 */
 $(function(){
 
-    $(".q4-btn").on("click", function(){
+    $(".q2-btn").on("click", function(){ // 주량
         // console.log("dd")
 
 
-        $(".q4").hide(0)
+        $(".q1-2").hide(0)
 
-        $(".q5").show(700)
+        $(".q1-3").show(700)
 
     })
 
 })
-/* q5 선택지 누르면 실행 */
-$(function(){
 
-    $(".q5-btn").on("click", function(){
+/* q1-3(소주) 달달 선택지 누르면 실행 */
+$(function(){
+    let numSoju1 = Math.floor(Math.random()*3)+1;
+
+    $(".q3-sojusweet-btn").on("click", function(){ // 달달
         // console.log("dd")
 
 
-        $(".q5").hide(0)
-
-        $(".q6").show(700)
-
-    })
-
-})
-/* q6-one 선택지 누르면 실행 */
-$(function(){
-
-    $("#one").on("click", function(){
-        // console.log("dd")
-
-
-        $(".q6").hide(0)
+        $(".q1-3").hide(0)
 
         $(".loading-page").show(400)
-        
 
         setTimeout(() => $(".loading-page").hide(0), 4000);
-        setTimeout(() => $(".result").show(500), 4500);
-        
+        setTimeout(() => $(".result" + numSoju1).show(500), 4500);
+
+
+
     })
-    
-    
+
 })
 
-/* q6-two 선택지 누르면 실행 */
+/* q1-3(소주) 씁쓸 선택지 누르면 실행 */
 $(function(){
+    let numSoju2 = Math.floor(Math.random()*3)+4;
 
-    $("#two").on("click", function(){
+    $(".q3-sojucoke-btn").on("click", function(){ // 씁쓸
         // console.log("dd")
 
 
-        $(".q6").hide(0)
+        $(".q1-3").hide(0)
 
         $(".loading-page").show(400)
-        
 
         setTimeout(() => $(".loading-page").hide(0), 4000);
-        setTimeout(() => $(".result-two").show(500), 4500);
-        
+        setTimeout(() => $(".result" + numSoju2).show(500), 4500);
+
     })
-    
-    
+
 })
 
-/* q6-three 선택지 누르면 실행 */
+
+
+//-----------------------------------------------------------------------
+
+
+/* 뒤로가기 버튼(공통질문의) */
+$(function(){
+    $(".back-re").on("click", function(){
+        $(this).parent().parent().hide(0)
+
+        $(this).parent().parent().prev().show(700)
+    })
+})
+
+/* 뒤로가기 버튼 */
+$(function(){
+    $(".back-beer").on("click", function(){
+        $(this).parent().parent().hide(0)
+
+        $(".q2-beer").prev().prev().show(700)
+    })
+})
+
+/* 뒤로가기 버튼 */
+$(function(){
+    $(".back-3").on("click", function(){
+        $(this).parent().parent().hide(0)
+
+        $(this).parent().parent().prev().show(700)
+    })
+})
+
+
+
+
+
+
+/* q1(맥주) 선택지 누르면 실행 */
 $(function(){
 
-    $("#three").on("click", function(){
+    $(".beer-btn").on("click", function(){
         // console.log("dd")
 
 
-        $(".q6").hide(0)
+        $(".q1").hide(0)
 
-        $(".loading-page").show(400)
-        
+        $(".q2-2").show(700)
 
-        setTimeout(() => $(".loading-page").hide(0), 4000);
-        setTimeout(() => $(".result-three").show(500), 4500);
-        
     })
-    
-    
+
 })
 
-/* q6-four 선택지 누르면 실행 */
+/* q1(맥주) 주량 선택지 누르면 실행 */
 $(function(){
 
-    $("#four").on("click", function(){
+    $(".q2-1-btn").on("click", function(){
         // console.log("dd")
 
 
-        $(".q6").hide(100)
+        $(".q2-2").hide(0)
+
+        $(".q2-3").show(700)
+
+    })
+
+})
+
+/* q1(맥주) 흑맥 선택지 누르면 실행 */
+$(function(){
+    const numBeerBlack = Math.floor(Math.random()*3)+7;
+
+    $(".q3-1-btn").on("click", function(){
+        // console.log("dd")
+
+
+        $(".q2-3").hide(0)
 
         $(".loading-page").show(400)
-        
 
         setTimeout(() => $(".loading-page").hide(0), 4000);
-        setTimeout(() => $(".result-four").show(500), 4500);
-        
+        setTimeout(() => $(".result" + numBeerBlack).show(500), 4500);
+
     })
-    
-    
+
+})
+
+/* q1(맥주) 라거 선택지 누르면 실행 */
+$(function(){
+    let numBeerLager = Math.floor(Math.random()*3)+10;
+    console.log(numBeerLager)
+
+    $(".q3-2-btn").on("click", function(){
+        // console.log("dd")
+
+
+        $(".q2-3").hide(0)
+
+        $(".loading-page").show(400)
+
+        setTimeout(() => $(".loading-page").hide(0), 4000);
+        setTimeout(() => $(".result" + numBeerLager).show(500), 4500);
+
+    })
+
 })
 
 
+
+// ----------------------------------------------------------------------------------
+
+
+
+/* 뒤로가기 버튼(공통질문의) */
+$(function(){
+    $(".back-re").on("click", function(){
+        $(this).parent().parent().hide(0)
+
+        $(this).parent().parent().prev().show(700)
+    })
+})
+
+/* 뒤로가기 버튼 */
+$(function(){
+    $(".back-beer").on("click", function(){
+        $(this).parent().parent().hide(0)
+
+        $(".q2-beer").prev().prev().show(700)
+    })
+})
+
+/* 뒤로가기 버튼 */
+$(function(){
+    $(".back-3").on("click", function(){
+        $(this).parent().parent().hide(0)
+
+        $(this).parent().parent().prev().show(700)
+    })
+})
+
+
+
+
+/* q1(이슬톡톡) 선택지 누르면 실행 */
+$(function(){
+
+    $(".non-btn").on("click", function(){
+        // console.log("dd")
+
+
+        $(".q1").hide(0)
+
+        $(".q3-2").show(700)
+
+    })
+
+})
+
+
+/* q1(이슬톡톡) 주량 선택지 누르면 실행 */
+$(function(){
+
+    $(".q3-q-btn").on("click", function(){
+        // console.log("dd")
+
+
+        $(".q3-2").hide(0)
+
+        $(".q3-3").show(700)
+
+    })
+
+})
+
+/* q1(이슬톡톡) 달달 선택지 누르면 실행 */
+$(function(){
+    let numLessSweet = Math.floor(Math.random()*3)+13;
+
+    $(".q3-3-1-btn").on("click", function(){
+        // console.log("dd")
+
+
+        $(".q3-3").hide(0)
+
+        $(".loading-page").show(400)
+
+        setTimeout(() => $(".loading-page").hide(0), 4000);
+        setTimeout(() => $(".result" + numLessSweet).show(500), 4500);
+
+    })
+
+})
+
+/* q1(이슬톡톡) 청량 선택지 누르면 실행 */
+$(function(){
+    let numLessCoke = Math.floor(Math.random()*3)+16;
+
+    $(".q3-3-2-btn").on("click", function(){
+        // console.log("dd")
+
+
+        $(".q3-3").hide(0)
+
+        $(".loading-page").show(400)
+
+        setTimeout(() => $(".loading-page").hide(0), 4000);
+        setTimeout(() => $(".result" + numLessCoke).show(500), 4500);
+
+    })
+
+})
+
+
+
+
+
+/* 테스트 다시하기 버튼 클릭 */
 $(".reset").click(function(){
     location.reload();
 });
-    
     
 
 

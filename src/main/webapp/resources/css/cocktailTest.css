@@ -4,19 +4,18 @@
 }
 
 
-body, p {
-    margin: 0;
-}
+
 
 
 /* 칵테일추천 배너 */
 .banner{
-    width: 100vw;
+    width: 100%;
     height: 25vh;
-    background-image: linear-gradient(0deg, red, yellow, orange, pink);
+    background-image: linear-gradient(0deg, rgb(236, 29, 236), rgb(0, 220, 244));
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background-color: rgb(145, 90, 233); */
     
 }
 /* 배너 사진 */
@@ -36,27 +35,30 @@ body, p {
 
 main{
     display: flex;
-    width: 65%;
+    width: 1024px;
     height: 800px;
     justify-content: center;
     align-items: center;
     margin: auto;
     background-color: rgb(245, 245, 220);
+    
 
-    /* display: flex;
-	width: calc(100vw - 100px);
-	max-width: 1280px;
-	margin: auto;
-	flex-direction: column;
-    align-items: center; */
+    background-image: url("../images/배경보라.gif");
+    background-size: cover;
+
+    /* background-repeat: round; */
 
 }
+
+
 
 .text{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    
 }
 
 /* 술자리 사진 */
@@ -68,9 +70,8 @@ main{
 }
 /* 문구 */
 .text > pre{
-    color: orange;
-    font-size: 20px;
-    background-color: rgb(245, 245, 220);
+    color: white;
+    font-size: 22px;
     font-weight: bold;
     margin-right: 50px;
 }
@@ -94,15 +95,51 @@ main{
 }
 
 /* 화면 가리기 */
-.q1, .q2, .q3, .q4, .q5, .q6, .loading-page, .result, .result-two, .result-three, .result-four
-, .result-coke{
+.q1, .q1-2, .q1-3, .q2-2, .q2-3, .q3-2, .q3-3, .loading-page, .result1, .result2, .result3, .result4
+, .result5, .result6, .result7, .result8, .result9, .result10, .result11, .result12, .result13, .result14, .result15, .result16, .result17, .result18{
     display: none;
 }
 
 
 
+
+
 /* 돌아가기 버튼 */
 .back{
+    width: 45px;
+    height: 35px;
+    margin-right: 10px;
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 10px;
+    border-color: orange;
+    
+}
+/* 돌아가기 버튼 */
+.back-re{
+    width: 45px;
+    height: 35px;
+    margin-right: 10px;
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 10px;
+    border-color: orange;
+    
+}
+/* 3번째 돌아가기 버튼 */
+.back-3{
+    width: 45px;
+    height: 35px;
+    margin-right: 10px;
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 10px;
+    border-color: orange;
+    
+}
+
+/* 2번째질문 돌아가기 버튼 */
+.back-beer{
     width: 45px;
     height: 35px;
     margin-right: 10px;
@@ -133,6 +170,19 @@ input[type=range] {
     font-size: 20px;
   }
 
+  .slide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn{
+    display: flex;
+    align-items: center;
+    margin-left: 135px;
+    width: 555px;
+  }
+
 
   
  
@@ -151,80 +201,109 @@ input[type=range] {
     font-weight: bold;
 }
 
+.choice{
+    display: flex;
+    margin: 50px 0;
+    justify-content: center;
+}
+
+/* 선택지 버튼 */
+.choice button{
+    padding: 30px;
+    border-radius: 50%;
+    height: 180px;
+    width: 200px;
+    margin-right: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(148, 209, 216);
+    border: 0;
+    cursor: pointer;
+}
+
+.choice button:hover{
+    background-color: white;
+}
+
+/* 질문번호, 질문 margin */
 .content > div{
     margin-top: 40px;
     
 }
 
-/* 테스트 선택지 버튼  */
-.content button{
-    width: 400px;
-    height: 50px;
-    background-color: rgb(61, 166, 214);
-    border-color: rgb(61, 166, 214);;
-    border-radius: 10px;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
 
-.content button:hover{
-    border: 5px solid rgb(240, 143, 98);
-}
 
+/* 질문 번호 */
 .content > div:nth-child(1){
     display: flex;
     flex-basis: 20%;
     font-size: 25px;
 }
+/* 질문 */
 .content > div:nth-child(2){
     display: flex;
     flex-basis: 20%;
-    font-size: 17px;
+    font-size: 25px;
+    font-weight: normal;
     
-}
-.content > div:nth-child(3){
-    display: flex;
-    flex-basis: 10%;
-}
-.content > div:nth-child(4){
-    display: flex;
-    flex-basis: 10%;
-}
-.content > div:nth-child(5){
-    display: flex;
-    flex-basis: 10%;
-}
-.content > div:nth-child(6){
-    display: flex;
-    flex-basis: 10%;
 }
 
 
 
 /* 로딩창 */
-.loading{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.loading-page{
+    text-align: center  ;
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 500;
 }
 
-.loading img{
-    width: 160px;
-    height: 120px;
+/* 결과 분석중.. */
+#loading-word{
+    margin: 60px 0;
 }
 
-.loading > div:nth-child(2){
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(55, 101, 141);
-    margin-top: 40px;
+/* 로딩 애니메이션 */
+.loading{
+    margin-bottom: 100px;
 }
+
+/* 로딩 애니메이션 */
+.loading span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: loading 1s linear infinite;
+  }
+
+  /* keyframes는 애니메이션의 구간, loading은 keyframes각 적용될 애니메이션의 이름 */
+  /* 스테이지 구간 : 0~100% 구간으로 나누어서 각 스테이지마다 css 적용 */
+  @keyframes loading {
+    0%,
+    100% {
+      opacity: 0; /* 투명도 0 */
+      transform: scale(0.5); /* 가로와 세로 무도 0.5배 확대 */
+    }
+    50% {
+      opacity: 1; /* 투명도 1 */
+      transform: scale(1.2); /* 가로와 세로 무도 1.2배 확대 */
+    }
+  }
+
+  .loading span:nth-child(1) {
+    animation-delay: 0s;
+    background-color: crimson;
+  }
+  .loading span:nth-child(2) {
+    animation-delay: 0.2s;
+    background-color: yellow;
+  }
+  .loading span:nth-child(3) {
+    animation-delay: 0.4s;
+    background-color: orange;
+  }
+
+
 
 /* 칵테일 화면 */
 .cocktail{
