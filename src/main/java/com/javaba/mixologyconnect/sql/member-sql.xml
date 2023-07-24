@@ -21,7 +21,7 @@
 	<entry key="searchId">
 		SELECT MEMBER_ID
 		FROM MEMBER
-		WHERE MEMBER_NAME =?
+		WHERE MEMBER_NM =?
 		AND MEMBER_TEL=?
 	</entry>
 	

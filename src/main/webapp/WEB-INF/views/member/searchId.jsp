@@ -24,7 +24,7 @@
                     <td><input type="text" name="inputTel" id="inputTel" placeholder="전화번호(-미포함)"></td>
                 </tr>
             </table>
-                <button type="button"  id="btn">다음</button> 
+                <button type="submit"  id="btn">다음</button> 
 
         </form>
              
