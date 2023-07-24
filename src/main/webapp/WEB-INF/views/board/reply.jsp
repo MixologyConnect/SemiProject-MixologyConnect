@@ -43,13 +43,12 @@
                     <li class="reply-row">
                         <p class="reply-writer">
                             <img src="${contextPath}/resources/images/user.png">
-                            <span>댓글 작성자 닉네임</span>
-                            <span class="reply-date">(2023.07.20 10:20:30)</span>
+                            <span>${reply.memberName}</span>
+                            <span class="reply-date">${reply.boardDate}</span>
                         </p>
 
                         <p class="reply-content">
-                            댓글 내용입니다<br>
-                            이런 식으로 출력 예정!
+                            ${reply.replyContent}
                         </p>
 
                         <div class="reply-btn-area">
