@@ -14,7 +14,7 @@ import com.javaba.mixologyconnect.member.model.service.MemberService;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 
 
-@WebServlet("member/myPage/secession")
+@WebServlet("/member/myPage/secession")
 public class MyPageSecessionServlet extends HttpServlet{
 
 	@Override
