@@ -120,7 +120,7 @@ tr td{
     font-size: 14px;
 }
 /* ***********************입력창 관련************************** */
-input{
+table input{
     height: 35px;
     font-size: 18px;
     font-weight: bold;
@@ -231,4 +231,92 @@ article{
     justify-content: left;
     width: 800px;
     flex-direction: column;
+}
+
+/* **************프로필 변경 Css*************** */
+/* 프로필이미지 영역 */
+.profile-image-area{
+    width: 150px;
+    height: 150px;
+    border: 3px solid #ddd;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+/* 프로필 이미지 */
+#profile-image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/* 프로필 버튼 영역 */
+.profile-btn-area{
+    width: 230px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    border: 1px solid salmon;
+}
+
+/* 프로필 버튼 영역에 모든 자식요소 */
+.profile-btn-area > * {
+    width: 110px;
+    height: 33px;
+
+    padding: 5px 10px;
+    border: 1px solid black;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* 파일선택버튼 */
+#input-image{
+   
+    display: none;
+}
+
+/* 변경하기 버튼 */
+.profile-btn-area > button{
+    background-color:  rgb(0, 220, 244);
+    color:  white;
+    border: 0;
+}
+
+.myPage-main{
+    width: 75%;
+    padding:  0 50px;
+}
+
+.myPage-row{
+    width: 500px;
+    height: 50px;
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+}
+
+.myPage-row > *{
+    font-size: 18px;
+    font-weight: bold;
+
+}
+.myPage-row > label{
+    width: 30%;
+    color: rgb(0, 220, 244);
+}
+
+.myPage-row > span{
+    width: 70%;
+
 }
