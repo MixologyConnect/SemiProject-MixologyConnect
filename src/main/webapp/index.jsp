@@ -22,7 +22,10 @@
         </div>
         <div id="search">
         	<img src="${contextPath}/resources/images/magnifier.png">
-        	<input type="text" placeholder="검색할 칵테일, 게시글">
+            <form action="search">
+        	    <input type="text" placeholder="검색할 칵테일, 게시글">
+                <button>검색</button>
+            </form>
         </div>
         <div id="ad"></div>
         <div id="fixed-divider"></div>

@@ -1,26 +1,39 @@
-function isScrolledToTop() {
-    var scrollTop = window.scrollY || document.documentElement.scrollTop;
-    return scrollTop === 0;
+function getScrollY() {
+    var scrollY = window.scrollY || document.documentElement.scrollTop;
+    return scrollY
 }
 
 window.addEventListener('scroll', function() {
-    if (isScrolledToTop()) {
-        $("nav").css("transform", "none");
-        $("nav").css("filter", "opacity(100%)");
+    if (getScrollY() == 0) {
+        $("nav").css({"transform": "none",
+                    "filter": "opacity(100%)"});
     } else {
-        $("nav").css("transform", "translateY(-45px)");
-        $("nav").css("filter", "opacity(0%)");
+        $("nav").css({"transform": "translateY(-45px)",
+                    "filter": "opacity(0%)"});
+    }
+    if (getScrollY() > 166) {
+        $("header").css({"height": "70px",
+                        "margin-bottom": "50px"});
+        $("#title").css({"filter": "opacity(0%)");
+        $("#account > label").css("height", "70px")
+        $("#account > label > p").text(null);
+    } else {
+        $("header").css({"height": "120px"
+                        , "margin-bottom": "0px"});
+        $("#title").css("filter", "opacity(100%)");
+        $("#account > label").css("height", "120px")
+        $("#account > label > p").text("LOGIN");
     }
 });
 
 $("header, nav").hover(function() {
-        $("nav").css("transform", "none");
-        $("nav").css("filter", "opacity(100%)");
+    $("nav").css({"transform": "none"
+    , "filter": "opacity(100%)"});
 
 }, function () {
-    if (!isScrolledToTop()) {
-        $("nav").css("transform", "translateY(-45px)");
-        $("nav").css("filter", "opacity(0%)");
+    if (getScrollY() == 0) {
+        $("nav").css({"transform": "translateY(-45px)"
+                    , "filter": "opacity(0%)"});
     }
 });
 
