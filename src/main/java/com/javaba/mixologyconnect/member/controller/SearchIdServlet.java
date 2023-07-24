@@ -27,7 +27,7 @@ public class SearchIdServlet extends HttpServlet{
 			
 			int result  = service.searchId(memberName, memberTel);
 			
-			
+			resp.getWriter().print(result);
 			
 			
 		}catch (Exception e) {

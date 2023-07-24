@@ -2,7 +2,6 @@ package com.javaba.mixologyconnect.member.model.service;
 
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
-
 import java.sql.Connection;
 
 import com.javaba.mixologyconnect.member.model.dao.MemberDAO;
@@ -92,6 +91,29 @@ public class MemberService {
 
 
 		close(getConnection());
+
+		return result;
+	}
+
+
+	/**@author 이지영
+	 * 비밀번호 변경 Service 
+	 * @param currentPw
+	 * @param newPw
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 * 
+	 */
+	public int changePw(String currentPw, String newPw, int memberNo)throws Exception {
+		Connection conn = getConnection(); //DBCP에서 얻어옴
+
+		int result = dao.changePw(conn, currentPw, newPw, memberNo);		
+
+		if(result> 0)conn.commit();
+		else conn.rollback();
+
+		close(conn);
 
 		return result;
 	}
