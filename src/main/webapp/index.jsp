@@ -23,7 +23,7 @@
         <div id="search">
         	<img src="${contextPath}/resources/images/magnifier.png">
             <form action="search">
-        	    <input type="text" placeholder="검색할 칵테일, 게시글">
+        	    <input type="text" name="query" placeholder="검색할 칵테일, 게시글">
                 <button>검색</button>
             </form>
         </div>

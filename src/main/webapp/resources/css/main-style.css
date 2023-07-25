@@ -74,8 +74,7 @@ header {
     top: 0;
     z-index: 1;
     height: 120px;
-    border-bottom: 1px solid rgb(180, 180, 180);
-    margin-bottom: 45px;
+    border-bottom: 0.5px solid rgb(180, 180, 180);
     transition-duration: 1s;
   	backdrop-filter: blur(10px);
   	-webkit-backdrop-filter: blur(10px);
@@ -98,7 +97,6 @@ header {
     border: 1px solid rgb(0, 220, 244);
     border-radius: 50%;
     margin-right: 10px;
-    transition-duration: 2s;
 }
 
 #title p {
@@ -138,14 +136,16 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition-duration: 0.5s;
 }
 
 #account > label > img {
+    position: relative;
+    z-index: 5;
     height: 50px;
     margin-bottom: 2px;
     filter: saturate(0) opacity(0.6);
     cursor: pointer;
+    transition-duration: 1s;
 }
 
 #account > label > p {
@@ -154,14 +154,13 @@ header {
     color: rgba(150, 150, 150, 0.8);
     letter-spacing: 1px;
     cursor: pointer;
+    transition-duration: 0.3s;
 }
 
 nav {
     display: flex;
-    position: fixed;
-    top: 121px;
     width: 100vw;
-    border-bottom: 1px solid rgb(180, 180, 180);
+    border-bottom: 0.5px solid rgb(180, 180, 180);
     justify-content: center;
     align-items: center;
     transition-duration: 1s;
@@ -187,7 +186,7 @@ nav > a:hover {
 footer {
     display: flex;
     height: 140px;
-    border-top: 1px solid rgb(180, 180, 180);
+    border-top: 0.5px solid rgb(180, 180, 180);
     flex-direction: column;
     justify-content: center;
     align-items: center;

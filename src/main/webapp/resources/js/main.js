@@ -5,8 +5,7 @@ function getScrollY() {
 
 window.addEventListener('scroll', function() {
     if (getScrollY() <= 0) {
-        $("nav").css({"transform": "none",
-                      "filter": "opacity(100%)",
+        $("nav").css({"filter": "opacity(100%)",
                       "pointer-events": "auto"});
 
         $("header").css({"height": "120px",
@@ -15,11 +14,11 @@ window.addEventListener('scroll', function() {
         $("#title").css({"pointer-events": "auto",
                          "filter": "opacity(100%)"});
 
-        $("#account > label").css({"pointer-events": "auto",
-                                   "filter": "opacity(100%)"});
+        $("#account > label > img").css("transform", "none");
+        $("#account > label > p").css({"pointer-events": "auto",
+                                       "filter": "opacity(100%)"});
     } else {
-        $("nav").css({"transform": "translateY(-45px)",
-                      "filter": "opacity(0%)",
+        $("nav").css({"filter": "opacity(0%)",
                       "pointer-events": "none"});
 
         $("header").css({"height": "120px",
@@ -28,19 +27,10 @@ window.addEventListener('scroll', function() {
         $("#title").css({"pointer-events": "none",
                          "filter": "opacity(0%)"});
 
-        $("#account > label").css({"pointer-events": "none",
-                                   "filter": "opacity(0%)"});
-    }
-});
+        $("#account > label > img").css("transform", "translate(23px, 37px)");
 
-$("header, nav").hover(function() {
-    $("nav").css({"transform": "none"
-    , "filter": "opacity(100%)"});
-
-}, function () {
-    if (getScrollY() == 0) {
-        $("nav").css({"transform": "translateY(-45px)"
-                    , "filter": "opacity(0%)"});
+        $("#account > label > p").css({"pointer-events": "none",
+                                       "filter": "opacity(0%)"});
     }
 });
 
