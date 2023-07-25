@@ -1,4 +1,4 @@
-package com.javaba.mixologyconnect.search.controller;
+package com.javaba.mixologyconnect.search;
 
 import java.io.IOException;
 
