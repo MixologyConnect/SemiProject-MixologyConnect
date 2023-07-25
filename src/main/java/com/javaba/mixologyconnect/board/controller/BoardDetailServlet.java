@@ -33,10 +33,10 @@ public class BoardDetailServlet extends HttpServlet {
 		BoardDetail detail = service.selectBoardDetail(boardNo);
 		
 		
-//		if(detail != null) {
-//			List<Reply> rList = new ReplyService().selectReplyList(boardNo);
-//			req.setAttribute("rList", rList);
-//		}
+		if(detail != null) {
+			List<Reply> rList = new ReplyService().selectReplyList(boardNo);
+			req.setAttribute("rList", rList);
+		}
 		
 		req.setAttribute("detail", detail);
 		

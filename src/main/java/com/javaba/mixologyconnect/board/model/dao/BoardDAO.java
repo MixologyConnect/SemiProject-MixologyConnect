@@ -29,7 +29,7 @@ public class BoardDAO {
 		try {
 			prop = new Properties();
 
-			String filePath = BoardDAO.class.getResource("C:\\semi project\\src\\main\\java\\com\\javaba\\mixologyconnect\\sql").getPath();
+			String filePath = BoardDAO.class.getResource("/com/javaba/mixologyconnect/sql/board-sql.xml").getPath();
 
 			prop.loadFromXML(new FileInputStream(filePath));
 
