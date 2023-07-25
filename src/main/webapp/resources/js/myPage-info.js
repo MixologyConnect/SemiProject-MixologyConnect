@@ -148,3 +148,36 @@ if(inputImage != null){
         }
     })
 }
+
+function profileValidate(){
+
+    const inputImage =document.getElementById("input-image");
+
+    if(inputImage.value ==""){
+        alert("이미지를 선택한 후 변경버튼을 클릭해주세요.")
+        return false;
+    }
+    return true;
+}
+
+document.getElementById("delete-image").addEventListener("click", function(){
+    
+    //0: 안눌러짐
+    //1: 눌러짐
+    const del =document.getElementById("delete");
+    
+    if(del.value ==0){
+        
+        //1)프로필 이미지를 기본이미지로 변경
+        document.getElementById("profile-image").setAttribute("src", contextPath + "/resources/images/user.png");
+    
+        //2) input type='file'에 저장된 값(value)에 ""대입
+        document.getElementById("input-image").value="";
+
+        del.value = 1; 
+    }
+
+
+
+    
+})
