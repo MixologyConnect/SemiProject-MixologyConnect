@@ -21,5 +21,6 @@ public class Search {
 	int keyWordAllNo; 
 	private List<Board> boardList;
 //	private List<Cocktail> cocktailList;
+	//오류뜨나 보자 
 
 }
