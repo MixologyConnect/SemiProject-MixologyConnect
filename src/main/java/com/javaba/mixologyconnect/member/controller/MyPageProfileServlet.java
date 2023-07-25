@@ -18,4 +18,11 @@ public class MyPageProfileServlet extends HttpServlet{
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		System.out.println(req.getParameter("profileImage"));
+	
+	}
+	
 }

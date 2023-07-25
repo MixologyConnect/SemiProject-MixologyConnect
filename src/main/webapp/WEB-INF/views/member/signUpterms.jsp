@@ -22,7 +22,7 @@
     <div id="terms-area" class="themes-main-2">
 
         <div id="content-area" >
-            <h3>약관동의</h3>
+            <h2>약관동의</h2>
             
             <div id="terms">
                 <label><input type="checkbox" id="all-check"><span id="all" class="blue">믹스올로지의 모든 약관을 확인하고 전체 동의 합니다</span> </label>
