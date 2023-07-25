@@ -13,7 +13,6 @@ import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
 import com.javaba.mixologyconnect.board.model.vo.Reply;
 
-
 public class ReplyDAO {
 
 	private Statement stmt;
@@ -21,7 +20,7 @@ public class ReplyDAO {
 	private ResultSet rs;
 
 	private Properties prop;
-	
+
 	public ReplyDAO() {
 
 		try {
@@ -35,70 +34,125 @@ public class ReplyDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	public List<Reply> selectReplyList(Connection conn, int boardNo) throws Exception {
-		
+
 		List<Reply> rList = new ArrayList<>();
-		
+
 		try {
-			
+
 			String sql = prop.getProperty("selectReplyList");
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, boardNo);
-			
+
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()){
-				
+
+			while (rs.next()) {
+
 				Reply r = new Reply();
-				
-				r.setReplyNo(rs.getInt(1));
-	            r.setReplyContent(rs.getString(2));
-	            r.setBoardDate(rs.getString(3));
-	            r.setBoardNo(rs.getInt(4));
-	            r.setMemberNo(rs.getInt(5));
-	            r.setMemberName(rs.getString(6));
-	            r.setProfileImage(rs.getString(7));
-				
+
+				r.setReplyNo(rs.getInt("REPLY_NO"));
+				r.setReplyContent(rs.getString("REPLY_CONTENT"));
+				r.setBoardNo(rs.getInt("BOARD_NO"));
+				r.setMemberNo(rs.getInt("MEMBER_NO"));
+				r.setMemberName(rs.getString("MEMBER_NM"));
+				r.setProfileImage(rs.getString("MEMBER_PROFILE"));
+
 				rList.add(r);
-				
+
 			}
-			
-			
-		}finally {
-			
+
+		} finally {
+
 			close(rs);
 			close(pstmt);
 		}
-		
+
 		return rList;
 	}
 
-
-	/** 댓글 등록
+	/**
+	 * 댓글 등록
+	 * 
 	 * @param conn
 	 * @param reply
 	 * @return result
 	 * @throws Exception
 	 */
-	public int insertReply(Connection conn, Reply reply) throws Exception{
-		
+	public int insertReply(Connection conn, Reply reply) throws Exception {
+
 		int result = 0;
-		
+
 		try {
-			
-			String sql = prop.getProperty("selectReplyList");
+
+			String sql = prop.getProperty("insertReply");
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setString(1, reply.getReplyContent());
 			pstmt.setInt(2, reply.getBoardNo());
 			pstmt.setInt(3, reply.getMemberNo());
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+	/**
+	 * 댓글 삭제
+	 * 
+	 * @param conn
+	 * @param replyNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deleteReply(Connection conn, int replyNo) throws Exception {
+
+		int result = 0;
+
+		try {
+
+			String sql = prop.getProperty("deleteReply");
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, replyNo);
 			
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	
+	/**
+	 * @param conn
+	 * @param replyNo
+	 * @param replyContent
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateReply(Connection conn, int replyNo, String replyContent) throws Exception {
+		
+		int result = 0;
+
+		try {
+
+			String sql = prop.getProperty("updateReply");
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, replyContent);
+			pstmt.setInt(2, replyNo);
 			
-		}finally {
-			
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
 		}
 		
 		return result;
