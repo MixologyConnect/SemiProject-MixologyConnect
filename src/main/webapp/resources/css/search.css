@@ -1,16 +1,16 @@
-@charset "UTF-8";
 #content{
-    width: 100%;
-    border: 1px solid pink;
-
     display: flex;
-    justify-content: space-around;
+	width: calc(100vw - 100px);
+	max-width: 1280px;
+	margin: auto;
+	flex-direction: column;
+    align-items: center;
 }
 /* 검색 창 CSS 영역*/
 .result_search{
     width: 1300px;
     height: 100%;
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
 }
 
 .result_search> h4{
@@ -37,6 +37,7 @@
     padding: 0 100px 0 50px;
     font-size: 20px;
     border: none;
+    outline: none;
 }
 .search_icon{
     position: absolute;
@@ -81,6 +82,8 @@ a{text-decoration: none; color: inherit;}
     color: rgb(0, 220, 244);
     font-weight: 600;
 }
+
+/* 칵테일 정보 */
 .cocktail_pick_list{
     padding: 30px 0 0;
     margin: 50px auto 0;
@@ -112,11 +115,10 @@ a{text-decoration: none; color: inherit;}
     /* padding: 50px; */
 }
 .list_prd ul li{
-    position: relative;
-    float: left;
+    /* position: relative; */
+    /* float: left; */
     display: inline-block;
-    max-width: calc((20% - 8px));
-    width: calc((20% - 10px));
+    width: 18%;
     margin-right: 10px ;
     /* margin-bottom: 80px; */
     box-sizing: border-box;
@@ -161,3 +163,40 @@ a{text-decoration: none; color: inherit;}
     margin: 50 auto 0;
     /* border-bottom: 1px solid #dcdcdc; */
 }
+
+/* 게시글 검색 목록 */
+.list-table{
+    width: 80%;
+    padding: 20px;
+    margin: 20px 0;
+
+    /* 테두리 상쇄 여부 지정
+        -> 고유 테두리를 지닌 요소와 겹치는 경우
+            테두리를 분리할지 상쇄(덮어쓰기)할지 지정
+    */
+    border-collapse: collapse;
+}
+
+.list-table > thead{
+    background: rgb(0, 220, 244);
+    color: white;
+}
+.list-table tr{
+    height: 30px;
+}
+.list-table > tbody > tr{
+    border-bottom: 1px solid gray;
+}
+
+.list-table tr> *{
+    text-align: center;
+}
+.list-table tr> *:nth-child(1){width: 10%;}
+.list-table tr> td:nth-child(2){
+    width: 50%;
+    text-align: left;
+    padding-left: 50px;
+}
+.list-table tr> *:nth-child(3){width: 15%;}
+.list-table tr> *:nth-child(4){width: 15%;}
+.list-table tr> *:nth-child(5){width: 10%;}
