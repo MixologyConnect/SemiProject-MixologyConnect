@@ -11,7 +11,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>검색 조회</title>
-<link rel="stylesheet" href="resources/css/search.css">
+
+
+<link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/search.css">
+<script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
+
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
 	integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
 	crossorigin="anonymous"></script>
@@ -21,6 +26,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
 	<div id="content">
+		
 		<section class="result_search">
 			<h4 class="block">검색결과</h4>
 			<div class="box_search_new">
@@ -129,7 +135,9 @@
 											style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
 											짙은 한국형 진</p>
 									</div>
+									<div class="box_absol"></div>
 							</a></li>
+							
 						</ul>
 
 					</div>
@@ -141,17 +149,75 @@
 			<div class="cocktail_pick_list">
 				<span class="pick_list_num"> 커뮤니티 ( <strong>5</strong> )
 				</span>
+				<br>
 				<div class="cocktail_pick_list2">
-					<a href="#"> <a
-						href="/board/view.php?bdId=free&amp;sno=1263&amp;goodsNo=0">2023.04.14
-							기타 &gt; 전통주 무제한 바가 있을까요?</a>
-					</a> <br> <a href="#"> <a
-						href="/board/view.php?bdId=free&amp;sno=1263&amp;goodsNo=0">2023.04.14
-							기타 &gt; 전통주 무제한 바가 있을까요?</a>
-					</a> <br> <a href="#"> <a
-						href="/board/view.php?bdId=free&amp;sno=1263&amp;goodsNo=0">2023.04.14
-							기타 &gt; 전통주 무제한 바가 있을까요?</a>
-					</a> <br>
+					<table class="list-table">
+						<thead>
+							<tr>
+								<th>글번호</th>
+								<th>제목</th>
+								<th>작성자</th>
+								<th>작성일</th>
+								<th>조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+						</tbody>
+					</table>
 
 				</div>
 
@@ -159,21 +225,82 @@
 			<div class="cocktail_pick_list">
 				<span class="pick_list_num"> 믹스올로지 컬럼 ( <strong>1</strong> )
 				</span>
+				<br>
 				<div class="cocktail_pick_list2">
-					<a href="#"> <a
-						href="/board/view.php?bdId=free&amp;sno=1263&amp;goodsNo=0">2023.04.14
-							기타 &gt; 전통주 무제한 바가 있을까요?</a>
-					</a> <br> <a href="#"> <a
-						href="/board/view.php?bdId=free&amp;sno=1263&amp;goodsNo=0">2023.04.14
-							기타 &gt; 전통주 무제한 바가 있을까요?</a>
-					</a> <br>
-
+					<table class="list-table">
+						<thead>
+							<tr>
+								<th>글번호</th>
+								<th>제목</th>
+								<th>작성자</th>
+								<th>작성일</th>
+								<th>조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>
+									<a href="#">10번째글</a>
+								</td>
+								<td>유저일</td>
+								<td>2023-07-17</td>
+								<td>50</td>
+							</tr>
+						</tbody>
+					</table>
 
 				</div>
 
 			</div>
 
 		</section>
+		
 
 	</div>
 
