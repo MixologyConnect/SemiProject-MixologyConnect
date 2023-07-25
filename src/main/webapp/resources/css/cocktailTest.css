@@ -77,7 +77,8 @@ main{
 }
 
 /* 버튼 */
-.text > button{
+
+#btn{
     width: 450px;
     height: 60px;
     margin-left: 65px;

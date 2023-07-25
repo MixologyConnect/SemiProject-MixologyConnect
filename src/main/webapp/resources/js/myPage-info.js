@@ -169,7 +169,7 @@ document.getElementById("delete-image").addEventListener("click", function(){
     if(del.value ==0){
         
         //1)프로필 이미지를 기본이미지로 변경
-        document.getElementById("profile-image").setAttribute("src", contextPath + "/resources/images/user.png");
+        document.getElementById("profile-image").setAttribute("src", contextPath + "/resources/images/user1.png");
     
         //2) input type='file'에 저장된 값(value)에 ""대입
         document.getElementById("input-image").value="";
