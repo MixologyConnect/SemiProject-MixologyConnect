@@ -27,4 +27,21 @@ public class ReplyService {
 		return rList;
 	}
 
+	/** 댓글 등록
+	 * @param reply
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertReply(Reply reply) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.insertReply(conn, reply);
+		
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		
+		return result;
+	}
+
 }

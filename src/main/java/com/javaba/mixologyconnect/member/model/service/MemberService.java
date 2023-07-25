@@ -54,22 +54,22 @@ public class MemberService {
 
 
 
-	/** 아이디 찾기 Service
+	/**@author 이미래 
+	 * 아이디 찾기 Service
 	 * @param memberName
 	 * @param memberTel
 	 * @return result
 	 * @throws Exception
 	 */
-	public int searchId(String memberName, String memberTel) throws Exception {
+	public Member searchId(String memberName, String memberTel) throws Exception {
 		
 		Connection conn = getConnection();
 		
-		int result  = dao.searchId(conn, memberName, memberTel);
+		Member member = dao.selectOne(conn, memberName, memberTel);
 		
 		close(conn);
 		
-		
-		return result;
+		return member;
 	}
 
 
