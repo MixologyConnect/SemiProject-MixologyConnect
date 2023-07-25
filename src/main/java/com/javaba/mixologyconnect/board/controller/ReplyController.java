@@ -45,9 +45,20 @@ public class ReplyController extends HttpServlet{
 			
 			if(command.equals("insert")) {
 				
+				int memberNo = Integer.parseInt(req.getParameter("memberNo"));
+				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+				String replyContent = req.getParameter("replyContent");
 				
+				Reply reply = new Reply();
 				
-				//int result = service.insertReply();
+				reply.setMemberNo(memberNo);
+				reply.setBoardNo(boardNo);
+				reply.setReplyContent(replyContent);
+				
+				int result = service.insertReply(reply);
+				
+				resp.getWriter().print(result);
+				
 				
 			}
 			
