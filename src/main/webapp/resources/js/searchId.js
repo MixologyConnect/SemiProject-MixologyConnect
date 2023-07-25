@@ -1,25 +1,3 @@
-function searchId(){
-
-
-    $.ajax({
-        url : contextPath + "/member/searchId",
-        data : {"memberName" : memberName,
-                "memberTel" : memberTel},
-        type : "get",
-        success : function(result){
-            if(result>0){
-                alert("")
-
-            }
-        },
-        error : function(req, status, error){
-            console("에러발생");
-            console.log(req.respinseText);
-        }
-    })
-}
-
-
 
 document.getElementById("seachIdBtn").addEventListener("click",function(){
     const inputName = document.getElementById("inputName");
@@ -32,7 +10,7 @@ document.getElementById("seachIdBtn").addEventListener("click",function(){
         url : contextPath + "/member/searchId",
         data : {"memberName" : memberName,
                 "memberTel" : memberTel},
-        type : "get",
+        type : "post",
         datatype : "JSON",
         success : function(member){
             console.log(member);
