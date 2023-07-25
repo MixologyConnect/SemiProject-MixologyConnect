@@ -13,7 +13,7 @@
     <div class="contSearchId">아이디 찾기</div>
 
     <div class="searchId1">
-        <form action="searchId" method="post" id="searchId-form" name="searchId-form">
+        <form action="searchId" method="post" id="searchId-form" name="searchId-form" onsubmit="return searchId()">
             <table >
                 <tr>
                     <td>이름</td>
@@ -45,7 +45,7 @@
 
 
 
-
+    <script src="${contextPath}/resources/js/searchId.js"></script>
     
 </body>
 </html>
