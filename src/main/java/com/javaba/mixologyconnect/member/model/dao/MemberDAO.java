@@ -252,6 +252,50 @@ public class MemberDAO {
 	
 		return result;
 	}
+	
+	/**@author 이미래
+	 * @param conn
+	 * @param memberName
+	 * @param memberTel
+	 * @return member
+	 * @throws Exception
+	 */
+	public Member selectOne(Connection conn, String memberName, String memberTel) throws Exception {
+		
+		Member member = null;
+		
+		try {
+			
+			String sql = prop.getProperty("searchId");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberName);
+			pstmt.setString(2, memberTel);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) { // 조회 결과가 있는 경우
+				
+				member = new Member();
+				
+				member.setMemberName(rs.getString("MEMBER_NM"));
+				member.setMemberEmail(rs.getString("MEMBER_EMAIL"));
+				
+
+			}
+			
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return member;
+	}
+
+
 
 
 }
