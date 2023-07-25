@@ -4,12 +4,13 @@
     const goToBtn = document.getElementById("goToBtn");
 
     if(goToBtn != null) {
+        console.log(goToBtn)
         goToBtn.addEventListener("click", function(){
 
             const path = location.pathname; 
 
             let url = path.substring(0, path.indexOf("/", 1));
-            url += "/board/boardAll?";
+            url += "/board/boardAll?"
 
             const params = new URL(location.href).searchParams;
 
@@ -19,7 +20,6 @@
             url += type + "&" + cp;
 
             location.href = url;
-
         })
     }
 

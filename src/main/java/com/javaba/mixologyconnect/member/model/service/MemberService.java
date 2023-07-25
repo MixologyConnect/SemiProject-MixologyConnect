@@ -118,6 +118,26 @@ public class MemberService {
 		return result;
 	}
 
+	/** 회원탈퇴 Service
+	 * @author 임성수
+	 * @param memberNo
+	 * @param memberPw
+	 * @return result
+	 * @throws Exception
+	 */
+	public int secession(int memberNo, String memberPw) throws Exception {
+
+		Connection conn = getConnection();
+		
+		int result = dao.secession(conn,memberNo, memberPw);
+		
+		if(result> 0)conn.commit();
+		else conn.rollback();
+
+		close(conn);
+		
+		return result;
+	}
 
 
 

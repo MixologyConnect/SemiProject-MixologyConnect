@@ -25,8 +25,9 @@ public class BoardService {
 	 * @throws Exception
 	 */
 	public Map<String, Object> selectBoardAll(int type, int cp) throws Exception {
-		Connection conn = getConnection();
 
+		Connection conn = getConnection();
+		
 		// 게시글 제목
 		String boardTitle = dao.boardTitle(conn, type);
 
