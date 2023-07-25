@@ -22,11 +22,28 @@
 
 
 					<div class="content">
+					
 						<div class="title">${detail.boardTitle}</div>
-						<div class="name">${detail.memberName}</div>
-						<div class="date">
-							${detail.boardDate}
+						<div class="name">
+							
+								<c:if test="${empty detail.profileImage}">
+								<!-- 프로필 이미지가 없는 경우 -->
+								<img src="${contextPath}/resources/images/user.png">
+							</c:if>
+		
+							<c:if test="${!empty detail.profileImage}">
+								<!-- 프로필 이미지가 있는 경우 -->
+								<img src="${contextPath}${detail.profileImage}">
+							</c:if>
+
+							${detail.memberName}
+
+						</div>
+						<div class="date">${detail.boardDate}
 							<div class="views">조회수 : ${detail.readCount}</div>
+							<c:if test="${!empty detail.modifyDate}">
+							<div class="views">마지막 수정일 : ${detail.modifyDate}</div>
+						</c:if>
 						</div>
 
 						<!-- 게시글 사진, 내용, 좋아요, 공유버튼 있는 칸 -->
