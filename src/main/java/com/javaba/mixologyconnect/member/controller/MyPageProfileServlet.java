@@ -48,6 +48,13 @@ public class MyPageProfileServlet extends HttpServlet{
 
 			String profileImage = folderPath + mpReq.getFilesystemName("profileImage");
 
+			int delete = Integer.parseInt(mpReq.getParameter("delete"));
+			
+			if(delete == 1) {
+				profileImage = null;
+			}
+			
+			
 			MemberService service = new MemberService();
 
 			int result = service.updateProfileImage(memberNo, profileImage);

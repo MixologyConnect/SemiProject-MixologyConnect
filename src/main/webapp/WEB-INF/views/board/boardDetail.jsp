@@ -114,7 +114,6 @@
 							<script src="${contextPath}/resources/js/boardDatail.js"></script>
 
 							<script>
-								/* js에서 사용할 전역변수 */
 								const contextPath = "${contextPath}";
 
 								const boardNo = "${detail.boardNo}";
