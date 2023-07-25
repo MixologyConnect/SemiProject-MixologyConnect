@@ -520,7 +520,7 @@
             <div class="cocktail">
                 <div><img style="width: 300px;" src="${contextPath}/img/블루하와이안.webp"></div>
                 <div>산토리 하이볼</div>
-                <div>매혹적인 색깔로 유명한 칵테일, 새콤함에 숨겨진 독한 맛 <br><br>
+                <div>산토리 하이볼은 일식 이자카야에서도 흔히 찾을 수 있는 유명한 칵테일이죠. 상큼하고 달달한 맛으로 인기를 끌고있는 일본의 산토리 위스키! <br><br>
                     약 20-30도
                 </div>
 
