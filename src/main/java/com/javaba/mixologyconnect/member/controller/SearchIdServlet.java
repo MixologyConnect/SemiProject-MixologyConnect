@@ -19,6 +19,22 @@ public class SearchIdServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+
+		try {
+			String path ="/WEB-INF/views/member/searchId.jsp";
+			
+			req.getRequestDispatcher(path).forward(req, resp);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+
 		// 파라미터 얻어오기
 		String memberName = req.getParameter("memberName");
 		String memberTel = req.getParameter("memberTel");
@@ -34,7 +50,7 @@ public class SearchIdServlet extends HttpServlet{
 			
 			
 			
-			String path ="/WEB-INF/views/member/searchId.jsp";
+			String path ="/WEB-INF/views/member/searchId-result.jsp";
 			
 			req.getRequestDispatcher(path).forward(req, resp);
 			
@@ -42,15 +58,6 @@ public class SearchIdServlet extends HttpServlet{
 			e.printStackTrace();
 		}
 		
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
-		
-		
-		doGet(req, resp); // POST로 전달된 요청을 doGet()으로 전달하여 수행
 		
 		
 		

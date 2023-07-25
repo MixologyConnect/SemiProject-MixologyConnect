@@ -32,7 +32,7 @@ document.getElementById("seachIdBtn").addEventListener("click",function(){
     const memberName = document.getElementById("inputName");
     const memberTel = document.getElementById("inputTel");
 
-    const span = document.getElementById("resultId");
+    const div = document.getElementById("resultId");
 
     $.ajax({
 
@@ -46,11 +46,15 @@ document.getElementById("seachIdBtn").addEventListener("click",function(){
 
             if(member != null){
 
-                const li1 = document.createElement("span");
-                li1.innerText =member.memberName + "님의";
+                const row1 = document.createElement("span");
+                row1.innerText =member.memberName + "님의";
 
-                const li2 = document.createElement("span");
-                li2.innerText ="아이디는 " + member.memberName+"입니다";
+                const row2 = document.createElement("span");
+                row2.innerText ="아이디는 " + member.memberName+"입니다";
+
+                div.append(row1, row2);
+
+
                 
             }else{
                 span.innerText = "일치하는 회원이 없습니다."
