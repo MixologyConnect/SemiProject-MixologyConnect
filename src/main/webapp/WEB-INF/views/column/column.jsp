@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>컬럼 상세보기</title>
 
-    <link rel="stylesheet" href="../css/column.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/column.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <nav id="mc-nav"></nav>
+   <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <!-- 전체 컨테이너 -->
     <div class="container">
@@ -108,7 +109,7 @@
         
     </div>
     
-    <div id="mc-footer"></div>
+   <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script>
         $.ajax({
