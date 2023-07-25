@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<div>
+    
+</div>
 <header>
     <div id="title">
     	<a href="${contextPath}">
-	        <img src="https://i.ibb.co/9ZDf4Jk/logo.png">&nbsp;&nbsp;
+	        <img src="${contextPath}/resources/images/logo.svg">&nbsp;&nbsp;
         </a>
         <a href="${contextPath}">
 	        <p>Mixology Connect</p>
@@ -12,8 +15,8 @@
     <div id="account">
         <input id="login" type="checkbox">
         <label for="login">
-            <img src="https://i.ibb.co/hdK6rgX/keyhole.png">
-            <p>LOGIN</p>
+            <img src="${contextPath}/resources/images/user.png">
+            <p>계정</p>
         </label>
     </div>
 </header>
