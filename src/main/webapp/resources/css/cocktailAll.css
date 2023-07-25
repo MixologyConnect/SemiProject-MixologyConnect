@@ -74,6 +74,11 @@ main {
 	margin: 10px 0;
 	box-shadow: inset 0 0 30px rgba(120, 120, 120, 0.3);
 	cursor: pointer;
+	transition-duration: 0.5s;
+}
+
+.contents > li:hover {
+	box-shadow: inset 0 0 30px rgba(0, 220, 244, 0.3);
 }
 
 .contents > li > a {
