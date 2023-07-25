@@ -76,4 +76,32 @@ public class ReplyDAO {
 		return rList;
 	}
 
+
+	/** 댓글 등록
+	 * @param conn
+	 * @param reply
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertReply(Connection conn, Reply reply) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("selectReplyList");
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, reply.getReplyContent());
+			pstmt.setInt(2, reply.getBoardNo());
+			pstmt.setInt(3, reply.getMemberNo());
+			
+			
+		}finally {
+			
+		}
+		
+		return result;
+	}
+
 }
