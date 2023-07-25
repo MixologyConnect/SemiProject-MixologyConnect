@@ -38,14 +38,15 @@
                 <p>프로필 이미지를 변경할 수 있습니다.</p>
             </article>
             
-            <form action="info" method="post" name="myPage-form" onsubmit="return myInfoValidate()">
+            <form action="profile" method="post" name="myPage-form" 
+                enctype="multipart/form-data">
                 
                 <div class="profile-image-area">
                     <img src="${contextPath}/resources/images/user.png" id="profile-image">
                 </div>
                 <div class="profile-btn-area">
                     <label for="input-image">이미지 선택</label>
-                    <input type="file" name="profileImage" id="input-image">
+                    <input type="file" name="profileImage" id="input-image" accept="image/*">
                     <button type="submit">변경하기</button>
                 </div>
 

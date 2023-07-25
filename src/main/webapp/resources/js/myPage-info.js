@@ -131,3 +131,20 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
+//--------------------------------------------------------------------------------
+// 회원프로필 변경 
+const inputImage = document.getElementById("input-image");
+if(inputImage != null){
+    inputImage.addEventListener("change", function(){
+        
+        if(this.files[0] != undefined){
+            const reader = new FileReader();
+            reader.readAsDataURL(this.files[0]);
+           
+            reader.onload=function(e){
+                const profileImage =document.getElementById("profile-image");
+                profileImage.setAttribute("src", e.target.result);
+            }
+        }
+    })
+}
