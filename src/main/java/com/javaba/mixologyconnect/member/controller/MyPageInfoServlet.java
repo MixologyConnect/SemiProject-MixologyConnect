@@ -34,7 +34,7 @@ public class MyPageInfoServlet extends HttpServlet{
 		if(!address[0].equals("")) {
 			memberAddress = String.join(",,", address);
 		}else {
-			memberAddress=null;
+			memberAddress ="";
 		}
 		
 		HttpSession session = req.getSession();

@@ -38,14 +38,25 @@
                 <p>프로필 이미지를 변경할 수 있습니다.</p>
             </article>
             
-            <form action="info" method="post" name="myPage-form" onsubmit="return myInfoValidate()">
+            <form action="profile" method="post" name="myPage-form" 
+                enctype="multipart/form-data" onsubmit="return profileValidate()">
                 
                 <div class="profile-image-area">
-                    <img src="${contextPath}/resources/images/user.png" id="profile-image">
+                    <c:if test="${empty loginMember.profileImage}">
+                        <img src="${contextPath}/resources/images/user.png" id="profile-image">
+                    </c:if>
+                    <c:if test="${!empty loginMember.profileImage}">
+                        <img src="${contextPath}${loginMember.profileImage}" id="profile-image">
+                        
+                    </c:if>
+                    
+                    <!-- 프로필 이미지 삭제 버튼 -->
+                    <span id="delete-image">x</span>
+
                 </div>
                 <div class="profile-btn-area">
                     <label for="input-image">이미지 선택</label>
-                    <input type="file" name="profileImage" id="input-image">
+                    <input type="file" name="profileImage" id="input-image" accept="image/*">
                     <button type="submit">변경하기</button>
                 </div>
 
@@ -61,7 +72,9 @@
                     <span>${loginMember.enrollDate}</span>
                 </div>         
             
-               
+                <!-- 삭제 버튼이 눌러짐을 기록하는 숨겨진 input태그 -->
+                <!-- 0: 안눌러짐 / 1: 눌러짐 -->
+                <input type="hidden" name="delete" id="delete" value="0">
             
             </form>
             
@@ -72,7 +85,9 @@
 
     <!-- ----------------------------------------------------------------------------- -->
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>	<!-- 다음 우편번호 api -->
-    
+    <script>
+        const contextPath ="${contextPath}"; //최상위 경로를 JS 전역 변수로 선언
+    </script>
     <script src="${contextPath}/resources/js/myPage-info.js"></script>
 </body>
 </html>
