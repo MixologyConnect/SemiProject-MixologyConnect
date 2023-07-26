@@ -24,7 +24,7 @@
                                 </c:if>
 
                                 <span>${reply.memberName}</span>
-                                <span class="reply-date">(${reply.boardDate})</span>
+                                <span class="reply-date">(${reply.replyDate})</span>
                             </p>
 
                             <p class="reply-content">${reply.replyContent}</p>
