@@ -14,7 +14,6 @@ window.addEventListener('scroll', function() {
         $("#title").css({"pointer-events": "auto",
                          "filter": "opacity(100%)"});
 
-        $("#account > label > img").css("transform", "none");
         $("#account > label > p").css({"pointer-events": "auto",
                                        "filter": "opacity(100%)"});
     } else {
@@ -26,8 +25,6 @@ window.addEventListener('scroll', function() {
 
         $("#title").css({"pointer-events": "none",
                          "filter": "opacity(0%)"});
-
-        $("#account > label > img").css("transform", "translate(23px, 37px)");
 
         $("#account > label > p").css({"pointer-events": "none",
                                        "filter": "opacity(0%)"});
@@ -43,5 +40,13 @@ $("nav > a").hover(function() {
 });
 
 $("#login").change(function() {
-    alert(this.prop("checked"));
+    if ($(this).prop("checked")) {
+        $("#overlay").css({"pointer-events": "auto",
+                           "opacity": "100%"});
+        $("#account > label > p").css("color", "rgb(0, 220, 244)");
+    } else {
+        $("#overlay").css({"pointer-events": "none",
+                           "opacity": "0"});
+        $("#account > label > p").css("color", "");
+    }
 })

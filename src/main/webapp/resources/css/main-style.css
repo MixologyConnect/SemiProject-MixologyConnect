@@ -72,7 +72,6 @@ main {
 header {
     position: sticky;
     top: 0;
-    z-index: 1;
     height: 120px;
     border-bottom: 0.5px solid rgb(180, 180, 180);
     transition-duration: 1s;
@@ -107,25 +106,19 @@ header {
     color: rgb(0, 220, 244);
 }
 
-#login-overlay {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    backdrop-filter: blur(1px);
-}
-
 #login {
     display: none;
 }
 
-#login:checked {
-
+#login:checked + label > img {
+    filter: saturate(1) opacity(1)
 }
 
 #account {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
+    z-index: 10;
     height: 100px;
 }
 
@@ -154,7 +147,7 @@ header {
     color: rgba(150, 150, 150, 0.8);
     letter-spacing: 1px;
     cursor: pointer;
-    transition-duration: 0.3s;
+    transition-duration: 1s;
 }
 
 nav {
@@ -229,4 +222,24 @@ footer {
 #theme-switch > img {
 	width: 50px;
 	content: url("../images/moon.png");
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition-duration: 1s;
+}
+
+#account-modal {
+    position: fixed;
+    margin: auto;
+    opacity: 0;
+    pointer-events: none;
 }
