@@ -67,6 +67,8 @@ public class ReplyService {
 	 * @param replyNo
 	 * @param replyContent
 	 * @return result
+	 * @throws Exception
+	 * 
 	 */
 	public int updateReply(int replyNo, String replyContent) throws Exception {
 		

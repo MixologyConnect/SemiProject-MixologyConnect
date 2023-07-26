@@ -1,3 +1,4 @@
+columnAll.jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -56,7 +57,7 @@
                 <!-- 칼럼 사진 div -->
                 <div>
                     <!-- 칼럼 사진 -->
-                    <a href="/report/html/column.html">
+                    <a href="${contextPath}/column/column">
                         <img src="/report/images/test.png" id="test2">
                     </a>
                 </div>
@@ -71,7 +72,7 @@
                 <!-- 칼럼 사진 div -->
                 <div>
                     <!-- 칼럼 사진 -->
-                    <a href="">
+                    <a href="${contextPath}/column/column">
                         <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99654D335A07F4DA1E" id="test2">
                     </a>
                 </div>
