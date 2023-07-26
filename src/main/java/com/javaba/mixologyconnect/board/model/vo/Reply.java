@@ -1,5 +1,7 @@
 package com.javaba.mixologyconnect.board.model.vo;
 
+import java.sql.Date;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +15,7 @@ public class Reply {
 
 	private int replyNo;
 	private String replyContent;
-	private String boardDate;
+	private Date replyDate;
 	private int boardNo;
 	private int memberNo;
 	private String memberName;

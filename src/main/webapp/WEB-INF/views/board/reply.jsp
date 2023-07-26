@@ -18,13 +18,13 @@
                                     <img src="${contextPath}/resources/images/user.png">
                                 </c:if>
 
-                                <c:if test="${!empty reply.profileImage}">
+                                <c:if test="${!empty reply.profileImage}"> 
                                     <!-- 프로필 이미지가 있을 경우 -->
                                     <img src="${contextPath}${reply.profileImage}">
                                 </c:if>
 
-                                <span>${reply.memberNickname}</span>
-                                <span class="reply-date">(${reply.createDate})</span>
+                                <span>${reply.memberName}</span>
+                                <span class="reply-date">(${reply.replyDate})</span>
                             </p>
 
                             <p class="reply-content">${reply.replyContent}</p>
@@ -32,35 +32,17 @@
                             <c:if test="${loginMember.memberNo == reply.memberNo}">
 
                                 <div class="reply-btn-area">
-                                    <button>수정</button>
-                                    <button>삭제</button>
+                                    <button onclick="showUpdateReply(${reply.replyNo}, this)">수정</button>
+                                    <button onclick="deleteReply(${reply.replyNo})">삭제</button>
                                 </div>
-
                             </c:if>
                         </li>
                     </c:forEach>
-
-                    <li class="reply-row">
-                        <p class="reply-writer">
-                            <img src="${contextPath}/resources/images/user.png">
-                            <span>${reply.memberName}</span>
-                            <span class="reply-date">${reply.boardDate}</span>
-                        </p>
-
-                        <p class="reply-content">
-                            ${reply.replyContent}
-                        </p>
-
-                        <div class="reply-btn-area">
-                            <button>수정</button>
-                            <button>삭제</button>
-                        </div>
-                    </li>
+                   
                 </ul>
             </div>
 
             <!-- 댓글 작성 부분 -->
-
             <div class="reply-writer-area">
                 <textarea id="replyContent"></textarea>
                 <button id="addBtn">
@@ -70,3 +52,4 @@
 
 
         </div>
+

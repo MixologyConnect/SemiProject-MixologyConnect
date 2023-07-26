@@ -4,16 +4,7 @@
 /* div{ border: 1px solid black} */
 
 
-.contSearchId{
-    height: 50px;
 
-    font-size: 25px;
-    align-items: end;
-    display: flex;
-    margin-bottom: 8px;
-
-    
-}
 
 .searchId1{
     width: 60%;
@@ -53,21 +44,6 @@ form[name="searchId-form"]{
 }
 
 
-#searchIdbtn{
-    width: 150px;
-    height: 100px;
-    background-color: rgb(158, 235, 240);
-    color: white;
-    cursor: pointer;
-    margin-top: 54px;
-
-}
-
-.searchId2{
-    display: flex;
-    flex-direction: row;  
-    justify-content: center;
-}
 
 #btn{
     width: 150px;
@@ -78,7 +54,7 @@ form[name="searchId-form"]{
 }
 
 
-.searchId2-1{
+.searchId2{
     width: 90%;
     padding: 10px;
     display: flex;
@@ -88,7 +64,24 @@ form[name="searchId-form"]{
 
     border-top: 1px solid gray;
 }
-.searchId2-1 > #btn{
+.searchId2 > #btn{
     
     margin: 0 10px;
 }
+
+/* 아이디 찾기 결과 css */
+.searchId-div{
+    width: 60%;
+    height: 450px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid gray;
+
+    margin-top: 15px;
+
+}
+
+
+

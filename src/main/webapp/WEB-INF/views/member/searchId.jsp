@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/searchId.css">
 </head>
 <body>
-    <div class="contSearchId">아이디 찾기</div>
+    <h3>아이디 찾기</h>
 
     <div class="searchId1">
-        <form action="searchId" method="post" id="searchId-form" name="searchId-form">
+        <form action="searchId" method="post" id="searchId-form" name="searchId-form" onsubmit="return searchId()">
             <table >
                 <tr>
                     <td>이름</td>
@@ -27,11 +27,11 @@
                 <button type="submit"  id="btn">다음</button> 
 
         </form>
-        <span id="resultId" ></span>
+
              
    
-    
-        <div class="searchId2-1">
+  
+        <div class="searchId2">
             <button type="button"  id="btn">비밀번호 찾기</button> 
 
             <button type="button" id="btn">로그인 하기</button>
@@ -45,7 +45,7 @@
 
 
 
-
+    <script src="${contextPath}/resources/js/searchId.js"></script>
     
 </body>
 </html>
