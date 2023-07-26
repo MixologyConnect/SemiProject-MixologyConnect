@@ -140,6 +140,7 @@ public class BoardDAO {
 				board.setMemberName(rs.getString("MEMBER_NM"));
 				board.setBoardDate(rs.getString("BOARD_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 
 				boardList.add(board);
 
@@ -227,7 +228,6 @@ public class BoardDAO {
 	            image.setImageLevel(rs.getInt("IMG_LEVEL"));
 	            image.setBoardNo(rs.getInt("BOARD_NO"));
 	            
-	            System.out.println("게시글 이미지 리스트 조회 다오 반복문이다");
 	            imageList.add(image);
 	            
 			}
@@ -241,6 +241,8 @@ public class BoardDAO {
 		
 		return imageList;
 	}
+
+	
 
 
 }

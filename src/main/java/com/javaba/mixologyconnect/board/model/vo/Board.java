@@ -17,6 +17,8 @@ public class Board {
 	   private String BoardDate;
 	   private int readCount; // 조회수
 	   private String thumbnail;
+	   private String boardContent;
+	
 	   
 	   
 
