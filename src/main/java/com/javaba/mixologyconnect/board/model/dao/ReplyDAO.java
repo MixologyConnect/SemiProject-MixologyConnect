@@ -58,6 +58,7 @@ public class ReplyDAO {
 				r.setMemberNo(rs.getInt("MEMBER_NO"));
 				r.setMemberName(rs.getString("MEMBER_NM"));
 				r.setProfileImage(rs.getString("MEMBER_PROFILE"));
+				r.setReplyDate(rs.getDate("REPLY_DT"));
 
 				rList.add(r);
 
