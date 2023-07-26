@@ -16,6 +16,20 @@ public class columnAllServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
+			
+			int type = Integer.parseInt(req.getParameter("type"));
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			String path = "/WEB-INF/views/column/columnAll.jsp";
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
 			dispatcher.forward(req, resp);
