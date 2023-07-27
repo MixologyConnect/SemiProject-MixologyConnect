@@ -36,8 +36,8 @@
 	
 	<!-- 회원정보 수정 -->
 	<entry key="updateMember">
-		PDATE MEMBER
-		SET MEMBER_Name=?,
+		UPDATE MEMBER
+		SET MEMBER_NM=?,
 		MEMBER_TEL=?,
 		MEMBER_ADDR=?
 		WHERE MEMBER_NO=?
@@ -62,7 +62,7 @@
 	<!-- 회원 프로필변경  -->
 	<entry key="updateProfileImage">
 		UPDATE MEMBER SET
-		PROFILE_IMG=?
+		MEMBER_PROFILE=?
 		WHERE MEMBER_NO=?
 	</entry>
 	
