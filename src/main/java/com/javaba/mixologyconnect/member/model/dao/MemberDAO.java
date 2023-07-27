@@ -256,34 +256,29 @@ public class MemberDAO {
 	 * @throws Exception
 	 */
 	public Member selectOne(Connection conn, String memberName, String memberTel) throws Exception {
-		
+
 		Member member = null;
-		
+
 		try {
-			
 			String sql = prop.getProperty("searchId");
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setString(1, memberName);
 			pstmt.setString(2, memberTel);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) { // 조회 결과가 있는 경우
-				
 				member = new Member();
 				member.setMemberId(rs.getString("MEMBER_ID"));
-
 			}
-			
-			
+
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
-		
-		
+
 		return member;
 	}
 
@@ -291,7 +286,7 @@ public class MemberDAO {
 		Member loginMember = null;
 
 		System.out.println(inputPw);
-		
+
 		try {
 			String sql = prop.getProperty("login");
 
