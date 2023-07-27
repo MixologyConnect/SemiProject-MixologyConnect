@@ -1,21 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div id="overlay"></div>
+<div id="overlay">
+    <div id="modal-account">
+        <form action="post">
+            <img src="${contextPath}/resources/images/logo2.svg">
+            <p>Mixology Connect</p>
+            <p>로그인</p>
+            <input type="text">
+            <input type="password">
+            <button>로그인</button>
+        </form>
+    </div>
+</div>
 <div id="account">
     <input id="login" type="checkbox">
     <label for="login">
         <img src="${contextPath}/resources/images/user.png">
         <p>계정</p>
     </label>
-</div>
-<div id="account-modal">
-	<form action="post">
-		<img src="${contextPath}/resources/images/logo2.svg">
-		<p>로그인</p>
-		<input type="text">
-		<input type="password">
-		<button>로그인</button>
-	</form>
 </div>
 <header>
     <div id="title">
