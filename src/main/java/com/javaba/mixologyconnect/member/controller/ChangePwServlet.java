@@ -29,16 +29,18 @@ public class ChangePwServlet extends HttpServlet{
 
 		HttpSession session = req.getSession();
 
-		Member loginMember = (Member)(session.getAttribute("logingMember"));
-		int memberNo = loginMember.getMemberNo();
+
+		Member loginMember =(Member)(session.getAttribute("loginMember"));
+		
+		int memberNO = loginMember.getMemberNo();
 
 		System.out.print(currentPw);
 		System.err.println(newPw);
-		System.out.println(memberNo);
+		System.out.println(memberNO);
 
 		try {
 			MemberService service = new MemberService();
-			int result = service.changePw(currentPw, newPw, memberNo);
+			int result = service.changePw(currentPw, newPw, memberNO);
 
 			if(result > 0) {
 				session.setAttribute("message", "비밀번호 변경 성공");

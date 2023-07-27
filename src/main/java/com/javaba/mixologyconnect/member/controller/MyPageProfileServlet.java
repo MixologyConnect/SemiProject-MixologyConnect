@@ -61,6 +61,7 @@ public class MyPageProfileServlet extends HttpServlet{
 
 			if(result > 0) {
 				session.setAttribute("message", "프로필 사진이 변경되었습니다.");
+				loginMember.setProfileImage(profileImage);
 			}else {
 				session.setAttribute("massage","프로필 사진이 변경에 실패했습니다.");
 			}

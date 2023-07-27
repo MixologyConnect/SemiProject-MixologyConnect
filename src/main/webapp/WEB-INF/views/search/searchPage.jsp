@@ -123,20 +123,48 @@
 									<div class="box_absol"></div>
 							</a></li>
 							<li><a href="#">
-									<div class="box_img">
+								<div class="box_img">
 
-										<img
-											src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/goods/23/03/13/500000326/500000326_detail_083.jpg"
-											style="width: 382px">
-									</div>
-									<div class="txt_box">
-										<p class="name cocktail">서울의 밤</p>
-										<p class="exple_bow"
-											style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
-											짙은 한국형 진</p>
-									</div>
-									<div class="box_absol"></div>
-							</a></li>
+									<img
+										src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/goods/23/03/13/500000326/500000326_detail_083.jpg"
+										style="width: 382px">
+								</div>
+								<div class="txt_box">
+									<p class="name cocktail">서울의 밤</p>
+									<p class="exple_bow"
+										style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
+										짙은 한국형 진</p>
+								</div>
+								<div class="box_absol"></div>
+						</a></li><li><a href="#">
+							<div class="box_img">
+
+								<img
+									src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/goods/23/03/13/500000326/500000326_detail_083.jpg"
+									style="width: 382px">
+							</div>
+							<div class="txt_box">
+								<p class="name cocktail">서울의 밤</p>
+								<p class="exple_bow"
+									style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
+									짙은 한국형 진</p>
+							</div>
+							<div class="box_absol"></div>
+					</a></li><li><a href="#">
+						<div class="box_img">
+
+							<img
+								src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/goods/23/03/13/500000326/500000326_detail_083.jpg"
+								style="width: 382px">
+						</div>
+						<div class="txt_box">
+							<p class="name cocktail">서울의 밤</p>
+							<p class="exple_bow"
+								style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
+								짙은 한국형 진</p>
+						</div>
+						<div class="box_absol"></div>
+				</a></li>
 							
 						</ul>
 
