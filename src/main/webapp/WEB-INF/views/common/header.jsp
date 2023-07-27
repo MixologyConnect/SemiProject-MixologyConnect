@@ -16,8 +16,10 @@
 <div id="account">
     <c:choose>
         <c:when test="${!empty loginMember}">
-            <img class="account-image" src="${contextPath}/resources/images/user1.png">
-            <p class="account-text">마이페이지</p>
+        	<a href="${contextPath}/myPage/myPage">
+	            <img class="account-image" src="${contextPath}/resources/images/user1.png">
+	            <p class="account-text">마이페이지</p>
+            </a>
         </c:when>
         <c:otherwise>
             <input id="login" type="checkbox">
