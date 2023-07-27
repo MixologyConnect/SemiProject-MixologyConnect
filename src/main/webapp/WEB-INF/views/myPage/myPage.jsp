@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>다른사용자 게시글 모아보기</title>
         
+        <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css">
         <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
@@ -16,19 +17,13 @@
 </head>
 <body>
     
-    <header>
-
-
-    </header>
-
-
-    <nav id="mc-nav"></nav>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <main>
 
         <section class="follow">
             <section class="img">
-                <div><img src="../img/user.png"></div>
+                <div><img src="${contextPath}/resources/images/user.png"></div>
                 
             <input type="file" id="chooseFile"accept="image/*"></div>
             </section>
@@ -46,7 +41,7 @@
            <span><a href="#">알림</a></span>  
            <span id="alarm"><a href="#">글쓰기</a></span>   -->
            <p class="thead"><a href="#">작성글</a></p>  
-           <p><a href="#">북마크</a></p>  
+           <p><a href="${contextPath}/myPage/bookMark">북마크</a></p>  
            <p>
             <li id="myAlarm">
             <a href="#">알림 <i class="fa-solid fa-bell"></i></a>
@@ -149,10 +144,10 @@
     </main>
 
 
-    <div id="mc-footer"></div>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
 
-    <script src="resources/js/myPage.js"></script>
+    <script src="${contextPath}/resources/js/LoginMyPage.js"></script>
     
     
 </body>

@@ -24,7 +24,7 @@
                                 </c:if>
 
                                 <span>${reply.memberName}</span>
-                                <span class="reply-date">(${reply.replyDate})</span>
+                                <span class="reply-date">${reply.replyDate}</span>
                             </p>
 
                             <p class="reply-content">${reply.replyContent}</p>
@@ -45,7 +45,7 @@
             <!-- 댓글 작성 부분 -->
             <div class="reply-writer-area">
                 <textarea id="replyContent"></textarea>
-                <button id="addBtn">
+                <button id="addBtn" type="button">
                     댓글 등록
                 </button>
             </div>

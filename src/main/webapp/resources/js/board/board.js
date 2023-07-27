@@ -3,14 +3,14 @@
 (function(){
     const goToBtn = document.getElementById("goToBtn");
 
-    if(goToBtn != null) {
+    if(goToBtn != "") {
         
         goToBtn.addEventListener("click", function(){
 
             const pathname = location.pathname; 
 
             let url = pathname.substring(0, pathname.indexOf("/", 1));
-            url += "/board/All?"
+            url += "/board/boardAll?"
 
             const params = new URL(location.href).searchParams;
 
