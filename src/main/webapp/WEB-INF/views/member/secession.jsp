@@ -16,6 +16,18 @@
 
    <!-- 전체 컨테이너 -->
     <div class="container">
+        <section class="left-side">
+            <p>마이페이지 </p>
+    
+            <ul  class="list-group">
+               
+                <li> <a href="${contextPath}/member/myPage/profile">프로필 수정</a></li>
+                <li> <a href="${contextPath}/member/myPage/info">내 정보 수정</a></li>
+                <li> <a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
+                
+            </ul>
+    
+        </section>
         <!-- width 65%먹는 컨테이너 -->
         <div class="secon-container">
             <center><b>회원탈퇴</b></center>
