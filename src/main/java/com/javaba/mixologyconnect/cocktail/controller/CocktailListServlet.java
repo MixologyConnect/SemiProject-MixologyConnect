@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.javaba.mixologyconnect.cocktail.model.service.CocktailService;
 import com.javaba.mixologyconnect.cocktail.model.vo.Cocktail;
 
-import edu.kh.community.board.model.vo.Board;
-
 @WebServlet("/cocktail/cocktailList")
 public class CocktailListServlet extends HttpServlet {
 
@@ -23,7 +21,7 @@ public class CocktailListServlet extends HttpServlet {
 
 		try {
 			CocktailService service = new CocktailService();
-			List<Cocktail> cocktails = service.selectCocktailList();
+//			List<Cocktail> cocktails = service.selectCocktailList();
 			req.getRequestDispatcher("/WEB-INF/views/cocktail/cocktailList.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();

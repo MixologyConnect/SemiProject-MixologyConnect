@@ -15,7 +15,7 @@ public class MyRenamePolicy implements FileRenamePolicy{
 	
 		SimpleDateFormat ft = new SimpleDateFormat("yyyyMMddHHmmss");
 
-		int ranNum = (int) (Math.random() * 100000); 
+		int ranNum = (int) (Math.random() * 100000);
 						
 		String str = "_" + String.format("%05d", ranNum);
 		String name = originalFile.getName();
