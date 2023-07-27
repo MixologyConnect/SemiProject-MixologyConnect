@@ -15,6 +15,7 @@
 		  FROM MEMBER
 		 WHERE MEMBER_ID = ?
 		   AND MEMBER_PW = ?
+		   AND SECESSION_FL = 'N'
 	</entry>
 
 	<!-- 아이디 중복검사 -->
