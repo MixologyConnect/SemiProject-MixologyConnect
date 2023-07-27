@@ -153,6 +153,11 @@ public class MemberDAO {
 			pstmt.setString(2, mem.getMemberTel() );
 			pstmt.setString(3, mem.getMemberAddress());
 			pstmt.setInt(   4, mem.getMemberNo());
+			
+			System.out.println(mem.getMemberName());
+			System.out.println(mem.getMemberTel());
+			System.out.println(mem.getMemberAddress());
+			System.out.println(mem.getMemberNo());
 
 			result = pstmt.executeUpdate();
 
