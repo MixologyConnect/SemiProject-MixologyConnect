@@ -20,12 +20,11 @@
 	<entry key="selectBoardList">
 		SELECT * FROM(
 		SELECT ROWNUM RNUM, A. * FROM(
-		SELECT BOARD_NO, BOARD_TITLE,
+		SELECT BOARD_NO, BOARD_TITLE,BOARD_CONTENT,
 		MEMBER_NM,
 		TO_CHAR(BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT,
 		READ_COUNT
-		FROM
-		BOARD
+		FROM BOARD
 		JOIN MEMBER USING(MEMBER_NO)
 		WHERE BOARD_CD = ?
 		AND BOARD_ST = 'Y'
@@ -33,6 +32,7 @@
 		)A
 		)
 		WHERE RNUM BETWEEN ? AND ?
+  
 	</entry>
 
 	<!-- 게시글 상세 조회  -->
@@ -52,4 +52,6 @@
 	SELECT * FROM BOARD_IMG
 	WHERE BOARD_NO = ?
 	</entry>
+	
+	
 </properties>
