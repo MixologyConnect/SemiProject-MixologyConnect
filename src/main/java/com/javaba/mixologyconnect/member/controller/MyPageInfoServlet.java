@@ -44,6 +44,7 @@ public class MyPageInfoServlet extends HttpServlet{
 		int memberNO = loginMember.getMemberNo();
 		
 		Member mem = new Member();
+		mem.setMemberNo(memberNO);
 		mem.setMemberName(memberName);
 		mem.setMemberTel(memberTel);
 		mem.setMemberAddress(memberAddress);
@@ -56,6 +57,7 @@ public class MyPageInfoServlet extends HttpServlet{
 			if(result > 0) {
 				session.setAttribute("message", "회원정보가 수정되었습니다.");
 				
+				loginMember.setMemberNo(memberNO);
 				loginMember.setMemberName(memberName);
 				loginMember.setMemberTel(memberTel);
 				loginMember.setMemberAddress(memberAddress);

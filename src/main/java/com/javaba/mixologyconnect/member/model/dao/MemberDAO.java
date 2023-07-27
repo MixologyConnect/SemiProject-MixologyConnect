@@ -153,6 +153,11 @@ public class MemberDAO {
 			pstmt.setString(2, mem.getMemberTel() );
 			pstmt.setString(3, mem.getMemberAddress());
 			pstmt.setInt(   4, mem.getMemberNo());
+			
+			System.out.println(mem.getMemberName());
+			System.out.println(mem.getMemberTel());
+			System.out.println(mem.getMemberAddress());
+			System.out.println(mem.getMemberNo());
 
 			result = pstmt.executeUpdate();
 
@@ -309,6 +314,8 @@ public class MemberDAO {
 				loginMember.setMemberName(rs.getString("MEMBER_NM"));
 				loginMember.setMemberAddress(rs.getString("MEMBER_ADDR"));
 				loginMember.setMemberEmail(rs.getString("MEMBER_EMAIL"));
+				loginMember.setProfileImage(rs.getString("MEMBER_PROFILE"));
+				loginMember.setManagerCode(rs.getString("MANAGER_CODE"));
 			}
 		} finally {
 			close(rs);

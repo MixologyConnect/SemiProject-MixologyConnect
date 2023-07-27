@@ -60,6 +60,10 @@
                     <button type="submit">변경하기</button>
                 </div>
 
+                <div class="myPage-row">
+                    <label>아이디</label>
+                    <span>${loginMember.memberId}</span>
+                </div>
 
 
                 <div class="myPage-row">
@@ -67,10 +71,7 @@
                     <span>${loginMember.memberEmail}</span>
                 </div>
 
-                <div class="myPage-row">
-                    <label>가입일</label>
-                    <span>${loginMember.enrollDate}</span>
-                </div>         
+                    
             
                 <!-- 삭제 버튼이 눌러짐을 기록하는 숨겨진 input태그 -->
                 <!-- 0: 안눌러짐 / 1: 눌러짐 -->
@@ -82,7 +83,7 @@
     </div>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-
+    <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
     <!-- ----------------------------------------------------------------------------- -->
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>	<!-- 다음 우편번호 api -->
     <script>
