@@ -35,7 +35,7 @@
 					<button id="Following" name="Following">팔로잉</button>
 					<button id="notice" name="notice">공지</button>
 					<div class="right">
-						<button id="new" name="new"><a href="${contextPath}/board/boardAll?type=1">최신순</a></button>
+						<button id="new" name="new"><a href="#">최신순</a></button>
 						<button id="top" name="top">인기순</button>
 					</div>
 				</div>
@@ -53,18 +53,20 @@
 						<section class="fir">
 							<div class="left">
 								<div class="board">
-									<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">${board.boardTitle}</a>
+									<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3>${board.boardTitle}</h3>
 								</div>
-								<div>삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬
-									삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬</div>
-								<div>
-									<span>@khacademy</span> <span>${board.boardDate}</span> <span>${board.readCount}</span>
+								<div>${board.boardContent}</div>
+								<div class="nameDateCount">
+									<span>${board.memberName}</span> <span>${board.boardDate}</span> <span>조회수 : ${board.readCount}</span>
 								</div>
 							</div>
 							<div class="img">
-								<img
-									src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MDVfMjMw%2FMDAxNjg1OTc0MTQ3NDU0.WnCvTZeQNkQ4X0TFe78tSCTbTB3r8NKmTyNITw0Ctfog.B_vuAbe-oIH6AJw0b6coC3X7niIdfeFsfp0LEtlyVDsg.JPEG.ls2924%2FIMG_0536.jpg&type=sc960_832">
+								<c:if test = "empty${board.thumbnail}">
+									<img src="${contextPath}/resources/images/heart.svg">
+								</c:if>
+								<img src="${contextPath}${board.thumbnail}">
 							</div>
+						</a>
 						</section>
 
 					</c:forEach>
@@ -73,10 +75,15 @@
 
 				</c:choose>
 
+				<div class="btn-area">
+					<c:if test = "${!empty loginMember}">
+					<button id="insertBtn" onclick="location.href = 'boardWrite?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</button>
+				</c:if>
+				</div>
+
+
 				<div class="pagination-area">
-					<c:set var="url" value="boardAll?type=${param.type}&cp=" />
-
-
+					<c:set var="url" value="boardAll?type=${param.type}&cp="/>
 
 					<ul class="pagination">
 						<!-- 첫 페이지로 이동 -->

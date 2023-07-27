@@ -147,6 +147,11 @@ background-color: white;
   background-color: white;
   }
   
+  
+.fir {
+  width: 1280px;
+}
+
 
 .fir a {
   text-decoration: none;
@@ -155,6 +160,10 @@ background-color: white;
 .img img {
   width: 200px; 
   height: 200px;
+}
+
+.nameDateCount{
+  margin-top: 65px;
 }
 
 
