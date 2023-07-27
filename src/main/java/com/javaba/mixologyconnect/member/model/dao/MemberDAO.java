@@ -253,7 +253,8 @@ public class MemberDAO {
 		return result;
 	}
 	
-	/**@author 이미래
+	/** 아이디 찾기
+	 * @author 이미래
 	 * @param conn
 	 * @param memberName
 	 * @param memberTel
@@ -278,10 +279,7 @@ public class MemberDAO {
 			if(rs.next()) { // 조회 결과가 있는 경우
 				
 				member = new Member();
-				
-				member.setMemberName(rs.getString("MEMBER_NM"));
-				member.setMemberEmail(rs.getString("MEMBER_EMAIL"));
-				
+				member.setMemberId(rs.getString("MEMBER_ID"));
 
 			}
 			

@@ -11,22 +11,18 @@
 </head>
 <body>
     <h3>아이디 찾기</h>
-
     <div class="searchId-div" >
         <c:choose>
             <c:when test="${!empty member}">
-                <div class="cont">
+                <div class="resultId">
                     <div class="found-success">
-                        <div>${member.memberName}</div>님의 아이디는
-                        <div>${member.memberEmail}</div>입니다.
-                        
+                        <span>${member.memberName}</span>님의 아이디는<br><br>
+                        <span>${member.memberId}</span>입니다.
                     </div>
                 </div>
-
             </c:when>
-
             <c:otherwise>
-                <div class="cont">
+                <div class="resultId">
                     <div class="found-fail">
                         <div>등록된 정보가 없습니다.</div>
                     </div>
@@ -34,33 +30,14 @@
             </c:otherwise>
         </c:choose>
 
+        <div class="searchId2">
+            <button type="button"  id="searchPwBtn">비밀번호 찾기</button> 
 
-
-        <div class="searchId2-1">
-     
-            <button  id="btn">비밀번호 찾기</button> 
-    
-            <button  id="btn">로그인 하기</button>
+            <button type="button" id="loginBtn">로그인 하기</button>
         </div>
-
-
-
-        
     </div>
-
-
-   
-    
-
-
-   
-
-   
-
-
-
-
-    <script src="${contextPath}/resources/js/searchId.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="${contextPath}/resources/js/searchId-result.js"></script>
     
 </body>
 </html>

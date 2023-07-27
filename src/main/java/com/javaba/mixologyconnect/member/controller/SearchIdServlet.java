@@ -22,7 +22,6 @@ public class SearchIdServlet extends HttpServlet{
 
 		try {
 			String path ="/WEB-INF/views/member/searchId.jsp";
-			
 			req.getRequestDispatcher(path).forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -38,20 +37,20 @@ public class SearchIdServlet extends HttpServlet{
 		// 파라미터 얻어오기
 		String memberName = req.getParameter("memberName");
 		String memberTel = req.getParameter("memberTel");
-		
 
 		try {
 			
 			MemberService service = new MemberService();
 			
 			Member member   = service.searchId(memberName, memberTel);
-			
-			new Gson().toJson(member, resp.getWriter());
-			
-			
+			member.setMemberName(memberName);
+			member.setMemberTel(memberTel);
+			req.setAttribute("member", member);
+
 			String path ="/WEB-INF/views/member/searchId-result.jsp";
 			
 			req.getRequestDispatcher(path).forward(req, resp);
+	
 
 			
 		}catch (Exception e) {
