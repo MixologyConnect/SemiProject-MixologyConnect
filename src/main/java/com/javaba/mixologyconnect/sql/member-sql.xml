@@ -30,6 +30,7 @@
 		FROM MEMBER
 		WHERE MEMBER_NM =?
 		AND MEMBER_TEL=?
+		AND SECESSION_FL ='N'
 	</entry>
 	
 	<!-- 회원정보 수정 -->

@@ -49,10 +49,10 @@ public class SearchIdServlet extends HttpServlet{
 			new Gson().toJson(member, resp.getWriter());
 			
 			
-			
 			String path ="/WEB-INF/views/member/searchId-result.jsp";
 			
 			req.getRequestDispatcher(path).forward(req, resp);
+
 			
 		}catch (Exception e) {
 			e.printStackTrace();

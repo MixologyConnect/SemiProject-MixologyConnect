@@ -30,6 +30,7 @@ public class BoardService {
 		
 		// 게시글 제목
 		String boardTitle = dao.boardTitle(conn, type);
+		
 
 		int listCount = dao.getListCount(conn, type);
 
