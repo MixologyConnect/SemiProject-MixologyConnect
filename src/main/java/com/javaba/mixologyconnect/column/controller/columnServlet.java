@@ -1,4 +1,4 @@
-package com.javaba.mixologyconnect.column;
+package com.javaba.mixologyconnect.column.controller;
 
 import java.io.IOException;
 
@@ -16,6 +16,8 @@ public class columnServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			String path = "/WEB-INF/views/column/column.jsp";
+			
+			int type = Integer.parseInt(req.getParameter("type"));
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
 			dispatcher.forward(req, resp);
 		} catch (Exception e) {
