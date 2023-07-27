@@ -44,10 +44,10 @@ form[name="searchId-form"]{
 }
 
 
-
-#btn{
+form > button{
     width: 150px;
     height: 40px;
+
     background-color: rgb(158, 235, 240);
     color: white;
     cursor: pointer;
@@ -64,9 +64,13 @@ form[name="searchId-form"]{
 
     border-top: 1px solid gray;
 }
-.searchId2 > #btn{
-    
+.searchId2 > button{
+    width: 150px;
+    height: 40px;
     margin: 0 10px;
+    background-color: rgb(158, 235, 240);
+    color: white;
+    cursor: pointer;
 }
 
 /* 아이디 찾기 결과 css */

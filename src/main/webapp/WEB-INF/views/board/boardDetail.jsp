@@ -113,10 +113,18 @@
 										onclick="likeBtnClick()">
 								</button>
 							</div>
-							<div class="alterBtn">
+							<div class="alterBtn">	
+								<c:if test="${loginMember.memberNo == detail.memberNo}">
+									<c:if test="${empty param.cp}">
+										<c:set var="cp" value="1">
+									</c:if>
+									<c:if test="${!empty param.currentPage}">
+										<c:set var="cp" value="${param.cp}">
+									</c:if>
+									<button id="updateBtn">수정</button>
+									<button id="deleteBtn">삭제</button>
+								</c:if>
 								<button id="goToBtn">목록으로</button>
-								<button id="updateBtn">수정</button>
-								<button id="deleteBtn">삭제</button>
 							</div>
 
 							<jsp:include page="/WEB-INF/views/board/reply.jsp" />

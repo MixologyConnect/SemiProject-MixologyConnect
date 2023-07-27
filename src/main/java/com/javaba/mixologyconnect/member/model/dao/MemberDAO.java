@@ -21,18 +21,12 @@ public class MemberDAO {
 
 	private Properties prop;
 
-	// 기본 생성자
 	public MemberDAO() {
-
 		try {
-
 			prop = new Properties();
-
 			String filePath =  MemberDAO.class.getResource("/com/javaba/mixologyconnect/sql/member-sql.xml").getPath(); 
-
 			prop.loadFromXML(new FileInputStream(filePath));
-
-		}catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -159,6 +153,11 @@ public class MemberDAO {
 			pstmt.setString(2, mem.getMemberTel() );
 			pstmt.setString(3, mem.getMemberAddress());
 			pstmt.setInt(   4, mem.getMemberNo());
+			
+			System.out.println(mem.getMemberName());
+			System.out.println(mem.getMemberTel());
+			System.out.println(mem.getMemberAddress());
+			System.out.println(mem.getMemberNo());
 
 			result = pstmt.executeUpdate();
 
@@ -253,7 +252,8 @@ public class MemberDAO {
 		return result;
 	}
 	
-	/**@author 이미래
+	/** 아이디 찾기
+	 * @author 이미래
 	 * @param conn
 	 * @param memberName
 	 * @param memberTel
@@ -278,10 +278,7 @@ public class MemberDAO {
 			if(rs.next()) { // 조회 결과가 있는 경우
 				
 				member = new Member();
-				
-				member.setMemberName(rs.getString("MEMBER_NM"));
-				member.setMemberEmail(rs.getString("MEMBER_EMAIL"));
-				
+				member.setMemberId(rs.getString("MEMBER_ID"));
 
 			}
 			
@@ -295,7 +292,35 @@ public class MemberDAO {
 		return member;
 	}
 
+	public Member login(Connection conn, String inputId, String inputPw) throws Exception {
+		Member loginMember = null;
 
+		System.out.println(inputPw);
+		
+		try {
+			String sql = prop.getProperty("login");
 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, inputId);
+			pstmt.setString(2, inputPw);
+			rs = pstmt.executeQuery();
+
+			if(rs.next()) {
+				loginMember = new Member();
+				loginMember.setMemberNo(rs.getInt("MEMBER_NO"));
+				loginMember.setMemberId(rs.getString("MEMBER_ID"));
+				loginMember.setMemberPw(rs.getString("MEMBER_NM"));
+				loginMember.setMemberTel(rs.getString("MEMBER_TEL"));
+				loginMember.setMemberName(rs.getString("MEMBER_NM"));
+				loginMember.setMemberAddress(rs.getString("MEMBER_ADDR"));
+				loginMember.setMemberEmail(rs.getString("MEMBER_EMAIL"));
+			}
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return loginMember;
+	}
 
 }

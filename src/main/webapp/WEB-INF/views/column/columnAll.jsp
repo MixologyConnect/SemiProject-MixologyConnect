@@ -51,120 +51,92 @@ columnAll.jsp
             <button id="searchBtn">검색</button>
         </div>
 
-        <!-- 칼럼 영역 -->
-        <div class="content">
-            <div class="a">
-                <!-- 칼럼 사진 div -->
-                <div>
-                    <!-- 칼럼 사진 -->
-                    <a href="${contextPath}/column/column">
-                        <img src="/report/images/test.png" id="test2">
-                    </a>
+             <!-- 컨텐츠 시작 -->
+        <div class="list">
+            <ul class="list-content">
+                <div class="">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
+                                </div>
+                                <div class="title">
+                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
+                                    <p style="margin-bottom: 10px;">운영진</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
+                                </div>
+                                <div class="title">
+                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
+                                    <p style="margin-bottom: 10px;">운영진</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
+                                </div>
+                                <div class="title">
+                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
+                                    <p style="margin-bottom: 10px;">운영진</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
+                                </div>
+                                <div class="title">
+                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
+                                    <p style="margin-bottom: 10px;">운영진</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
+                                </div>
+                                <div class="title">
+                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
+                                    <p style="margin-bottom: 10px;">운영진</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
+                                </div>
+                                <div class="title">
+                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
+                                    <p style="margin-bottom: 10px;">운영진</p>
+                                </div>
+                            </a>
+                        </li>
+                     
+                    </ul>
                 </div>
-                <!-- 칼럼 제목 -->
-                <div>
-                    <p id="colName">칵테일에 이런일이?</p>
-                    <p id="colPreview">운영진</p>
-                
-                </div>
-            </div>
-            <div class="a">
-                <!-- 칼럼 사진 div -->
-                <div>
-                    <!-- 칼럼 사진 -->
-                    <a href="${contextPath}/column/column">
-                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99654D335A07F4DA1E" id="test2">
-                    </a>
-                </div>
-                <!-- 칼럼 제목 -->
-                <div>
-                    <p id="colName">칵테일이란?</p>
-                    <p id="colPreview">운영진</p>
-                
-                </div>
-            </div>
-            <div class="a">
-                <!-- 칼럼 사진 div -->
-                <div>
-                    <!-- 칼럼 사진 -->
-                    <a href="">
-                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99D04A335A07F4352E" id="test2">
-                    </a>
-                </div>
-                <!-- 칼럼 제목 -->
-                <div>
-                    <p id="colName">칵테일이란?</p>
-                    <p id="colPreview">운영진</p>
-                
-                </div>
-            </div>
+            </ul>
+        </div>
+
+
+        <ul class="pagination">
+            <li><button id="pageCon1"><a href=""><</a></button></li>
+            <li><button id="pageCon1"><a href="">1</a></button></li>
+            <li><button id="pageCon1"><a href="">2</a></button></li>
+            <li><button id="pageCon1"><a href="">3</a></button></li>
+            <li><button id="pageCon1"><a href="">></a></button></li>
+        </ul>
             
-        </div>
-
-        <!-- 칼럼 영역 사이 빈칸 -->
-        <div id="null"></div>
-        
-
-
-        <!-- 칼럼 영역(두번째 줄) -->
-         <div class="content">
-            <div class="a">
-                <!-- 칼럼 사진 div -->
-                <div>
-                    <!-- 칼럼 사진 -->
-                    <a href="">
-                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" id="test2">
-                    </a>
-                </div>
-                <!-- 칼럼 제목 -->
-                <div>
-                    <p id="colName">칵테일이란?</p>
-                    <p id="colPreview">운영진</p>
-                
-                </div>
-            </div>
-            <div class="a">
-                <!-- 칼럼 사진 div -->
-                <div>
-                    <!-- 칼럼 사진 -->
-                    <a href="">
-                        <img src="https://i.ibb.co/9ZDf4Jk/logo.png" id="test2">
-                    </a>
-                </div>
-                <!-- 칼럼 제목 -->
-                <div>
-                    <p id="colName">칵테일이란?</p>
-                    <p id="colPreview">운영진</p>
-                
-                </div>
-            </div>
-            <div class="a">
-                <!-- 칼럼 사진 div -->
-                <div>
-                    <!-- 칼럼 사진 -->
-                    <a href="">
-                        <img src="https://i.ibb.co/9ZDf4Jk/logo.png" id="test2">
-                    </a>
-                </div>
-                <!-- 칼럼 제목 -->
-                <div>
-                    <p id="colName">칵테일이란?</p>
-                    <p id="colPreview">운영진</p>
-                
-                </div>
-            </div>
-            
-        </div>
-
-        <!-- 페이지 넘기기 -->
-        <div class="select">
-            <div><button id="pageCon1"><</button></div>
-            <div><button id="pageCon2">1</button></div>
-            <div><button id="pageCon2">2</button></div>
-            <div><button id="pageCon2">3</button></div>
-            <div><button id="pageCon1">></button></div>
-        </div>
-
     </div>
     
 </div>
