@@ -325,8 +325,12 @@ input[type=range] {
     padding: 10px 0;
 }
 
+/* 칵테일 결과 사진 */
 .cocktail img{
     border-radius: 10px;
+    width: 300px; 
+    height: 350px;
+
 }
 .cocktail > div:nth-child(3){
     font-size: 17px;
