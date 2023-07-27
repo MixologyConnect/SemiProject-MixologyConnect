@@ -51,7 +51,7 @@ $('nav > a').hover(function() {
     $('nav').css('borderColor', 'lightgray');
 });
 
-$('#login').change(function() {
+$('#account-cbox').change(function() {
     if ($(this).prop('checked')) {
         preventScroll(true);
         $('#overlay').css({'pointer-events': 'auto',
