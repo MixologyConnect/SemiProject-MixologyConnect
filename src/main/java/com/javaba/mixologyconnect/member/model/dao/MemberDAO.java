@@ -219,7 +219,7 @@ public class MemberDAO {
 			
 		} finally {
 
-			close(conn);
+			close(pstmt);
 		}
 		
 		return result;

@@ -135,7 +135,7 @@ public class MemberService {
 
 		Connection conn = getConnection();
 		
-		int result = dao.secession(conn,memberNo, memberPw);
+		int result = dao.secession(conn, memberNo, memberPw);
 		
 		if(result> 0)conn.commit();
 		else conn.rollback();
