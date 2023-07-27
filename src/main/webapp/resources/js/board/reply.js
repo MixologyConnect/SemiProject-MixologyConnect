@@ -68,12 +68,12 @@ function selectReplyList() {
 // 댓글 등록
 
 const addBtn = document.getElementById("addBtn");
-replyContent = document.getElementById("reply-Content")
+replyContent = document.getElementById("replyContent")
 
 
 addBtn.addEventListener("click", function () {
 
-    if (loginMemberNo == null) {
+    if (loginMemberNo == "") {
         alert("로그인 후 이용해주세요.")
         return;
     }
