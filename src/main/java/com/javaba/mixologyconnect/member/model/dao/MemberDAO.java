@@ -309,6 +309,8 @@ public class MemberDAO {
 				loginMember.setMemberName(rs.getString("MEMBER_NM"));
 				loginMember.setMemberAddress(rs.getString("MEMBER_ADDR"));
 				loginMember.setMemberEmail(rs.getString("MEMBER_EMAIL"));
+				loginMember.setProfileImage(rs.getString("MEMBER_PROFILE"));
+				loginMember.setManagerCode(rs.getString("MANAGER_CODE"));
 			}
 		} finally {
 			close(rs);
