@@ -8,7 +8,6 @@ import java.util.Base64;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
-
 public class EncryptWrapper extends HttpServletRequestWrapper {
 
 	// HttpServletReqestWrapper 
@@ -22,7 +21,7 @@ public class EncryptWrapper extends HttpServletRequestWrapper {
 		super(request);
 	}
 
-	// getPararameter() 오버라이딩
+	// getParameter() 오버라이딩
 	@Override
 	public String getParameter(String name) {
 		// 매개변수 name : input 태그의 name 속성값
@@ -53,7 +52,6 @@ public class EncryptWrapper extends HttpServletRequestWrapper {
 	
 	private String getSha512(String pw) {
 		//매개변수 pw : 암호화 되기 전 비밀번호
-		
 		String encryptPw = null; //암호화된 비밀번호를 저장할 변수
 		
 		// 1. 해시함수를 수행할 객체를 참조할 변수 선언
