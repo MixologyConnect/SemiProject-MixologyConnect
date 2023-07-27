@@ -9,7 +9,15 @@
 		VALUES(SEQ_MEMBER_NO.NEXTVAL,?,?,?,?,?,
      		?, DEFAULT, DEFAULT, DEFAULT)
 	</entry>
-	
+
+	<entry key="login">
+		SELECT *
+		  FROM MEMBER
+		 WHERE MEMBER_ID = ?
+		   AND MEMBER_PW = ?
+		   AND SECESSION_FL = 'N'
+	</entry>
+
 	<!-- 아이디 중복검사 -->
 	<entry key="idDupCheck">
 	SELECT COUNT(*) FROM MEMBER
@@ -22,13 +30,14 @@
 		SELECT MEMBER_ID
 		FROM MEMBER
 		WHERE MEMBER_NM =?
-		AND MEMBER_TEL=?
+		  AND MEMBER_TEL = ?
+		AND SECESSION_FL ='N'
 	</entry>
 	
 	<!-- 회원정보 수정 -->
 	<entry key="updateMember">
-		PDATE MEMBER
-		SET MEMBER_Name=?,
+		UPDATE MEMBER
+		SET MEMBER_NM=?,
 		MEMBER_TEL=?,
 		MEMBER_ADDR=?
 		WHERE MEMBER_NO=?
@@ -53,7 +62,7 @@
 	<!-- 회원 프로필변경  -->
 	<entry key="updateProfileImage">
 		UPDATE MEMBER SET
-		PROFILE_IMG=?
+		MEMBER_PROFILE=?
 		WHERE MEMBER_NO=?
 	</entry>
 	

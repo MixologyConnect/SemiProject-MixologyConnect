@@ -116,20 +116,22 @@
 							<div class="alterBtn">	
 								<c:if test="${loginMember.memberNo == detail.memberNo}">
 									<c:if test="${empty param.cp}">
-										<c:set var="cp" value="1">
+										<c:set var="cp" value="1"></c:set>
 									</c:if>
+
 									<c:if test="${!empty param.currentPage}">
-										<c:set var="cp" value="${param.cp}">
+										<c:set var="cp" value="${param.cp}"></c:set>
 									</c:if>
+
 									<button id="updateBtn">수정</button>
 									<button id="deleteBtn">삭제</button>
 								</c:if>
-								<button id="goToBtn">목록으로</button>
+								<button id="goToBtn" type="button">목록으로</button>
 							</div>
 
-							<jsp:include page="/WEB-INF/views/board/reply.jsp" />
+							<jsp:include page="/WEB-INF/views/board/reply.jsp"/>
 
-							<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+							<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
 							<script src="https://code.jquery.com/jquery-3.7.0.min.js"
 								integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
@@ -143,7 +145,7 @@
 
 								const boardNo = "${detail.boardNo}";
 
-								const loginMemberNo = "${loginMember.memberNO}";
+								const loginMemberNo = "${loginMember.memberNo}";
 
 							</script>
 
