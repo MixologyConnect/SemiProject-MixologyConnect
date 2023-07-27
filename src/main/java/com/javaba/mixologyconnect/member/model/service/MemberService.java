@@ -34,7 +34,13 @@ public class MemberService {
 		return result;
 	}
 
-
+	public Member login(String inputId, String inputPw) throws Exception {
+		Connection conn = getConnection();
+		System.out.println(inputPw);
+		Member loginMember = dao.login(conn, inputId, inputPw);		
+		close(conn);
+		return loginMember;
+	}
 
 	/**
 	 * 아이디 중복 검사
@@ -157,10 +163,6 @@ public class MemberService {
 		close(conn);
 
 		return result;
-	}
-
-
-
-		
+	}		
 	
 }

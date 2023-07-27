@@ -21,18 +21,12 @@ public class MemberDAO {
 
 	private Properties prop;
 
-	// 기본 생성자
 	public MemberDAO() {
-
 		try {
-
 			prop = new Properties();
-
 			String filePath =  MemberDAO.class.getResource("/com/javaba/mixologyconnect/sql/member-sql.xml").getPath(); 
-
 			prop.loadFromXML(new FileInputStream(filePath));
-
-		}catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -295,7 +289,35 @@ public class MemberDAO {
 		return member;
 	}
 
+	public Member login(Connection conn, String inputId, String inputPw) throws Exception {
+		Member loginMember = null;
 
+		System.out.println(inputPw);
+		
+		try {
+			String sql = prop.getProperty("login");
 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, inputId);
+			pstmt.setString(2, inputPw);
+			rs = pstmt.executeQuery();
+
+			if(rs.next()) {
+				loginMember = new Member();
+				loginMember.setMemberNo(rs.getInt("MEMBER_NO"));
+				loginMember.setMemberId(rs.getString("MEMBER_ID"));
+				loginMember.setMemberPw(rs.getString("MEMBER_NM"));
+				loginMember.setMemberTel(rs.getString("MEMBER_TEL"));
+				loginMember.setMemberName(rs.getString("MEMBER_NM"));
+				loginMember.setMemberAddress(rs.getString("MEMBER_ADDR"));
+				loginMember.setMemberEmail(rs.getString("MEMBER_EMAIL"));
+			}
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return loginMember;
+	}
 
 }
