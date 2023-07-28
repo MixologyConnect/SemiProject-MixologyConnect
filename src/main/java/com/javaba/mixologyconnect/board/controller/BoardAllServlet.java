@@ -16,7 +16,7 @@ import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import lombok.Builder;
 
 @WebServlet("/board/boardAll")
-public class boardAllServlet extends HttpServlet {
+public class BoardAllServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
