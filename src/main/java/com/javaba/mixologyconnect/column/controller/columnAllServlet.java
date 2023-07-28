@@ -25,7 +25,7 @@ public class columnAllServlet extends HttpServlet{
 			
 			int cp =1;
 			
-			if(req.getParameter("cp") != null) { // 쿼리스트링에 "cp"가 존재한다면
+			if(req.getParameter("cp") != null) {
 				cp = Integer.parseInt(req.getParameter("cp"));
 			}
 			
@@ -35,10 +35,10 @@ public class columnAllServlet extends HttpServlet{
 			// 게시판 이름, 페이지네이션 객체, 게시글 리스트를 한번에 반환하는 Service 호출
 			Map<String, Object> map = service.selectColumnAll(type, cp);
 			
-			req.setAttribute("map", map);
 			
 			System.out.println(map);
 			
+			req.setAttribute("map", map);
 			
 			String path = "/WEB-INF/views/column/columnAll.jsp";
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);

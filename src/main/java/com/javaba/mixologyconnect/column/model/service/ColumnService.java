@@ -3,6 +3,7 @@ package com.javaba.mixologyconnect.column.model.service;
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
 import java.sql.Connection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,13 +38,17 @@ public class ColumnService {
 		Pagination pagination = new Pagination(cp, listCount);
 		
 		// 게시글 목록 조회
-		List<Board> boardList = dao.selectBoardList(conn, pagination, type);
+		List<Board> columnList = dao.selectColumnList(conn, pagination, type);
 		
+		Map<String, Object> map = new HashMap<String, Object>();
 		
+		map.put("boardTitle", boardTitle);
+		map.put("pagination", pagination);
+		map.put("columnList", columnList);
 		
+		close(conn);
 		
-		
-		return null;
+		return map;
 	}
 
 }
