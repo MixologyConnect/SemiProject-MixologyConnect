@@ -19,18 +19,22 @@ public class SearchService {
 	 * @return Map
 	 * @throws Exception
 	 */
-	public Map<String, Object> searchAllList(String query) throws Exception{
+	public Map<String, Object> searchAllList(String keyWord) throws Exception{
 		
 		Connection conn = getConnection();
 		// 1. 칵테일 검색
-		List<Cocktail> cocktailList = dao.selectCocktailList(conn,query);
+		List<Cocktail> cocktailList = dao.selectCocktailList(conn,keyWord);
 		
+
 		// 2. 커뮤니티 검색
 	
 		// 3. 컬럼검색
 		
+		
 		Map<String, Object> map = new HashMap<>();
 		map.put("cocktailList", cocktailList);
+		
+		close(conn);
 		return map;
 		
 	}

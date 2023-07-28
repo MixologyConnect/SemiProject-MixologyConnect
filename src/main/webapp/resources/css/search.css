@@ -142,7 +142,7 @@ a{text-decoration: none; color: inherit;}
 }
 .list_prd ul li .txt_box{
     margin-top: 25px;
-    min-height: 130px;
+    min-height: 50px;
 }
 
 /* 칵테일 이름 */
