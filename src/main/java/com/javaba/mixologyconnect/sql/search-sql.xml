@@ -2,4 +2,12 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>search-sql.xml</comment>
+
+	<entry key="selectCocktailList">
+		
+	</entry>
+
+
+
+
 </properties>

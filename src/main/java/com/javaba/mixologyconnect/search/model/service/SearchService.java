@@ -2,8 +2,11 @@ package com.javaba.mixologyconnect.search.model.service;
 
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 import java.sql.Connection;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import com.javaba.mixologyconnect.cocktail.model.vo.Cocktail;
 import com.javaba.mixologyconnect.search.model.dao.SearchDAO;
 
 public class SearchService {
@@ -19,9 +22,18 @@ public class SearchService {
 	public Map<String, Object> searchAllList(String query) throws Exception{
 		
 		Connection conn = getConnection();
+		// 1. 칵테일 검색
+		List<Cocktail> cocktailList = dao.selectCocktailList(conn,query);
 		
+
+		// 2. 커뮤니티 검색
+	
+		// 3. 컬럼검색
 		
-		return null;
+		Map<String, Object> map = new HashMap<>();
+		map.put("cocktailList", cocktailList);
+		return map;
+		
 	}
 
 }
