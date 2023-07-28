@@ -5,6 +5,9 @@
 <%--문자열 관렬 함수(메소드) 제공 JSTL (EL형식) --%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<c:set var="cocktailList" value="${map.cocktailList}"/>
+<c:set var="boardList" value="${map.boardList}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,13 +29,13 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
 	<div id="content">
-		
+	
 		<section class="result_search">
 			<h4 class="block">검색결과</h4>
 			<div class="box_search_new">
 				<div class="search_area">
-					<form action="#" method="get" name="search" class="search">
-						<input type="search" name="keyword" id="keyword"> <a
+					<form action="search" method="get" name="search" class="search">
+						<input type="search" name="query" id="keyword" value="${param.query}"> <a
 							href="#" class="search_icon"> <img
 							src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/skin/front/pub/images/common/icon_magnifier.png"
 							alt="">
@@ -42,17 +45,21 @@
 				<div class="popular_keyword">
 					<strong>인기검색어</strong>
 					<ul>
-						<li><a href="#"><span>#여름밤</span></a></li>
-						<li><a href="#"><span>#과일맛</span></a></li>
-						<li><a href="#"><span>#커피맛</span></a></li>
-						<li><a href="#"><span>#산뜻한</span></a></li>
+						<li><a href="#"><span>#달달한</span></a></li>
+						<li><a href="#"><span>#강한</span></a></li>
+						<li><a href="#"><span>#칵테일</span></a></li>
+						<li><a href="#"><span>#레몬</span></a></li>
 
 					</ul>
 				</div>
 			</div>
 			<p class="txt_result">
-				검색하신 <span>“<em>칵테일</em>”
-				</span> 에 대한 #개의 검색 결과가 있습니다.
+
+				<c:if test="${!empty map}">
+					검색하신 <span>“<em>${param.query}</em>”
+					</span> 에 대한 개의 검색 결과가 있습니다.
+				</c:if>
+				
 			</p>
 			<div class="cocktail_pick_list">
 				<span class="pick_list_num"> 칵테일 정보( <strong>3</strong> )
@@ -62,114 +69,28 @@
 				<ul class="list-shop">
 					<div class="list_prd">
 						<ul class="list-shop">
-							<li><a href="#">
-									<div class="box_img">
-
-										<img
-											src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/goods/23/03/13/500000326/500000326_detail_083.jpg"
-											style="width: 382px">
-									</div>
-									<div class="txt_box">
-										<p class="name cocktail">서울의 밤</p>
-										<p class="exple_bow"
-											style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
-											짙은 한국형 진</p>
-									</div>
-									<div class="box_absol"></div>
-							</a></li>
-							<li><a href="#">
-									<div class="box_img">
-
-										<img
-											src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/goods/23/03/13/500000326/500000326_detail_083.jpg"
-											style="width: 382px">
-									</div>
-									<div class="txt_box">
-										<p class="name cocktail">서울의 밤</p>
-										<p class="exple_bow"
-											style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
-											짙은 한국형 진</p>
-									</div>
-									<div class="box_absol"></div>
-							</a></li>
-							<li><a href="#">
-									<div class="box_img">
-
-										<img
-											src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/goods/23/03/13/500000326/500000326_detail_083.jpg"
-											style="width: 382px">
-									</div>
-									<div class="txt_box">
-										<p class="name cocktail">서울의 밤</p>
-										<p class="exple_bow"
-											style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
-											짙은 한국형 진</p>
-									</div>
-									<div class="box_absol"></div>
-							</a></li>
-							<li><a href="#">
-									<div class="box_img">
-
-										<img
-											src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/goods/23/03/13/500000326/500000326_detail_083.jpg"
-											style="width: 382px">
-									</div>
-									<div class="txt_box">
-										<p class="name cocktail">서울의 밤</p>
-										<p class="exple_bow"
-											style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
-											짙은 한국형 진</p>
-									</div>
-									<div class="box_absol"></div>
-							</a></li>
-							<li><a href="#">
-								<div class="box_img">
-
-									<img
-										src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/goods/23/03/13/500000326/500000326_detail_083.jpg"
-										style="width: 382px">
-								</div>
-								<div class="txt_box">
-									<p class="name cocktail">서울의 밤</p>
-									<p class="exple_bow"
-										style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
-										짙은 한국형 진</p>
-								</div>
-								<div class="box_absol"></div>
-						</a></li><li><a href="#">
-							<div class="box_img">
-
-								<img
-									src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/goods/23/03/13/500000326/500000326_detail_083.jpg"
-									style="width: 382px">
-							</div>
-							<div class="txt_box">
-								<p class="name cocktail">서울의 밤</p>
-								<p class="exple_bow"
-									style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
-									짙은 한국형 진</p>
-							</div>
-							<div class="box_absol"></div>
-					</a></li><li><a href="#">
-						<div class="box_img">
-
-							<img
-								src="https://cdn-pro-web-251-112.cdn-nhncommerce.com/motioneye1_godomall_com/data/goods/23/03/13/500000326/500000326_detail_083.jpg"
-								style="width: 382px">
-						</div>
-						<div class="txt_box">
-							<p class="name cocktail">서울의 밤</p>
-							<p class="exple_bow"
-								style="margin-top: 20px; font-size: 14px; font-weight: 400; color: #acacac;">매실향
-								짙은 한국형 진</p>
-						</div>
-						<div class="box_absol"></div>
-				</a></li>
-							
+							<c:if test="${empty cocktailList}">
+								<span>“<em>${param.query}</em>”
+								</span> 검색 결과가 없습니다.
+							</c:if>
+							<c:forEach var="cocktail" items="${cocktailList}">
+								<li>
+									<a href="#">
+										<div class="box_img">
+	
+											<img
+												src="${contextPath}${cocktail.imagePath}"
+												style="width: 382px; height: 200px; ">
+										</div>
+										<div class="txt_box">
+											<p class="name cocktail">${cocktail.cocktailName}</p>
+										</div>
+										<div class="box_absol"></div>
+									</a>
+								</li>
+							</c:forEach>
 						</ul>
-
 					</div>
-
 				</ul>
 			</div>
 
@@ -190,60 +111,28 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
+							<c:choose>
+								<c:when test="${empty boardList}">
+									<tr>
+										<th colspan="5">게시글이 존재하지 않습니다.</th>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="board" items="${boardList}">
+										<tr>
+											<td>${board.boardNo}</td>
+											<td>
+												<a href="#">${board.boardTitle}</a>
+											</td>
+											<td>${board.memberId}</td>
+											<td>${board.createDate}</td>
+											<td>${board.readCount}</td>
+										</tr>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+							
+							
 						</tbody>
 					</table>
 
