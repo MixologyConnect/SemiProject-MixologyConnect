@@ -60,7 +60,6 @@ public class BoardService {
 	 */
 	public BoardDetail selectBoardDetail(int boardNo) throws Exception {
 
-		System.out.println("게시글 상세 조회 서비스 왔다");
 		Connection conn = getConnection();
 
 		BoardDetail detail = dao.selectBoardDetail(conn, boardNo);
@@ -74,7 +73,6 @@ public class BoardService {
 
 			close(conn);
 			
-			System.out.println("게시글 상세 조회 서비스 나간다");
 
 		}
 		return detail;
