@@ -25,6 +25,7 @@ public class SearchService {
 		// 1. 칵테일 검색
 		List<Cocktail> cocktailList = dao.selectCocktailList(conn,query);
 		
+
 		// 2. 커뮤니티 검색
 	
 		// 3. 컬럼검색
