@@ -23,7 +23,7 @@
 
 		<body style="overflow-x: hidden">
 
-			<jsp:include page="/WEB-INF/views/common/header.jsp" />
+			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 			<main>
 				<div class="top">
 					<p>${boardName}</p>
@@ -77,7 +77,7 @@
 
 				<div class="btn-area">
 					<c:if test = "${!empty loginMember}">
-					<button id="insertBtn" onclick="location.href = 'boardWrite?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</button>
+					<button id="insertBtn" type = "button" onclick="location.href = 'boardWrite?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</button>
 				</c:if>
 				</div>
 

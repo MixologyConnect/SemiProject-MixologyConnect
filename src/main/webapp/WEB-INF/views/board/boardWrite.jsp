@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시글 작성</title>
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardWrite.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -21,7 +22,7 @@
 
         <!-- 게시글 입력 바디 -->
         <div class="content">
-            <form action="#">
+            <form action="boardWrite" method="post" enctype="multipart/form-data">
             <div class="top"><p>게시글 입력</p></div>
 
             <!-- 커뮤니티 정책 가이드 -->
@@ -54,9 +55,18 @@
             <div class="btn">
                 <button type="submit" id="btn">작성 완료</button>
             </div>
+
+            
+            <input type="hidden" name = "mode" value = "${param.mode}">
+            <input type="hidden" name = "type" value = "${param.type}">
+            <input type="hidden" name = "no" value = "${param.no}">
+            <input type="hidden" name = "cp" value = "${param.cp}">
+    
+            <input type="hidden" id="dlelteList" name = "deleteList" value = "">
         </form>
 
         </div>
+
 
        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
