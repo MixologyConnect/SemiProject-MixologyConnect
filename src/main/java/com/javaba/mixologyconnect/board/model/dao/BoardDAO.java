@@ -15,6 +15,7 @@ import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import com.javaba.mixologyconnect.board.model.vo.BoardImage;
 import com.javaba.mixologyconnect.board.model.vo.Pagination;
+import com.javaba.mixologyconnect.member.model.vo.Member;
 
 public class BoardDAO {
 
@@ -240,6 +241,101 @@ public class BoardDAO {
 		}
 		
 		return imageList;
+	}
+
+	/** 마이페이지 나의 게시글 수 조회 DAO
+	 * @param conn
+	 * @param loginMember
+	 * @return listCount
+	 * @throws Exception
+	 */
+	public int MyPageListCount(Connection conn, Member loginMember) throws Exception{
+		
+		int listCount = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("MyPageListCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+			
+			
+			
+			
+			
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		System.out.println("마이페이지 게시글 수 : " + listCount);
+		return listCount;
+	}
+	
+	
+
+	/** 마이페이지 나의 게시글 목록 조회 DAO
+	 * @param conn
+	 * @param pagination
+	 * @param loginMember
+	 * @return boardList
+	 * @throws Exception
+	 */
+	public List<Board> MyPageBoardCount(Connection conn, Pagination pagination, Member loginMember) throws Exception{
+		
+		List<Board> boardList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("MyPageBoardCount");
+			
+			// BETWEEN 구문에 들어갈 범위 계산
+			int start = (pagination.getCurrentPage() - 1 ) * pagination.getLimit() + 1;
+			
+			int end = start + pagination.getLimit() - 1;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+
+				Board board = new Board();
+
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setMemberName(rs.getString("MEMBER_NM"));
+				System.out.println("이름 : " + rs.getString("MEMBER_NM"));
+				board.setReadCount(rs.getInt("READ_COUNT"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+
+				boardList.add(board);
+				
+
+			}
+
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return boardList;
 	}
 
 	
