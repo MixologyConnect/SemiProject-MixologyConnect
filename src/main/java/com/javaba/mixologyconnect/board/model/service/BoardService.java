@@ -11,6 +11,7 @@ import com.javaba.mixologyconnect.board.model.dao.BoardDAO;
 import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import com.javaba.mixologyconnect.board.model.vo.BoardImage;
+import com.javaba.mixologyconnect.board.model.vo.BookMark;
 import com.javaba.mixologyconnect.board.model.vo.Pagination;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 
@@ -113,6 +114,26 @@ public class BoardService {
 
 
 		return map;	// Map 객체 반환 
+	}
+
+	
+	
+
+	/** 북마크 조회 Service
+	 * @param boardNo
+	 * @return board
+	 * @throws Exception
+	 */
+	public BookMark bookMarkList(int boardNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		BookMark bookMark = dao.bookMarkList(conn, boardNo);
+		
+		close(conn);
+		
+		
+		return bookMark;
 	}
 
 

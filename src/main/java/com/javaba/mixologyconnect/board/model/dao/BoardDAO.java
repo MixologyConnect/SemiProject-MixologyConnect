@@ -14,6 +14,7 @@ import java.util.Properties;
 import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import com.javaba.mixologyconnect.board.model.vo.BoardImage;
+import com.javaba.mixologyconnect.board.model.vo.BookMark;
 import com.javaba.mixologyconnect.board.model.vo.Pagination;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 
@@ -336,6 +337,50 @@ public class BoardDAO {
 		
 		
 		return boardList;
+	}
+
+
+	/** 북마크 조회 DAO
+	 * @param conn
+	 * @param boardNo
+	 * @return boardList
+	 * @throws Exception
+	 */
+	public BookMark bookMarkList(Connection conn, int boardNo) throws Exception {
+		
+		BookMark bookMark = null;
+		try {
+			
+			String sql = prop.getProperty("bookMark");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				bookMark = new BookMark();
+				
+				bookMark.setBoardNo(rs.getInt(1));
+				bookMark.setBoardTitle(rs.getString(2));
+				bookMark.setMemberName(rs.getString(3));
+				bookMark.setReadCount(rs.getInt(4));
+				
+				
+				
+			}
+			
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return bookMark;
 	}
 
 	

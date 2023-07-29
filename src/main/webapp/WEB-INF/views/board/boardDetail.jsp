@@ -150,6 +150,7 @@
 							</script>
 
 							<script src="${contextPath}/resources/js/board/reply.js"></script>
+							<script src="${contextPath}/resources/js/bookMark.js"></script>
 			</body>
 
 			</html>

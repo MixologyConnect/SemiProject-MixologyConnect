@@ -81,6 +81,16 @@
 	</entry>
 	
 	
+	<!-- 북마크 조회 -->
+	<entry key="bookMark">
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NM, READ_COUNT
+		FROM BOARD
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE BOARD_NO = ?
+		AND BOARD_ST = 'Y'
+	</entry>
+	
+	
 	
 	
 </properties>

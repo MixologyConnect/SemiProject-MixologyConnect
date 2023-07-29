@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
     
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +24,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <section class="board-list">
-        <h1 class="board-name">북마크</h1>
+        <h1 class="board-name">${bookMark}d</h1>
 
         <div class="list-wrapper">
             <table class="list-table">
@@ -35,6 +37,33 @@
                         <th>조회수</th>
                     </tr>
                 </thead>
+
+                <c:choose>
+					<c:when test="${empty bookMark}">
+						<tr>
+							<th>게시글이 존재하지 않습니다.</th>
+						</tr>
+					</c:when>
+
+					<c:otherwise>
+
+					<c:forEach var="board" items="${boardList}">
+						<tbody>
+                            <tr>
+                                <td>${board.boardNo}</td>
+                                <td>
+                                    <a href="#">${board.boardTitle}</a>
+                                </td>
+                                <td>${board.memberName}</td>
+                                <td>${board.readCount}</td>
+                            </tr>
+                        </tbody>
+
+					</c:forEach>
+
+					</c:otherwise>
+
+				</c:choose>
 
                 <tbody>
                     <tr>
@@ -182,7 +211,8 @@
 
      <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-    <script src="../js/bookmark.js"></script>
+    <script src="${contextPath}/resources/js/bookMark.js"></script>
+    
     
 </body>
 </html>
