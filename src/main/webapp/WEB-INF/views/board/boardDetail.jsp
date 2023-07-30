@@ -126,7 +126,14 @@
 									<button id="updateBtn" type="button" onclick = "location.href = 'boardWrite?mode=update&type=${param.type}&cp=${cp}&no=${detail.boardNo}'">수정</button>
 									<button id="deleteBtn">삭제</button>
 								</c:if>
-								<button id="goToBtn" type="button">목록으로</button>
+
+								<c:if test = "${!empty param.query}">
+									<button id="selectListBtn" type="button">목록으로</button>
+								</c:if>
+								<c:if test="${empty param.query}">
+									<button id="goToBtn" type="button">목록으로</button>
+								</c:if>
+
 							</div>
 
 							<jsp:include page="/WEB-INF/views/board/reply.jsp"/>
@@ -150,6 +157,7 @@
 							</script>
 
 							<script src="${contextPath}/resources/js/board/reply.js"></script>
+							<script src="${contextPath}/resources/js/search/search.js"></script>
 			</body>
 
 			</html>
