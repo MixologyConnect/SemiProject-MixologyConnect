@@ -47,10 +47,10 @@
 				<div class="popular_keyword">
 					<strong>인기검색어</strong>
 					<ul>
-						<li><a href="#"><span>#달달한</span></a></li>
-						<li><a href="#"><span>#강한</span></a></li>
-						<li><a href="#"><span>#칵테일</span></a></li>
-						<li><a href="#"><span>#레몬</span></a></li>
+						<li><a href="search?query=달달한"><span>#달달한</span></a></li>
+						<li><a href="search?query=강한"><span>#강한</span></a></li>
+						<li><a href="search?query=칵테일"><span>#칵테일</span></a></li>
+						<li><a href="search?query=레몬"><span>#레몬</span></a></li>
 
 					</ul>
 				</div>
@@ -168,7 +168,7 @@
 										<tr>
 											<td>${column.boardNo}</td>
 											<td>
-												<a href="board/boardDetail?no=${column.boardNo}&type=3&query=${param.query}">${column.boardTitle}</a>
+												<a href="column/columnDetail?no=${column.boardNo}&type=3&query=${param.query}">${column.boardTitle}</a>
 											</td>
 											<td>${column.memberName}</td>
 											<td>${column.boardDate}</td>
