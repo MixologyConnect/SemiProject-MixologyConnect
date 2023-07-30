@@ -32,6 +32,75 @@ function bookBtnClick() {
 
 
 
+    const deleteList = document.getElementById("deleteList");
+    const inputImage = document.getElementsByClassName("inputImage");
+    const preview = document.getElementsByClassName("preview");
+    const deleteImage = document.getElementsByClassName("delete-image");
+
+    const deleteSet = new set();
+
+    for(let i = 0; i < inputImage.length; i++){
+
+        inputImage[i].addEventListener("change", function(){
+
+            if(this.files[0] != undefined){
+                const reader = new FileReader();
+                reader.readAsDataURL(this.files[0]);
+
+                reader.onload = function(e){
+                    preview[i].setAttribute("src", e.target.result);
+                }
+
+                deleteSet.delete[i];
+            }else{
+                preview[i].removeAttribute("src");
+            }
+        });
+
+        deleteImage[i].addEventListener("click", function(){
+
+            if(preview[i].getAttribute("src" != "")){
+                preview[i].removeAttribute("src");
+                inputImage[i].value = "";
+                deleteSet.add(i);
+            }
+        })
+    }
+
+
+
+
+const boardTitle = document.getElementById("title")
+const boardContent = document.getElementById("detail")
+
+function writeValidate(){
+
+    if(boardTitle.value.trim().length == 0){
+        alert("제목을 입력해주세요");
+        boardTitle.value = "";
+        boardTitle.focus();
+        return false;
+    }
+
+        if(boardContent.value.trim().length == 0){
+        alert("내용을 입력해주세요");
+        boardContent.value = "";
+        boardContent.focus();
+        return false;
+        }
+    
+    deleteList.value = Array.from(deleteSet);
+
+    return true;
+}
+
+
+
+
+
+
+
+
 
 
 $.ajax({

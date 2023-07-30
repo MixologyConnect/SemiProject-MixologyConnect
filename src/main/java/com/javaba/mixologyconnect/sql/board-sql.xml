@@ -58,7 +58,7 @@
 	</entry>
 	
 	<entry key = "boardInsert">
-	INSERT INTO BOARD VALUES(SEQ_BOARD.NEXTVAL, ?, ?, SYSDATE, NULL, 0, 'Y', ?, ?
+	INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, ?, ?, SYSDATE, NULL, 0, 'Y', ?, ?)
 	</entry>
 	
 	<entry key = "imageInsert">

@@ -22,7 +22,7 @@
 
         <!-- 게시글 입력 바디 -->
         <div class="content">
-            <form action="boardWrite" method="post" enctype="multipart/form-data">
+            <form action="boardWrite" method="post" enctype="multipart/form-data" onsubmit="writeValidate()">
             <div class="top"><p>게시글 입력</p></div>
 
             <!-- 커뮤니티 정책 가이드 -->
@@ -35,7 +35,7 @@
             </div>
             <!-- 게시글 제목란 -->
             <div class="title">
-                <input type="text" id="title" name="title" placeholder="제목을 입력해주세요(20자 이하)" maxlength="20">
+                <input type="text" id="title" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)" value="${detail.boardTitle}" maxlength="20">
                 <label for="image">
                     <div class="image">이미지 선택</div>
                   </label>
@@ -47,7 +47,7 @@
 
             <!-- 게시글 작성란 -->
             <div class="detail">
-                <textarea id="detail" style="resize: none;" maxlength="500"></textarea>
+                <textarea name="boardContent" id="detail" style="resize: none;" maxlength="500">${detail.boardContent}</textarea>
                 <p> <span id="counter">0</span>/500</p>
             </div>
 

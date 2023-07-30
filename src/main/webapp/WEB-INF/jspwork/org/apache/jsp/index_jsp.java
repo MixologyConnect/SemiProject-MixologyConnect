@@ -25,8 +25,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   static {
     _jspx_dependants = new java.util.HashMap<java.lang.String,java.lang.Long>(2);
-    _jspx_dependants.put("/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar", Long.valueOf(1688615092135L));
-    _jspx_dependants.put("jar:file:/C:/workspace/5_Server/.metadata/.plugins/org.eclipse.wst.server.core/tmp3/wtpwebapps/teamTest/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar!/META-INF/c.tld", Long.valueOf(1425946270000L));
+
   }
 
   private static final java.util.Set<java.lang.String> _jspx_imports_packages;
@@ -161,8 +160,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div id=\"ad\"></div>\r\n");
       out.write("        <div id=\"fixed-divider\"></div>\r\n");
       out.write("        <div id=\"populars\">\r\n");
-      out.write("            <p class=\"themes-content-1\">Columns</p>\r\n");
-      out.write("            <p class=\"themes-content-1\">최근 칼럼</p>\r\n");
+      out.write("            <p>Columns</p>\r\n");
+      out.write("            <p>최근 칼럼</p>\r\n");
       out.write("            <ul class=\"contents\">\r\n");
       out.write("            	<li><a></a></li>\r\n");
       out.write("            	<li><a></a></li>\r\n");
@@ -172,8 +171,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\r\n");
       out.write("        <div id=\"fixed-divider\"></div>\r\n");
       out.write("        <div id=\"populars\">\r\n");
-      out.write("            <p class=\"themes-content-1\">Trending</p>\r\n");
-      out.write("            <p class=\"themes-content-1\">실시간 인기 게시글</p>\r\n");
+      out.write("            <p>Trending</p>\r\n");
+      out.write("            <p>실시간 인기 게시글</p>\r\n");
       out.write("            <ul class=\"contents\">\r\n");
       out.write("            	<li><a></a></li>\r\n");
       out.write("            	<li><a></a></li>\r\n");
