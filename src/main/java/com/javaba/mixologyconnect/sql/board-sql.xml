@@ -8,37 +8,43 @@
 		WHERE BOARD_CD = ?
 	</entry>
 
-	<!-- 게시글 수 조회  -->
+	<!-- 게시글 수 조회 -->
 	<entry key="getListCount">
 		SELECT COUNT(*) FROM BOARD
 		WHERE BOARD_CD = ?
-		AND BOARD_ST = 'Y'
+		AND
+		BOARD_ST = 'Y'
 	</entry>
 
 
-	<!-- 게시글 목록 조회  -->
+	<!-- 게시글 목록 조회 -->
 	<entry key="selectBoardList">
 		SELECT * FROM(
 		SELECT ROWNUM RNUM, A. * FROM(
-		SELECT BOARD_NO, BOARD_TITLE,BOARD_CONTENT,
+		SELECT
+		BOARD_NO, BOARD_TITLE,BOARD_CONTENT,
 		MEMBER_NM,
-		TO_CHAR(BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT,
+		TO_CHAR(BOARD_DT,
+		'YYYY-MM-DD') AS BOARD_DT,
 		READ_COUNT
 		FROM BOARD
-		JOIN MEMBER USING(MEMBER_NO)
+		JOIN MEMBER
+		USING(MEMBER_NO)
 		WHERE BOARD_CD = ?
 		AND BOARD_ST = 'Y'
-		ORDER BY BOARD_NO DESC
+		ORDER BY BOARD_NO
+		DESC
 		)A
 		)
 		WHERE RNUM BETWEEN ? AND ?
-  
+
 	</entry>
 
-	<!-- 게시글 상세 조회  -->
+	<!-- 게시글 상세 조회 -->
 	<entry key="selectBoardDetail">
-		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_DT, MODIFY_DT, READ_COUNT, MEMBER_NM, MEMBER_NO,  MEMBER_PROFILE, 
-		BOARD_NM 
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_DT,
+		MODIFY_DT, READ_COUNT, MEMBER_NM, MEMBER_NO, MEMBER_PROFILE,
+		BOARD_NM
 		FROM BOARD
 		JOIN MEMBER USING (MEMBER_NO)
 		JOIN BOARD_TYPE USING(BOARD_CD)
@@ -46,25 +52,49 @@
 		AND BOARD_ST = 'Y'
 
 	</entry>
-	
-	<!-- 게시글 이미지리스트 조회  -->
-	<entry key = "selectImageList">
-	SELECT * FROM BOARD_IMG
-	WHERE BOARD_NO = ?
+
+	<!-- 게시글 이미지리스트 조회 -->
+	<entry key="selectImageList">
+		SELECT * FROM BOARD_IMG
+		WHERE BOARD_NO = ?
+	</entry>
+
+	<entry key="boardNo">
+		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	</entry>
+
+	<entry key="boardInsert">
+		INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, ?, ?,
+		SYSDATE, NULL, 0, 'Y',
+		?, ?)
+	</entry>
+
+	<entry key="imageInsert">
+		INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL, ?, ?,
+		?, ?)
+	</entry>
+
+	<!-- 게시글 수정 -->
+	<entry key="boardUpdate">
+		UPDATE BOARD SET BOARD_CONTENT = ?,
+		BOARD_TITLE = ?,
+		UPDATE_DT = DEFAULT
+		WHERE BOARD_NO = ?
+	</entry>
+
+	<entry key="imageUpdate">
+		UPDATE BOARD_IMG SET IMG_RENAME = ?,
+		IMG_ORIGINAL = ?
+		WHERE BOARD_NO = ? AND
+		IMG_LEVEL = ?
 	</entry>
 	
-	<entry key = "boardNo">
-	SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	
+	<entry key="deleteBoardImage">
+		DELETE FROM BOARD_IMG
+		WHERE BOARD_NO = ?
+		AND IMG_LEVEL
+		IN(
 	</entry>
-	
-	<entry key = "boardInsert">
-	INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, ?, ?, SYSDATE, NULL, 0, 'Y', ?, ?)
-	</entry>
-	
-	<entry key = "imageInsert">
-	INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL, ?, ?, ?, ?)
-	
-	</entry>
-	
-	
+
 </properties>
