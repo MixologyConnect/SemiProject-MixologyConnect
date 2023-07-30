@@ -5,7 +5,7 @@
     <c:choose>
         <c:when test="${!empty loginMember}">
             <a href="${contextPath}/myPage/myPage">
-              <label id="account-label">
+              <label class="account-label">
                   <img class="account-image" src="${contextPath}/resources/images/user.png">
                   <p class="account-text">마이페이지</p>
               </label>
@@ -13,7 +13,7 @@
         </c:when>
         <c:otherwise>
             <input id="account-cbox" type="checkbox">
-            <label id="account-label" for="account-cbox">
+            <label class="account-label" for="account-cbox">
                 <img class="account-image" src="${contextPath}/resources/images/key.png">
                 <p class="account-text">계정</p>
             </label>

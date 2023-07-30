@@ -126,7 +126,7 @@ html.dark header { background-color: rgba(40, 40, 40, 0.9); }
     height: 100px;
 }
 
-#account-label {
+.account-label {
     display: flex;
     width: 120px;
     height: 120px;
@@ -142,16 +142,20 @@ html.dark header { background-color: rgba(40, 40, 40, 0.9); }
     margin-bottom: 2px;
     filter: saturate(0) opacity(0.6);
     cursor: pointer;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
 }
 
 .account-text {
 	margin-top: 2px;
-    font-weight: bold;
     color: rgba(150, 150, 150, 0.8);
+    font-weight: bold;
     letter-spacing: 1px;
     cursor: pointer;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
+}
+
+#account > a {
+    text-decoration-line: none;
 }
 
 nav {
@@ -273,13 +277,17 @@ html.dark #theme-switch { background-color: rgba(255, 255, 255, 0.3); }
     display: flex;
     width: 480px;
     height: 560px;
+    border: 1px solid rgba(0, 220, 244, 0.9);
     border-radius: 20px;
-    background-color: rgb(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.5);
     opacity: 0;
     pointer-events: none;
     transition-duration: 0.5s;
     justify-content: center;
     align-items: center;
+}
+html.dark #modal-account {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #modal-account-form {

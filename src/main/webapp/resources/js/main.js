@@ -32,9 +32,9 @@ window.addEventListener("scroll", function(e) {
                          "transform": "translateY(0px)"});
         $("#title").css({"pointer-events": "auto",
                          "filter": "opacity(100%)"});
-        $("#account > label > img").css("transform", "none");
-        $("#account > label > p").css({"pointer-events": "auto",
-                                       "filter": "opacity(100%)"});
+        $(".account-image").css("transform", "none");
+        $(".account-text").css({"pointer-events": "auto",
+                                        "filter": "opacity(100%)"});
     } else {
         $("nav").css({"filter": "opacity(0%)",
                       "pointer-events": "none"});
@@ -42,9 +42,9 @@ window.addEventListener("scroll", function(e) {
                          "transform": "translateY(-50px)"});
         $("#title").css({"pointer-events": "none",
                          "filter": "opacity(0%)"});
-        $("#account > label > img").css("transform", "translate(23px, -13px)");
-        $("#account > label > p").css({"pointer-events": "none",
-                                       "filter": "opacity(0%)"});
+        $(".account-image").css("transform", "translate(23px, -13px)");
+        $(".account-text").css({"pointer-events": "none",
+                                        "filter": "opacity(0%)"});
     }
 });
 
@@ -63,13 +63,13 @@ $("#account-cbox").change(function() {
                            "opacity": "100%"});
         $("#modal-account").css({"pointer-events": "auto",
                                  "opacity": "100%"});
-        $("#account > label > p").css("color", "rgb(0, 220, 244)");
+        $(".account-text").css("color", "rgb(0, 220, 244)");
     } else {
         preventScroll(false);
         $("#overlay").css({"pointer-events": "none",
                            "opacity": "0"});
         $("#modal-account").css({"pointer-events": "none",
                                  "opacity": "0"});
-        $("#account > label > p").css("color", "");
+        $(".account-text").css("color", "");
     }
 })
