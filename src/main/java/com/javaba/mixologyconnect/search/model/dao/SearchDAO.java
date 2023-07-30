@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.cocktail.model.vo.Cocktail;
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
@@ -72,6 +73,50 @@ public class SearchDAO {
 			
 		}
 		return cocktailList;
+	}
+
+	/**
+	 * 검색결과에 따른 게시글 목록 조회
+	 * @param conn
+	 * @param keyWord
+	 * @return boardList
+	 */
+	public List<Board> selectboardList(Connection conn, String keyWord) throws Exception{
+		
+		List<Board> boardList = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("selectBoardList");
+			
+			pstmt= conn.prepareStatement(sql);
+			
+			String searchPattern = "%" + keyWord + "%";
+			pstmt.setString(1, searchPattern);
+			pstmt.setString(2, searchPattern);
+			
+			while(rs.next()){
+				
+				Board board = new Board();
+				
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setMemberName(rs.getString("MEMBER_NM"));
+				board.setBoardDate(rs.getString("BOARD_DT"));
+				board.setReadCount(rs.getInt("READ_COUNT"));
+				
+				boardList.add(board);
+			}
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return boardList;
+	
+	
 	}
 	
 
