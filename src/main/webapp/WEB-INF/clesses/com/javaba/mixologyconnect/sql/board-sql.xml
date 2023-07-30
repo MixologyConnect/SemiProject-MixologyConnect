@@ -53,5 +53,18 @@
 	WHERE BOARD_NO = ?
 	</entry>
 	
+	<entry key = "boardNo">
+	SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	</entry>
+	
+	<entry key = "boardInsert">
+	INSERT INTO BOARD VALUES(SEQ_BOARD.NEXTVAL, ?, ?, SYSDATE, NULL, 0, 'Y', ?, ?
+	</entry>
+	
+	<entry key = "imageInsert">
+	INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL, ?, ?, ?, ?)
+	
+	</entry>
+	
 	
 </properties>
