@@ -13,7 +13,7 @@
 	<entry key="getListCount">
 		SELECT COUNT(*) FROM BOARD
 		WHERE BOARD_CD =?
-		AND BOAED_ST = 'N'
+		AND BOARD_ST = 'N'
 	</entry>
 	
 	<!-- 게시글 목록 조회 -->

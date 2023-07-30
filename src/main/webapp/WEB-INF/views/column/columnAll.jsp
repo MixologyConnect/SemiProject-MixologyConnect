@@ -59,23 +59,32 @@
              <!-- 컨텐츠 시작 -->
         <div class="list">
             <ul class="list-content">
-                <div class="">
-                    <ul>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
-                                </div>
-                                <div class="title">
-                                    <p style="margin-top: 10px;"><h3>${columb.boardTitle}</h3></p><br>
-                                    <p style="margin-bottom: 10px;">${column.member}</p>
-                                </div>
-                            </a>
-                        </li>
-               
-                     
-                    </ul>
-                </div>
+                <c:choose>
+                    <c:when test="${empty columnList}">
+                        <span><h4>게시글이 존재하지 않습니다.</h4></span>
+                    </c:when>
+
+                    <c:otherwise>
+                        <div class="">
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <div>
+                                            <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
+                                        </div>
+                                        <div class="title">
+                                            <p style="margin-top: 10px;"><h3>${columb.boardTitle}</h3></p><br>
+                                            <p style="margin-bottom: 10px;">${column.member}</p>
+                                        </div>
+                                    </a>
+                                </li>
+                       
+                             
+                            </ul>
+                        </div>
+
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div>
 
