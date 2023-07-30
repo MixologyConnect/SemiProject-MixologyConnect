@@ -24,5 +24,8 @@ public class Member {
 	private String profileImage;
 	private String managerCode;
 	private String secessionFlag;
+	
+	
+	
 
 }
