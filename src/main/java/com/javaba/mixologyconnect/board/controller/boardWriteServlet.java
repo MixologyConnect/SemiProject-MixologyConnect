@@ -137,22 +137,28 @@ public class boardWriteServlet extends HttpServlet {
 				String deleteList = mpReq.getParameter("deleteList");
 				detail.setBoardNo(boardNo);
 				
-				int result = service.boardUpdate(detail, cp, deleteList );
+				int result = service.boardUpdate(detail, imageList, deleteList );
 				
+				String path = null;
+				String message = null;
 				
+				if(result > 0) {
+					path = "boardDetail?no=" + boardNo + "&type=" + boardType + "&cp=" + cp;
+					message = "게시글이 수정되었습니다.";
+					
+				}else {
+					path = req.getHeader("referer");
+					message = "게시글 수정을 실패하였습니다.";
+				}
 				
-				
-				
-				
+				session.setAttribute("message", message);
+				resp.sendRedirect(path);
 			}
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		
-		
-
 	}
 
 
