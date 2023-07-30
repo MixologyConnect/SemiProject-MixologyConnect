@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.cocktail.model.vo.Cocktail;
 import com.javaba.mixologyconnect.search.model.dao.SearchDAO;
 
@@ -27,13 +28,14 @@ public class SearchService {
 		
 
 		// 2. 커뮤니티 검색
+		List<Board> boardList = dao.selectboardList(conn, keyWord);
 	
 		// 3. 컬럼검색
 		
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("cocktailList", cocktailList);
-		
+		map.put("boardList", boardList);
 		close(conn);
 		return map;
 		
