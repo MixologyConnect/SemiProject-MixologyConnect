@@ -9,7 +9,7 @@
 #terms-area{
     width: 700px;
     height: 750px;
-    background: #FFFFFF;
+    background: var(--bg-color-2);
     border: 1px solid #AACDFF;
     box-shadow: 7px 7px 39px rgba(0, 104, 255, 0.25);
     border-radius: 20px;
@@ -17,8 +17,8 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-
 }
+
 #content-area{
     width: 80%;
     display: flex;
