@@ -44,10 +44,8 @@
                             <div id="info_id">
                                 <input type="text" id="memberId" name="memberId" class="chk size1" 
                                     maxlength="20" placeholder="아이디" required>
-                                
                                     <button id="btn-id" class="btn-fill-s" type="button"> 중복검사</button>
                             </div>
-                             
                             <div class="signUp-message" id="idMessage" >아이디를 입력하세요.(영어 대소문자, 숫자 입력 가능) </div>
                         </td>
                     </tr>
@@ -66,7 +64,6 @@
                             <div class="signUp-message" id="pwMessage">영어, 숫자,특수문자(!,@,#,-,_) 6~30글자 입력해주세요</div>
                         </td>
                     </tr>
-                    
                     <tr>
                         <td>*전화번호</td>
                         <td></td>
@@ -75,19 +72,15 @@
                             <div class="signUp-message" id="telMessage">전화번호을 입력하세요</div>
                         </td>
                     </tr>
-                   
                     <tr>
                         <td>*이메일</td>
                         <td></td>
                         <td>
-                            
                             <input type="text" name="memberEmail" id="memberEmail" class="chk size" placeholder="이메일" required>
                             <div class="signUp-message" id="emailMessage">이메일을 입력해 주세요.</div>
-                            
                         </td>
                     </tr>
                     <tr>
-                        
                         <td>주소</td>
                         <td></td>
                         <td>
@@ -102,19 +95,13 @@
                             <input type="text" name="postNum" class="w-px60" readonly>
                             <input type="text" name="address" readonly>
                             <input type="text" name="address"> -->
-                        
                         </td>
-    
                     </tr>
-                    
-                </table>      
-        
+                </table>
             </fieldset>
-            
             <div class="btn-area">
                 <button type="reset" id="resetBtn">회원가입 취소</button>
                 <button id="signUp-btn" type="submit">회원가입</button>
-        
             </div>
         </form>
     </div>
