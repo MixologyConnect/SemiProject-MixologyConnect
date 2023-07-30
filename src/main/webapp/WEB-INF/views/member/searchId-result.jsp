@@ -31,13 +31,12 @@
         </c:choose>
 
         <div class="searchId2">
-            <button type="button"  id="searchPwBtn">비밀번호 찾기</button> 
+            <button id="searchPwBtn">비밀번호 찾기</button> 
 
-            <button type="button" id="loginBtn">로그인 하기</button>
+            <button id="loginBtn">로그인 하기</button>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="${contextPath}/resources/js/searchId-result.js"></script>
     
 </body>
 </html>

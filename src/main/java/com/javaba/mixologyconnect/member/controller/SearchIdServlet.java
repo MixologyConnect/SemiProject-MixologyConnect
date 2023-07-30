@@ -16,6 +16,7 @@ import com.javaba.mixologyconnect.member.model.vo.Member;
 @WebServlet("/member/searchId")
 public class SearchIdServlet extends HttpServlet{
 
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -28,6 +29,11 @@ public class SearchIdServlet extends HttpServlet{
 		}
 		
 	
+
+	
+
+		
+
 	}
 	
 	@Override
@@ -43,21 +49,26 @@ public class SearchIdServlet extends HttpServlet{
 			MemberService service = new MemberService();
 			
 			Member member   = service.searchId(memberName, memberTel);
-			member.setMemberName(memberName);
-			member.setMemberTel(memberTel);
+			if (member != null) {
+				member.setMemberName(memberName);
+				member.setMemberTel(memberTel);
+			}
 			req.setAttribute("member", member);
+			
+			
+			
 
 			String path ="/WEB-INF/views/member/searchId-result.jsp";
-			
 			req.getRequestDispatcher(path).forward(req, resp);
-	
+			
+		
 
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		
+			
 		
 		
 	}

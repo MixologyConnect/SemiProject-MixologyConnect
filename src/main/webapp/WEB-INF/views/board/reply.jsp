@@ -27,7 +27,7 @@
                                 <span class="reply-date">${reply.replyDate}</span>
                             </p>
 
-                            <p class="reply-content">${reply.replyContent}</p>
+                            <p class="replycontent">${reply.replyContent}</p>
 
                             <c:if test="${loginMember.memberNo == reply.memberNo}">
                                 <div class="reply-btn-area">
