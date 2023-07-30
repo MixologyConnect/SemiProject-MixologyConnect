@@ -1,40 +1,104 @@
-        /* 게시글 글자 수 세기 */
-        document.getElementById("detail").addEventListener("input", function() {
-        let length = this.value.length;
-        console.log(length);
-            
-        let interval;
+/* 게시글 글자 수 세기 */
+document.getElementById("boardContent").addEventListener("input", function() {
+let length = this.value.length;
+console.log(length);
+    
+let interval;
 
-        document.getElementById("counter").innerText = length ;
-        if(length <= 499 && length >= 0) {
-            document.getElementById("counter").style.color = "black";
-            
-        } else { 
-            document.getElementById("counter").style.color = "red"
-            
+document.getElementById("counter").innerText = length ;
+if(length <= 499 && length >= 0) {
+    document.getElementById("counter").style.color = "black";
+    
+} else { 
+    document.getElementById("counter").style.color = "red"
+    
 
 
-            document.getElementById("counter").innerText = 500;
+    document.getElementById("counter").innerText = 500;
+}
+
+})
+
+document.getElementById("title").addEventListener("input", function() {
+
+let length = this.value.length;
+
+let interval;
+
+if(length <= 20 && length >= 0){
+    this.style.color = "black";
+    
+}else {
+    this.innerText = 20;
+
+}
+
+
+})
+const deleteList = document.getElementById("deleteList");
+    const inputImage = document.getElementsByClassName("inputImage");
+    const preview = document.getElementsByClassName("preview");
+    const deleteImage = document.getElementsByClassName("delete-image");
+
+    const deleteSet = new set();
+    
+    for(let i = 0; i < inputImage.length; i++){
+
+        inputImage[i].addEventListener("change", function(){
+
+            if(this.files[0] != undefined){
+                const reader = new FileReader();
+                reader.readAsDataURL(this.files[0]);
+
+                reader.onload = function(e){
+                    preview[i].setAttribute("src", e.target.result);
+                }
+                deleteSet.delete[i];
+            }else{
+                preview[i].removeAttribute("src");
+            }
+        });
+        
+        deleteImage[i].addEventListener("click", function(){
+
+            if(preview[i].getAttribute("src" != "")){
+                preview[i].removeAttribute("src");
+                inputImage[i].value = "";
+                deleteSet.add(i);
+            }
+        })
+    }
+
+    
+
+    
+    function writeValidate(){
+        
+    const boardTitle = document.getElementById("boardTitle")
+    const boardContent = document.getElementById("boardContent")
+    if(boardTitle.value.trim().length == 0){
+        alert("제목을 입력해주세요");
+        boardTitle.value = "";
+        boardTitle.focus();
+        return false;
+    }
+
+        if(boardContent.value.trim().length == 0){
+            alert("내용을 입력해주세요");
+            boardContent.value = "";
+            boardContent.focus();
+            return false;
         }
-
-    })
-
-    document.getElementById("title").addEventListener("input", function() {
-
-        let length = this.value.length;
         
-        let interval;
+        deleteList.value = Array.from(deleteSet);
         
-        if(length <= 20 && length >= 0){
-            this.style.color = "black";
+        return true;
+    }
             
-        }else {
-            this.innerText = 20;
         
-        }
-
-
-    })
+        
+        
+        
 
 
   $.ajax({
