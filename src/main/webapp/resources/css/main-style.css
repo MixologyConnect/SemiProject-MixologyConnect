@@ -190,6 +190,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition-duration: 0.5s;
 }
 
 #footer-top {

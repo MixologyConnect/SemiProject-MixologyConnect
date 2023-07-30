@@ -30,7 +30,6 @@
                             <p class="replycontent">${reply.replyContent}</p>
 
                             <c:if test="${loginMember.memberNo == reply.memberNo}">
-
                                 <div class="reply-btn-area">
                                     <button type="button" onclick="showUpdateReply(${reply.replyNo}, this)">수정</button>
                                     <button type="button" onclick="deleteReply(${reply.replyNo})">삭제</button>
