@@ -67,66 +67,12 @@
                                     <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
                                 </div>
                                 <div class="title">
-                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
-                                    <p style="margin-bottom: 10px;">운영진</p>
+                                    <p style="margin-top: 10px;"><h3>${columb.boardTitle}</h3></p><br>
+                                    <p style="margin-bottom: 10px;">${column.member}</p>
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
-                                </div>
-                                <div class="title">
-                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
-                                    <p style="margin-bottom: 10px;">운영진</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
-                                </div>
-                                <div class="title">
-                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
-                                    <p style="margin-bottom: 10px;">운영진</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
-                                </div>
-                                <div class="title">
-                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
-                                    <p style="margin-bottom: 10px;">운영진</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
-                                </div>
-                                <div class="title">
-                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
-                                    <p style="margin-bottom: 10px;">운영진</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div>
-                                    <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
-                                </div>
-                                <div class="title">
-                                    <p style="margin-top: 10px;"><h3>칵테일에 이런일이?</h3></p><br>
-                                    <p style="margin-bottom: 10px;">운영진</p>
-                                </div>
-                            </a>
-                        </li>
+               
                      
                     </ul>
                 </div>

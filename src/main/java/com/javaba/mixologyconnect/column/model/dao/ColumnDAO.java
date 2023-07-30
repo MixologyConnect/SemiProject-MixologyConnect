@@ -139,13 +139,13 @@ public class ColumnDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				Board board = new Board();
+				Board column = new Board();
 				
-				board.setThumbnail(rs.getString("IMG_RENAME"));
-				board.setBoardTitle(rs.getString("BOARD_TITLE"));
-				board.setMemberName(rs.getString("MEMNER_NM"));
+				column.setThumbnail(rs.getString("IMG_RENAME"));
+				column.setBoardTitle(rs.getString("BOARD_TITLE"));
+				column.setMemberName(rs.getString("MEMNER_NM"));
 				
-				columnList.add(board);
+				columnList.add(column);
 	
 			
 				

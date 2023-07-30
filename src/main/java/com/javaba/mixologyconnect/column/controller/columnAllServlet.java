@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.javaba.mixologyconnect.board.model.service.BoardService;
 import com.javaba.mixologyconnect.column.model.service.ColumnService;
 
-@WebServlet("/column/columnAll")
+@WebServlet("/board/list")
 public class columnAllServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
-			
+			// 페이지네이션
 			int type = Integer.parseInt(req.getParameter("type"));
 			
 			int cp =1;
