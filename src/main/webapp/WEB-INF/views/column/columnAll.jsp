@@ -59,42 +59,64 @@
              <!-- 컨텐츠 시작 -->
         <div class="list">
             <ul class="list-content">
-                <c:choose>
-                    <c:when test="${empty columnList}">
-                        <span><h4>게시글이 존재하지 않습니다.</h4></span>
-                    </c:when>
+                
+                <div class="">
+                    <ul>
+                        <c:choose>
+                            <c:when test="${empty map}">
+                                <span><h4>게시글이 존재하지 않습니다.</h4></span>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach var="column" items="${columnList}">
+                                    <li>
+                                        <a href="">
+                                            <div>
+                                                <img id="picture" src="${contextPath}${colum.Thumbnail}" style="width: 100%;">
+                                            </div>
+                                            <div class="title">
+                                                <p style="margin-top: 10px;"><h3>${column.boardTitle}</h3></p><br>
+                                                <p style="margin-bottom: 10px;">${column.memberName}</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                           
+                                 
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                    </ul>
+                </div>
 
-                    <c:otherwise>
-                        <div class="">
-                            <ul>
-                                <li>
-                                    <a href="">
-                                        <div>
-                                            <img id="picture" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F990B86335A07F47B25" style="width: 100%;">
-                                        </div>
-                                        <div class="title">
-                                            <p style="margin-top: 10px;"><h3>${columb.boardTitle}</h3></p><br>
-                                            <p style="margin-bottom: 10px;">${column.member}</p>
-                                        </div>
-                                    </a>
-                                </li>
-                       
-                             
-                            </ul>
-                        </div>
 
-                    </c:otherwise>
-                </c:choose>
             </ul>
         </div>
 
 
         <ul class="pagination">
-            <li><button id="pageCon1"><a href=""><</a></button></li>
-            <li><button id="pageCon1"><a href="">1</a></button></li>
-            <li><button id="pageCon1"><a href="">2</a></button></li>
-            <li><button id="pageCon1"><a href="">3</a></button></li>
-            <li><button id="pageCon1"><a href="">></a></button></li>
+            <!-- /http://localhost:8080/SemiProject-MixologyConnect/column/columnList?type=3 -->
+            <c:set var="url" value="columnList?type=${param.type}&cp="/>
+
+            <!-- 첫페이지로 이동 -->
+            <li><button id="pageCon1"><a href="${url}1">&lt;</a></button></li>
+            
+            <!-- 범위 정하기 -->
+            <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+
+                <c:choose>
+                    <c:when test="${i == pagination.currentPage}">
+                        <li><a class="current" id="pageCon1">${i}</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a href="${url}${i}" id="pageCon1">${i}</a></li>
+                    </c:otherwise>
+                </c:choose>
+
+            </c:forEach>
+
+
+
+            <!-- 마지막 페이지로 이동 -->
+            <li><button id="pageCon1"><a href="${url}${pagination.maxPage}">&gt;</a></button></li>
         </ul>
             
     </div>
@@ -103,6 +125,7 @@
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
+
 
     <script>
 $.ajax({
