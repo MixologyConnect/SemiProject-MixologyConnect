@@ -1,5 +1,4 @@
 // 목록으로
-
 (function(){
     const goToBtn = document.getElementById("goToBtn");
 

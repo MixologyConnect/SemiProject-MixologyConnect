@@ -32,6 +32,7 @@
     </div>
 </header>
 <nav>
+<<<<<<< HEAD
     <a class="themes-content-1">안내</a>
     <a class="themes-content-1" href="${contextPath}/board/boardAll?type=3">칼럼</a>
     <a class="themes-content-1" href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
@@ -51,3 +52,12 @@
 	</script>
 	<c:remove var="message" scope="session"/>
 </c:if>
+=======
+    <a>안내</a>
+    <a href="${contextPath}/column/columnAll">칼럼</a>
+    <a href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
+    <a href="${contextPath}/cocktail/cocktailList">칵테일</a>
+    <a href="${contextPath}/cocktailTest/cocktailTest">테스트</a>
+    <a href="${contextPath}/member/signUpterms">회원가입</a>
+</nav>
+>>>>>>> f296f603c07ee14d27b96452fff36e0483a06741

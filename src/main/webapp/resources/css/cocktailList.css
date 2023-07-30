@@ -23,14 +23,14 @@ main {
 }
 
 #head > p:first-of-type {
-	color: white;
+	color: var(--text-color-1);
 	font-size: 2.4rem;
 	font-weight: bold;
 }
 
 #head > p:last-of-type {
+	color: var(--text-color-1);
 	font-size: 1.2rem;
-	color: rgb(180, 180, 180);
 }
 
 #search {
@@ -89,7 +89,7 @@ main {
 
 .contents > li > a > p {
 	margin: 0 0 10px 10px;
-	color: white;
+	color: var(--text-color-1);
 	font-size: 1.5rem;
 	font-weight: bold;
 	align-self: flex-end;

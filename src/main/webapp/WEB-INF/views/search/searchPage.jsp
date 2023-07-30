@@ -7,6 +7,8 @@
 
 <c:set var="cocktailList" value="${map.cocktailList}"/>
 <c:set var="boardList" value="${map.boardList}"/>
+<c:set var="columnList" value="${map.columnList}"/>
+<c:set var="countArr" value="${map.countArr}"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,12 +59,12 @@
 
 				<c:if test="${!empty map}">
 					검색하신 <span>“<em>${param.query}</em>”
-					</span> 에 대한 개의 검색 결과가 있습니다.
+					</span> 에 대한 ${countArr[3]}개의 검색 결과가 있습니다.
 				</c:if>
 				
 			</p>
 			<div class="cocktail_pick_list">
-				<span class="pick_list_num"> 칵테일 정보( <strong>3</strong> )
+				<span class="pick_list_num"> 칵테일 정보( <strong>${countArr[0]}</strong> )
 				</span>
 			</div>
 			<div class="list_prd">
@@ -75,7 +77,7 @@
 							</c:if>
 							<c:forEach var="cocktail" items="${cocktailList}">
 								<li>
-									<a href="#">
+									<a href="cocktail/cocktailDetail?cktlno=${cocktail.cocktailNo}&query=${param.query}">
 										<div class="box_img">
 	
 											<img
@@ -96,7 +98,7 @@
 
 
 			<div class="cocktail_pick_list">
-				<span class="pick_list_num"> 커뮤니티 ( <strong>5</strong> )
+				<span class="pick_list_num"> 커뮤니티 ( <strong>${countArr[1]}</strong> )
 				</span>
 				<br>
 				<div class="cocktail_pick_list2">
@@ -122,10 +124,10 @@
 										<tr>
 											<td>${board.boardNo}</td>
 											<td>
-												<a href="#">${board.boardTitle}</a>
+												<a href="board/boardDetail?no=${board.boardNo}&type=1&query=${param.query}">${board.boardTitle}</a>
 											</td>
-											<td>${board.memberId}</td>
-											<td>${board.createDate}</td>
+											<td>${board.memberName}</td>
+											<td>${board.boardDate}</td>
 											<td>${board.readCount}</td>
 										</tr>
 									</c:forEach>
@@ -140,7 +142,7 @@
 
 			</div>
 			<div class="cocktail_pick_list">
-				<span class="pick_list_num"> 믹스올로지 컬럼 ( <strong>1</strong> )
+				<span class="pick_list_num"> 믹스올로지 컬럼 ( <strong>${countArr[2]}</strong> )
 				</span>
 				<br>
 				<div class="cocktail_pick_list2">
@@ -155,60 +157,26 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>
-									<a href="#">10번째글</a>
-								</td>
-								<td>유저일</td>
-								<td>2023-07-17</td>
-								<td>50</td>
-							</tr>
+							<c:choose>
+								<c:when test="${empty columnList}">
+									<tr>
+										<th colspan="5">게시글이 존재하지 않습니다.</th>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="column" items="${columnList}">
+										<tr>
+											<td>${column.boardNo}</td>
+											<td>
+												<a href="board/boardDetail?no=${column.boardNo}&type=3">${column.boardTitle}</a>
+											</td>
+											<td>${column.memberName}</td>
+											<td>${column.boardDate}</td>
+											<td>${column.readCount}</td>
+										</tr>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 						</tbody>
 					</table>
 

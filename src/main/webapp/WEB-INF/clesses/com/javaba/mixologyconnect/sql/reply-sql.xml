@@ -17,13 +17,12 @@
 
 	<!--댓글 등록 -->
 	<entry key="insertReply">
-		INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL , ?, DEFAULT, ?, ?, 'Y')
+		INSERT INTO REPLY VALUES(SEQ_REPLY_NO.NEXTVAL , ?, DEFAULT, ?, ?, 'Y')
 	</entry>
 
 	<!-- 댓글 삭제 -->
 	<entry key="deleteReply">
-
-		UPDATE REPLY SET REPLY_ST = 'Y'
+		UPDATE REPLY SET REPLY_ST = 'N'
 		WHERE REPLY_NO = ?
 	</entry>
 
