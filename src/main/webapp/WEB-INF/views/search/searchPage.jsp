@@ -168,7 +168,7 @@
 										<tr>
 											<td>${column.boardNo}</td>
 											<td>
-												<a href="board/boardDetail?no=${column.boardNo}&type=3">${column.boardTitle}</a>
+												<a href="board/boardDetail?no=${column.boardNo}&type=3&query=${param.query}">${column.boardTitle}</a>
 											</td>
 											<td>${column.memberName}</td>
 											<td>${column.boardDate}</td>
