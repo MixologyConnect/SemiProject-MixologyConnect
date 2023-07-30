@@ -19,9 +19,9 @@ public class SearchDAO {
 	private Statement stmt;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
+
 	private Properties prop;
-	
+
 	public SearchDAO() {
 		try {
 			prop = new Properties();
@@ -39,24 +39,24 @@ public class SearchDAO {
 	 * @return cocktailList
 	 */
 	public List<Cocktail> selectCocktailList(Connection conn, String keyWord) throws Exception{
-		
+
 		List<Cocktail> cocktailList = new ArrayList<>();
-		
+
 		try {
 			String sql = prop.getProperty("selectCocktailList"); 
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			String searchPattern = "%" + keyWord + "%";
 			pstmt.setString(1, searchPattern);
 			pstmt.setString(2, searchPattern);
 			pstmt.setString(3, searchPattern);
-			
+
 			rs= pstmt.executeQuery();
-			
+
 			while (rs.next()) {
 				Cocktail cocktail = new Cocktail();
-				
+
 				cocktail.setCocktailNo(rs.getInt("CKTL_NO"));
 				cocktail.setCocktailName(rs.getString("CKTL_NM"));
 				cocktail.setCocktailContent(rs.getString("CKTL_CONTENT"));
@@ -66,11 +66,11 @@ public class SearchDAO {
 
 				cocktailList.add(cocktail);
 			}
-			
+
 		}finally {
 			close(rs);
 			close(pstmt);
-			
+
 		}
 		return cocktailList;
 	}
@@ -82,43 +82,89 @@ public class SearchDAO {
 	 * @return boardList
 	 */
 	public List<Board> selectboardList(Connection conn, String keyWord) throws Exception{
-		
+
 		List<Board> boardList = new ArrayList<>();
-		
+
 		try {
 			String sql = prop.getProperty("selectBoardList");
-			
+
 			pstmt= conn.prepareStatement(sql);
-			
+
 			String searchPattern = "%" + keyWord + "%";
 			pstmt.setString(1, searchPattern);
 			pstmt.setString(2, searchPattern);
-			
+
+			rs= pstmt.executeQuery();
+
 			while(rs.next()){
-				
+
 				Board board = new Board();
-				
+
 				board.setBoardNo(rs.getInt("BOARD_NO"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setMemberName(rs.getString("MEMBER_NM"));
 				board.setBoardDate(rs.getString("BOARD_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
-				
+
 				boardList.add(board);
 			}
-			
-			
+
+
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-		
+
 		return boardList;
-	
-	
+
+
 	}
-	
+
+	/**
+	 * 검색 키워드에 맞는 컬럼 결과 조회 DAO
+	 * @param conn
+	 * @param keyWord
+	 * @return columnList
+	 * @throws Exception
+	 */
+	public List<Board> selectColumnList(Connection conn, String keyWord)throws Exception {
+		List<Board> columnList = new ArrayList<>();
+
+		try {
+			String sql = prop.getProperty("selectColumnList");
+
+			pstmt= conn.prepareStatement(sql);
+
+			String searchPattern = "%" + keyWord + "%";
+			pstmt.setString(1, searchPattern);
+			pstmt.setString(2, searchPattern);
+
+			rs= pstmt.executeQuery();
+
+			while(rs.next()){
+
+				Board board = new Board();
+
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setMemberName(rs.getString("MEMBER_NM"));
+				board.setBoardDate(rs.getString("BOARD_DT"));
+				board.setReadCount(rs.getInt("READ_COUNT"));
+
+				columnList.add(board);
+			}
+
+
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return columnList;
+	}
+
 
 
 }

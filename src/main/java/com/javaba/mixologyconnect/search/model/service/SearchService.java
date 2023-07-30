@@ -2,6 +2,7 @@ package com.javaba.mixologyconnect.search.model.service;
 
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,11 +32,24 @@ public class SearchService {
 		List<Board> boardList = dao.selectboardList(conn, keyWord);
 	
 		// 3. 컬럼검색
+		List<Board> columnList = dao.selectColumnList(conn, keyWord);
+		
+		
+		// 4. 검색 결과 수 
+		int coctailCount = cocktailList.size();
+		int boardCount = boardList.size();
+		int columnCount = columnList.size();
+		int allCount = coctailCount+ boardCount+columnCount;
+		
+		int[] countArr = {coctailCount,boardCount,columnCount,allCount}; 
 		
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("cocktailList", cocktailList);
 		map.put("boardList", boardList);
+		map.put("columnList", columnList);
+		map.put("countArr", countArr);
+		
 		close(conn);
 		return map;
 		
