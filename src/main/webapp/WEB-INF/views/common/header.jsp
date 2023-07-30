@@ -32,22 +32,10 @@
     </div>
 </header>
 <nav>
-    <a class="themes-content-1">안내</a>
-    <a class="themes-content-1" href="${contextPath}/column/columnAll">칼럼</a>
-    <a class="themes-content-1" href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
-    <a class="themes-content-1" href="${contextPath}/cocktail/cocktailList">칵테일</a>
-    <a class="themes-content-1" href="${contextPath}/cocktailTest/cocktailTest">테스트</a>
-    <a class="themes-content-1" href="${contextPath}/member/signUpterms">회원가입</a>
+    <a>안내</a>
+    <a href="${contextPath}/column/columnAll">칼럼</a>
+    <a href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
+    <a href="${contextPath}/cocktail/cocktailList">칵테일</a>
+    <a href="${contextPath}/cocktailTest/cocktailTest">테스트</a>
+    <a href="${contextPath}/member/signUpterms">회원가입</a>
 </nav>
-
-<div id="theme-switch">
-	<input type="checkbox">
-	<img>
-</div>
-
-<c:if test="${!empty sessionScope.message}">
-	<script>
-		alert("${message}");
-	</script>
-	<c:remove var="message" scope="session"/>
-</c:if>

@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<%--문자열 관렬 함수(메소드) 제공 JSTL (EL형식) --%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-    
-    
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,22 +12,16 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/join-terms.css">
 	<link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
-	
-
 </head>
-<body class="themes-main-1">
-    <div id="terms-area" class="themes-main-2">
-
+<body>
+    <div id="terms-area">
         <div id="content-area" >
             <h2>약관동의</h2>
-            
             <div id="terms">
                 <label><input type="checkbox" id="all-check"><span id="all" class="blue">믹스올로지의 모든 약관을 확인하고 전체 동의 합니다</span> </label>
                 <div id="check-area">
-                    
                     <input type="checkbox" name="checkbox" value="UseYes">
                     <label><span class="blue">(필수)</span>이용약관</label>
-                    
                 </div>
                 <div id="scroll-box">
                     <p>

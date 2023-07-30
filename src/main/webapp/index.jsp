@@ -30,8 +30,8 @@
         <div id="ad"></div>
         <div id="fixed-divider"></div>
         <div id="populars">
-            <p class="themes-content-1">Columns</p>
-            <p class="themes-content-1">최근 칼럼</p>
+            <p>Columns</p>
+            <p>최근 칼럼</p>
             <ul class="contents">
             	<li><a></a></li>
             	<li><a></a></li>
@@ -41,8 +41,8 @@
         </div>
         <div id="fixed-divider"></div>
         <div id="populars">
-            <p class="themes-content-1">Trending</p>
-            <p class="themes-content-1">실시간 인기 게시글</p>
+            <p>Trending</p>
+            <p>실시간 인기 게시글</p>
             <ul class="contents">
             	<li><a></a></li>
             	<li><a></a></li>

@@ -27,13 +27,13 @@
                                 <span class="reply-date">${reply.replyDate}</span>
                             </p>
 
-                            <p class="reply-content">${reply.replyContent}</p>
+                            <p class="replycontent">${reply.replyContent}</p>
 
                             <c:if test="${loginMember.memberNo == reply.memberNo}">
 
                                 <div class="reply-btn-area">
-                                    <button onclick="showUpdateReply(${reply.replyNo}, this)">수정</button>
-                                    <button onclick="deleteReply(${reply.replyNo})">삭제</button>
+                                    <button type="button" onclick="showUpdateReply(${reply.replyNo}, this)">수정</button>
+                                    <button type="button" onclick="deleteReply(${reply.replyNo})">삭제</button>
                                 </div>
                             </c:if>
                         </li>
