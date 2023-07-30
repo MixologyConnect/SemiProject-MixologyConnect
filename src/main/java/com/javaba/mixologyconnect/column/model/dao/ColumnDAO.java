@@ -14,7 +14,7 @@ import java.util.Properties;
 import com.javaba.mixologyconnect.board.model.dao.BoardDAO;
 import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.board.model.vo.Pagination;
-import com.javaba.mixologyconnect.column.model.vo.Column;
+
 
 public class ColumnDAO {
 	
@@ -39,11 +39,11 @@ public class ColumnDAO {
 	}
 	
 
-	/** 컬럼 전체 목록 DAO
+	/** 컬럼 제목 DAO
 	 * @author 이미래 
 	 * @param conn
 	 * @param type
-	 * @return map
+	 * @return columnTitle
 	 * @throws Exception
 	 */
 	public String boardTitle(Connection conn, int type) throws Exception {
@@ -109,21 +109,23 @@ public class ColumnDAO {
 		return listCount;
 	}
 
+
+
+
 	/** 컬럼 목록 조회 DAO
 	 * @author 이미래 
 	 * @param conn
 	 * @param pagination
 	 * @param type
-	 * @return boardList
+	 * @return columnList
 	 * @throws Exception
 	 */
-	public List<Board> selectBoardList(Connection conn, Pagination pagination, int type) throws Exception {
-		
-		List<Board> boardList = new ArrayList<Board>();
+	public List<Board> selectColumnList(Connection conn, Pagination pagination, int type) throws Exception {
+		List<Board> columnList = new ArrayList<Board>();
 		
 		try {
 		
-			String sql = prop.getProperty("selectBoardList");
+			String sql = prop.getProperty("selectColumnList");
 			
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start + pagination.getLimit() - 1;
@@ -137,25 +139,29 @@ public class ColumnDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
+				Board board = new Board();
+				
+				board.setThumbnail(rs.getString("IMG_RENAME"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setMemberName(rs.getString("MEMNER_NM"));
+				
+				columnList.add(board);
+	
 			
-				Column column = new Column();
-				
-			
-				
-				
-				
 				
 			}
 			
 			
 			
+			
 		} finally {
-
+			close(rs);
+			close(pstmt);
 		}
 		
 		
 
-		return boardList;
+		return columnList;
 	}
 	
 

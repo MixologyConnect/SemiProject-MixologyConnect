@@ -1,6 +1,11 @@
-columnAll.jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:set var="boardName" value="${map.boardName}"/>
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="columnList" value="${map.columnList}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,6 +165,6 @@ $.ajax({
 });
     </script>
 
-    
+    <script src="${contextPath}/resources/js/columnAll.js"></script>
 </body>
 </html>

@@ -21,13 +21,14 @@ public class SearchServlet extends HttpServlet{
 		try {
 
 			String keyWord = req.getParameter("query");
-
+			
 			SearchService service = new SearchService();
 
-			Map<String,Object>map = service.searchAllList("query");
+			Map<String,Object>map = service.searchAllList(keyWord);
 
 			req.setAttribute("map", map);
 
+			
 			String path = "/WEB-INF/views/search/searchPage.jsp";
 
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
