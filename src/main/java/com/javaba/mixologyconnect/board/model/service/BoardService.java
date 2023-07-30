@@ -82,6 +82,58 @@ public class BoardService {
 	}
 
 
+/** 게시글 등록
+	 * @param detail
+	 * @param imageList
+	 * @param boardType
+	 * @return boardNo
+	 */
+	public int boardInsert(BoardDetail detail, List<BoardImage> imageList, int boardType) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int boardNo = dao.boardNo(conn);
+		
+		detail.setBoardNo(boardNo);
+
+		detail.setBoardTitle(Util.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Util.XSSHandling(detail.getBoardContent()));
+
+		detail.setBoardContent(Util.newLineHandling(detail.getBoardContent()));
+
+		int result = dao.boardInsert(conn, detail, boardType);
+
+		System.out.println("result : " + result);
+		
+		if (result > 0) { 
+			for (BoardImage image : imageList) { 
+				image.setBoardNo(boardNo); 
+
+				result = dao.insertBoardImage(conn, image);
+
+				if (result == 0) { 
+					break;
+				}
+			} 
+
+		} 
+
+		if (result > 0) {
+			commit(conn);
+		} else { 
+			rollback(conn);
+			boardNo = 0; 
+		}
+		close(conn);
+
+		return boardNo;
+		
+		
+		
+	}
+
+
+
 
 
 }

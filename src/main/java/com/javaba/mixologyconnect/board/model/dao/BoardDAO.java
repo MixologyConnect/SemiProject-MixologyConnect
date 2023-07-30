@@ -223,7 +223,7 @@ public class BoardDAO {
 				BoardImage image = new BoardImage();
 	            
 	            image.setImageNo(rs.getInt("IMG_NO"));
-	            image.setImageRename(rs.getString("IMG-RENAME"));
+	            image.setImageRename(rs.getString("IMG_RENAME"));
 	            image.setImageOriginal(rs.getString("IMG_ORIGINAL"));
 	            image.setImageLevel(rs.getInt("IMG_LEVEL"));
 	            image.setBoardNo(rs.getInt("BOARD_NO"));

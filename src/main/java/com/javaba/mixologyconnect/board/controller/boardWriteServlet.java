@@ -18,6 +18,7 @@ import com.javaba.mixologyconnect.board.model.vo.BoardImage;
 import com.javaba.mixologyconnect.common.MyRenamePolicy;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.FileRenamePolicy;
 
 
 @WebServlet("/board/boardWrite")
@@ -129,6 +130,22 @@ public class boardWriteServlet extends HttpServlet {
 				
 			}
 			
+			if(mode.equals("update")) {
+				
+				int boardNo = Integer.parseInt(mpReq.getParameter("no"));
+				int cp = Integer.parseInt(mpReq.getParameter("cp"));
+				String deleteList = mpReq.getParameter("deleteList");
+				detail.setBoardNo(boardNo);
+				
+				int result = service.boardUpdate(detail, cp, deleteList );
+				
+				
+				
+				
+				
+				
+			}
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -137,4 +154,8 @@ public class boardWriteServlet extends HttpServlet {
 		
 
 	}
+
+
+
+
 }
