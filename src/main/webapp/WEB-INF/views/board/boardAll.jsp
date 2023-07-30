@@ -112,15 +112,10 @@
 						<li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
 					</ul>
 				</div>
-
-
 			</main>
-
-
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
-		
+			<jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 			<script src="${contextPath}/resources/js/board/board.js"></script>
+			<script src="${contextPath}/resources/js/main.js"></script>
 		</body>
-
 		</html>
