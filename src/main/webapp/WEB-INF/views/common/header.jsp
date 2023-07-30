@@ -38,4 +38,5 @@
     <a href="${contextPath}/cocktail/cocktailList">칵테일</a>
     <a href="${contextPath}/cocktailTest/cocktailTest">테스트</a>
     <a href="${contextPath}/member/signUpterms">회원가입</a>
+    <a href="#">관리자 모드</a>
 </nav>
