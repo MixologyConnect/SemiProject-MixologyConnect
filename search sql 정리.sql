@@ -31,8 +31,8 @@ WHERE ACL_LEVEL ='상';
 		FROM BOARD
 		JOIN MEMBER USING(MEMBER_NO)
 		WHERE BOARD_ST = 'Y'
-        AND (BOARD_TITLE LIKE '%칵테일%'
-        OR BOARD_CONTENT LIKE '%칵테일%')
+        AND (BOARD_TITLE LIKE '%레몬%'
+        OR BOARD_CONTENT LIKE '%레몬%')
         AND BOARD_CD = 2
 		ORDER BY BOARD_NO DESC
         )A;
