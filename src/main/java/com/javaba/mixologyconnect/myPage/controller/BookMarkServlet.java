@@ -1,4 +1,4 @@
-package com.javaba.mixologyconnect.member.controller;
+package com.javaba.mixologyconnect.myPage.controller;
 
 import java.io.IOException;
 
