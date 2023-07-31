@@ -128,7 +128,7 @@ public class ColumnDAO {
 			String sql = prop.getProperty("selectColumnList");
 			
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
-			int end = start + pagination.getLimit() - 1;
+			int end = start + pagination.getLimit() - 2;
 
 			pstmt = conn.prepareStatement(sql);
 			
@@ -143,7 +143,7 @@ public class ColumnDAO {
 				
 				column.setThumbnail(rs.getString("IMG_RENAME"));
 				column.setBoardTitle(rs.getString("BOARD_TITLE"));
-				column.setMemberName(rs.getString("MEMNER_NM"));
+				column.setMemberName(rs.getString("MEMBER_NM"));
 				
 				columnList.add(column);
 	
