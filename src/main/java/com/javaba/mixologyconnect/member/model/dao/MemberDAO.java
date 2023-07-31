@@ -320,6 +320,7 @@ public class MemberDAO {
 		return loginMember;
 	}
 
+
 	/**@author 이미래
 	 * 비밀번호 찾기 DAO
 	 * @param conn
