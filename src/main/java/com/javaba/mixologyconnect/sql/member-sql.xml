@@ -70,7 +70,7 @@
 	<entry key="selectMember">
 		SELECT MEMBER_NO, MEMBER_ID, MEMBER_TEL, MEMBER_NM, MEMBER_ADDR, SECESSION_FL
 		FROM MEMBER
-		WHERE MEMBER_ID = 'user1'
+		WHERE MEMBER_ID = ?
 	</entry>
 	
 
