@@ -47,31 +47,7 @@
 						</div>
 
 						<!-- 게시글 사진, 내용, 좋아요, 공유버튼 있는 칸 -->
-						<!-- 사진 -->
-						<!-- 이미지가 있을 경우 -->
-						<c:if test="${!empty detail.imageList}">
-
-							<!-- 썸네일이 있을 경우 변수 생성 -->
-							<c:if test="${detail.imageList[0].imageLevel == 0}">
-								<c:set var="thumbnail" value="${detail.imageList[0]}" />
-								<!-- page scope(페이지 어디서든 사용 가능) -->
-							</c:if>
-
-						</c:if>
-
-
-						<!-- 썸네일 영역(썸네일이 있을 경우) -->
-						<c:if test="${!empty thumbnail}">
-
-							<div class="img">
-								<div class="boardImg thumnail">
-									<img src="${contextPath}${thumbnail.imageRename}">
-									<a href="${contextPath}${thumbnail.imageRename}"
-										download="${thumbnail.imageOriginal}">다운로드</a>
-								</div>
-							</div>
-
-						</c:if>
+						
 
 						<c:if test="${empty thumbnail}"> <!-- 썸네일 X -->
 							<c:set var="start" value="0"></c:set>
@@ -88,9 +64,9 @@
 							<div class="img">
 								<c:forEach var="i" begin="${start}" end="${fn:length(detail.imageList) -1}">
 									<div class="boardImg">
-										<img src="${contextPath}${detail.imageList[i].imageRename}">
+										<img src="${contextPath}${detail.imageList[i].imageRename}" class="boardImg1">
 										<a href="${contextPath}${detail.imageList[i].imageRename}"
-											download="${detail.imageList[i].imageOriginal}">다운로드</a>
+											download="${detail.imageList[i].imageOriginal}"><img src="${contextPath}/resources/images/download.svg" class="download"></a>
 									</div>
 								</c:forEach>
 

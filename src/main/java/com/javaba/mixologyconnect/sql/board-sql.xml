@@ -30,9 +30,11 @@
 		FROM BOARD
 		JOIN MEMBER
 		USING(MEMBER_NO)
+		JOIN BOARD_IMG USING(BOARD_NO)
 		WHERE BOARD_CD = ?
 		AND BOARD_ST = 'Y'
-		ORDER BY BOARD_NO
+		ORDER BY
+		BOARD_NO
 		DESC
 		)A
 		)
@@ -50,6 +52,12 @@
 		JOIN BOARD_TYPE USING(BOARD_CD)
 		WHERE BOARD_NO = ?
 		AND BOARD_ST = 'Y'
+	</entry>
+
+
+	<entry key="ReadCountUp">
+		UPDATE BOARD SET READ_COUNT = READ_COUNT + 1
+		WHERE BOARD_NO = ?
 
 	</entry>
 
@@ -65,7 +73,8 @@
 
 	<entry key="boardInsert">
 		INSERT INTO BOARD VALUES(?, ?, ?,
-		SYSDATE, NULL, 0, 'Y',
+		SYSDATE, NULL, 0,
+		'Y',
 		?, ?)
 	</entry>
 
@@ -88,18 +97,18 @@
 		WHERE BOARD_NO = ? AND
 		IMG_LEVEL = ?
 	</entry>
-	
-	
+
+
 	<entry key="deleteBoardImage">
 		DELETE FROM BOARD_IMG
 		WHERE BOARD_NO = ?
 		AND IMG_LEVEL
 		IN(
 	</entry>
-	
-	<entry key = "boardDelete">
-	UPDATE BOARD SET BOARD_ST = 'N'
-	WHERE BOARD_NO = ?
+
+	<entry key="boardDelete">
+		UPDATE BOARD SET BOARD_ST = 'N'
+		WHERE BOARD_NO = ?
 	</entry>
 
 </properties>
