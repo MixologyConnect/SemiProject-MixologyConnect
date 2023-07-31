@@ -21,14 +21,14 @@
             </p>
         </div>
         <div id="search">
-        	<img src="${contextPath}/resources/images/magnifier.png">
+            <label for="search-button"><img src="${contextPath}/resources/images/magnifier.png"></label>
             <form action="search">
         	    <input type="text" name="query" placeholder="검색할 칵테일, 게시글">
-                <button>검색</button>
+                <button id="search-button">검색</button>
             </form>
         </div>
         <div id="ad"></div>
-        <div id="fixed-divider"></div>
+        <div id="page-divider"></div>
         <div id="populars">
             <p>Columns</p>
             <p>최근 칼럼</p>
@@ -39,7 +39,7 @@
             	<li><a></a></li>
             </ul>
         </div>
-        <div id="fixed-divider"></div>
+        <div id="page-divider"></div>
         <div id="populars">
             <p>Trending</p>
             <p>실시간 인기 게시글</p>

@@ -1,5 +1,7 @@
 package com.javaba.mixologyconnect.cocktail.model.vo;
 
+import java.util.Map;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +18,9 @@ public class Cocktail {
 	private String cocktailContent;
 	private char alcohol;
 	private char sugar;
-	private String difficulty;
+	private char difficulty;
+	private Map<Ingredient, String> recipe;
+	private String recipeContent;
 	private String imagePath;
 
 }

@@ -29,7 +29,8 @@ window.addEventListener("scroll", function(e) {
         $("nav").css({"filter": "opacity(100%)",
                       "pointer-events": "auto"});
         $("header").css({"height": "120px",
-                         "transform": "translateY(0px)"});
+                         "transform": "translateY(0px)",
+                         "box-shadow": ""});
         $("#title").css({"pointer-events": "auto",
                          "filter": "opacity(100%)"});
         $(".account-image").css("transform", "none");
@@ -39,7 +40,8 @@ window.addEventListener("scroll", function(e) {
         $("nav").css({"filter": "opacity(0%)",
                       "pointer-events": "none"});
         $("header").css({"height": "120px",
-                         "transform": "translateY(-50px)"});
+                         "transform": "translateY(-50px)",
+                         "box-shadow": "0 0 20px 4px rgba(0, 0, 0, 0.1)"});
         $("#title").css({"pointer-events": "none",
                          "filter": "opacity(0%)"});
         $(".account-image").css("transform", "translate(23px, -13px)");

@@ -15,48 +15,73 @@
 	<main>
         <div id="head">
 			<p>칵테일 정보</p>
-			<p>마르티네스</p>
+            <p>${cocktail.cocktailName}</p>
 		</div>
         <div id="cocktail-detail">
             <div id="cocktail-image">
-                <img>
+                <img src="${cocktail.imagePath}">
             </div>
             <div id="cocktail-info">
-                <h1>마르티네스</h1>
                 <div id="cocktail-property">
-                    <p>도수 ★★☆</p>
-                    <p>당도 ★☆☆</p>
-                    <p>난이도 ★★☆</p>
+                    <table>
+                        <tr>
+                            <th width="70px">도수</th>
+                            <td>${cocktail.alcohol}</td>
+                        </tr>
+                        <tr>
+                            <th>당도</th>
+                            <td>${cocktail.sugar}</td>
+                        </tr>
+                        <tr>
+                            <th>난이도</th>
+                            <td>${cocktail.difficulty}</td>
+                        </tr>
+                    </table>
+                    <p> </p>
                 </div>
-                <div id="full-divider"></div>
+                <div id="divider"></div>
                 <div id="cocktail-recipe">
-                    <h3>레시피</h3>
-                    <div>
-                        <img src="${contextPath}/resources/images/ingredient/base.png">&nbsp;
-                        <p>런던 드라이 진 - 45 ml (1 1/2 oz)</p>
-                    </div>
-                    <div>
-                        <img src="${contextPath}/resources/images/ingredient/juice.png">&nbsp;
-                        <p>스위트 베르무트 - 45 ml (1 1/2 oz)</p>
-                    </div>
-                    <div>
-                        <img src="${contextPath}/resources/images/ingredient/garnish.png">&nbsp;
-                        <p>룩사르도 마라스키노 - 1 tsp</p>
-                    </div>
-                    <div>
-                        <img src="${contextPath}/resources/images/ingredient/etc.png">&nbsp;
-                        <p>앙고스투라 비터 - 2 Dashes</p>
-                    </div>
-                    <p>위의 재료들을 모두 믹싱 글라스에 얼음과 함께 스터한 후, 얼음을 걸러내고 차갑게 식힌 마티니 글라스에 따라주면 완성.</p>
+                    <h2>레시피</h2>
+                    <ul>
+                        <li>
+                            <div><img src="${contextPath}/resources/images/ingredient/base.png"></div>&nbsp;
+                            <div>
+                                <p>런던 드라이 진</p>
+                                <p>45 ml(1.5 온스)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div><img src="${contextPath}/resources/images/ingredient/juice.png"></div>&nbsp;
+                            <div>
+                                <p>스위트 베르무트</p>
+                                <p>45 ml(1.5 온스)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div><img src="${contextPath}/resources/images/ingredient/garnish.png"></div>&nbsp;
+                            <div>
+                                <p>룩사르도 마라스키노</p>
+                                <p>1 티스푼</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div><img src="${contextPath}/resources/images/ingredient/etc.png"></div>&nbsp;
+                            <div>
+                                <p>앙고스투라 비터</p>
+                                <p>2 대시</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>${cocktail.recipeContent}</p>
                 </div>
             </div>
+
         </div>
-        <div id="fixed-divider"></div>
-        <p id="cocktail-description">
-            기원에 대해서는 두 가지 설이 있다. 하나는 옥시덴탈 호텔(Occidental Hotel)의 바텐더였던 제리 토마스가 처음으로 선보였다는 것이고, 다른 하나는 마르티네스 바의 바텐더였던 리슐리외(Richeliue)에 의해 선보여졌다는 것이다. 여담으로, 둘 다 캘리포니아 주에 위치해 있었다.
-            마르티네스에 관한 가장 오래된 기록은 1884년 O. H. 바이런(O. H. Byron)의 저서 "모던 바텐더 가이드(The Modern Bartenders' Guide)>와, 1887년 제리 토마스의 저서 "바텐더 가이드(Thomas' The Bar-Tender's Guide)"이다. 바이런의 책에 따르면 마르티네스는 맨해튼에서 위스키를 진으로 대체한 칵테일이다. 원래의 마르티네스는 제네바 진을 사용했을 것으로 추정되나, 1887년 제리 토마스의 레시피에서는 올드 톰 진을 사용했다.
-            여담으로, 1888년 해리 존슨(Harry Johnson)의 "New and Improved Illustrated Bartender's Manual"에서는 마지막 글자 ‘z’ 가 빠진 ‘Martine’ 으로 표기되었는데, 그로 인해 ‘마르티네스에서 마티니가 파생되었다’ 는 가설도 상당히 높은 지지를 얻고 있다.
-        </p>
+        <div id="page-divider"></div>
+        <div id="cocktail-description">
+            <h2>설명</h2>
+            <p>${cocktail.cocktailContent}</p>
+        </div>
         <div id="cocktail-page">
             <p>다음 칵테일  이전 칵테일  목록으로</p>
         </div>

@@ -9,6 +9,7 @@
 	<entry key="selectOne">
 		SELECT *
 		  FROM COCKTAIL
-		 WHERE COCKTAIL_ID = ?
+		  JOIN COCKTAIL_IMG ON IMG_NO = CKTL_IMG_NO
+		 WHERE CKTL_NO = ?
 	</entry>
 </properties>
