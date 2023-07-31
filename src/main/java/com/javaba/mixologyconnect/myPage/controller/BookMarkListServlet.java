@@ -1,6 +1,7 @@
 package com.javaba.mixologyconnect.myPage.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,17 +27,17 @@ public class BookMarkListServlet extends HttpServlet {
 			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 			System.out.println("보드넘버값 : " + boardNo);
 			
-			BookMark bookMark = service.bookMarkList(boardNo);
+			List<BookMark> bookMarkList = service.bookMarkList(boardNo);
 			
 			// 북마크 게시글 조회
 			
-			System.out.println("보드리스트 : " + bookMark);
+			System.out.println("보드리스트 : " + bookMarkList);
 			
-			req.setAttribute("bookMark", bookMark);
-			new Gson().toJson(bookMark, resp.getWriter());
+			req.setAttribute("bookMark", bookMarkList);
+			new Gson().toJson(bookMarkList, resp.getWriter());
 			
 			HttpSession session = req.getSession();
-			session.setAttribute("bookMark", bookMark);
+			session.setAttribute("bookMarkList", bookMarkList);
 			
 			
 			
