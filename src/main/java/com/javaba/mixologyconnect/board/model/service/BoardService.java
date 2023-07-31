@@ -200,6 +200,43 @@ public int boardDelete(int boardNo) throws Exception{
 	
 	return result;
 }
+//
+///**컬럼 등록 서비스
+// * @throws Exception
+// * @param detail
+// * @param columnImg
+// * @param boardCode
+// * @return boardNo
+// */
+//public int insertColumn(BoardDetail detail, BoardImage columnImg, int boardCode)throws Exception {
+//
+//	Connection conn = getConnection();
+//	
+//	int boardNo = dao.boardNo(conn);
+//	
+//	detail.setBoardNo(boardNo);
+//	
+//	detail.setBoardTitle(Util.XSSHandling(detail.getBoardTitle()));
+//	detail.setBoardContent(Util.XSSHandling(detail.getBoardContent()));
+//
+//	detail.setBoardContent(Util.newLineHandling(detail.getBoardContent()));
+//	
+//	int result = dao.boardInsert(conn, detail, boardNo);
+//	
+//	if(result > 0) {
+//		columnImg.setBoardNo(boardNo);
+//		result=dao.insertBoardImage(conn, columnImg);
+//	}
+//	
+//	if(result > 0) 	commit(conn);
+//	else {
+//		rollback(conn);
+//		boardNo=0;
+//	}
+//	close(conn);
+//	
+//	return boardNo;
+//}
 
 
 
