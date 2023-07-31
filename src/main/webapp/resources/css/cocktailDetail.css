@@ -41,11 +41,6 @@ main {
 	overflow: hidden;
 }
 
-#cocktail-image > img {
-	content: url("https://i.namu.wiki/i/PhrxqNiocrBKa1R7HTUPnbqnYzl4MYQ-zCD-0jLPqmGU8b-Ww2b4qOFOgPcY1GyIG5TS02n7H-mvkYJFSpyBC9VcaakXKiHanWN3s3coc_Vge99Et2MbosXpa0ZlAP_RylxksewF7ZwLLeLUo97vmQ.webp");;
-	height: 95%;
-}
-
 #cocktail-info {
 	width: 480px;
 	height: 480px;
@@ -80,6 +75,7 @@ main {
 #cocktail-recipe > ul > li {
 	display: flex;
 	width: 280px;
+	height: 60px;
 	border-radius: 10px;
 	padding: 10px;
 	margin: 10px;
