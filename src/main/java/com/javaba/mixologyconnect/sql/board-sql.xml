@@ -110,4 +110,9 @@
 		WHERE BOARD_NO = ?
 	</entry>
 
+	<entry key = "selectBoardNo">
+	SELECT BOARD_NO FROM BOARD
+	WHERE BOARD_CD = ?
+	
+	</entry>
 </properties>

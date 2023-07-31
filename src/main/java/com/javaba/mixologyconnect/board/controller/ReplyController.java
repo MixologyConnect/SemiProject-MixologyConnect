@@ -37,7 +37,6 @@ public class ReplyController extends HttpServlet{
 				// 댓글 목록 조회 서비스 호출 후 결과 반환 받기
 				List<Reply> rList = service.selectReplyList(boardNo);
 				
-				System.out.println("rList :" + rList);
 
 				// JSON 변환 + 응답
 				new Gson().toJson(rList, resp.getWriter());
