@@ -25,12 +25,12 @@ function bookMarkList(){
         dataType : "json",
 
         
-        success : function(bookMark){
-            console.log(bookMark)
+        success : function(bookMarkList){
+            console.log(bookMarkList)
 
             const list = document.getElementById("list")
 
-            for(let item of bookMark){
+            for(let item of bookMarkList){
 
                 // tr 요소 생성
                 const tr = document.createElement("tr")

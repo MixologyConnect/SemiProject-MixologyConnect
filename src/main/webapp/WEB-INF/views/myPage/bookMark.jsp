@@ -41,7 +41,7 @@
                 
 
                 <c:choose>
-                    <c:when test="${empty bookMark}">
+                    <c:when test="${empty bookMarkList}">
                         <tr>
                             <th>게시글이 존재하지 않습니다.</th>
                         </tr>
@@ -51,12 +51,12 @@
         
                            <tbody id="body">
                             <tr id="list">
-                                <td>${bookMark.boardNo}</td>
+                                <td>${bookMarkList.boardNo}</td>
                                 <td>
-                                    <a href="#">${bookMark.boardTitle}</a>
+                                    <a href="#">${bookMarkList.boardTitle}</a>
                                 </td>
-                                <td>${bookMark.memberName}</td>
-                                <td>${bookMark.readCount}</td>
+                                <td>${bookMarkList.memberName}</td>
+                                <td>${bookMarkList.readCount}</td>
                             </tr>
                            </tbody>
         
