@@ -183,7 +183,7 @@
 
      <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-    <script src="../js/bookmark.js"></script>
+    <script src="${contextPath}/resources/js/bookMark.js"></script>
     
 </body>
 </html>
