@@ -1,0 +1,72 @@
+*{box-sizing: border-box;}
+/* div{ border: 1px solid black} */
+
+
+
+
+.contSearchPw{
+    height: 50px;
+
+    font-size: 25px;
+    align-items: end;
+    display: flex;
+    margin-bottom: 8px;
+    
+}
+
+
+.searchPw1{
+    width: 40%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    height: 350px;
+    margin-top: 15px;
+
+}
+
+form[name="searchPw-form"]{
+
+    width: 80%;
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+
+.searchPwTitle{
+
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+    
+
+
+#inputId{
+    width: 300px;
+    height: 40px;
+    margin: 10px;
+}
+#inputName{
+    width: 300px;
+    height: 40px;
+    margin: 10px;
+}
+
+
+
+#searchPwBtn{
+    width: 150px;
+    height: 40px;
+    background-color: rgb(158, 235, 240);
+    color: white;
+    cursor: pointer;
+
+}

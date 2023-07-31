@@ -1,4 +1,3 @@
-console.log("v9");
 function searchId(){
     const memberName = document.getElementById("inputName");
     const memberTel = document.getElementById("inputTel");
@@ -28,3 +27,25 @@ function searchId(){
 
     return true;
 }
+
+
+function searchPw(){
+    const memberName = document.getElementById("inputName");
+    const memberId = document.getElementById("inputId");
+
+
+    if(memberId.value.trim().length == 0){
+        alert("아이디를 입력해주세요.");
+        memberId.focun();
+        return false;
+    }
+
+    if(memberName.value.trim().length == 0){
+        alert("이름을 입력해주세요.");
+        memberName.focun();
+        return false;
+    }
+
+    return true;
+}
+

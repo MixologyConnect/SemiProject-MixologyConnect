@@ -37,13 +37,75 @@
             <div class="boardTitle">
                 <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)" value="${detail.boardTitle}" maxlength="20">
                 <label for="image">
-                    <div class="image">이미지 선택</div>
-                  </label>
-                  <input type="file" name="image" id="image">
-    
             </div>
             
            
+            <c:forEach items ="${detail.imageList}" var = "boardImage">
+
+            <c:choose>
+
+            <c:when test = "${boardImage.imageLevel == 0}">
+                <%-- c:set 변수는 page scope가 기본값(조건문이 끝나도 사용 가능) --%>
+            <c:set var ="img0" value = "${contextPath}${boardImage.imageRename}"></c:set>
+            </c:when>
+
+            <c:when test = "${boardImage.imageLevel == 1}">
+            <c:set var ="img1" value = "${contextPath}${boardImage.imageRename}"></c:set>
+            </c:when>
+
+            <c:when test = "${boardImage.imageLevel == 2}">
+            <c:set var ="img2" value = "${contextPath}${boardImage.imageRename}"></c:set>
+            </c:when>
+
+            <c:when test = "${boardImage.imageLevel == 3}">
+            <c:set var ="img3" value = "${contextPath}${boardImage.imageRename}"></c:set>
+            </c:when>
+
+            </c:choose>
+            </c:forEach>
+
+            <div class="img-box">
+
+                <div class="boardImg">
+                <label for = "img0">
+                    <img class="preview" src="${img0}">
+                </label>
+
+                <input type="file" class="inputImage" id="img0" name = "0" accept="image/*">
+                <span class="delete-image">&times;</span>
+            </div>
+
+
+            <div class="boardImg">
+                <label for = "img1">
+                    <img class="preview" src="${img1}">
+                </label>
+
+                <input type="file" class="inputImage" id="img1" name = "1" accept="image/*">
+                <span class="delete-image">&times;</span>
+            </div>
+
+            <div class="boardImg">
+                <label for = "img2" >
+                    <img class="preview" src="${img2}">
+                </label>
+
+                <input type="file" class="inputImage" id="img2" name = "2" accept="image/*">
+                <span class="delete-image">&times;</span>
+            </div>
+
+            <div class="boardImg">
+                <label for = "img3">
+                    <img class="preview" src="${img3}">
+                </label>
+
+                <input type="file" class="inputImage" id="img3" name = "3" accept="image/*">
+                <span class="delete-image">&times;</span>
+            </div>
+        </div>
+
+
+
 
             <!-- 게시글 작성란 -->
             <div class="detail">

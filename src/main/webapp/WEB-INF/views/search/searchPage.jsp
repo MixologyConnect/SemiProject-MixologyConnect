@@ -122,6 +122,7 @@
 								<c:otherwise>
 									<c:forEach var="board" items="${boardList}">
 										<tr>
+											
 											<td>${board.boardNo}</td>
 											<td>
 												<a href="board/boardDetail?no=${board.boardNo}&type=1&query=${param.query}">${board.boardTitle}</a>

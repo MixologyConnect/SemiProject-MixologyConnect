@@ -62,6 +62,8 @@ public class BoardService {
 	 */
 	public BoardDetail selectBoardDetail(int boardNo) throws Exception {
 
+		
+		
 		Connection conn = getConnection();
 
 		BoardDetail detail = dao.selectBoardDetail(conn, boardNo);
@@ -72,6 +74,16 @@ public class BoardService {
 
 
 			detail.setImageList(imageList);
+			int result = dao.ReadCountUp(conn, boardNo);
+			
+			
+			if(result > 0) {
+				commit(conn);
+				detail.setReadCount(detail.getReadCount() + 1);
+			}else {
+				rollback(conn);
+			}
+				
 
 			close(conn);
 			
@@ -103,12 +115,13 @@ public class BoardService {
 
 		int result = dao.boardInsert(conn, detail, boardType);
 
-		System.out.println("result : " + result);
 		
 		if (result > 0) { 
 			for (BoardImage image : imageList) { 
 				image.setBoardNo(boardNo); 
 
+				System.out.println(imageList);
+				
 				result = dao.insertBoardImage(conn, image);
 
 				if (result == 0) { 
@@ -200,6 +213,7 @@ public int boardDelete(int boardNo) throws Exception{
 	
 	return result;
 }
+
 
 
 

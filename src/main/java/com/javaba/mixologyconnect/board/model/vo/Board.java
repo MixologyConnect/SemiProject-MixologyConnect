@@ -13,11 +13,11 @@ public class Board {
 	   
 	   private int boardNo;
 	   private String boardTitle;
-	   private String memberName;
+	   private String boardContent;
 	   private String BoardDate;
+	   private String memberName;
 	   private int readCount; // 조회수
 	   private String thumbnail;
-	   private String boardContent;
 	
 	   
 	   

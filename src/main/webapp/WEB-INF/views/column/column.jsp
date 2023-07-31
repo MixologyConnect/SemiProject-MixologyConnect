@@ -35,73 +35,51 @@
 
             <!-- 컬럼 제목 -->
             <div class="title">
-                [파격특가] 세계적 브랜드 로얄샬루트 98% 할인?!
+                ${detail.boardTitle}
             </div>
 
             <!-- 올린 시간, 조회수 -->
             <div class="time">
                 <div>
-                    <p>Mixology | 2023.07.10 17:44</p>
+                    <p>Mixology | ${detail.boardDate}</p>
                 </div>
                 <div>
-                    조회수 132회
+                    조회수 ${detail.readCount}회
                 </div>
             </div>
 
             <!-- 컬럼 헤드라인 -->
             <div class="head">
-                <h1>칵테일에 이런일이?</h1>
+                <h1>${detail.boardTitle}</h1>
+                ${columnImg.imageRename}
             </div>
-            
             <!-- 사진 -->
             <div class="picture">
-                <img src="/report/images/test.png" id="colPic">
+                <img src="${contextPath}${detail.imageList[0].imageRename}" id="colPic">
             </div>
 
             <!-- 글 타래 -->
             <div class="textCon">
-                    <p>
-                        💘2023 서울바앤스피릿쇼 예약 바로가기💘
-                    </p>
-                    
-                    <p>
-                        네이버 예약 - 서울바앤스피릿쇼 2023 (naver.com) 
-                    </p>
-                    <br>
-                        
-                    <p>
-                        <2023 서울바앤스피릿쇼(이하 바앤쇼)>가 7월 28일부터 30일까지 서울 코엑스 D홀에서 열립니다. 
-                    </p>
-                  
-                    <p>
-                        올해 바앤쇼에는 전시회장을 더욱 풍성하게 할 프로그램도 다수 준비되어 있다고 해요. 
-                    </p>
-
-                    <p>
-                        특히 국내 최상급 바 30여곳의 시그니처 칵테일🍸을 각 부스에서 맛볼 수 있는 '인피니티 바', 
-                    </p>
-
-                    <p>
-                        최정상 바텐더들의 경연 대회인 <span>'월드 칵테일 배틀'</span>🤴은 절대 빼놓지 말고 즐겨야 할 주요 콘텐츠예요. 
-                    </p>
-                    <p>
-                        이외에도 '스마트 오더 파빌리온'에서 백술닷컴 등 주류에 대한 접근성과 편의성을 높이는 
-                    </p>
-                    <p>
-                        다양한 브랜드의 면면도 살펴볼 수 있으니, 이번 행사도 절대 놓쳐서는 안 되겠지요?
-                    </p>
-                    <p>
-                        바앤쇼에서 '백술닷컴'을 찾아보세요😎 깜짝 이벤트가 기다리고 있습니다!
-                    </p>
+                ${detail.boardContent}
                 
-                    <center>
-                        <a href="columnAll.html">
-                             <button id="list">
-                                목록
-                            </button>
-                        </a>
-                    </center>
             </div>
+            <form>
+                <div class="alterBtn">
+                    <c:if test="${empty param.cp}">
+                        <c:set var="cp" value="1"></c:set>
+                    </c:if>
+
+                    <c:if test="${!empty param.currentPage}">
+                        <c:set var="cp" value="${param.cp}"></c:set>
+                    </c:if>
+
+                    <c:if test="${loginMember.managerCode=='Y'}">
+                        <button id="updateBtn" type="button" onclick="location.href='columnWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${detail.boardNo}'">수정</button>
+                        <button id="deleteBtn" type="button">삭제</button>
+                        <button id="goToBtn" type="button">목록으로</button>
+                    </c:if>
+                </div>
+            </form>
 
 
             
@@ -112,22 +90,6 @@
    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
    <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
-    <script>
-        $.ajax({
-            url: 'https://gist.githubusercontent.com/abs013r/cb774124e29ab7e396b638939ec0bda1/raw/479c0716a7104236e2e4fdc089586b3aeef5831b/MCnav.html',
-            type: 'GET',
-            success: function(data) { $('#mc-nav').html(data); },
-            error: function() { console.log('이거 뜨면 실패입니다… 조훈한테 문의하세요'); }
-        });
-        
-        $.ajax({
-            url: 'https://gist.githubusercontent.com/abs013r/0d6ff4139684cf842192a2d312266a83/raw/6e629f95c437670fc573560fd8559829a25b30c8/MCfooter.html',
-            type: 'GET',
-            success: function(data) { $('#mc-footer').html(data); },
-            error: function() { console.log('이거 뜨면 실패입니다… 조훈한테 문의하세요'); }
-        });
-    </script>
-    
     
 </body>
 </html>
