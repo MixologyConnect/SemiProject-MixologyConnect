@@ -66,6 +66,11 @@ color:rgb(0, 220, 244);
 background-color: white;
 }
 
+.right a {
+  text-decoration: none;
+}
+
+
 /* 최신순 버튼 */
 #new {
   border: none;
@@ -77,7 +82,7 @@ background-color: white;
   background-color: white;
 }
 
-#new:hover {
+#new > a:hover {
 border: none;
 cursor: pointer;
 font-size: 18px;
@@ -157,6 +162,11 @@ background-color: white;
   text-decoration: none;
 }
 
+.img {
+  margin-top: 10px;
+}
+
+
 .img img {
   width: 200px; 
   height: 200px;
@@ -201,7 +211,8 @@ main > section:nth-child(3){
 }
 
 .left{
-  display: flex;
+  display: block;
+  
   flex-direction: column;
   
 }
@@ -216,7 +227,16 @@ main > section:nth-child(3){
   font-weight: bold;
   
 }
+.boardContent{
+  height: 100px;
+  width: 1000px;
+  overflow: hidden;  		
+  text-overflow: ellipsis;  	
+  white-space: nowrap; 		
+  word-break:break-all;
+  margin-top: -20px;
 
+}
 
 
 .thr{
@@ -305,3 +325,19 @@ main > section:nth-child(6){
   font-weight: bold;
   border-radius: 50%;
 }
+
+.nameDateCount span{
+  position: relative;
+  bottom: 15px;
+}
+
+.boardDate{
+  float: right;
+  margin-right: 40px;
+}
+
+
+.read{
+  float: right;
+}
+

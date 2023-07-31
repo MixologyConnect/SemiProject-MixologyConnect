@@ -55,9 +55,11 @@
 								<div class="board">
 									<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3>${board.boardTitle}</h3>
 								</div>
-								<div>${board.boardContent}</div>
+								<div class="boardContent"  style="overflow : hideen">${board.boardContent}</div>
 								<div class="nameDateCount">
-									<span>${board.memberName}</span> <span>${board.boardDate}</span> <span>조회수 : ${board.readCount}</span>
+									<span class="memberName">${board.memberName}</span> 
+									<span class="read">조회수 : ${board.readCount}</span>
+									<span class="boardDate">${board.boardDate}</span> 
 								</div>
 							</div>
 							<div class="img">
