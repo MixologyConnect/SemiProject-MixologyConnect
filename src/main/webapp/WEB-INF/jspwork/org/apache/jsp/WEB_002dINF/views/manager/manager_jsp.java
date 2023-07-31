@@ -194,6 +194,7 @@ public final class manager_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <th >가입일</th>\r\n");
       out.write("                        <th >탈퇴여부</th>\r\n");
       out.write("                    </tr>\r\n");
+
       out.write("                        \r\n");
       out.write("                    <tbody id=\"resultMember\">\r\n");
       out.write("\r\n");
