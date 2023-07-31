@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/function" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
 <!DOCTYPE html>
@@ -68,7 +68,7 @@
                 <div class="image-box">
                     <div class="columnImg">
                         <article>
-                            <img class="preview" src="${image}">
+                            <img class="preview" src="${contextPath}${thumbnail.imageReName}">
                         </article>
                         <span class="delete-image">&times;</span>
                     </div>
