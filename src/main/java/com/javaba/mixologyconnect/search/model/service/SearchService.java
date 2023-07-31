@@ -31,7 +31,11 @@ public class SearchService {
 		// 3. 컬럼검색
 		List<Board> columnList = null;
 		
-		if(keyWord.equals("달달한")|| keyWord.equals("단")|| keyWord.equals("달달")) {
+		
+		if(keyWord.equals("칵테일")) {
+			cocktailList = dao.selectAllCktl(conn,keyWord);
+			
+		}else if(keyWord.equals("달달한")|| keyWord.equals("단")|| keyWord.equals("달달")) {
 			cocktailList = dao.selectSweetKeyword(conn,keyWord);
 		
 		}else if(keyWord.equals("높은")|| keyWord.equals("강한")) {
