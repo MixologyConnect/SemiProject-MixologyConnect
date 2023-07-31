@@ -1,3 +1,9 @@
+#page-divider {
+	width: 960px;
+	height: 1px;
+	background-color: rgb(180, 180, 180);
+}
+
 main {
 	display: flex;
 	flex-direction: column;
@@ -6,7 +12,7 @@ main {
 
 #ad {
 	display: flex;
-	width: 1024px;
+	width: 960px;
 	height: 80px;
 	border-radius: 20px;
 	margin-top: 40px;
@@ -18,24 +24,22 @@ main {
 }
 
 #head {
-	width: 1024px;
+	width: 960px;
 	margin: 50px 0 20px 0;
 }
 
 #head > p:first-of-type {
-	color: var(--text-color-1);
 	font-size: 2.4rem;
 	font-weight: bold;
 }
 
 #head > p:last-of-type {
-	color: var(--text-color-1);
 	font-size: 1.2rem;
 }
 
 #search {
 	display: flex;
-	width: 1024px;
+	width: 960px;
 	margin: 10px 0;
 	align-items: center;
 }
@@ -63,7 +67,7 @@ html.dark #search > img {
 .contents {
 	display: flex;
 	box-sizing: border-box;
-	width: 1024px;
+	width: 960px;
 	padding: 0;
 	margin: 30px 0;
 	flex-wrap: wrap;
@@ -72,8 +76,8 @@ html.dark #search > img {
 
 .contents > li {
 	list-style: none;
-	width: 240px;
-	height: 240px;
+	width: 225px;
+	height: 225px;
 	border-radius: 10px;
 	margin: 10px 0;
 	box-shadow: inset 0 0 30px rgba(120, 120, 120, 0.3);
@@ -93,7 +97,6 @@ html.dark #search > img {
 
 .contents > li > a > p {
 	margin: 0 0 10px 10px;
-	color: var(--text-color-1);
 	font-size: 1.5rem;
 	font-weight: bold;
 	align-self: flex-end;
