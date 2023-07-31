@@ -26,12 +26,21 @@
 
         <section class="follow">
             <section class="img">
-                <div><img src="${contextPath}/resources/images/user.png"></div>
+                <c:if test="${empty loginMember.profileImage}">
+
+                    <div><img src="${contextPath}/resources/images/user.png"></div>
+                </c:if>
+                <c:if test="${!empty loginMember.profileImage}">
+
+                    <div><img src="${loginMember.profileImage}"></div>
+                </c:if>
+
+                
                 
             <input type="file" id="chooseFile"accept="image/*"></div>
             </section>
             <section class="follow2">
-                <div id="top">@chosungjin</div>
+                <div id="top">${loginMember.memberName}</div>
                 <div class="bottom">
                     <span><a href="#">팔로워 8</a></span>
                     <span><a href="#">팔로잉 3</a></span>
