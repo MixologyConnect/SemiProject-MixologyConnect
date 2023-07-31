@@ -63,10 +63,7 @@
 								</div>
 							</div>
 							<div class="img">
-								<c:if test = "empty${board.thumbnail}">
-									<img src="${contextPath}/resources/images/heart.svg">
-								</c:if>
-								<img src="${contextPath}${board.thumbnail}">
+									<img src="${contextPath}${board.thumbnail}[0]">
 							</div>
 						</a>
 						</section>
