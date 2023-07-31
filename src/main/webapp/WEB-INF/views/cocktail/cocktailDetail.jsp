@@ -20,7 +20,7 @@
         <div id="page-divider"></div>
         <div id="cocktail-detail">
             <div id="cocktail-image">
-                <img src="${cocktail.imagePath}">
+                <img src="${contextPath}${cocktail.imagePath}">
             </div>
             <div id="cocktail-info">
                 <div id="cocktail-property">
