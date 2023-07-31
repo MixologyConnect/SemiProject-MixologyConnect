@@ -115,14 +115,13 @@ public class boardWriteServlet extends HttpServlet {
 			if(mode.equals("insert")) {
 				int boardNo = service.boardInsert(detail, imageList, boardType);
 				
-				System.out.println(boardNo);
 				String path = null;
 				
 				if(boardNo > 0) {
 					path = "boardDetail?no=" + boardNo + "&type=" + boardType;
 					session.setAttribute("message", "게시글이 등록되었습니다!");
 				}else {
-					path = "boardWrite?no=" + boardNo + "&type=" + boardType;
+					path = "boardWrite?no=" + mode + "&type=" + boardType;
 					session.setAttribute("message", "게시글 등록을 실패하였습니다..");
 				}
 				
