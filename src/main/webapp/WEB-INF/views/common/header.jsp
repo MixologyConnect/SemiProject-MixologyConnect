@@ -35,7 +35,7 @@
     <a>안내</a>
     <a href="${contextPath}/column/columnList?type=3">칼럼</a>
     <a href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
-    <a href="${contextPath}/cocktail/cocktailList">칵테일</a>
+    <a href="${contextPath}/cocktail/list">칵테일</a>
     <a href="${contextPath}/cocktailTest/cocktailTest">테스트</a>
     <a href="${contextPath}/member/signUpterms">회원가입</a>
     <a href="#">관리자 모드</a>

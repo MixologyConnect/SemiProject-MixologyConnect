@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.javaba.mixologyconnect.cocktail.model.service.CocktailService;
 import com.javaba.mixologyconnect.cocktail.model.vo.Cocktail;
 
-@WebServlet("/cocktail/cocktailList")
+@WebServlet("/cocktail/list")
 public class CocktailListServlet extends HttpServlet {
 
 	@Override
