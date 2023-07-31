@@ -198,6 +198,7 @@ public class MemberService {
 		Connection conn = getConnection();
 
 		Member member = dao.selectMember(conn, memberId);
+		System.out.println("s : "+member);
 
 		close(conn);
 
