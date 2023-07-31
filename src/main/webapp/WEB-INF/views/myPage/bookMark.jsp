@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
     
     
 <!DOCTYPE html>
@@ -15,16 +16,16 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/bookMark.css">
 
     <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
-    <script src="../js/jquery-3.7.0.min.js"></script>
-
+    
 </head>
 <body>
 
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
+    
     <section class="board-list">
         <h1 class="board-name">북마크</h1>
-
+        
         <div class="list-wrapper">
             <table class="list-table">
                 <thead>
@@ -37,107 +38,37 @@
                     </tr>
                 </thead>
 
-                <tbody>
-                    <tr>
-                        <td>10</td>
-                        <td>
-                            <a href="#">10번째 게시글</a>
-                        </td>
-                        <td>유저일</td>
-                        <td>2023-07-17</td>
-                        <td>50</td>
-                    </tr>
+                
 
-                    <tr>
-                        <td>10</td>
-                        <td>
-                            <a href="#">10번째 게시글</a>
-                        </td>
-                        <td>유저일</td>
-                        <td>2023-07-17</td>
-                        <td>50</td>
-                    </tr>
+                <c:choose>
+                    <c:when test="${empty bookMark}">
+                        <tr>
+                            <th>게시글이 존재하지 않습니다.</th>
+                        </tr>
+                    </c:when>
+        
+                        <c:otherwise>
+        
+                           <tbody id="body">
+                            <tr id="list">
+                                <td>${bookMark.boardNo}</td>
+                                <td>
+                                    <a href="#">${bookMark.boardTitle}</a>
+                                </td>
+                                <td>${bookMark.memberName}</td>
+                                <td>${bookMark.readCount}</td>
+                            </tr>
+                           </tbody>
+        
+                        </c:otherwise>
+        
+                </c:choose>
 
-                    <tr>
-                        <td>10</td>
-                        <td>
-                            <a href="#">10번째 게시글</a>
-                        </td>
-                        <td>유저일</td>
-                        <td>2023-07-17</td>
-                        <td>50</td>
-                    </tr>
 
-                    <tr>
-                        <td>10</td>
-                        <td>
-                            <a href="#">10번째 게시글</a>
-                        </td>
-                        <td>유저일</td>
-                        <td>2023-07-17</td>
-                        <td>50</td>
-                    </tr>
 
-                    <tr>
-                        <td>10</td>
-                        <td>
-                            <a href="#">10번째 게시글</a>
-                        </td>
-                        <td>유저일</td>
-                        <td>2023-07-17</td>
-                        <td>50</td>
-                    </tr>
 
-                    <tr>
-                        <td>10</td>
-                        <td>
-                            <a href="#">10번째 게시글</a>
-                        </td>
-                        <td>유저일</td>
-                        <td>2023-07-17</td>
-                        <td>50</td>
-                    </tr>
 
-                    <tr>
-                        <td>10</td>
-                        <td>
-                            <a href="#">10번째 게시글</a>
-                        </td>
-                        <td>유저일</td>
-                        <td>2023-07-17</td>
-                        <td>50</td>
-                    </tr>
-
-                    <tr>
-                        <td>10</td>
-                        <td>
-                            <a href="#">10번째 게시글</a>
-                        </td>
-                        <td>유저일</td>
-                        <td>2023-07-17</td>
-                        <td>50</td>
-                    </tr>
-
-                    <tr>
-                        <td>10</td>
-                        <td>
-                            <a href="#">10번째 게시글</a>
-                        </td>
-                        <td>유저일</td>
-                        <td>2023-07-17</td>
-                        <td>50</td>
-                    </tr>
-
-                    <tr>
-                        <td>10</td>
-                        <td>
-                            <a href="#">10번째 게시글</a>
-                        </td>
-                        <td>유저일</td>
-                        <td>2023-07-17</td>
-                        <td>50</td>
-                    </tr>
-                </tbody>
+                
             </table>
         </div>
 
@@ -182,6 +113,12 @@
     </section>
 
      <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+     <script>
+        const contextPath = "${contextPath}"
+     </script>
 
     <script src="${contextPath}/resources/js/bookMark.js"></script>
     

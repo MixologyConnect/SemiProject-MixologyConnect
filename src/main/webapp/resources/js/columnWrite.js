@@ -41,7 +41,7 @@
     
 
 // 미리보기 관련 요소 모두 얻어오기 
-const inputImage = document.getElementsByName("inputImage")[0];
+const inputImage = document.getElementsByClassName("inputImage")[0];
 const preview = document.getElementsByClassName("preview")[0];
 const deleteImage = document.getElementsByClassName("delete-image")[0];
 

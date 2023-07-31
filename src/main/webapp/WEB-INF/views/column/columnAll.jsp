@@ -23,6 +23,10 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
+    <c:if test="${!empty param.title}">
+        <c:set var="sURL" value="&title=${param.title}&query=${param.query}"/>
+    </c:if>
+
     <!-- 전체 브라우저 container -->
 <div class="container">
 
@@ -43,22 +47,30 @@
         </div>
 
         <!-- 배너랑 칼럼 사이 검색 창 -->
-        <div id="searchArea">
-            <!-- 검색 목록 선택 -->
-            <select name="title" id="SearchOption">
-                <option value="title">제목</option>
-                <option value="content">내용</option>
-                <option value="TC">제목 + 내용</option>
-            </select>
-            <!-- 검색 input -->
-            <input type="text" name="" id="search" placeholder="원하는 정보를 입력하세요!">
-            <!-- 검색 버튼 -->
-            <button id="searchBtn">검색</button>
-        </div>
+        <form action="columnList" method="get" id="columnSearch" onsubmit="return searchValidate()">
+        
+            <div id="searchArea">
+                <input type="hidden" name="type" value="${param.type}">
+                <!-- 검색 목록 선택 -->
+                <select name="title" id="SearchOption">
+                    <option value="title">제목</option>
+                    <option value="content">내용</option>
+                    <option value="TC">제목 + 내용</option>
+                </select>
+                <!-- 검색 input -->
+                <input type="text" name="query" id="search" placeholder="원하는 정보를 입력하세요!">
+                <!-- 검색 버튼 -->
+                <button id="searchBtn">검색</button>
+            </div>
+        </form>
 
              <!-- 컨텐츠 시작 -->
         <div class="list">
             <ul class="list-content">
+
+                <c:if test="${!empty param.title}">
+                    <h3>"${param.query}" 검색색결과</h3>
+                </c:if>
                 
                 <div class="">
                     <ul>
@@ -69,9 +81,9 @@
                             <c:otherwise>
                                 <c:forEach var="column" items="${columnList}">
                                     <li>
-                                        <a href="">
+                                        <a href="columnDetail?no=${column.boardNo}&type=3">
                                             <div>
-                                                <img id="picture" src="${contextPath}${colum.Thumbnail}" style="width: 100%;">
+                                                <img id="picture" src="${contextPath}${column.thumbnail}" style="width: 100%;">
                                             </div>
                                             <div class="title">
                                                 <p style="margin-top: 10px;"><h3>${column.boardTitle}</h3></p><br>
@@ -100,7 +112,7 @@
             <c:set var="url" value="columnList?type=${param.type}&cp="/>
 
             <!-- 첫페이지로 이동 -->
-            <li><button id="pageCon1"><a href="${url}1">&lt;</a></button></li>
+            <li><button id="pageCon1"><a href="${url}1${sURL}">&lt;</a></button></li>
             
             <!-- 범위 정하기 -->
             <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
@@ -110,7 +122,7 @@
                         <li><a class="current" id="pageCon1">${i}</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li><a href="${url}${i}" id="pageCon1">${i}</a></li>
+                        <li><a href="${url}${i}${sURL}" id="pageCon1">${i}</a></li>
                     </c:otherwise>
                 </c:choose>
 
@@ -119,7 +131,7 @@
 
 
             <!-- 마지막 페이지로 이동 -->
-            <li><button id="pageCon1"><a href="${url}${pagination.maxPage}">&gt;</a></button></li>
+            <li><button id="pageCon1"><a href="${url}${pagination.maxPage}${sURL}">&gt;</a></button></li>
         </ul>
             
     </div>

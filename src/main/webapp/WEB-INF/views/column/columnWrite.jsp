@@ -43,7 +43,7 @@
                 <label for="image">
                     <div class="image">이미지 선택</div>
                   </label>
-                  <input type="file" name="inputImage" id="image">
+                  <input type="file" name="0" id="image" class="inputImage" accept="image/*">
     
             </div>
 
