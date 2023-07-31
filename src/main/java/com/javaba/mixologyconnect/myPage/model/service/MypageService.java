@@ -86,19 +86,43 @@ public class MypageService {
 			return memberNo;
 		}
 
+	
+
+		
+
+		
+		
+		
+
+		/** 북마크 게시글 회원번호 얻어오기 Service
+		 * @param boardNo
+		 * @return memberNo
+		 * @throws Exception
+		 */
+		public BookMark selectInfo(int boardNo)throws Exception {
+			Connection conn = getConnection();
+			
+			BookMark bk = dao.selectInfo(conn, boardNo);
+			
+			return null;
+		}
+
+		
 		/** 북마크 삽입 Service
 		 * @param memberNo
 		 * @param boardNo
 		 * @return
 		 */
-		public int bookMarkInsert(int memberNo, int boardNo) throws Exception {
-			Connection conn = getConnection();
+		public int bookMarkInsert(BookMark bk) throws Exception{
 			
-			int result = dao.bookMarkInsert(conn, memberNo, boardNo);
+			Connection conn= getConnection();
 			
-			if(result > 0) {conn.commit();}
-			else					{conn.rollback();}
+			int result = dao.bookMarkInsert(conn, bk);
 			
+			if(result>0) {conn.commit();}
+			else				{conn.rollback();}
+			
+			close(conn);
 			
 			return result;
 		}

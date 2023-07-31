@@ -43,8 +43,16 @@
 	
 	<!-- 북마크 삽입 -->
 	<entry key="insert">
-		INSERT INTO BOOKMARK 
-		VALUES(?, ?)	
+		INSERT INTO BOOKMARK_TWO
+		VALUES(?, ?, ?, DEFAULT, ?)
+	</entry>
+	
+	<!-- 북마크 표시 게시글 정보 조회 -->
+	<entry key="selectInfo">
+		SELECT BOARD_TITLE, MEMBER_NM, BOARD_DT, READ_COUNT
+		FROM BOARD
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE BOARD_NO = ?
 	</entry>
 	
 	<!-- 북마크 회원번호 조회 -->
