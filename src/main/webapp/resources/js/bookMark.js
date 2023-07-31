@@ -21,11 +21,13 @@ function bookMarkList(){
 
         url : contextPath + "/myPage/bookMarkList",
         data : {"boardNo" : boardNo},
+        type : "get",
         dataType : "json",
 
         
         success : function(bookMark){
             console.log(bookMark)
+
 
 
 

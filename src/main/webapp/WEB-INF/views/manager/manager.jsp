@@ -67,38 +67,7 @@
 
                         
                         <tr id="resultMember">
-                            <td ><input type="checkbox" name="chk1"></td >
-                            <td ><div class="memberNo">1</div></td >
-                            <td > <div class="memberId" name="memberId">user01</div></td>
-                            <td > <div class="memberName">유저일</div></td>
-                            <td > <div class="memberTel">01012345678</div></td>
-                            <td > <div class="memberAddress">서울시 광진구 능동</div></td >
-                            <td > <div class="enrollDate">2023-07-12</div></td >
-                            <td > <div class="secession">N</div></td >
-                        </tr>
-                        <tr>
-                            <td ><input type="checkbox" name="chk"></td >
-                            <td > <div class="memberNo"></div></td >
-                            <td > <div class="memberId" name="memberId">user02</div></td >
-                            <td > <div class="memberName"></div></td >
-                            <td > <div class="memberTel"></div></td >
-                            <td > <div class="memberAddress"></div></td >
-                            <td > <div class="enrollDate"></div></td >
-                            <td > <div class="secession"></div></td >
-                        </tr>
-                        <tr>
-                        <td ><input type="checkbox" name="chk"></td >
-                        <td > <div class="memberNo"></div></td >
-                        <td > <div class="memberId" name="memberId">user03</div></td >
-                        <td > <div class="memberName"></div></td >
-                        <td > <div class="memberTel"></div></td >
-                        <td > <div class="memberAddress"></div></td >
-                        <td > <div class="enrollDate"></div></td >
-                        <td > <div class="secession"></div></td >
-                    </tr>
-                 
-                    
-                </table>
+                         
                 
                 
                 
