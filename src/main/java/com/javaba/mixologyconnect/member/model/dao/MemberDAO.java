@@ -344,22 +344,23 @@ public class MemberDAO {
 	 * @return member
 	 */
 	public Member selectMember(Connection conn, String memberId) throws Exception {
-		Member member = null;
+		Member member = new Member();
 
 		try { String sql = prop.getProperty("selectMember"); 
 		
-			pstmt = conn.prepareStatement(sql); pstmt.setString(1, memberId);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
 
 				rs = pstmt.executeQuery();
 
-				if(rs.next()) { member = new Member();
+				if(rs.next()) { 
 
-				member.setMemberNo(rs.getInt(1)); 
-				member.setMemberId(rs.getString(2));
-				member.setMemberName(rs.getString(3)); 
-				member.setMemberTel(rs.getString(5));
-				member.setMemberAddress(rs.getString(6));
-				member.setSecessionFlag(rs.getString(6));
+				member.setMemberNo(rs.getInt("MEMBER_NO")); 
+				member.setMemberId(rs.getString("MEMBER_ID"));
+				member.setMemberTel(rs.getString("MEMBER_TEL"));
+				member.setMemberName(rs.getString("MEMBER_NM")); 
+				member.setMemberAddress(rs.getString("MEMBER_ADDR"));
+				member.setSecessionFlag(rs.getString("SECESSION_FL"));
 
 				} } finally {
 
@@ -367,7 +368,7 @@ public class MemberDAO {
 					close(pstmt); 
 					
 				}
-
+		System.out.println("DAO : "+member);
 		return member; 
 		}
 
