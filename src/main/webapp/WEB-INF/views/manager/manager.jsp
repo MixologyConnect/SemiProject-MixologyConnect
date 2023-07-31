@@ -50,7 +50,7 @@
             </div>
             
             <form action="#" method="" name="manager-member">
-                <table border="1">
+                <table>
                 
                     <tr>
                         <!-- 전체 선택 체크 박스 -->
@@ -91,7 +91,7 @@
             </div>
         
             <form action="#" method="" name="manager-board">
-                <table border="1">
+                <table>
                 
                     <tr>
                         <!-- 전체 선택 체크 박스 -->
