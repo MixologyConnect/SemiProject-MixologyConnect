@@ -51,7 +51,7 @@
                 <option value="TC">제목 + 내용</option>
             </select>
             <!-- 검색 input -->
-            <input type="text" name="" id="search" placeholder="원하는 정보를 입력하세요!">
+            <input type="text" name="query" id="search" placeholder="원하는 정보를 입력하세요!">
             <!-- 검색 버튼 -->
             <button id="searchBtn">검색</button>
         </div>

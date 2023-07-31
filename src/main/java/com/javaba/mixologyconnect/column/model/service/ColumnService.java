@@ -51,4 +51,45 @@ public class ColumnService {
 		return map;
 	}
 
+
+	/**@author 이미래
+	 * 컬럼 전체 보기 Service
+	 * @param type
+	 * @param cp
+	 * @param title
+	 * @param query
+	 * @return map
+	 * @throws Exception
+	 */
+	public Map<String, Object> selectColumnAll(int type, int cp, String title, String query) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		// 게시판 이름 조회 DAO
+		String boardTitle = dao.boardTitle(conn,  type);
+		
+		// SQL 조거절 추가될 구문 가공
+		String condition = null; // 조건
+		
+		switch(title) {
+		case "title" :condition = "AND BOARD_TITLE LIKE '%'" + query + "'%' "; break;
+		case "content" :condition = "AND BOARD_CONTENT LIKE '%'" + query + "'%' "; break;
+		case "TC" :condition = "AND (BOARD_TITLE LIKE '%'" + query + "'%' OR BOARD_CONTENT LIKE '%" + query +"%') "; break;
+		
+		}
+		
+		// 조건을 만족하는 게시글 수 조회
+		int listCount = dao.searchListCount(conn, type, condition);
+		
+		// listCount + cp 페이지 이셩 객체 생성
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		// 특정게시판 조건 만족하는 게시글 목록 조회
+		List<Board> boardList = dao.searchColumnList(conn, pagination, type, condition);
+		
+		// map에 모아서 반
+		
+		return map;
+	}
+
 }

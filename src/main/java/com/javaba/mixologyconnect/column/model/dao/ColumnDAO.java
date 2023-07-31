@@ -163,6 +163,75 @@ public class ColumnDAO {
 
 		return columnList;
 	}
+
+	/** @author 이미래 
+	 * 검색 조건 만족하는 게시글 수 조회 DAO
+	 * @param conn
+	 * @param type
+	 * @param condition
+	 * @return listCount
+	 * @throws Exception
+	 */
+	public int searchListCount(Connection conn, int type, String condition) throws Exception {
+		
+		int listCount = 0;
+		
+		try {
+		
+			String sql = prop.getProperty("searchListCount") +condition;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+
+	/** @author 이미래
+	 * 검색 결과 목록 조회 
+	 * @param conn
+	 * @param pagination
+	 * @param type
+	 * @param condition
+	 * @return columnList
+	 * @throws Exception
+	 */
+	public List<Board> searchColumnList(Connection conn, Pagination pagination, int type, String condition) throws Exception{
+		
+		List<Board> columnList = new ArrayList();
+		
+		try {
+			
+			String sql = prop.getProperty("searchColumnList1")
+					   + condition	
+					   + prop.getProperty("searchColumnList2");
+			
+			// BETWENN 구문에 들어갈 범위 계산
+			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit()+1;
+			int end = start + pagination.getLimit()-1;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, type);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			
+			
+			
+		} finally {
+
+		}
+		
+		return columnList;
+	}
 	
 
 }
