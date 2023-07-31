@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/function" %>
 
 
 <!DOCTYPE html>
@@ -38,7 +39,7 @@
 
 
             <!-- 게시글 제목란 -->
-            <div class="boardTitle">
+            <div class="boardTitle"> 
                 <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)" value="${detail.boardTitle}" maxlength="20">
                 <label for="image">
                     <div class="image">이미지 선택</div>
@@ -48,15 +49,32 @@
             </div>
 
             <!-- 이미지 미리보기 영역 -->
-            <div class="image-box">
-                <div class="columnImg">
-                    <article>
-                        <img class="preview" src="${image}">
-                    </article>
-                    <span class="delete-image">&times;</span>
+            <c:if test="${!empty detail.imageList}">
+                <c:if test="detail.imageList[0].imageLevel == 0">
+                    <c:set var="thumbnail" value="${detail.imageList[0]}"/>
+                </c:if>
+            </c:if>
+
+            <c:if test="${empty thumbnail}">  <!-- 썸네일 x -->
+                <c:set var="start" value="0"/>     
+            </c:if>
+
+            <c:if test="${!empty thumbnail}">  <!-- 썸네일 o -->
+                <c:set var="start" value="1"/>     
+            </c:if>
+
+            <c:if test="${fn:length(detail.imageList) > start}">
+
+                <div class="image-box">
+                    <div class="columnImg">
+                        <article>
+                            <img class="preview" src="${image}">
+                        </article>
+                        <span class="delete-image">&times;</span>
+                    </div>
                 </div>
-            </div>
-           
+            </c:if>
+               
 
             <!-- 게시글 작성란 -->
             <div class="detail">
