@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.javaba.mixologyconnect.myPage.model.service.MypageService;
@@ -21,6 +22,10 @@ public class BookMarkServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, NumberFormatException {
 		
+			HttpSession session = req.getSession();
+			BookMark bookMark = (BookMark)session.getAttribute("bookMark");
+			
+			req.setAttribute("bookMark", bookMark);
 			
 			String path = "/WEB-INF/views/myPage/bookMark.jsp";
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);

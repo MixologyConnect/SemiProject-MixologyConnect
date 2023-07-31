@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
+import com.javaba.mixologyconnect.member.model.vo.Member;
 import com.javaba.mixologyconnect.myPage.model.service.MypageService;
 import com.javaba.mixologyconnect.myPage.model.vo.BookMark;
 
@@ -33,7 +35,8 @@ public class BookMarkListServlet extends HttpServlet {
 			req.setAttribute("bookMark", bookMark);
 			new Gson().toJson(bookMark, resp.getWriter());
 			
-			
+			HttpSession session = req.getSession();
+			session.setAttribute("bookMark", bookMark);
 			
 			
 			
