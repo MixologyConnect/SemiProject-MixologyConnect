@@ -53,8 +53,6 @@
                 <h1>${detail.boardTitle}</h1>
                 ${columnImg.imageRename}
             </div>
-
-            <c:set var="columnImg" value="${detail.imageList[0]}"/>
             <!-- 사진 -->
             <div class="picture">
                 <img src="${contextPath}${detail.imageList[0].imageRename}" id="colPic">
@@ -75,10 +73,10 @@
                         <c:set var="cp" value="${param.cp}"></c:set>
                     </c:if>
 
-
                     <c:if test="${loginMember.managerCode=='Y'}">
                         <button id="updateBtn" type="button" onclick="location.href='columnWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${detail.boardNo}'">수정</button>
                         <button id="deleteBtn" type="button">삭제</button>
+                        <button id="goToBtn" type="button">목록으로</button>
                     </c:if>
                 </div>
             </form>

@@ -81,7 +81,7 @@
                             <c:otherwise>
                                 <c:forEach var="column" items="${columnList}">
                                     <li>
-                                        <a href="${sURL}">
+                                        <a href="columnDetail?no=${column.boardNo}&type=3">
                                             <div>
                                                 <img id="picture" src="${contextPath}${column.thumbnail}" style="width: 100%;">
                                             </div>
