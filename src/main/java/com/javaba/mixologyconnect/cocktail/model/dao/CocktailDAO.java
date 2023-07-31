@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.Properties;
 
 import com.javaba.mixologyconnect.cocktail.model.vo.Cocktail;
+import com.javaba.mixologyconnect.cocktail.model.vo.Ingredient;
 import com.javaba.mixologyconnect.search.model.dao.SearchDAO;
 
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
@@ -48,6 +49,11 @@ public class CocktailDAO {
 				cocktail.setRecipeContent(rs.getString("RECIPE_CONTENT"));
 				cocktail.setImagePath(rs.getString("IMG_PATH"));
 			}
+			pstmt = conn.prepareStatement(prop.getProperty("selectIngredients"));
+			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+			while (rs.next()) cocktail.getRecipe().put(Ingredient.maps.get(rs.getInt("INGR_CODE") + ""),
+										 			   rs.getString("INGR_AMOUNT"));
 		} finally {
 			close(pstmt);
 			close(rs);

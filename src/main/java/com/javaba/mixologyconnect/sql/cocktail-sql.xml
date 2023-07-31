@@ -12,4 +12,10 @@
 		  JOIN COCKTAIL_IMG ON IMG_NO = CKTL_IMG_NO
 		 WHERE CKTL_NO = ?
 	</entry>
+	<entry key="selectIngredients">
+		SELECT INGR_CODE, INGR_AMOUNT
+		  FROM COCKTAIL
+		  JOIN COCKTAIL_AMOUNT USING("CKTL_NO")
+		 WHERE CKTL_NO = ?
+	</entry>
 </properties>

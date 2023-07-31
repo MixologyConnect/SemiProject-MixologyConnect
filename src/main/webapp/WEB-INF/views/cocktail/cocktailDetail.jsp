@@ -17,6 +17,7 @@
 			<p>칵테일 정보</p>
             <p>${cocktail.cocktailName}</p>
 		</div>
+        <div id="page-divider"></div>
         <div id="cocktail-detail">
             <div id="cocktail-image">
                 <img src="${cocktail.imagePath}">
@@ -40,48 +41,29 @@
                     <p> </p>
                 </div>
                 <div id="divider"></div>
-                <div id="cocktail-recipe">
-                    <h2>레시피</h2>
-                    <ul>
-                        <li>
-                            <div><img src="${contextPath}/resources/images/ingredient/base.png"></div>&nbsp;
-                            <div>
-                                <p>런던 드라이 진</p>
-                                <p>45 ml(1.5 온스)</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div><img src="${contextPath}/resources/images/ingredient/juice.png"></div>&nbsp;
-                            <div>
-                                <p>스위트 베르무트</p>
-                                <p>45 ml(1.5 온스)</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div><img src="${contextPath}/resources/images/ingredient/garnish.png"></div>&nbsp;
-                            <div>
-                                <p>룩사르도 마라스키노</p>
-                                <p>1 티스푼</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div><img src="${contextPath}/resources/images/ingredient/etc.png"></div>&nbsp;
-                            <div>
-                                <p>앙고스투라 비터</p>
-                                <p>2 대시</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <p>${cocktail.recipeContent}</p>
+                <div id="cocktail-description">
+                    <h2>설명</h2>
+                    <p>${cocktail.cocktailContent}</p>
                 </div>
             </div>
-
         </div>
         <div id="page-divider"></div>
-        <div id="cocktail-description">
-            <h2>설명</h2>
-            <p>${cocktail.cocktailContent}</p>
+        <div id="cocktail-recipe">
+            <h2>RECIPE</h2>
+            <p>${cocktail.recipeContent}</p>
+            <ul>
+                <c:forEach var="cktl" items="${cocktail.recipe}">
+                    <li>
+                        <div><img src="${contextPath}${cktl.key.type.imagePath}" alt="${cktl.key.type.name}"></div>&nbsp;
+                        <div>
+                            <p>${cktl.key.name}</p>
+                            <p>${cktl.value}</p>
+                        </div>
+                    </li>
+                </c:forEach>
+            </ul>
         </div>
+        <div id="page-divider"></div>
         <div id="cocktail-page">
             <p>다음 칵테일  이전 칵테일  목록으로</p>
         </div>

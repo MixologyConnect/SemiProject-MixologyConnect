@@ -21,7 +21,6 @@ public class CocktailDetailServlet extends HttpServlet {
 		try {
 			Cocktail cocktail = service.selectOne(Integer.parseInt(req.getParameter("no")));
 			req.setAttribute("cocktail", cocktail);
-			System.out.println(cocktail);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

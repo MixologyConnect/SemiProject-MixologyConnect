@@ -27,22 +27,23 @@ main {
 #cocktail-detail {
 	display: flex;
 	width: 960px;
+	margin: 20px 0;
 	justify-content: center;
 	align-items: center;
 }
 
 #cocktail-image {
-	width: 480px;
-	height: 480px;
+	width: 460px;
+	height: 460px;
 	border-radius: 30px;
-	margin: 12px;
+	margin: 10px 20px 10px 0;
 	background-color: black;
 	overflow: hidden;
 }
 
 #cocktail-image > img {
 	content: url("https://i.namu.wiki/i/PhrxqNiocrBKa1R7HTUPnbqnYzl4MYQ-zCD-0jLPqmGU8b-Ww2b4qOFOgPcY1GyIG5TS02n7H-mvkYJFSpyBC9VcaakXKiHanWN3s3coc_Vge99Et2MbosXpa0ZlAP_RylxksewF7ZwLLeLUo97vmQ.webp");;
-	height: 80%;
+	height: 95%;
 }
 
 #cocktail-info {
@@ -52,22 +53,40 @@ main {
 
 #cocktail-property {
 	font-size: 1.4rem;
+	margin-bottom: 20px;
 }
 
 #cocktail-property > table {
 	text-align: left;
-	
+}
+
+#cocktail-recipe {
+	display: flex;
+	width: 960px;
+	flex-direction: column;
 }
 
 #cocktail-recipe > ul {
+	display: flex;
+	width: 960px;
+	height: 300px;
 	padding: 0;
 	list-style: none;
+	flex-wrap: wrap;
+	overflow: hidden;
+	align-self: center;
 }
 
 #cocktail-recipe > ul > li {
 	display: flex;
+	width: 280px;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px;
+	background-color: rgba(0, 0, 0, 0.1);
 	align-items: center;
-	margin: 10px 0;
+} html.dark #cocktail-recipe > ul > li {
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 #cocktail-recipe > ul > li > div:first-of-type {
@@ -76,11 +95,11 @@ main {
 	height: 55px;
 	border-radius: 50%;
 	margin: 0 5px 0 0;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.2);
 	justify-content: center;
 	align-items: center;
 } html.dark #cocktail-recipe > ul > li > div:first-of-type {
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: rgba(255, 255, 255, 0.2);
 }
 
 #cocktail-recipe > ul > li > div:first-of-type > img {
@@ -103,8 +122,12 @@ main {
 
 #cocktail-description {
 	display: flex;
-	width: 960px;
+	width: 480px;
 	font-size: 0.9rem;
 	flex-direction: column;
 	justify-content: center;
+}
+
+#cocktail-page {
+	height: 200px;
 }
