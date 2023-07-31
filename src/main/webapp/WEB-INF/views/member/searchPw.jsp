@@ -18,7 +18,7 @@
     <div class="contSearchPw">비밀번호 찾기</div>
 
     <div class="searchPw1">
-        <form action="searchPw" method="POST" name="searchPw-form">
+        <form action="searchPw" method="POST" name="searchPw-form" onsubmit="return searchPw()">
             <table>
                 <tr>
                     <td>아이디</td>
@@ -38,7 +38,7 @@
     </div>
 
     
-
+    <script src="${contextPath}/resources/js/searchId.js"></script>
   
 </body>
 </html>
