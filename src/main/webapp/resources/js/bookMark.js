@@ -11,10 +11,9 @@ bookMarkBtn.addEventListener("click", function(){
 
     $.ajax({
 
-        url : contextPath + "/myPage/bookMarkList",
+        url : contextPath + "/myPage/bookMark",
         data : {"boardNo" : boardNo},
         type : "GET",
-        dataType : "JSON" ,
 
         
         success : function(bookMark){
