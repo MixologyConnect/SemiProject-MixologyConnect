@@ -30,8 +30,8 @@ public class BookMarkListServlet extends HttpServlet {
 			
 			System.out.println("보드리스트 : " + bookMark);
 			
-			
-			new Gson().toJson(bookMark, resp.getWriter() );
+			req.setAttribute("bookMark", bookMark);
+			new Gson().toJson(bookMark, resp.getWriter());
 			
 			
 			
