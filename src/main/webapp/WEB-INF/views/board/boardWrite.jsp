@@ -75,6 +75,7 @@
                 <span class="delete-image">&times;</span>
             </div>
 
+
             <div class="boardImg">
                 <label for = "img1">
                     <img class="preview" src="${img1}">

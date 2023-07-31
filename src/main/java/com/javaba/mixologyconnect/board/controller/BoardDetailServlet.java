@@ -28,7 +28,6 @@ public class BoardDetailServlet extends HttpServlet {
 		
 		int boardNo = Integer.parseInt(req.getParameter("no"));
 		
-		System.out.println("no" + req.getParameter("no"));
 		
 		BoardService service = new BoardService();
 		

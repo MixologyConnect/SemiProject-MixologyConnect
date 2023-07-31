@@ -143,7 +143,6 @@ public class BoardDAO {
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 
 				boardList.add(board);
-
 			}
 
 		} finally {
@@ -189,7 +188,7 @@ public class BoardDAO {
 				detail.setMemberNo(rs.getInt("MEMBER_NO"));
 				detail.setBoardName(rs.getString("BOARD_NM"));
 				detail.setProfileImage(rs.getString("MEMBER_PROFILE"));
-				
+
 			}
 
 		} finally {
@@ -200,7 +199,9 @@ public class BoardDAO {
 		return detail;
 	}
 
-	/** 게시글 이미지 리스트 조회
+	/**
+	 * 게시글 이미지 리스트 조회
+	 * 
 	 * @param conn
 	 * @param boardNo
 	 * @return imageList
@@ -208,135 +209,140 @@ public class BoardDAO {
 	public List<BoardImage> selectImageList(Connection conn, int boardNo) throws Exception {
 		System.out.println("게시글 이미지 리스트 조회 다오 왔다");
 		List<BoardImage> imageList = new ArrayList<>();
-		
+
 		try {
-			
+
 			String sql = prop.getProperty("selectImageList");
-			
+
 			pstmt = conn.prepareStatement(sql);
-				
+
 			pstmt.setInt(1, boardNo);
-			
+
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				BoardImage image = new BoardImage();
-	            
-	            image.setImageNo(rs.getInt("IMG_NO"));
-	            image.setImageRename(rs.getString("IMG_RENAME"));
-	            image.setImageOriginal(rs.getString("IMG_ORIGINAL"));
-	            image.setImageLevel(rs.getInt("IMG_LEVEL"));
-	            image.setBoardNo(rs.getInt("BOARD_NO"));
-	            
-	            imageList.add(image);
-	            
+
+				image.setImageNo(rs.getInt("IMG_NO"));
+				image.setImageRename(rs.getString("IMG_RENAME"));
+				image.setImageOriginal(rs.getString("IMG_ORIGINAL"));
+				image.setImageLevel(rs.getInt("IMG_LEVEL"));
+				image.setBoardNo(rs.getInt("BOARD_NO"));
+
+				imageList.add(image);
+
 			}
-			System.out.println("imageList : " +  imageList);
-			
-					
+			System.out.println("imageList : " + imageList);
+
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
-		
+
 		return imageList;
 	}
 
-	/** 다음 게시글 번호 구하기
+	/**
+	 * 다음 게시글 번호 구하기
+	 * 
 	 * @param conn
 	 * @return boardNo
 	 */
-	public int boardNo(Connection conn) throws Exception{
-		
+	public int boardNo(Connection conn) throws Exception {
+
 		int boardNo = 0;
-		
+
 		try {
 			String sql = prop.getProperty("boardNo");
 			stmt = conn.createStatement();
-			
+
 			rs = stmt.executeQuery(sql);
 
 			if (rs.next()) {
 				boardNo = rs.getInt(1);
 			}
-			
-		}finally {
+
+		} finally {
 			close(rs);
 			close(stmt);
 		}
-		
+
 		return boardNo;
 	}
 
-	/** 게시글 작성
+	/**
+	 * 게시글 작성
+	 * 
 	 * @param conn
 	 * @param detail
 	 * @param boardType
 	 * @return
 	 */
 	public int boardInsert(Connection conn, BoardDetail detail, int boardType) throws Exception {
-		
+
 		int result = 0;
-		
+
 		try {
 			String sql = prop.getProperty("boardInsert");
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, detail.getBoardNo());
 			pstmt.setString(2, detail.getBoardTitle());
 			pstmt.setString(3, detail.getBoardContent());
 			pstmt.setInt(4, boardType);
 			pstmt.setInt(5, detail.getMemberNo());
-			
+
 			result = pstmt.executeUpdate();
-			
-			
-		}finally {
+
+		} finally {
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
-	/** 이미지 삽입
+	/**
+	 * 이미지 삽입
+	 * 
 	 * @param conn
 	 * @param image
 	 * @return result
 	 * @throws Exception
 	 */
-	public int insertBoardImage(Connection conn, BoardImage image) throws Exception{
-		
+	public int insertBoardImage(Connection conn, BoardImage image) throws Exception {
+
 		int result = 0;
-		
+
 		try {
-			
+
 			String sql = prop.getProperty("imageInsert");
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setString(1, image.getImageRename());
 			pstmt.setString(2, image.getImageOriginal());
 			pstmt.setInt(3, image.getImageLevel());
 			pstmt.setInt(4, image.getBoardNo());
-			
+
 			result = pstmt.executeUpdate();
-			
-			
-		}finally {
+
+		} finally {
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
-	/** 게시글 수정
+	/**
+	 * 게시글 수정
+	 * 
 	 * @param conn
 	 * @param detail
 	 * @return result
 	 * @throws Exception
 	 */
 	public int boardUpdate(Connection conn, BoardDetail detail) throws Exception {
-		
+
 		int result = 0;
 
 		try {
@@ -356,13 +362,15 @@ public class BoardDAO {
 		return result;
 	}
 
-	/** 이미지 수정
+	/**
+	 * 이미지 수정
+	 * 
 	 * @param conn
 	 * @param img
 	 * @return result
 	 * @throws Exception
 	 */
-	public int boardUpdate(Connection conn, BoardImage img) throws Exception{
+	public int boardUpdate(Connection conn, BoardImage img) throws Exception {
 		int result = 0;
 
 		try {
@@ -381,11 +389,12 @@ public class BoardDAO {
 		}
 
 		return result;
-		
-		
+
 	}
 
-	/** 이미지 삭제
+	/**
+	 * 이미지 삭제
+	 * 
 	 * @param conn
 	 * @param deleteList
 	 * @param boardNo
@@ -411,33 +420,60 @@ public class BoardDAO {
 		return result;
 	}
 
-	
-	
-	/** 게시글 삭제
+	/**
+	 * 게시글 삭제
+	 * 
 	 * @param conn
 	 * @param boardNo
 	 * @return result
 	 * @throws Exception
 	 */
 	public int boardDelete(Connection conn, int boardNo) throws Exception {
-		
+
 		int result = 0;
-		
+
 		try {
 			String sql = prop.getProperty("boardDelete");
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, boardNo);
-			
+
 			result = pstmt.executeUpdate();
-			
-			
-		}finally {
+
+		} finally {
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
+	/**
+	 * 조회수 증가
+	 * 
+	 * @param conn
+	 * @param boardNo
+	 * @return result
+	 */
+	public int ReadCountUp(Connection conn, int boardNo) throws Exception {
+
+		int result = 0;
+
+		try {
+
+			String sql = prop.getProperty("ReadCountUp");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, boardNo);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+
+		}
+
+		return result;
+	}
 
 }
