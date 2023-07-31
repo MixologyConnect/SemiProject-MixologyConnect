@@ -180,6 +180,27 @@ public int boardUpdate(BoardDetail detail, List<BoardImage> imageList, String de
 	return result;
 }
 
+/** 게시글 삭제
+ * @param boardNo
+ * @return result
+ * @throws Exception
+ */
+public int boardDelete(int boardNo) throws Exception{
+	
+	Connection conn = getConnection();
+	
+	int result = dao.boardDelete(conn, boardNo);
+	
+	if (result > 0)
+		commit(conn);
+	else
+		rollback(conn);
+
+	close(conn);
+	
+	return result;
+}
+
 
 
 

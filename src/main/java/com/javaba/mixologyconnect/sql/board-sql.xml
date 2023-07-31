@@ -78,7 +78,7 @@
 	<entry key="boardUpdate">
 		UPDATE BOARD SET BOARD_CONTENT = ?,
 		BOARD_TITLE = ?,
-		UPDATE_DT = DEFAULT
+		MODIFY_DT = DEFAULT
 		WHERE BOARD_NO = ?
 	</entry>
 
@@ -95,6 +95,11 @@
 		WHERE BOARD_NO = ?
 		AND IMG_LEVEL
 		IN(
+	</entry>
+	
+	<entry key = "boardDelete">
+	UPDATE BOARD SET BOARD_ST = 'N'
+	WHERE BOARD_NO = ?
 	</entry>
 
 </properties>
