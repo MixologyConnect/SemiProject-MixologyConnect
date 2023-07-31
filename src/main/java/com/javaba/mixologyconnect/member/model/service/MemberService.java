@@ -163,6 +163,24 @@ public class MemberService {
 		close(conn);
 
 		return result;
+	}
+	
+	/** @author 이미래
+	 * 비밀번호 찾기 Service
+	 * @param memberId
+	 * @param memberName
+	 * @return member
+	 * @throws Exception
+	 */
+	public Member searchPw(String memberId, String memberName) throws Exception{
+
+		Connection conn = getConnection();
+		
+		Member member = dao.searchPw(conn, memberId, memberName);
+		
+		close(conn);
+		
+		return member;
 	}		
 	
 }

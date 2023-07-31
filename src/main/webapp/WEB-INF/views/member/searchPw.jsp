@@ -18,7 +18,7 @@
     <div class="contSearchPw">비밀번호 찾기</div>
 
     <div class="searchPw1">
-        <form action="#" method="#" name="searchPw-form">
+        <form action="searchPw" method="POST" name="searchPw-form">
             <table>
                 <tr>
                     <td>아이디</td>
@@ -32,7 +32,7 @@
 
             </table>
             <div class="searchPw2-1">
-                <button type="submit"  id="btn">다음</button> 
+                <button type="submit"  id="searchPwBtn">다음</button> 
             </div>
         </form>
     </div>

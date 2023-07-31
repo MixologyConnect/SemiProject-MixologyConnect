@@ -320,4 +320,20 @@ public class MemberDAO {
 		return loginMember;
 	}
 
+	/**@author 이미래
+	 * 비밀번호 찾기 DAO
+	 * @param conn
+	 * @param memberId
+	 * @param memberName
+	 * @return member
+	 * @throws Exception
+	 */
+	public Member searchPw(Connection conn, String memberId, String memberName) throws Exception{
+
+		
+		
+		
+		return null;
+	}
+
 }
