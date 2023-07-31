@@ -71,7 +71,7 @@
                                     <li>
                                         <a href="">
                                             <div>
-                                                <img id="picture" src="${contextPath}${colum.Thumbnail}" style="width: 100%;">
+                                                <img id="picture" src="${contextPath}${column.thumbnail}" style="width: 100%;">
                                             </div>
                                             <div class="title">
                                                 <p style="margin-top: 10px;"><h3>${column.boardTitle}</h3></p><br>
