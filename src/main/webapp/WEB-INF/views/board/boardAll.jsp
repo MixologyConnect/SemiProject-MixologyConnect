@@ -4,7 +4,6 @@
 	<c:set var="boardName" value="${map.boardName}"/>
 	<c:set var="pagination" value="${map.pagination}"/>
 	<c:set var="boardList" value="${map.boardList}"/>
-	<c:set var="imageList" value="${detail.imageList}"/>
 	
 	
 	<!DOCTYPE html>
@@ -64,7 +63,10 @@
 								</div>
 							</div>
 							<div class="img">
-									<img src="${contextPath}${imageList}">
+								<c:if test = "!empty ${board.thumbnail}">
+
+								</c:if>
+									<img src="${contextPath}${board.thumbnail}">
 							</div>
 						</a>
 						</section>

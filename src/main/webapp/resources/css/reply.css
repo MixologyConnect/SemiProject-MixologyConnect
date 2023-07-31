@@ -75,12 +75,16 @@
 
 /* 댓글 등록 버튼 */
 #addBtn{
-    flex-basis: 8%;
-    font-weight: bold;
-    background-color: rgb(0, 220, 244);
+    height: 37px;
+    background-color:rgb(0, 220, 244);
     color: white;
+    font-weight: bold;
+    font-size: 15px;
+    width: 90px;
     border: 0;
+    border-radius: 10px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 #addBtn:hover {
