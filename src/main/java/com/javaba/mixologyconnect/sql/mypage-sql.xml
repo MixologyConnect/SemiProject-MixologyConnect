@@ -41,6 +41,23 @@
 		AND BOARD_ST =
 		'Y'
 	</entry>
+	
+	<!-- 북마크 삽입 -->
+	<entry key="insert">
+		INSERT INTO BOOKMARK 
+		VALUES(?, ?)	
+	</entry>
+	
+	<!-- 북마크 회원번호 조회 -->
+	<entry key="memberNo">
+		SELECT MEMBER_NO
+		FROM BOARD
+		WHERE BOARD_NO = ?
+		AND BOARD_ST = 'Y'
+	</entry>
+	
+	
+	
 
 
 

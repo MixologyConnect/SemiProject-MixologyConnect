@@ -17,12 +17,21 @@ public class BookMarkInsertServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		MypageService service = new MypageService();
-		
 		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 		
-		int result = service.bookMarkInsert(boardNo);
+		try {
+			int memberNo = service.bookMarkMemberNo(boardNo);
+			
+			
+			
+			int result = service.bookMarkInsert(memberNo , boardNo);
+			
+			new Gson().toJson(result , resp.getWriter());
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		
-		new Gson().toJson(result , resp.getWriter());
 		
 		
 		

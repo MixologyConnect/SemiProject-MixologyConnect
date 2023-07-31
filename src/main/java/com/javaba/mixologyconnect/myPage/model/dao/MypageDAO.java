@@ -2,6 +2,7 @@ package com.javaba.mixologyconnect.myPage.model.dao;
 
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
+import java.awt.print.Book;
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -143,9 +144,9 @@ public class MypageDAO {
 	 * @return boardList
 	 * @throws Exception
 	 */
-	public BookMark bookMarkList(Connection conn, int boardNo) throws Exception {
+	public List<BookMark> bookMarkList(Connection conn, int boardNo) throws Exception {
 		
-		BookMark bookMark = null;
+		List<BookMark> bookMarkList = new ArrayList<>();
 		try {
 			
 			String sql = prop.getProperty("bookMark");
@@ -158,14 +159,14 @@ public class MypageDAO {
 			
 			if(rs.next()) {
 				
-				bookMark = new BookMark();
+				BookMark bookMark = new BookMark();
 				
 				bookMark.setBoardNo(rs.getInt(1));
 				bookMark.setBoardTitle(rs.getString(2));
 				bookMark.setMemberName(rs.getString(3));
 				bookMark.setReadCount(rs.getInt(4));
 				
-				
+				bookMarkList.add(bookMark);
 				
 			}
 			
@@ -177,6 +178,89 @@ public class MypageDAO {
 		}
 		
 		
-		return bookMark;
+		return bookMarkList;
 	}
+
+
+
+
+
+
+	/** 북마크 게시글 회원번호 얻어오기 DAO
+	 * @param conn
+	 * @param boardNo
+	 * @return memberNo
+	 * @throws Exception
+	 */
+	public int bookMarkMemberNo(Connection conn, int boardNo) throws Exception{
+		
+		int memberNo = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("memberNo");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				memberNo = rs.getInt(1);
+				System.out.println("회원번호 : " + memberNo);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return 0;
+	}
+
+
+	/** 북마크 삽입 DAO
+	 * @param conn
+	 * @param boardNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int bookMarkInsert(Connection conn, int memberNo, int boardNo)throws Exception {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("insert");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, boardNo);
+			
+			result = pstmt.executeUpdate();
+			
+			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

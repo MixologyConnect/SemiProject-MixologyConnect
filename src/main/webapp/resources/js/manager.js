@@ -13,6 +13,7 @@ function selectMember(){
     result.innerHTML = str;
 }
 
+/* ajax */
 document.getElementById("member-btn").addEventListener("click", function(){
 
     const input = document.getElementById("searchMember");
@@ -20,9 +21,9 @@ document.getElementById("member-btn").addEventListener("click", function(){
     
     
     $.ajax({
-        url : "manager/manger",
+        url : "manager",
         data : {"memberId" : input.value},
-        type : "POST",
+        type : "GET",
         dataType : "JSON",
         
         success : function(member){
@@ -33,7 +34,7 @@ document.getElementById("member-btn").addEventListener("click", function(){
 
 
             
-                var htmls = "<td>" + "<input type='checkbox' name='chk1'>" +"</td>" +
+                var htmls = "<tr>"+"<td>" + "<input type='checkbox' name='chk1'>" +"</td>" +
                             "<td>" + member.memberNo +"</td>" +
                             "<td>" + member.memberId +"</td>" +
                             "<td>" + member.memberName +"</td>" +
@@ -56,4 +57,5 @@ document.getElementById("member-btn").addEventListener("click", function(){
         }
     })
 
-});
+}); 
+

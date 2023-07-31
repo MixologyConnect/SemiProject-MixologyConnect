@@ -63,18 +63,16 @@
                         <th >가입일</th>
                         <th >탈퇴여부</th>
                     </tr>
-                    
-
                         
-                        <tr id="resultMember">
-                         
+                    <tbody id="resultMember">
+
+                    </tbody>
                 
-                
-                
+                </table>
                 <!-- typw="submit" id="borderbtn" -->
                 <button type="button" onclick="selectMember()" >회원 탈퇴</button>
                 <div id="result1"></div>
-
+            </form>
 
 
 

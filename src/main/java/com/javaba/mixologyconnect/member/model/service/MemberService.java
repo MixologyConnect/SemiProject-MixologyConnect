@@ -201,7 +201,9 @@ public class MemberService {
 
 		close(conn);
 
-		return member; }
+		return member; 
+		
+	}
 
 }
 
