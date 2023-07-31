@@ -302,6 +302,7 @@ main > section:nth-child(6){
 
   display: flex;
   justify-content: center;
+
 }
 
 .pagination > li {
@@ -340,4 +341,31 @@ main > section:nth-child(6){
 .read{
   float: right;
 }
+
+
+.btn-area{
+  width: 1200px;
+  display: flex;
+  justify-content: right;
+  padding: 20px 0;
+}
+
+#insertBtn {
+  background-color:rgb(0, 220, 244);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  width: 80px;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#insertBtn:hover {
+  background-color: white;
+  border: 2px solid rgb(0, 220, 244);
+  color: rgb(0, 220, 244);
+}
+
 
