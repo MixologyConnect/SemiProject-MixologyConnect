@@ -182,6 +182,10 @@ public class ColumnDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			
+			pstmt.setInt(1, type);
+			
+			rs = pstmt.executeQuery();
+			
 			if(rs.next()) {
 				listCount = rs.getInt(1);
 			}
@@ -215,7 +219,7 @@ public class ColumnDAO {
 			
 			// BETWENN 구문에 들어갈 범위 계산
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit()+1;
-			int end = start + pagination.getLimit()-1;
+			int end = start + pagination.getLimit()-2;
 			
 			pstmt = conn.prepareStatement(sql);
 			

@@ -72,9 +72,9 @@ public class ColumnService {
 		String condition = null; // 조건
 		
 		switch(title) {
-		case "title" :condition = "AND BOARD_TITLE LIKE '%'" + query + "'%' "; break;
-		case "content" :condition = "AND BOARD_CONTENT LIKE '%'" + query + "'%' "; break;
-		case "TC" :condition = "AND (BOARD_TITLE LIKE '%'" + query + "'%' OR BOARD_CONTENT LIKE '%" + query +"%') "; break;
+		case "title" :condition = "AND BOARD_TITLE LIKE '%" + query + "%' "; break;
+		case "content" :condition = "AND BOARD_CONTENT LIKE '%" + query + "%' "; break;
+		case "TC" :condition = "AND (BOARD_TITLE LIKE '%" + query + "%' OR BOARD_CONTENT LIKE '%" + query +"%') "; break;
 		
 		}
 		
