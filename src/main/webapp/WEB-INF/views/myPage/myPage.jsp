@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="boardList" value="${map.boardList}"/>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -53,58 +56,44 @@
            <p id="alarm"><a href="#">글쓰기 <i class="fa-solid fa-pen-to-square"></i></a></p>  
         </section> 
 
+        <c:choose>
+            <c:when test="${empty boardList}">
+                <tr>
+                    <th>게시글이 존재하지 않습니다.</th>
+                </tr>
+            </c:when>
+
+                <c:otherwise>
+
+					<c:forEach var="board" items="${boardList}">
+						<section class="fir">
+							<div class="left">
+								<div class="board">
+									<a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3><input type="checkbox" name="feed">${board.boardTitle}</h3>
+								</div>
+								<div>${board.boardContent}</div>
+								<div class="nameDateCount">
+									<span>${board.memberName}</span> <span>${board.boardDate}</span> <span>조회수 : ${board.readCount}</span>
+								</div>
+							</div>
+							<div class="img">
+								<c:if test = "empty${board.thumbnail}">
+									<img src="${contextPath}/resources/images/heart.svg">
+								</c:if>
+								<img src="${contextPath}${board.thumbnail}">
+							</div>
+						</a>
+						</section>
+
+					</c:forEach>
+
+                </c:otherwise>
+
+        </c:choose>
 
 
-        <section class="fir">
-            <div class="left">
-                <div><input type="checkbox" name="feed"><a href="#">게시글 제목</a></div>
-                <div>삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬 
-                    삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬</div>
-                <div>
-                <span>@khacademy</span>
-                <span>2023.07.05</span>
-                <span>조회수 111</span>
-                <span>댓글수 5</span>
-                </div>
-            </div>
-            <div><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MDVfMjMw%2FMDAxNjg1OTc0MTQ3NDU0.WnCvTZeQNkQ4X0TFe78tSCTbTB3r8NKmTyNITw0Ctfog.B_vuAbe-oIH6AJw0b6coC3X7niIdfeFsfp0LEtlyVDsg.JPEG.ls2924%2FIMG_0536.jpg&type=sc960_832"></div>
-                
-            
-        </section>
 
-        <section class="fir">
-            <div class="left">
-                <div><input type="checkbox" name="feed"><a href="#">게시글 제목</a></div>
-                <div>삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬 
-                    삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬</div>
-                <div>
-                <span>@khacademy</span>
-                <span>2023.07.05</span>
-                <span>조회수 111</span>
-                <span>댓글수 5</span>
-                </div>
-            </div>
-            <div><img src="../img/이미지없음.jpg"></div>
-                
-            
-        </section>
-
-        <section class="fir">
-            <div class="left">
-                <div><input type="checkbox" name="feed"><a href="#">게시글 제목</a></div>
-                <div>삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬 
-                    삼겹살 짜장면 김치찌개 소고기 돼지고기 닭발 토마토 파스타 까르보나라 족발 보쌈 오리고기 소맥 참이슬</div>
-                <div>
-                <span>@khacademy</span>
-                <span>2023.07.05</span>
-                <span>조회수 111</span>
-                <span>댓글수 5</span>
-                </div>
-            </div>
-            <div><img src="../img/이미지없음.jpg"></div>
-                
-            
-        </section>
+        
 
         <section class="number">
             <div>
@@ -113,24 +102,33 @@
             </div>
 
             <div class="pagination-area">
+                <c:set var="url" value="myPage?&cp="/>
+
                 <ul class="pagination">
-                    <li><a href="#">&lt;&lt</a></li>
-                    <li><a href="#">&lt;</a></li>
-    
-                    <li><a class="current">1</a></li>
-    
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">8</a></li>
-                    <li><a href="#">9</a></li>
-                    <li><a href="#">10</a></li>
-    
-                    <li><a href="#">&gt;</a></li>
-                    <li><a href="#">&gt;&gt;</a></li>
+                    <!-- 첫 페이지로 이동 -->
+                    <li><a href="${url}1">&lt;&lt;</a></li>
+                    <!-- 이전 목록 마지막 번호로 이동 -->
+                    <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+
+
+                    <!-- 범위가 정해진 일반 for문 사용 -->
+                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                        <c:choose>
+                            <c:when test="${i == pagination.currentPage}">
+                                <li><a class="current">${i}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="${url}${i}">${i}</a></li>
+                            </c:otherwise>
+                        </c:choose>
+
+                    </c:forEach>
+
+                    <!-- 다음 목록 시작 번호로 이동 -->
+                    <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+
+                    <!-- 끝 페이지로 이동 -->
+                    <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
                 </ul>
             </div>
 
