@@ -9,12 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.javaba.mixologyconnect.member.model.service.MemberService;
+import com.javaba.mixologyconnect.member.model.vo.Member;
+
 @WebServlet("/manager/manager")
 public class managerServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			
 			String path = "/WEB-INF/views/manager/manager.jsp";
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
@@ -22,5 +27,24 @@ public class managerServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String memberId = req.getParameter("memberId");
+		
+		try {
+			MemberService service = new MemberService(); 
+			
+			Member member = service.selectMember(memberId);
+			
+			new Gson().toJson(member, resp.getWriter());
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

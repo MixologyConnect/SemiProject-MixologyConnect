@@ -66,5 +66,12 @@
 		WHERE MEMBER_NO=?
 	</entry>
 	
+	<!-- 관리 회원 정보 검색 -->
+	<entry key="selectMember">
+		SELECT MEMBER_NO, MEMBER_ID, MEMBER_TEL, MEMBER_NM, MEMBER_ADDR, SECESSION_FL
+		FROM MEMBER
+		WHERE MEMBER_ID = 'user1'
+	</entry>
+	
 
 </properties>

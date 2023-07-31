@@ -320,4 +320,40 @@ public class MemberDAO {
 		return loginMember;
 	}
 
+	/**@author seongsuim
+	 * @param conn
+	 * @param memberId
+	 * @return member
+	 */
+	public Member selectMember(Connection conn, String memberId) throws Exception {
+		Member member = null;
+
+		try { String sql = prop.getProperty("selectMember"); 
+		
+			pstmt = conn.prepareStatement(sql); pstmt.setString(1, memberId);
+
+				rs = pstmt.executeQuery();
+
+				if(rs.next()) { member = new Member();
+
+				member.setMemberNo(rs.getInt(1)); 
+				member.setMemberId(rs.getString(2));
+				member.setMemberName(rs.getString(3)); 
+				member.setMemberTel(rs.getString(5));
+				member.setMemberAddress(rs.getString(6));
+				member.setSecessionFlag(rs.getString(6));
+
+				} } finally {
+
+					close(rs); 
+					close(pstmt); 
+					
+				}
+
+		return member; 
+		}
+
+
+
+	
 }
