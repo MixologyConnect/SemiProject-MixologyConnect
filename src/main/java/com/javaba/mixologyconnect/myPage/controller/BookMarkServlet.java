@@ -1,6 +1,7 @@
 package com.javaba.mixologyconnect.myPage.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,9 +24,9 @@ public class BookMarkServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, NumberFormatException {
 		
 			HttpSession session = req.getSession();
-			BookMark bookMark = (BookMark)session.getAttribute("bookMark");
+			List<BookMark> bookMarkList = (List<BookMark>)session.getAttribute("bookMarkList");
 			
-			req.setAttribute("bookMark", bookMark);
+			req.setAttribute("bookMarkList", bookMarkList);
 			
 			String path = "/WEB-INF/views/myPage/bookMark.jsp";
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);

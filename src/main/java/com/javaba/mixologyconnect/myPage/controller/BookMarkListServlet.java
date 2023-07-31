@@ -33,7 +33,7 @@ public class BookMarkListServlet extends HttpServlet {
 			
 			System.out.println("보드리스트 : " + bookMarkList);
 			
-			req.setAttribute("bookMark", bookMarkList);
+			req.setAttribute("bookMarkList", bookMarkList);
 			new Gson().toJson(bookMarkList, resp.getWriter());
 			
 			HttpSession session = req.getSession();
