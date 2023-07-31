@@ -96,6 +96,7 @@ public class ColumnWriteServlet extends HttpServlet{
 		if(mode.equals("insert")) {
 			int boardNo = service.boardInsert(detail, imageList, boardCode);
 			
+			
 			String path = null;
 			if(boardNo > 0) {
 				session.setAttribute("message", "게시글이 등록되었습니다.");
