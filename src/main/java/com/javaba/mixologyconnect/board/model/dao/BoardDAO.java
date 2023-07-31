@@ -124,7 +124,6 @@ public class BoardDAO {
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start + pagination.getLimit() - 1;
 
-			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, type);
 			pstmt.setInt(2, start);
@@ -141,8 +140,10 @@ public class BoardDAO {
 				board.setBoardDate(rs.getString("BOARD_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				
 
 				boardList.add(board);
+				
 			}
 
 		} finally {

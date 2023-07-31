@@ -61,12 +61,12 @@
 						<c:if test="${fn:length(detail.imageList) > start}">
 
 							<!-- 업로드 이미지 영역 -->
-							<div class="img">
+							<div class="img-box">
 								<c:forEach var="i" begin="${start}" end="${fn:length(detail.imageList) -1}">
 									<div class="boardImg">
 										<img src="${contextPath}${detail.imageList[i].imageRename}" class="boardImg1">
 										<a href="${contextPath}${detail.imageList[i].imageRename}"
-											download="${detail.imageList[i].imageOriginal}"><img src="${contextPath}/resources/images/download.svg" class="download"></a>
+											download="${detail.imageList[i].imageOriginal}" id="boardImg1"></a>
 									</div>
 								</c:forEach>
 

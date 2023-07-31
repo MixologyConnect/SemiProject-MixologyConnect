@@ -35,7 +35,10 @@ if(length <= 20 && length >= 0){
 
 
 })
-const deleteList = document.getElementById("deleteList");
+
+
+
+    const deleteList = document.getElementById("deleteList");
     const inputImage = document.getElementsByClassName("inputImage");
     const preview = document.getElementsByClassName("preview");
     const deleteImage = document.getElementsByClassName("delete-image");

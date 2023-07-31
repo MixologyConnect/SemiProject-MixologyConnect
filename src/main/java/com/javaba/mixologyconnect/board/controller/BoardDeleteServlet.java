@@ -30,7 +30,7 @@ public class BoardDeleteServlet extends HttpServlet{
 			
 			if(result > 0) { 
 				message = "게시글이 삭제되었습니다.";
-				path = "list?type=" + type; 
+				path = "boardAll?type=" + type; 
 				
 			}else { // 실패
 				message = "게시글 삭제에 실패했습니다.";

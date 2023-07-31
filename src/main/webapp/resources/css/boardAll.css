@@ -368,4 +368,8 @@ main > section:nth-child(6){
   color: rgb(0, 220, 244);
 }
 
+.pagination a {
+  text-decoration: none;
+}
+
 

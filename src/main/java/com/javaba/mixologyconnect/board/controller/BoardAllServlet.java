@@ -34,10 +34,7 @@ public class BoardAllServlet extends HttpServlet {
 				cp = Integer.parseInt(req.getParameter("cp"));
 			}
 			
-			
 			BoardService service = new BoardService();
-			
-			BoardDetail detail = new BoardDetail();
 			
 			
 			Map<String, Object> map = service.selectBoardAll(type, cp);
