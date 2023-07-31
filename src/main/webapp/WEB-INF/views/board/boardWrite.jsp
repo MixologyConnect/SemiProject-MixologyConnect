@@ -34,8 +34,8 @@
                 </div>
             </div>
             <!-- 게시글 제목란 -->
-            <div class="title">
-                <input type="text" id="title" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)" value="${detail.boardTitle}" maxlength="20">
+            <div class="boardTitle">
+                <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)" value="${detail.boardTitle}" maxlength="20">
                 <label for="image">
                     <div class="image">이미지 선택</div>
                   </label>
@@ -47,7 +47,7 @@
 
             <!-- 게시글 작성란 -->
             <div class="detail">
-                <textarea name="boardContent" id="detail" style="resize: none;" maxlength="500">${detail.boardContent}</textarea>
+                <textarea name="boardContent" id="boardContent" style="resize: none;" maxlength="500">${detail.boardContent}</textarea>
                 <p> <span id="counter">0</span>/500</p>
             </div>
 
