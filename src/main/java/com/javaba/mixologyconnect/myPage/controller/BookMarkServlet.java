@@ -21,19 +21,6 @@ public class BookMarkServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, NumberFormatException {
 		
-		try {
-			// 현재머물고 있는 페이지의 게시글 번호 얻어오기
-			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
-			System.out.println("보드넘버값 : " + boardNo);
-			
-			BookMark bookMark = service.bookMarkList(boardNo);
-			
-			// 북마크 게시글 조회
-			
-			System.out.println("보드리스트 : " + bookMark);
-			
-			req.setAttribute("bookMark", bookMark);
-			System.out.println("북마크 : " + bookMark);
 			
 			String path = "/WEB-INF/views/myPage/bookMark.jsp";
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
@@ -44,9 +31,7 @@ public class BookMarkServlet extends HttpServlet {
 			
 			
 			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		
 	}
 	
 }
