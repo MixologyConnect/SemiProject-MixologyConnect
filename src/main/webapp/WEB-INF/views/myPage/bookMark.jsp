@@ -24,7 +24,7 @@
 
     
     <section class="board-list">
-        <h1 class="board-name">북마크</h1>
+        <h1 class="board-name">${bookMarkList}</h1>
         
         <div class="list-wrapper">
             <table class="list-table">
@@ -38,32 +38,16 @@
                     </tr>
                 </thead>
 
-                
+               
 
-                <c:choose>
-                    <c:when test="${empty bookMarkList}">
-                        <tr>
-                            <th>게시글이 존재하지 않습니다.</th>
-                        </tr>
-                    </c:when>
-        
-                        <c:otherwise>
-        
-                           <tbody id="body">
-                            <tr id="list">
-                                <td>${bookMarkList.boardNo}</td>
-                                <td>
-                                    <a href="#">${bookMarkList.boardTitle}</a>
-                                </td>
-                                <td>${bookMarkList.memberName}</td>
-                                <td>${bookMarkList.readCount}</td>
-                            </tr>
-                           </tbody>
-        
-                        </c:otherwise>
-        
-                </c:choose>
-
+                <tbody id="list">
+                    <tr>
+                        <td>${bookMarkList}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
 
 
 
