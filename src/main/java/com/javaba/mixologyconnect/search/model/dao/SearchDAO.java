@@ -165,6 +165,121 @@ public class SearchDAO {
 		return columnList;
 	}
 
+	/**당도와 관련 있는 키워드 검색 결과 Dao
+	 * 
+	 * @param conn
+	 * @param keyWord
+	 * @return cocktailList
+	 */
+	public List<Cocktail> selectSweetKeyword(Connection conn, String keyWord) throws Exception{
+		
+		List<Cocktail> cocktailList = new  ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("selectSweetKeyword");
+			
+			stmt=conn.createStatement();
+			
+			rs=stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				Cocktail cocktail = new Cocktail();
+
+				cocktail.setCocktailNo(rs.getInt("CKTL_NO"));
+				cocktail.setCocktailName(rs.getString("CKTL_NM"));
+				cocktail.setCocktailContent(rs.getString("CKTL_CONTENT"));
+				cocktail.setAlcohol(rs.getString("ACL_LEVEL").charAt(0));
+				cocktail.setSugar(rs.getString("SGR_LEVEL").charAt(0));
+				cocktail.setImagePath(rs.getString("IMG_PATH"));
+
+				cocktailList.add(cocktail);
+				
+			}
+			
+		} finally {
+			close(rs);
+			close(stmt);
+		}
+		
+		return cocktailList;
+		
+	}
+
+	/**도수와 관련된 키워드 검색 결과 조회
+	 * @param conn
+	 * @param keyWord
+	 * @return cocktailList
+	 */
+	public List<Cocktail> selectHardKeyword(Connection conn, String keyWord) throws Exception{
+		List<Cocktail> cocktailList = new  ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("selectHardKeyword");
+			
+			stmt=conn.createStatement();
+			
+			rs=stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				Cocktail cocktail = new Cocktail();
+
+				cocktail.setCocktailNo(rs.getInt("CKTL_NO"));
+				cocktail.setCocktailName(rs.getString("CKTL_NM"));
+				cocktail.setCocktailContent(rs.getString("CKTL_CONTENT"));
+				cocktail.setAlcohol(rs.getString("ACL_LEVEL").charAt(0));
+				cocktail.setSugar(rs.getString("SGR_LEVEL").charAt(0));
+				cocktail.setImagePath(rs.getString("IMG_PATH"));
+
+				cocktailList.add(cocktail);
+				
+			}
+		}finally {
+			close(rs);
+			close(stmt);
+			
+		}
+		return cocktailList;
+	}
+
+	/**"칵테일" 검색시 정체 칵테일 정보 조회 
+	 * @param conn
+	 * @param keyWord
+	 * @return cocktailList
+	 */
+	public List<Cocktail> selectAllCktl(Connection conn, String keyWord) throws Exception{
+
+		List<Cocktail> cocktailList = new  ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("selectAllCktl");
+			
+			stmt=conn.createStatement();
+			
+			rs=stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				Cocktail cocktail = new Cocktail();
+
+				cocktail.setCocktailNo(rs.getInt("CKTL_NO"));
+				cocktail.setCocktailName(rs.getString("CKTL_NM"));
+				cocktail.setCocktailContent(rs.getString("CKTL_CONTENT"));
+				cocktail.setAlcohol(rs.getString("ACL_LEVEL").charAt(0));
+				cocktail.setSugar(rs.getString("SGR_LEVEL").charAt(0));
+				cocktail.setImagePath(rs.getString("IMG_PATH"));
+
+				cocktailList.add(cocktail);
+				
+			}
+			
+		} finally {
+			close(rs);
+			close(stmt);
+		}
+		
+		return cocktailList;
+	
+	}
+
 
 
 }

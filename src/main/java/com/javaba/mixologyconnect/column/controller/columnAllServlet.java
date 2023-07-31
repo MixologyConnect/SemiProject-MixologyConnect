@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.javaba.mixologyconnect.board.model.service.BoardService;
 import com.javaba.mixologyconnect.column.model.service.ColumnService;
 
-@WebServlet("/board/list")
+@WebServlet("/column/columnList")
 public class columnAllServlet extends HttpServlet{
 	
 	@Override
