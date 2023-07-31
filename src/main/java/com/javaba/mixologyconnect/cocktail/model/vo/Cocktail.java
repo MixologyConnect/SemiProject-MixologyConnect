@@ -16,7 +16,7 @@ public class Cocktail {
 	private String cocktailContent;
 	private char alcohol;
 	private char sugar;
-	private String difficulty;
+	private char difficulty;
 	private String imagePath;
 
 }
