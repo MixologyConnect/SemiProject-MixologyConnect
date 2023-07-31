@@ -157,7 +157,7 @@ public class MypageDAO {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				
 				BookMark bookMark = new BookMark();
 				

@@ -2,7 +2,7 @@ const bookMarkBtn = document.getElementById("bookBtnImg")
 
 bookMarkBtn.addEventListener("click", function(){
     bookMarkInsert();
-    bookMarkList();
+    bookMarkList()
     
 })
 
@@ -105,3 +105,4 @@ function bookMarkInsert(){
 
 
 }
+

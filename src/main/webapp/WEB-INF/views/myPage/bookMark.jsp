@@ -3,7 +3,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
     
-    
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +24,7 @@
 
     
     <section class="board-list">
-        <h1 class="board-name">북마크</h1>
+        <h1 class="board-name">${bookMarkList}</h1>
         
         <div class="list-wrapper">
             <table class="list-table">
@@ -39,31 +39,17 @@
                 </thead>
 
                 
-
-                <c:choose>
-                    <c:when test="${empty bookMarkList}">
+                <tbody id="list">
+                    <c:forEach var="bookmark" items="${bookMarkList}">
                         <tr>
-                            <th>게시글이 존재하지 않습니다.</th>
+                            <td>${bookmark.boardNo}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
-                    </c:when>
-        
-                        <c:otherwise>
-        
-                           <tbody id="body">
-                            <tr id="list">
-                                <td>${bookMarkList.boardNo}</td>
-                                <td>
-                                    <a href="#">${bookMarkList.boardTitle}</a>
-                                </td>
-                                <td>${bookMarkList.memberName}</td>
-                                <td>${bookMarkList.readCount}</td>
-                            </tr>
-                           </tbody>
-        
-                        </c:otherwise>
-        
-                </c:choose>
-
+                         
+                    </c:forEach>
+                </tbody>
 
 
 
