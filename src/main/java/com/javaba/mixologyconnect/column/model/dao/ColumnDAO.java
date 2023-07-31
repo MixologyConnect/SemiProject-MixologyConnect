@@ -223,10 +223,25 @@ public class ColumnDAO {
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
 			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Board column = new Board();
+				
+				column.setThumbnail(rs.getString("IMG_RENAME"));
+				column.setBoardTitle(rs.getString("BOARD_TITLE"));
+				column.setMemberName(rs.getString("MEMBER_NM"));
+				
+				columnList.add(column);
+	
+			}
+			
 			
 			
 			
 		} finally {
+			close(rs);
+			close(pstmt);
 
 		}
 		

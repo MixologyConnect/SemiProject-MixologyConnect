@@ -85,9 +85,16 @@ public class ColumnService {
 		Pagination pagination = new Pagination(cp, listCount);
 		
 		// 특정게시판 조건 만족하는 게시글 목록 조회
-		List<Board> boardList = dao.searchColumnList(conn, pagination, type, condition);
+		List<Board> columnList = dao.searchColumnList(conn, pagination, type, condition);
 		
 		// map에 모아서 반
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("boardName", boardTitle);
+		map.put("pagination", pagination);
+		map.put("columnList", columnList);
+		
+		close(conn);
 		
 		return map;
 	}
