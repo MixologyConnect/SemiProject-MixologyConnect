@@ -282,10 +282,11 @@ public class BoardDAO {
 			String sql = prop.getProperty("boardInsert");
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, detail.getBoardTitle());
-			pstmt.setString(2, detail.getBoardContent());
-			pstmt.setInt(3, boardType);
-			pstmt.setInt(4, detail.getMemberNo());
+			pstmt.setInt(1, detail.getBoardNo());
+			pstmt.setString(2, detail.getBoardTitle());
+			pstmt.setString(3, detail.getBoardContent());
+			pstmt.setInt(4, boardType);
+			pstmt.setInt(5, detail.getMemberNo());
 			
 			result = pstmt.executeUpdate();
 			

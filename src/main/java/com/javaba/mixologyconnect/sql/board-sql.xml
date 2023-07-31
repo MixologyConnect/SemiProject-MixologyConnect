@@ -64,7 +64,7 @@
 	</entry>
 
 	<entry key="boardInsert">
-		INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, ?, ?,
+		INSERT INTO BOARD VALUES(?, ?, ?,
 		SYSDATE, NULL, 0, 'Y',
 		?, ?)
 	</entry>
