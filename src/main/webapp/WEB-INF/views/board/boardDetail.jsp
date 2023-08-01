@@ -26,7 +26,7 @@
 						<div class="title">${detail.boardTitle}</div>
 						<div class="name">
 							
-								<c:if test="${empty detail.profileImage}">
+							<c:if test="${empty detail.profileImage}">
 								<!-- 프로필 이미지가 없는 경우 -->
 								<img src="${contextPath}/resources/images/user.png">
 							</c:if>
@@ -38,6 +38,9 @@
 
 							${detail.memberName}
 
+							<!-- 팔로우 버튼 -->
+							<button type="button" id="followBtn" onclick="followBtnClick()">FOLLOW</button>
+							<input type="hidden" name="0" id="followCheck">
 						</div>
 						<div class="date">${detail.boardDate}
 							<div class="views">조회수 : ${detail.readCount}</div>
@@ -85,12 +88,20 @@
 									<img id="bookBtnImg" src="${contextPath}/resources/images/bookmark.svg"
 										onclick="bookBtnClick()">
 								</button>
+								
 								<button type="button" id="likeBtn">
 									<img src="${contextPath}/resources/images/heart.svg" id="likeBtnImg"
 										onclick="likeBtnClick()"> 
-									<input type="hidden" id="likeCheck" name="0">
+
+									<c:if test="${likeMember==detail.boardNo}">
+										<input type="hidden" id="likeCheck" name="1">
+									</c:if>
+									<c:if test="${likeMember!=detail.boardNo}">
+										<input type="hidden" id="likeCheck" name="0">
+									</c:if>
 								</button>
 								<span id="likeResult">${likeCount}</span>
+								
 								
 
 							</div>
@@ -135,7 +146,7 @@
 
 								const loginMemberNo = "${loginMember.memberNo}";
 
-								
+								const likeMember = "${likeMember}"
 							</script>
 
 							<script src="${contextPath}/resources/js/board/reply.js"></script>

@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,23 +65,24 @@
                 ${detail.boardContent}
                 
             </div>
-            <form>
+            <!-- <form> -->
+         
                 <div class="alterBtn">
-                    <c:if test="${empty param.cp}">
-                        <c:set var="cp" value="1"></c:set>
-                    </c:if>
-                    
-                    <c:if test="${!empty param.currentPage}">
-                        <c:set var="cp" value="${param.cp}"></c:set>
-                    </c:if>
-                    
-                    <c:if test="${loginMember.managerCode=='Y'}">
+                    <c:if test="${loginMember.managerCode == 'Y'}">
+                        <c:if test="${empty param.cp}">
+                            <c:set var="cp" value="1"></c:set>
+                        </c:if>
+                        
+                        <c:if test="${!empty param.currentPage}">
+                            <c:set var="cp" value="${param.cp}"></c:set>
+                        </c:if>
                         <button id="updateBtn" type="button" onclick="location.href='columnWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${detail.boardNo}'">수정</button>
-                        <button id="deleteBtn" type="button">삭제</button>
-                        <button id="goToBtn" type="button">목록으로</button>
+                        <button id="deleteBtn" >삭제</button>
                     </c:if>
+                    <button id="goToBtn" >목록으로</button>
                 </div>
-            </form>
+        
+            <!-- </form> -->
                 
 
             
@@ -90,6 +93,6 @@
    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
    <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
-    
+   <script src="${contextPath}/resources/js/column.js"></script>
 </body>
 </html>

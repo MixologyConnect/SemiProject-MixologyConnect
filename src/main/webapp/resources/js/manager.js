@@ -1,26 +1,58 @@
-const memberList = document.getElementsByName("chk1");
-const result = document.getElementById("result1");
-const test = document.getElementsByName("memberId");
 
-function selectMember(){
-    let str = "";
-    for(let i=0; i<memberList.length; i++){
-        if(memberList[i].checked){
-            str += test[i].innerHTML + " ";
+const result = document.getElementById("memberResult"); // 회원 input
+const result2 = document.getElementById("boardResult") // 게시글 input
+
+const chk1 = document.getElementById("chk1");
+
+
+function banMember(){
+    const member = $("#resultMember > tr > td:nth-of-type(3) > div").text();
+
+    $.ajax({
+        url : "manager/secession",
+        data : {"memberId" : result.value},
+        type : "POST",
+        success : function(){
+
+        },
+        error : function(){
+            console.log("에러발생");
         }
-    }
 
-    result.innerHTML = str;
+    })
+
+
+    const memberStatus = $("#resultMember > tr > td:last-of-type > div")
+    let memberStd = memberStatus.text();
+    if(memberStd == 'Y') memberStatus.text("N");
+    else memberStatus.text("Y");
+}
+
+function deleteBoard(){
+    
+    $.ajax({
+        url : "manager/boardDelete",
+        data : {"boardTitle" : result2.value},
+        type : "POST",
+        success : function(){
+
+        },
+        error : function(){
+            console.log("에러발생")
+        }
+    })
+
+    const boardStatus = $("#resultBoard > tr > td:last-of-type > div")
+    let boardSt = boardStatus.text();
+    if(boardSt == 'Y') boardStatus.text("N");
+    else boardStatus.text("Y");
 }
 
 /* ajax */
-document.getElementById("member-btn").addEventListener("click", function(){
+document.getElementById("member-btn").addEventListener("click", function() {
+    const input = document.getElementById("searchMember"); // 회원 아이디 검색
+    const table = document.getElementById("resultMember"); // 회원 tbody
 
-    const input = document.getElementById("searchMember");
-    const table = document.getElementById("resultMember");
-
-    
-    
     $.ajax({
         url : "manager/selectMember",
         data : {"memberId" : input.value},
@@ -37,7 +69,7 @@ document.getElementById("member-btn").addEventListener("click", function(){
                 
                 const input = document.createElement("input")
                 input.setAttribute("type", "checkbox");
-                input.setAttribute("name", "chk1");
+                input.setAttribute("id", "chk1");
 
                 const td1 = document.createElement("td");
                 td1.append(input);
@@ -79,6 +111,8 @@ document.getElementById("member-btn").addEventListener("click", function(){
                 tr.append(td1, td2, td3, td4, td5, td6, td7)
                 table.append(tr);
 
+                result.value = member.memberId; // 회원 input에 들어가는 거
+
                 
             }else{
 
@@ -110,13 +144,12 @@ document.getElementById("member-btn").addEventListener("click", function(){
 
         }
     })
-
-}); 
+});
 
 document.getElementById("board-btn").addEventListener("click",function(){
 
-    const input = document.getElementById("searchBoard");
-    const result = document.getElementById("resultBoard");
+    const input = document.getElementById("searchBoard"); // board 검색
+    const result = document.getElementById("resultBoard"); // tbody
     const no = document.getElementById("noBoard");
 
     
@@ -166,6 +199,8 @@ document.getElementById("board-btn").addEventListener("click",function(){
 
                 tr.append(td1, td2, td3, td4, td5, td6)
                 result.append(tr);
+
+                result2.value = board.boardTitle;
 
             }else{
 

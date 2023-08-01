@@ -43,14 +43,15 @@
 	
 	<!-- 북마크 삽입 -->
 	<entry key="insert">
-		INSERT INTO BOOKMARK_TWO
-		VALUES(?, ?, ?, DEFAULT, ?)
+		INSERT INTO BOOKMARK_TB
+		VALUES(?, ?, ?, ?, DEFAULT, ?)
 	</entry>
 	
 	
 	<!-- 북마크 테이블 게시글 수 조회 -->
 	<entry key="listCount">
-		SELECT COUNT(*) FROM BOOKMARK_TWO
+		SELECT COUNT(*) FROM BOOKMARK_TB
+		WHERE MEMBER_NO = ?
 	</entry>
 	
 	
@@ -58,16 +59,24 @@
 	<entry key="selectBookmark">
 		SELECT * FROM(
 			SELECT ROWNUM RNUM, A. * FROM(
-					SELECT BOOKMARK_NO, BOOKMARK_TITLE,BOOKMARK_NICK,
-					TO_CHAR(BOOKMARK_DT, 'YYYY-MM-DD') AS BOOKMARK_DT,
-					BOOKMARK_COUNT
-						FROM BOOKMARK_TWO
-						ORDER BY BOOKMARK_NO DESC
+					SELECT BOARD_NO, BOARD_TITLE,MEMBER_NICK,
+					TO_CHAR(CREATE_DT, 'YYYY-MM-DD') AS CREATE_DT,
+					READ_COUNT
+						FROM BOOKMARK_TB
+                        WHERE MEMBER_NO = ?
+						ORDER BY BOARD_NO DESC
 				)A
 			)
 		WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	
+	<!-- 북마크 버튼 이미지 -->
+	<entry key="btnImage">
+		SELECT BOARD_NO FROM BOOKMARK_TB
+		WHERE BOARD_NO = ?
+		AND MEMBER_NO = ?
+	</entry>
 
 
 

@@ -40,25 +40,25 @@
                 <!-- 게시글 제목란 -->
                 <div class="boardTitle"> 
                     <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)" value="${detail.boardTitle}" maxlength="20">
-                    <label for="image">
-                        <div class="image">이미지 선택</div>
-                    </label>
-                    <input type="file" name="0" id="image" class="inputImage" accept="image/*">
-        
+                    
                 </div>
-
+                
                 <!-- 이미지 미리보기 영역 -->
                 <c:if test="${boardImage.imageLevel == 0}">
                     <c:set var="boardImage" value="${detail.imageList[0]}"/>
                 </c:if>
-                    <div class="image-box">
-                        <div class="columnImg">
-                            <article>
-                                <img class="preview" src="${contextPath}${boardImage}">
-                            </article>
-                            <span class="delete-image">&times;</span>
-                        </div>
+                <div class="image-box">
+                    <label for="image">
+                        <div class="image">이미지 선택</div>
+                    </label>
+                    <div class="columnImg">
+                        <article>
+                            <img class="preview" src="${boardImage}">
+                        </article>
+                        <input type="file" name="0" id="image" class="inputImage" accept="image/*">
+                        <span class="delete-image">&times;</span>
                     </div>
+                </div>
                 
 
                 <!-- 게시글 작성란 -->
@@ -75,7 +75,7 @@
                         <button type="submit" id="btn" >작성 완료</button>
                         <!-- insert 모드 -->
                         <c:if test="${param.mode == 'insert'}">
-                            <button type="button" onclick="location.href='${header.referer}'">목록으로</button>
+                            <button type="button" id="goToBtn">목록으로</button>
                         </c:if>
     
                         <!-- update 모드 -->
@@ -102,7 +102,7 @@
 
     </div>
     <script src="${contextPath}/resources/js/columnWrite.js"></script>
-    <script src="${contextPath}/resources/js/board.js"></script>
+
     
 </body>
 </html>

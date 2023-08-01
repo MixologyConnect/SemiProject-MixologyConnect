@@ -493,9 +493,9 @@ public class BoardDAO {
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, boardTitle);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
 				board.setBoardNo(rs.getInt("BOARD_NO"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
@@ -612,7 +612,7 @@ public class BoardDAO {
 		return dlikeResult;
 	}
 
-	
+
 	/** 특성 게시글에 조하요 수 조회 DAO
 	 * @param conn
 	 * @param memberNo
@@ -620,35 +620,90 @@ public class BoardDAO {
 	 * @return likeCount
 	 */
 	public int selectLike(Connection conn, int boardNo) throws Exception{
-		
+
 		int likeCount = 0;
-		
+
 		try {
-		
+
 			String sql = prop.getProperty("selectLike");
-			
+
 			pstmt= conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, boardNo);
-			
+
 			rs=pstmt.executeQuery();
-			
+
 			if(rs.next()) {
 				likeCount=rs.getInt("COUNT(*)");
 			}
-			
-			
-			
+
+
+
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
-	
-	
+
+
 		return likeCount;
-	
+
 	}
 
-	
+	/**@author 이지영
+	 * 회원이 좋아요 놀렀었는 지 확인하는 게시글 조회 DAO
+	 * @param conn
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 */
+	public int selectMemberLike(Connection conn, int boardNo, int memberNo) throws Exception {
 
+		int likeMember=0;
+		try {
+			String sql = prop.getProperty("selectMemberLike");
+
+			pstmt= conn.prepareStatement(sql);
+
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, boardNo);
+
+			rs=pstmt.executeQuery();
+
+			if(rs.next()) {
+				likeMember=rs.getInt("BOARD_NO");
+			}
+
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return likeMember;
+	}
+
+	/** 관리자 게시글 삭제 DAO
+	 * @param conn
+	 * @param boardTitle
+	 * @return result
+	 */
+	public int managerBoardDelete(Connection conn, String boardTitle) throws Exception {
+		
+		int result = 0;
+		
+		try {
+
+			String sql = prop.getProperty("managerBoardDelete"); 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, boardTitle); 
+
+			result = pstmt.executeUpdate();
+			
+			System.out.println(result);
+			System.out.println("나오라고 result");
+			
+		} finally { 
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }

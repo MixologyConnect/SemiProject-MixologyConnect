@@ -88,5 +88,29 @@
 		    ON F.MEMBER_NO = M.MEMBER_NO
 		 WHERE F.FOLLOWER_NO = ?
 	</entry>
+	
+	<!-- 관리자 회원 정보 변경 -->
+	<entry key="managerSecession">
+		UPDATE MEMBER SET
+		SECESSION_FL = DECODE(SECESSION_FL , 'Y','N','N','Y')
+		WHERE MEMBER_ID = ?
+	</entry>
 
+	<!-- 게시글 작성자의 MEMBER_NO 조회 -->
+	<entry key="selectBoardWrite">
+		SELECT MEMBER_NO FROM BOARD WHERE BOARD_NO=?
+	</entry>
+	
+
+	<!-- 팔로우하기 -->
+	<entry key="insertfollow">
+		INSERT INTO FOLLOW VALUES(?,?)
+	</entry>
+	
+	<!-- 팔로우 취소하기 -->
+	<entry key="deletefollow">
+		DELETE FROM FOLLOW WHERE FOLLOWER_NO =? AND MEMBER_NO =?
+	</entry>
+	
+	
 </properties>
