@@ -409,6 +409,33 @@ public class MypageDAO {
 		
 		return result;
 	}
+
+
+	/** 북마크 해제 DAO
+	 * @param conn
+	 * @param loginMember
+	 * @return result
+	 * @throws Exception
+	 */
+	public int delete(Connection conn, int boardNo, Member loginMember)throws Exception {
+		int result = 0;
+		try {
+			
+			String sql = prop.getProperty("delete");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, loginMember.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 	
 	
 	

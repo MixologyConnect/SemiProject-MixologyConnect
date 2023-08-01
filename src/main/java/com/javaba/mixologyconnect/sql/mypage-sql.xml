@@ -44,7 +44,7 @@
 	<!-- 북마크 삽입 -->
 	<entry key="insert">
 		INSERT INTO BOOKMARK_TB
-		VALUES(?, ?, ?, ?, DEFAULT, ?)
+		VALUES(?, ?, ?, ?, DEFAULT, ?,DEFAULT)
 	</entry>
 	
 	
@@ -52,6 +52,7 @@
 	<entry key="listCount">
 		SELECT COUNT(*) FROM BOOKMARK_TB
 		WHERE MEMBER_NO = ?
+		AND BOARD_ST = 'Y'
 	</entry>
 	
 	
@@ -64,6 +65,7 @@
 					READ_COUNT
 						FROM BOOKMARK_TB
                         WHERE MEMBER_NO = ?
+                        AND BOARD_ST = 'Y'
 						ORDER BY BOARD_NO DESC
 				)A
 			)
@@ -74,6 +76,15 @@
 	<!-- 북마크 버튼 이미지 -->
 	<entry key="btnImage">
 		SELECT BOARD_NO FROM BOOKMARK_TB
+		WHERE BOARD_NO = ?
+		AND MEMBER_NO = ?
+	</entry>
+	
+	
+	
+	<!-- 북마크 해제 -->
+	<entry key="delete">
+		DELETE FROM BOOKMARK_TB
 		WHERE BOARD_NO = ?
 		AND MEMBER_NO = ?
 	</entry>
