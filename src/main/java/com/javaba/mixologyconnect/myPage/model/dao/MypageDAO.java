@@ -368,6 +368,47 @@ public class MypageDAO {
 		
 		return result;
 	}
+
+
+	/** 북마크 버튼 이미지 DAO
+	 * @param conn
+	 * @param boardNo
+	 * @param loginMember
+	 * @return result
+	 * @throws Exception
+	 */
+	public int existNo(Connection conn, int boardNo, Member loginMember) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("btnImage");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, loginMember.getMemberNo());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				result = rs.getInt(1);
+				System.out.println("북마크에 있? : " + result);
+				
+			}
+			
+			
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return result;
+	}
 	
 	
 	
