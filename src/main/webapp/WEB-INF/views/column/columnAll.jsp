@@ -81,7 +81,7 @@
                             <c:otherwise>
                                 <c:forEach var="column" items="${columnList}">
                                     <li>
-                                        <a href="columnDetail?no=${column.boardNo}&type=3">
+                                        <a href="columnDetail?no=${column.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL}">
                                             <div>
                                                 <img id="picture" src="${contextPath}${column.thumbnail}" style="width: 100%;">
                                             </div>
@@ -102,37 +102,36 @@
         </div>
         <div class="btn-area">
             <c:if test = "${loginMember.managerCode=='Y'}">
-            <button id="insertBtn" type = "button" onclick="location.href = 'columnWrite?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</button>
-        </c:if>
+                <button id="insertBtn" type = "button" onclick="location.href = 'columnWrite?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</button>
+            </c:if>
         </div>
 
 
-        <ul class="pagination">
-            <!-- /http://localhost:8080/SemiProject-MixologyConnect/column/columnList?type=3 -->
+
+        <div class="pagination-area">
             <c:set var="url" value="columnList?type=${param.type}&cp="/>
 
-            <!-- 첫페이지로 이동 -->
-            <li><button id="pageCon1"><a href="${url}1${sURL}">&lt;</a></button></li>
-            
-            <!-- 범위 정하기 -->
-            <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+            <ul class="pagination">
+                <!-- 첫 페이지로 이동 -->
+                <li><a href="${url}1${sURL}">&lt;</a></li>
 
-                <c:choose>
-                    <c:when test="${i == pagination.currentPage}">
-                        <li><a class="current" id="pageCon1">${i}</a></li>
-                    </c:when>
-                    <c:otherwise>
-                        <li><a href="${url}${i}${sURL}" id="pageCon1">${i}</a></li>
-                    </c:otherwise>
-                </c:choose>
+                <!-- 범위가 정해진 일반 for문 사용 -->
+                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                    <c:choose>
+                        <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${url}${i}${sURL}">${i}</a></li>
+                        </c:otherwise>
+                    </c:choose>
 
-            </c:forEach>
+                </c:forEach>
 
-
-
-            <!-- 마지막 페이지로 이동 -->
-            <li><button id="pageCon1"><a href="${url}${pagination.maxPage}${sURL}">&gt;</a></button></li>
-        </ul>
+                <!-- 끝 페이지로 이동 -->
+                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;</a></li>
+            </ul>
+        </div>
             
     </div>
     
