@@ -63,23 +63,24 @@
                 ${detail.boardContent}
                 
             </div>
-            <form>
+            <!-- <form> -->
+         
                 <div class="alterBtn">
-                    <c:if test="${empty param.cp}">
-                        <c:set var="cp" value="1"></c:set>
-                    </c:if>
-                    
-                    <c:if test="${!empty param.currentPage}">
-                        <c:set var="cp" value="${param.cp}"></c:set>
-                    </c:if>
-                    
-                    <c:if test="${loginMember.managerCode=='Y'}">
+                    <c:if test="${loginMember.managerCode == 'Y'}">
+                        <c:if test="${empty param.cp}">
+                            <c:set var="cp" value="1"></c:set>
+                        </c:if>
+                        
+                        <c:if test="${!empty param.currentPage}">
+                            <c:set var="cp" value="${param.cp}"></c:set>
+                        </c:if>
                         <button id="updateBtn" type="button" onclick="location.href='columnWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${detail.boardNo}'">수정</button>
                         <button id="deleteBtn" type="button">삭제</button>
                         <button id="goToBtn" type="button">목록으로</button>
-                    </c:if>
+                    </if>
                 </div>
-            </form>
+        
+            <!-- </form> -->
                 
 
             

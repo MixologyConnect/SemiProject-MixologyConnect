@@ -69,7 +69,7 @@
 
 
                 <!-- 버튼 영역 -->
-                <c:if test = "${loginMember.managerCode=='Y'}">
+                <!-- <c:if test = "${loginMember.managerCode=='Y'}"> -->
                     <div class="btn">
                         <!-- 작성완료 버튼 -->
                         <button type="submit" id="btn" >작성 완료</button>
@@ -83,7 +83,7 @@
                             <button type="button" onclick="location.href='${header.referer}'">이전으로</button>
                         </c:if>
                     </div>
-                </c:if>
+                <!-- </c:if> -->
                     
 
                 
@@ -102,7 +102,7 @@
 
     </div>
     <script src="${contextPath}/resources/js/columnWrite.js"></script>
-    <script src="${contextPath}/resources/js/board.js"></script>
+
     
 </body>
 </html>
