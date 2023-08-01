@@ -277,6 +277,18 @@ public class MemberService {
 
 		close(conn);
 		return map;
+
+		int result = dao.managerSecession(conn, memberId);
+		
+		if (result > 0)
+			conn.commit();
+		else
+			conn.rollback();
+		
+		close(conn);
+		
+		return result;
+
 	}
 
 
