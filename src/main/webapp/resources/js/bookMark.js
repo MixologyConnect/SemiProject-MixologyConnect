@@ -10,6 +10,25 @@
 // 북마크 버튼 이미지
 const img = document.getElementById("bookBtnImg");
 
+
+// 즉시실행 함수(북마크 이미지 채워지는지 확인)
+(function(){
+
+    bookMarkImage();
+
+    // if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+    //     console.log("ddddddddddddddd")
+    // }
+
+
+})();
+
+
+
+
+
+
+
 function bookBtnClick() {
     if(loginMemberNo==""){
         alert("로그인후 이용해주세요.")
@@ -24,7 +43,7 @@ function bookBtnClick() {
 }
 
 
-
+// 북마크 버튼 누르면 데이터 삽입 함수
 function bookMarkInsert(){
 
     const params = new URL(location.href).searchParams;
@@ -67,7 +86,7 @@ function bookMarkInsert(){
 
 
 
-
+// 북마크 버튼 이미지 
 function bookMarkImage(){
 
     const params = new URL(location.href).searchParams;
@@ -85,8 +104,14 @@ function bookMarkImage(){
         success : function(result){
             console.log(result)
             if(result > 0){
+                console.log("성공")
                 img.src = contextPath + "/resources/images/bookmark-fill.svg";
+
+
+
+
             }else{
+                console.log("에러")
                 img.src = contextPath + "/resources/images/bookmark.svg";
             }
         },
@@ -100,6 +125,21 @@ function bookMarkImage(){
     })
 
 
+
+
+
+}
+
+
+// 북마크 해제
+function deleteBookMark(){
+
+    const params = new URL(location.href).searchParams;
+    const boardNo = params.get("no")
+
+    console.log(boardNo)
+
+    
 
 
 
