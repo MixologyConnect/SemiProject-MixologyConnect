@@ -11,52 +11,39 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.javaba.mixologyconnect.member.model.service.MemberService;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 import com.javaba.mixologyconnect.myPage.model.service.MypageService;
 
 @WebServlet("/myPage/myPage")
 public class LoginMyPageServlet extends HttpServlet {
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		try {
-			
+			MypageService myPageService = new MypageService();
+			MemberService memberService = new MemberService();
+
 			HttpSession session = req.getSession();
 			Member loginMember = (Member)(session.getAttribute("loginMember") );
 
-			// 쿼리스트링에 cp가 없음 --> cp = 1 고정
 			int cp = 1;
+			if(req.getParameter("cp") != null) cp = Integer.parseInt(req.getParameter("cp"));
 
-			// 페이지네이션 번호 선택 시
-			// 쿼리스트링에 cp가 있음 --> cp = 쿼리스트링의 cp값
-			if(req.getParameter("cp") != null) { // 쿼리스트링에 "cp"가 존재한다면
-				cp = Integer.parseInt(req.getParameter("cp"));
-			}
-
-			MypageService service = new MypageService();
-
-			// 게시판 이름, 페이지네이션 객체, 게시글 리스트를 한번에 반환하는 Service 호출
-			Map<String, Object> map = service.selectMypageList(cp, loginMember);
+			Map<String, Object> map = myPageService.selectMypageList(cp, loginMember);
 
 			req.setAttribute("map", map);
 
-			System.out.println(map);
+			int memberNo = loginMember.getMemberNo();
+			req.setAttribute("followers", memberService.selectFollowers(memberNo));
+			req.setAttribute("followings", memberService.selectFollowings(memberNo));
 
-			String path = "/WEB-INF/views/myPage/myPage.jsp";
-
-			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/myPage/myPage.jsp");
 			dispatcher.forward(req, resp);
-
-
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
-
-
 }
-
-
-
