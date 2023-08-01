@@ -5,35 +5,80 @@
     
     /* 좋아요 누르면 하트 채워지기 */
     
-    var cnt = 1;
+   var cnt = 1;
     
     function likeBtnClick() {
-    
-        const img = document.getElementById("likeBtnImg");
-        img.src = contextPath + "/resources/images/heart-fill.svg";
-    
-        if(cnt%2==1) {
+        
+        if(loginMemberNo==""){
+            alert("로그인후 이용해주세요.")
+        }else{
+            const img = document.getElementById("likeBtnImg");
+            let likeCheck = document.getElementById('likeCheck');
             img.src = contextPath + "/resources/images/heart-fill.svg";
-        }else {
-            img.src = contextPath + "/resources/images/heart.svg";
+        
+            if(cnt%2==1) {
+               
+                likeCheck.removeAttribute("name")
+                likeCheck.setAttribute("name",1)
+            }else {
+                likeCheck.removeAttribute("name")
+                likeCheck.setAttribute("name",0)
+            }
+            cnt++;
+            
+            const nameValue = likeCheck.getAttribute("name");
+            console.log(nameValue);
+
+
+            $.ajax({
+                url:contextPath+"/board/like",
+                type:"post",
+                dataType : "JSON",
+                data: {'loginMemberNo': loginMemberNo,
+                        'boardNo' : boardNo,
+                        'likeCheck' : likeCheck.getAttribute("name")
+                    },
+                success : function(data){
+                    if(data == 1){
+                        img.src = contextPath + "/resources/images/heart.svg"
+                    }else{
+                        img.src = contextPath + "/resources/images/heart-fill.svg";
+                    }
+        
+                },
+                error : function(data){
+                    img.src = contextPath + "/resources/images/heart.svg"
+                    console.log("오류발생")
+                }
+            })
+            
         }
-        cnt++;
+
     }
+
+    
+    
+
+   
     
     function bookBtnClick() {
-    
-        const img = document.getElementById("bookBtnImg");
-        img.src = contextPath + "/resources/images/bookmark-fill.svg";
-    
-        if(cnt%2==1) {
+        if(loginMemberNo==""){
+            alert("로그인후 이용해주세요.")
+        }else{
+            const img = document.getElementById("bookBtnImg");
             img.src = contextPath + "/resources/images/bookmark-fill.svg";
-        }else {
-            img.src = contextPath + "/resources/images/bookmark.svg";
+        
+            if(cnt%2==1) {
+                img.src = contextPath + "/resources/images/bookmark-fill.svg";
+            }else {
+                img.src = contextPath + "/resources/images/bookmark.svg";
+            }
+            cnt++;
+
         }
-        cnt++;
+        
+
     }
-
-
 
 
 

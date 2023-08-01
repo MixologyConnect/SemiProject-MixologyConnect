@@ -30,8 +30,8 @@
             <section class="follow2">
                 <div id="top">@khacademy</div>
                 <div class="bottom">
-                    <span>팔로워 8</span>
-                    <span>팔로잉 3</span>
+                    <span>팔로워 ${followers.size()}</span>
+                    <span>팔로잉 ${followings.size()}</span>
                 </div>
             </section>
         </section>

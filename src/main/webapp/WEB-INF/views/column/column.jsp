@@ -50,8 +50,8 @@
 
             <!-- 컬럼 헤드라인 -->
             <div class="head">
-                <h1>${detail.boardTitle}</h1>
-                ${columnImg.imageRename}
+                
+                <!-- ${columnImg.imageRename} -->
             </div>
             <!-- 사진 -->
             <div class="picture">
@@ -68,11 +68,11 @@
                     <c:if test="${empty param.cp}">
                         <c:set var="cp" value="1"></c:set>
                     </c:if>
-
+                    
                     <c:if test="${!empty param.currentPage}">
                         <c:set var="cp" value="${param.cp}"></c:set>
                     </c:if>
-
+                    
                     <c:if test="${loginMember.managerCode=='Y'}">
                         <button id="updateBtn" type="button" onclick="location.href='columnWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${detail.boardNo}'">수정</button>
                         <button id="deleteBtn" type="button">삭제</button>
@@ -80,7 +80,7 @@
                     </c:if>
                 </div>
             </form>
-
+                
 
             
         </div>

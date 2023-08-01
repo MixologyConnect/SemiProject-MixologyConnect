@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import com.javaba.mixologyconnect.board.model.vo.Board;
@@ -373,8 +375,59 @@ public class MemberDAO {
 		return member; 
 		}
 
-	
+
+	public List<Member> selectFollowers(Connection conn, int memberNo) throws Exception {
+		List<Member> followers = new ArrayList<Member>();
 
 
+		try {
+			String sql = prop.getProperty("selectFollowers");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			while (rs.next()) followers.add(new Member(rs.getInt("MEMBER_NO"),
+													   rs.getString("MEMBER_ID"),
+													   rs.getString("MEMBER_PW"),
+													   rs.getString("MEMBER_TEL"),
+													   rs.getString("MEMBER_NM"),
+													   rs.getString("MEMBER_ADDR"),
+													   rs.getString("MEMBER_EMAIL"),
+													   rs.getString("MEMBER_PROFILE"),
+													   rs.getString("MANAGER_CODE"),
+													   rs.getString("SECESSION_FL")
+													   ));
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
 
+		return followers;
+	}
+
+	public List<Member> selectFollowings(Connection conn, int memberNo) throws Exception {
+		List<Member> followings = new ArrayList<Member>();
+
+		try {
+			String sql = prop.getProperty("selectFollowings");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			while (rs.next()) followings.add(new Member(rs.getInt("MEMBER_NO"),
+														rs.getString("MEMBER_ID"),
+														rs.getString("MEMBER_PW"),
+														rs.getString("MEMBER_TEL"),
+														rs.getString("MEMBER_NM"),
+														rs.getString("MEMBER_ADDR"),
+														rs.getString("MEMBER_EMAIL"),
+														rs.getString("MEMBER_PROFILE"),
+														rs.getString("MANAGER_CODE"),
+														rs.getString("SECESSION_FL")
+														));
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return followings;
+	}
 }

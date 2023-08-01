@@ -3,6 +3,7 @@ package com.javaba.mixologyconnect.member.model.service;
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
 import java.sql.Connection;
+import java.util.List;
 
 import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.member.model.dao.MemberDAO;
@@ -206,7 +207,30 @@ public class MemberService {
 		
 	}
 
+
 	
 
 }
 
+	public List<Member> selectFollowers(int memberNo) throws Exception {
+		Connection conn = getConnection();
+
+		List<Member> followers = dao.selectFollowers(conn, memberNo);
+
+		close(conn);
+
+		return followers;
+	}
+
+	public List<Member> selectFollowings(int memberNo) throws Exception {
+		Connection conn = getConnection();
+
+		List<Member> followings = dao.selectFollowings(conn, memberNo);
+
+		close(conn);
+
+		return followings;
+	}
+
+
+}

@@ -476,6 +476,7 @@ public class BoardDAO {
 		return result;
 	}
 
+
 	/**@author 임성수
 	 * 게시글 조회 DAO
 	 * @param conn
@@ -515,34 +516,56 @@ public class BoardDAO {
 
 
 	/** 게시글 번호 찾기
+=======
+	public List<BoardImage> selectThumbnail(Connection conn, int type) throws Exception{
+		
+		List<BoardImage> imageList = new ArrayList<BoardImage>();
+		
+		try {
+			String sql = prop.getProperty("selectThumbnail");
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, type);
+			
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				BoardImage image = new BoardImage();
+
+				image.setImageNo(rs.getInt("IMG_NO"));
+				image.setImageRename(rs.getString("IMG_RENAME"));
+				image.setImageOriginal(rs.getString("IMG_ORIGINAL"));
+				image.setImageLevel(rs.getInt("IMG_LEVEL"));
+				image.setBoardNo(rs.getInt("BOARD_NO"));
+
+				imageList.add(image);
+
+			}
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		
+		return imageList;
+	}
+
+	
+	/**조하요 했을 시 DAO
+	 * @author 이지영
+
 	 * @param conn
-	 * @param type
-	 * @return boardNo
-	 * @throws Exception
+	 * @param memberNo
+	 * @param boardNo
+	 * @return likeResult
 	 */
-//	public int selectBoardNo(Connection conn, int type) throws Exception {
-//		
-//		int boardNo = 0;
-//		
-//		try {
-//			
-//			String sql = prop.getProperty("selectBoardNo");
-//			pstmt = conn.prepareStatement(sql);
-//			
-//			pstmt.setInt(1, type);
-//			
-//			rs = pstmt.executeQuery();
-//			
-//			 {
-//				boardNo = rs.getInt("BOARD_NO");
-//			}
-//			
-//		}finally {
-//			close(rs);
-//			close(pstmt);
-//		}
-//		
-//		return boardNo;
-//	}
+	public int insertLike(Connection conn, int memberNo, int boardNo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }
