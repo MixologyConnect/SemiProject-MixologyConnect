@@ -11,15 +11,22 @@ function banMember(){
         url : "manager/secession",
         data : {"memberId" : result.value},
         type : "POST",
+        success : function(){
+
+        },
+        error : function(){
+            console.log("에러발생");
+        }
+
         
 
     })
 
-    const memberSt =  $("#resultMember > tr > td:last-of-type > div").text();
-    if(memberSt == 'Y'){
-        memberSt = 'N';
+    var memberStd =  $("#resultMember > tr > td:last-of-type > div").text();
+    if(memberStd == 'Y'){
+        memberStd = 'N';
     }else{
-        memberSt = 'Y';
+        memberStd = 'Y';
     }
 }
 
@@ -56,6 +63,7 @@ document.getElementById("member-btn").addEventListener("click", function() {
 
                 const td3 = document.createElement("td");
                 const div2 = document.createElement("div")
+                div2.setAttribute("id","good")
                 div2.innerText= member.memberId;
                 td3.append(div2);
                 
