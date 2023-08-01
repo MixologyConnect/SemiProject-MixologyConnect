@@ -430,34 +430,117 @@ public class MemberDAO {
 		return followings;
 	}
 
+	
+	
 	/**@author ISS
 	 * 관리자 회원 정보 변경 DAO
 	 * @param conn
 	 * @param memberId
 	 * @return member
 	 */
-	public Member managerSecession(Connection conn, String memberId) throws Exception {
-		
-		Member member = new Member();
-		
+	public int managerSecession(Connection conn, String memberId) throws Exception{
+
+		int result = 0;
 		try {
+
+			String sql = prop.getProperty("managerSecession"); 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId); 
+
+			result = pstmt.executeUpdate();
 			
-			String sql = prop.getProperty("managerSecession");
+		} finally { 
+			close(pstmt);
+		}
+
+		return result;
+		}
+
+	/** 팔로잉 하기 위한 게시글 작성자 회원번호 조회 
+	 * 
+	 * @param conn
+	 * @param boardNo
+	 * @return
+	 */
+	public int selectBoardWrite(Connection conn, int boardNo) throws Exception{
+
+		int boardWrite=0;
+		try {
+			String sql =prop.getProperty("selectBoardWrite");
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberId);
 			
-			rs = pstmt.executeQuery();
+			pstmt.setInt(1, boardNo);
+			
+			rs= pstmt.executeQuery();
 			
 			if(rs.next()) {
-				member.setSecessionFlag(rs.getString("SECESSION_FL"));
+				boardWrite=rs.getInt("MEMBET_NO");
 			}
-			
 		} finally {
 			close(rs);
 			close(pstmt);
-			
 		}
-		return member;
+		
+
+		return boardWrite;
 	}
+
+	
+	/** 팔로우하기 
+	 * @author 이지영
+	 * @param conn
+	 * @param boardWriter
+	 * @param loginMemberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int insertfollow(Connection conn, int boardWriter, int loginMemberNo)throws Exception {
+
+		int followResult=0;
+		
+		try {
+			String sql = prop.getProperty("insertfollow");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMemberNo);
+			pstmt.setInt(2, boardWriter);
+			
+			followResult = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		return followResult;
+	}
+
+	
+	/** 팔로우 취소 dao
+	 * 
+	 * @param conn
+	 * @param boardWriter
+	 * @param loginMemberNo
+	 * @return
+	 */
+	public int deletefollow(Connection conn, int boardWriter, int loginMemberNo) throws Exception{
+		
+		int dfollowResult=0;
+		
+		try {
+			String sql = prop.getProperty("deletefollow");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMemberNo);
+			pstmt.setInt(2, boardWriter);
+			
+			dfollowResult = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		return dfollowResult;
+	}
+	
 }

@@ -79,16 +79,18 @@ public class MypageService {
 		}
 
 		
+		
+
+		
 		/** 북마크 삽입 Service
 		 * @param memberNo
 		 * @param boardNo
 		 * @return
 		 */
-		public int bookMarkInsert(BookMark bk) throws Exception{
-			
+		public int bookMarkInsert(BookMark bk, Member loginMember) throws Exception {
 			Connection conn= getConnection();
 			
-			int result = dao.bookMarkInsert(conn, bk);
+			int result = dao.bookMarkInsert(conn, bk, loginMember);
 			
 			if(result>0) {conn.commit();}
 			else				{conn.rollback();}
@@ -97,35 +99,69 @@ public class MypageService {
 			
 			return result;
 		}
+		
+
+
+
+
+
 
 		/** 북마크 게시글 목록 조회 Service
 		 * @param cp
 		 * @return
 		 */
-		public Map<String, Object> selectbookMarkList(int cp) throws Exception{
-					Connection conn = getConnection();
+		public Map<String, Object> selectbookMarkList(int cp, Member loginMember)throws Exception {
+			Connection conn = getConnection();
 			
-					// 2-1) 특정 게시판 전체 게시글 수 조회 DAO 호출
-					int listCount = dao.bookMarkListCount(conn);
+			// 2-1) 특정 게시판 전체 게시글 수 조회 DAO 호출
+			int listCount = dao.bookMarkListCount(conn, loginMember);
 
-					// 2-2) 전체 게시글 수 + 현재 페이지(cp)를 이용해 페이지네이션 객체 생성
-					Pagination pagination = new Pagination(cp, listCount);
-
-
-					// 3) 게시글 목록 조회
-					List<BookMark> bookMarkList = dao.bookMarkList( conn, pagination);
-
-					// 4) Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장 
-					Map<String, Object> map = new HashMap<String, Object>();
-
-					map.put("pagination", pagination);
-					map.put("bookMarkList", bookMarkList);
-
-					close(conn);
+			// 2-2) 전체 게시글 수 + 현재 페이지(cp)를 이용해 페이지네이션 객체 생성
+			Pagination pagination = new Pagination(cp, listCount);
 
 
-					return map;	// Map 객체 반환 
+			// 3) 게시글 목록 조회
+			List<BookMark> bookMarkList = dao.bookMarkList( conn, pagination, loginMember);
+
+			// 4) Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장 
+			Map<String, Object> map = new HashMap<String, Object>();
+
+			map.put("pagination", pagination);
+			map.put("bookMarkList", bookMarkList);
+
+			close(conn);
+
+
+			return map;	// Map 객체 반환 
 		}
+
+
+
+
+
+
+		/** 북마크 버튼 이미지 
+		 * @param boardNo
+		 * @param loginMember
+		 * @return result
+		 * @throws Exception
+		 */
+		public int existNo(int boardNo, Member loginMember)throws Exception {
+			
+			Connection conn = getConnection();
+			
+			int result = dao.existNo(conn, boardNo, loginMember);
+			
+			close(conn);
+			
+			return result;
+		}
+
+
+
+
+
+	
 		
 		
 

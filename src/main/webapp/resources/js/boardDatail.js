@@ -16,7 +16,7 @@
     
     /* 좋아요 누르면 하트 채워지기 */
     
-   var cnt = 1;
+//    var cnt = 1;
     
     function likeBtnClick() {
         
@@ -36,7 +36,7 @@
                 likeCheck.removeAttribute("name")
                 likeCheck.setAttribute("name",0)
             }
-            cnt++;
+            // cnt++;
             
             const nameValue = likeCheck.getAttribute("name");
             console.log(nameValue);
@@ -69,7 +69,7 @@
                     }
         
                 },
-                error : function(data){
+                error : function(like){
                     img.src = contextPath + "/resources/images/heart.svg"
                     console.log("오류발생")
                 }
@@ -84,38 +84,41 @@
 
    
     
-    function bookBtnClick() {
-        if(loginMemberNo==""){
-            alert("로그인후 이용해주세요.")
-        }else{
-            const img = document.getElementById("bookBtnImg");
-            img.src = contextPath + "/resources/images/bookmark-fill.svg";
-        
-            if(cnt%2==1) {
-                img.src = contextPath + "/resources/images/bookmark-fill.svg";
-            }else {
-                img.src = contextPath + "/resources/images/bookmark.svg";
-            }
-            cnt++;
 
-        }
+
+
+// 팔로우 관련-------------------------------------
+
+// follow 버튼 클릭 시 
+function followBtnClick() {
+    if(loginMemberNo==""){
+        alert("로그인후 이용해주세요.")
+    }else{
+
+        $.ajax({
+            url:contextPath+"/member/follow",
+            type:"post",
+            dataType : "JSON",
+            data: {'loginMemberNo': loginMemberNo,
+                    'boardNo' : boardNo,
+                    },
+                success : function(follow){
+                    if(follow == 1){
+                        
+                    
+                    }else if(follow ==0){
+                        Text= like.likeCount;
+                    }
         
+                },
+                error : function(follow){
+                    img.src = contextPath + "/resources/images/heart.svg"
+                    console.log("오류발생")
+                }
+
+
+        })
+
 
     }
-
-
-
-
-$.ajax({
-url: 'https://gist.githubusercontent.com/abs013r/cb774124e29ab7e396b638939ec0bda1/raw/479c0716a7104236e2e4fdc089586b3aeef5831b/MCnav.html',
-type: 'GET',
-success: function(data) { $('#mc-nav').html(data); },
-error: function() { console.log('이거 뜨면 실패입니다… 조훈한테 문의하세요'); }
-});
-
-$.ajax({
-url: 'https://gist.githubusercontent.com/abs013r/0d6ff4139684cf842192a2d312266a83/raw/6e629f95c437670fc573560fd8559829a25b30c8/MCfooter.html',
-type: 'GET',
-success: function(data) { $('#mc-footer').html(data); },
-error: function() { console.log('이거 뜨면 실패입니다… 조훈한테 문의하세요'); }
-});
+}

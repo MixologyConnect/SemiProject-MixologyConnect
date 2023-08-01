@@ -66,10 +66,12 @@
                     </tbody>
                 </table>
                 <!-- typw="submit" id="borderbtn" -->
-                <input type="hidden" id="result1" value="${member.memberId}">
+                <input type="hidden" id="result1">
                 <button type="button" onclick="banMember()" >회원 탈퇴</button>
             </form>
         </section>
+
+        
         <section class="manager-area1">
                 <br><br>
                 <h3>게시글 관리</h3>
@@ -106,7 +108,8 @@
             
             
             <!-- typw="submit" id="borderbtn" -->
-            <button type="button" onclick="banMember()" >회원 탈퇴</button>
+            <input type="hidden" id="result2">
+            <button type="button" onclick="deleteBoard()" >게시글 삭제</button>
             <div id="result2"></div>
 
         </section>
