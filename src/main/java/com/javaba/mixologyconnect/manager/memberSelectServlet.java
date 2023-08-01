@@ -20,6 +20,7 @@ public class memberSelectServlet extends HttpServlet {
 			resp) throws ServletException, IOException { 
 
 		String memberId = req.getParameter("memberId");
+		
 
 		try { 
 
