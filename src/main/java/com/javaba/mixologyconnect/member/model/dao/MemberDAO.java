@@ -430,34 +430,31 @@ public class MemberDAO {
 		return followings;
 	}
 
+	
+	
 	/**@author ISS
 	 * 관리자 회원 정보 변경 DAO
 	 * @param conn
 	 * @param memberId
 	 * @return member
 	 */
-	public Member managerSecession(Connection conn, String memberId) throws Exception {
-		
-		Member member = new Member();
-		
+	public int managerSecession(Connection conn, String memberId) throws Exception{
+
+		int result = 0;
 		try {
-			
-			String sql = prop.getProperty("managerSecession");
-			
+
+			String sql = prop.getProperty("managerSecession"); 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberId);
+			pstmt.setString(1, memberId); 
+
+			result = pstmt.executeUpdate();
 			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				member.setSecessionFlag(rs.getString("SECESSION_FL"));
-			}
-			
-		} finally {
-			close(rs);
+		} finally { 
 			close(pstmt);
-			
 		}
-		return member;
-	}
+
+		return result;
+		}
+
+	
 }
