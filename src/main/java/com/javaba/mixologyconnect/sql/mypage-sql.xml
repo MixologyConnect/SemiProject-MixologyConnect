@@ -33,8 +33,8 @@
 
 
 	<!-- 북마크 조회 -->
-	<entry key="bookMark">
-		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NM, READ_COUNT
+	<entry key="selectInfo">
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NM,TO_CHAR(BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT, READ_COUNT
 		FROM BOARD
 		JOIN MEMBER USING(MEMBER_NO)
 		WHERE BOARD_NO = ?
@@ -47,23 +47,26 @@
 		VALUES(?, ?, ?, DEFAULT, ?)
 	</entry>
 	
-	<!-- 북마크 표시 게시글 정보 조회 -->
-	<entry key="selectInfo">
-		SELECT BOARD_TITLE, MEMBER_NM, BOARD_DT, READ_COUNT
-		FROM BOARD
-		JOIN MEMBER USING(MEMBER_NO)
-		WHERE BOARD_NO = ?
-	</entry>
 	
-	<!-- 북마크 회원번호 조회 -->
-	<entry key="memberNo">
-		SELECT MEMBER_NO
-		FROM BOARD
-		WHERE BOARD_NO = ?
-		AND BOARD_ST = 'Y'
+	<!-- 북마크 테이블 게시글 수 조회 -->
+	<entry key="listCount">
+		SELECT COUNT(*) FROM BOOKMARK_TWO
 	</entry>
 	
 	
+	<!-- 북마크 표시 게시글 목록 조회 -->
+	<entry key="selectBookmark">
+		SELECT * FROM(
+			SELECT ROWNUM RNUM, A. * FROM(
+					SELECT BOOKMARK_NO, BOOKMARK_TITLE,BOOKMARK_NICK,
+					TO_CHAR(BOOKMARK_DT, 'YYYY-MM-DD') AS BOOKMARK_DT,
+					BOOKMARK_COUNT
+						FROM BOOKMARK_TWO
+						ORDER BY BOOKMARK_NO DESC
+				)A
+			)
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
 	
 
 

@@ -69,8 +69,8 @@
                 
                 </table>
                 <!-- typw="submit" id="borderbtn" -->
-                <button type="button" onclick="selectMember()" >회원 탈퇴</button>
-                <div id="result1"></div>
+                <input type="hidden" id="result1" value="${member.memberId}">
+                <button type="submit" onclick="selectMember()" >회원 탈퇴</button>
             </form>
 
 
@@ -100,40 +100,15 @@
                         <th >게시글 제목</th>
                         <th >아이디</th>
                         <th >전화번호</th>
-                        <th >게시글 작성일</th>
                         <th >게시글 삭제 여부</th>
                     </tr>
                     
 
+                    <tbody id="resultBoard">
+
+                    </tbody>
                     
-                    <tr id="resultBoard">
-                        <td ><input type="checkbox" name="chk2"></td >
-                        <td ><div class="memberNo">1</div></td >
-                        <td > <div class="memberId">user01</div></td>
-                        <td > <div class="memberName">유저일</div></td>
-                        <td > <div class="memberTel">01012345678</div></td>
-                        <td > <div class="enrollDate">2023-07-12</div></td >
-                        <td > <div class="secession">N</div></td >
-                    </tr>
-                    <tr>
-                        <td ><input type="checkbox" name="chk"></td >
-                        <td ><div class="memberNo">1</div></td >
-                        <td > <div class="memberId" name="memberId">user01</div></td>
-                        <td > <div class="memberName">유저일</div></td>
-                        <td > <div class="memberTel">01012345678</div></td>
-                        <td > <div class="enrollDate">2023-07-12</div></td >
-                        <td > <div class="secession">N</div></td >
-                    </tr>
-                    <tr>
-                        <td ><input type="checkbox" name="chk"></td >
-                        <td ><div class="memberNo">1</div></td >
-                        <td > <div class="memberId" name="memberId">user01</div></td>
-                        <td > <div class="memberName">유저일</div></td>
-                        <td > <div class="memberTel">01012345678</div></td>
-                        <td > <div class="enrollDate">2023-07-12</div></td >
-                        <td > <div class="secession">N</div></td >
-                    </tr>
-                
+                 
                     
                 </table>
                 

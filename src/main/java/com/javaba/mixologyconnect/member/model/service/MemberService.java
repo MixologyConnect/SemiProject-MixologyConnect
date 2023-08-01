@@ -5,6 +5,7 @@ import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.List;
 
+import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.member.model.dao.MemberDAO;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 
@@ -199,13 +200,17 @@ public class MemberService {
 		Connection conn = getConnection();
 
 		Member member = dao.selectMember(conn, memberId);
-		System.out.println("s : "+member);
 
 		close(conn);
 
 		return member; 
 		
 	}
+
+
+	
+
+
 
 	public List<Member> selectFollowers(int memberNo) throws Exception {
 		Connection conn = getConnection();
@@ -226,5 +231,6 @@ public class MemberService {
 
 		return followings;
 	}
+
 
 }

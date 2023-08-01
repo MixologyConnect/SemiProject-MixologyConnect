@@ -52,23 +52,7 @@ public class MypageService {
 			return map;	// Map 객체 반환 
 		}
 
-		/** 북마크 조회 Service
-		 * @param boardNo
-		 * @return board
-		 * @throws Exception
-		 */
-		public List<BookMark> bookMarkList(int boardNo) throws Exception {
-			
-			Connection conn = getConnection();
-			
-			List<BookMark>bookMarkList = dao.bookMarkList(conn, boardNo);
-			
-			close(conn);
-			
-			
-			return bookMarkList;
-		}
-
+	
 
 	
 	
@@ -112,6 +96,35 @@ public class MypageService {
 			close(conn);
 			
 			return result;
+		}
+
+		/** 북마크 게시글 목록 조회 Service
+		 * @param cp
+		 * @return
+		 */
+		public Map<String, Object> selectbookMarkList(int cp) throws Exception{
+					Connection conn = getConnection();
+			
+					// 2-1) 특정 게시판 전체 게시글 수 조회 DAO 호출
+					int listCount = dao.bookMarkListCount(conn);
+
+					// 2-2) 전체 게시글 수 + 현재 페이지(cp)를 이용해 페이지네이션 객체 생성
+					Pagination pagination = new Pagination(cp, listCount);
+
+
+					// 3) 게시글 목록 조회
+					List<BookMark> bookMarkList = dao.bookMarkList( conn, pagination);
+
+					// 4) Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장 
+					Map<String, Object> map = new HashMap<String, Object>();
+
+					map.put("pagination", pagination);
+					map.put("bookMarkList", bookMarkList);
+
+					close(conn);
+
+
+					return map;	// Map 객체 반환 
 		}
 		
 		

@@ -15,6 +15,7 @@ import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import com.javaba.mixologyconnect.board.model.vo.BoardImage;
 import com.javaba.mixologyconnect.board.model.vo.Pagination;
+import com.javaba.mixologyconnect.member.model.vo.Member;
 
 public class BoardDAO {
 
@@ -140,10 +141,10 @@ public class BoardDAO {
 				board.setBoardDate(rs.getString("BOARD_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
-				
-					
+
+
 				boardList.add(board);
-				
+
 			}
 
 		} finally {
@@ -189,7 +190,6 @@ public class BoardDAO {
 				detail.setMemberNo(rs.getInt("MEMBER_NO"));
 				detail.setBoardName(rs.getString("BOARD_NM"));
 				detail.setProfileImage(rs.getString("MEMBER_PROFILE"));
-
 			}
 
 		} finally {
@@ -475,16 +475,57 @@ public class BoardDAO {
 		return result;
 	}
 
+
+	/**@author 임성수
+	 * 게시글 조회 DAO
+	 * @param conn
+	 * @param board
+	 * @param boardTitle
+	 * @return board
+	 */
+	public Board searchBoard(Connection conn, Member member, String boardTitle) throws Exception {
+
+		Board board = new Board();
+
+		try {
+
+			String sql = prop.getProperty("searchBoard");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, boardTitle);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setMemberId(rs.getString("MEMBER_ID"));
+				board.setMemberTel(rs.getString("MEMBER_TEL"));
+				board.setBoardSt(rs.getString("BOARD_ST"));
+			}
+
+		} finally {
+			close(rs);
+			close(pstmt);
+
+		}
+
+		return board;
+	}
+
+
+	/** 게시글 번호 찾기
+=======
 	public List<BoardImage> selectThumbnail(Connection conn, int type) throws Exception{
-		
+
 		List<BoardImage> imageList = new ArrayList<BoardImage>();
-		
+
 		try {
 			String sql = prop.getProperty("selectThumbnail");
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, type);
-			
+
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -499,30 +540,115 @@ public class BoardDAO {
 				imageList.add(image);
 
 			}
-			
-			
+
+
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-		
-		
-		
+
+
+
 		return imageList;
 	}
 
-	
+
 	/**조하요 했을 시 DAO
 	 * @author 이지영
+
 	 * @param conn
 	 * @param memberNo
 	 * @param boardNo
 	 * @return likeResult
 	 */
-	public int insertLike(Connection conn, int memberNo, int boardNo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertLike(Connection conn, int memberNo, int boardNo) throws Exception {
+
+		int likeResult = 0;
+
+		try {
+			String sql = prop.getProperty("insertLike");
+
+			pstmt = conn.prepareStatement(sql);
+
+			//
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, boardNo);
+
+			likeResult = pstmt.executeUpdate(); 
+
+		}finally {
+			close(pstmt);
+		}
+
+		return likeResult;
 	}
 
+
+	/**좋아요 취소 했을 시 DAO
+	 * @author 이지영
+	 * @param conn
+	 * @param memberNo
+	 * @param boardNo
+	 * @return dlikeResult
+	 */
+	public int deleteLike(Connection conn, int memberNo, int boardNo)throws Exception {
+		int dlikeResult = 0;
+
+		try {
+			String sql = prop.getProperty("deleteLike");
+
+			pstmt = conn.prepareStatement(sql);
+
+			//
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, boardNo);
+
+			dlikeResult = pstmt.executeUpdate(); 
+
+		}finally {
+			close(pstmt);
+		}
+
+		return dlikeResult;
+	}
+
+	
+	/** 특성 게시글에 조하요 수 조회 DAO
+	 * @param conn
+	 * @param memberNo
+	 * @param boardNo
+	 * @return likeCount
+	 */
+	public int selectLike(Connection conn, int boardNo) throws Exception{
+		
+		int likeCount = 0;
+		
+		try {
+		
+			String sql = prop.getProperty("selectLike");
+			
+			pstmt= conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				likeCount=rs.getInt("COUNT(*)");
+			}
+			
+			
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+	
+	
+		return likeCount;
+	
+	}
+
+	
 
 }

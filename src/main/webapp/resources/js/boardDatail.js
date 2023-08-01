@@ -17,10 +17,11 @@
             img.src = contextPath + "/resources/images/heart-fill.svg";
         
             if(cnt%2==1) {
-               
+                img.src = contextPath + "/resources/images/heart-fill.svg";
                 likeCheck.removeAttribute("name")
                 likeCheck.setAttribute("name",1)
             }else {
+                img.src = contextPath + "/resources/images/heart.svg";
                 likeCheck.removeAttribute("name")
                 likeCheck.setAttribute("name",0)
             }
@@ -28,7 +29,7 @@
             
             const nameValue = likeCheck.getAttribute("name");
             console.log(nameValue);
-
+            
 
             $.ajax({
                 url:contextPath+"/board/like",
@@ -38,11 +39,22 @@
                         'boardNo' : boardNo,
                         'likeCheck' : likeCheck.getAttribute("name")
                     },
-                success : function(data){
-                    if(data == 1){
-                        img.src = contextPath + "/resources/images/heart.svg"
-                    }else{
-                        img.src = contextPath + "/resources/images/heart-fill.svg";
+                success : function(like){
+                    if(like.likeResult == 1){
+                        
+                        
+                        const likeResult = document.getElementById("likeResult");
+                        likeResult.innerText= "";
+                        likeResult.innerText= like.likeCount;
+                        
+                        
+                    
+                    }else if(like.dlikeResult ==0){
+                        
+                        
+                        const likeResult = document.getElementById("likeResult");
+                        likeResult.innerText= "";
+                        likeResult.innerText= like.likeCount;
                     }
         
                 },

@@ -13,6 +13,7 @@ import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import com.javaba.mixologyconnect.board.model.vo.BoardImage;
 import com.javaba.mixologyconnect.board.model.vo.Pagination;
 import com.javaba.mixologyconnect.common.Util;
+import com.javaba.mixologyconnect.member.model.vo.Member;
 
 
 public class BoardService {
@@ -44,7 +45,7 @@ public class BoardService {
 		// 3. 게시글 목록 조회
 		List<Board> boardList = dao.selectBoardList(conn, pagination, type);
 		
-		List<BoardImage> imageList = dao.selectThumbnail(conn, type);
+		//List<BoardImage> imageList = dao.selectThumbnail(conn, type);
 		
 			
 		// 4. Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장
@@ -53,7 +54,7 @@ public class BoardService {
 		map.put("boardName", boardTitle);
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
-		map.put("imageList", imageList);
+		//map.put("imageList", imageList);
 
 		close(conn);
 		return map;
@@ -231,6 +232,25 @@ public List<BoardImage> selectImage(int boardNo) throws Exception {
 }
 
 
+/**@author 임성수
+ * 게시글 조회
+ * @param board
+ * @param boardTitle
+ * @return board
+ */
+public Board searchBoard(Member member, String boardTitle) throws Exception {
+	
+	Connection conn = getConnection();
+	
+	Board board =  dao.searchBoard(conn,member,boardTitle);
+
+	close(conn);
+
+	return board;
+}
+
+
+
 
 /**
  * 좋아요 Service
@@ -239,29 +259,54 @@ public List<BoardImage> selectImage(int boardNo) throws Exception {
  * @param likeCheck
  * @return map
  */
-public Map<String, Object> likeSelect(int memberNo, int boardNo, int likeCheck) throws Exception{
+public Map<String, Integer> likeSelect(int memberNo, int boardNo, int likeCheck) throws Exception{
 	
 	Connection conn = getConnection();
 	
+	int likeResult=0;
+	int dlikeResult=-1;
 	if(likeCheck==1) {
 		//1. 회원이 좋아요 눌렀을 시 
-		int likeResult = dao.insertLike(conn, memberNo, boardNo);
+		likeResult = dao.insertLike(conn, memberNo, boardNo);
+		
+	
 	}else if(likeCheck==0) {
 		//2. 회원이 좋아요 취소 했을 시 
+		likeResult = dao.deleteLike(conn, memberNo, boardNo); 
+		if(likeResult==1) {
+			dlikeResult=0;
+		}
 		
 	}
 	
-	Map<String, Object> map = new HashMap<>();
+	int likeCount = dao.selectLike(conn, boardNo);
+	
+	Map<String, Integer> map = new HashMap<>();
+	
+	map.put("likeResult", likeResult);
+	map.put("dlikeResult", dlikeResult);
+	map.put("likeCount", likeCount);
+	
+	if(likeResult>0) 	commit(conn);
+	else 				rollback(conn);
 	
 	close(conn);
 	return map;
 	
 	
-	//3. 해당 게시판의 좋아요 수 조회
-	
-	//4. 회원이 좋아요한 게시글 조회 
-	
 }
+/**좋아요 조회
+ * @param boardNo
+ * @return likeCount
+ */
+public int selectLike(int boardNo)throws Exception {
+	Connection conn = getConnection();
+	int likeCount = dao.selectLike(conn, boardNo);
+	close(conn);
+	return likeCount;
+}
+
+
 
 
 

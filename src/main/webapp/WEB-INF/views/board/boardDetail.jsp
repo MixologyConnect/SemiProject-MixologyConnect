@@ -90,6 +90,7 @@
 										onclick="likeBtnClick()"> 
 									<input type="hidden" id="likeCheck" name="0">
 								</button>
+								<span id="likeResult">${likeCount}</span>
 								
 
 							</div>

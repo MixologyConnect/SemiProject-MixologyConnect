@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 
 
@@ -374,8 +375,10 @@ public class MemberDAO {
 		return member; 
 		}
 
+
 	public List<Member> selectFollowers(Connection conn, int memberNo) throws Exception {
 		List<Member> followers = new ArrayList<Member>();
+
 
 		try {
 			String sql = prop.getProperty("selectFollowers");
