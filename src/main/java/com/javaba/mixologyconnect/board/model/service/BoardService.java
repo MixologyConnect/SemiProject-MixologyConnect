@@ -202,22 +202,7 @@ public int boardUpdate(BoardDetail detail, List<BoardImage> imageList, String de
 	 * @throws Exception
 	 */
 	public int boardDelete(int boardNo) throws Exception{
-		
-		Connection conn = getConnection();
-		
-		int result = dao.boardDelete(conn, boardNo);
-		
-		if (result > 0)
-			commit(conn);
-		else
-			rollback(conn);
-	
-<<<<<<< HEAD
-		close(conn);
-		
-		return result;
-	}
-=======
+
 	Connection conn = getConnection();
 	
 	int result = dao.boardDelete(conn, boardNo);
@@ -260,9 +245,6 @@ public List<BoardImage> selectImage(int boardNo) throws Exception {
 //}
 
 
-
-
->>>>>>> 4665cec0dd26bb10d8ca2e8c230951202f7c91e9
 
 
 }
