@@ -127,4 +127,11 @@
 		ORDER BY BOARD_NO DESC
 
 	</entry>
+
+	<entry key="searchBoard">
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_ID, MEMBER_TEL, BOARD_ST
+		FROM BOARD
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE BOARD_TITLE = ?
+	</entry>
 </properties>
