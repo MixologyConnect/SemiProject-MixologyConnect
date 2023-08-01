@@ -28,7 +28,6 @@
             </form>
         </div>
         <div id="ad"></div>
-        <div id="page-divider"></div>
         <div id="populars">
             <p>Columns</p>
             <p>최근 칼럼</p>
@@ -39,7 +38,6 @@
             	<li><a></a></li>
             </ul>
         </div>
-        <div id="page-divider"></div>
         <div id="populars">
             <p>Trending</p>
             <p>실시간 인기 게시글</p>
