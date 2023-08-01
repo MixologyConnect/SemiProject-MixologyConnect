@@ -277,7 +277,8 @@ footer {
     border: 1px solid rgba(0, 220, 244, 0.9);
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
+    box-shadow: 0 0 20px 4px rgba(0, 220, 244, 0.2);
+    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(5px);
     opacity: 0;
     justify-content: center;
@@ -285,7 +286,7 @@ footer {
     pointer-events: none;
     transition-duration: 0.8s;
 } html.dark #modal-account {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 #modal-account-form {
@@ -296,13 +297,15 @@ footer {
 }
 
 #modal-account-logo {
-    width: 70px;
+    width: 60px;
+    filter: drop-shadow(0 0 10px rgba(0, 220, 244, 0.4));
 }
 
 #modal-account-head {
     font-family: "Playfair Display";
     font-style: italic;
     font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(0, 220, 244, 0.4);;
     letter-spacing: 1.6px;
     color: rgb(0, 220, 244);
 }
