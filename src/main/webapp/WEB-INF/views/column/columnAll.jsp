@@ -81,7 +81,7 @@
                             <c:otherwise>
                                 <c:forEach var="column" items="${columnList}">
                                     <li>
-                                        <a href="columnDetail?no=${column.boardNo}&type=3">
+                                        <a href="columnDetail?no=${column.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL}">
                                             <div>
                                                 <img id="picture" src="${contextPath}${column.thumbnail}" style="width: 100%;">
                                             </div>
@@ -102,8 +102,8 @@
         </div>
         <div class="btn-area">
             <c:if test = "${loginMember.managerCode=='Y'}">
-            <button id="insertBtn" type = "button" onclick="location.href = 'columnWrite?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</button>
-        </c:if>
+                <button id="insertBtn" type = "button" onclick="location.href = 'columnWrite?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</button>
+            </c:if>
         </div>
 
 

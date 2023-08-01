@@ -118,7 +118,6 @@ public class ColumnWriteServlet extends HttpServlet{
 		
 		if(mode.equals("update")) {
 			int boardNo = Integer.parseInt(mpReq.getParameter("no"));
-			
 			int cp = Integer.parseInt(mpReq.getParameter("cp"));
 			
 			String deleteList = mpReq.getParameter("deleteList");
@@ -133,9 +132,11 @@ public class ColumnWriteServlet extends HttpServlet{
 			
 			String message = null;
 			
+			System.out.println("result" + result);
+			
 			if(result >0) {
 				
-				path = "detail?no=" + boardNo + "&type=" + boardCode + "&cp=" +cp;
+				path = "columnDetail?no=" + boardNo + "&type=" + boardCode +"&cp=" + cp ;
 				
 				message = "게시글이 수정되었습니다.";
 						

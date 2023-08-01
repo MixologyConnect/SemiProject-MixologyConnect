@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
 <!DOCTYPE html>
@@ -23,78 +22,78 @@
 
         <!-- 게시글 입력 바디 -->
         <div class="content">
-            <form action="columnWrite" method="post" enctype="multipart/form-data" onsubmit="writeValidate()">
-            <div class="top"><p>게시글 입력</p></div>
+            <form action="columnWrite" method="post" enctype="multipart/form-data" onsubmit="return writeValidate()">
+                <div class="top"><p>게시글 입력</p></div>
 
-            <!-- 커뮤니티 정책 가이드 -->
-            <div class="guide">
-                <div id="pre">
-                    Mixology Connect는 스팸, 부적절한 콘텐츠, 신용사기, 잘못된 정보 등을 
-                    등록하는 것을 절대 허용하지 않습니다. <a href="#">커뮤니티 정책</a>은 허용되거나 
-                    허용되지 않는 활동을 규정하며 스팸이나 부적절하거나 폭력적인 콘텐츠의 신고 가이드를 제공합니다.
-                </div>
-            </div>
-
-        
-
-
-            <!-- 게시글 제목란 -->
-            <div class="boardTitle"> 
-                <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)" value="${detail.boardTitle}" maxlength="20">
-                <label for="image">
-                    <div class="image">이미지 선택</div>
-                  </label>
-                  <input type="file" name="0" id="image" class="inputImage" accept="image/*">
-    
-            </div>
-
-            <!-- 이미지 미리보기 영역 -->
-            <c:if test="${!empty detail.imageList}">
-                <c:if test="detail.imageList[0].imageLevel == 0">
-                    <c:set var="thumbnail" value="${detail.imageList[0]}"/>
-                </c:if>
-            </c:if>
-
-            <c:if test="${empty thumbnail}">  <!-- 썸네일 x -->
-                <c:set var="start" value="0"/>     
-            </c:if>
-
-            <c:if test="${!empty thumbnail}">  <!-- 썸네일 o -->
-                <c:set var="start" value="1"/>     
-            </c:if>
-
-            <c:if test="${fn:length(detail.imageList) > start}">
-
-                <div class="image-box">
-                    <div class="columnImg">
-                        <article>
-                            <img class="preview" src="${contextPath}${thumbnail.imageReName}">
-                        </article>
-                        <span class="delete-image">&times;</span>
+                <!-- 커뮤니티 정책 가이드 -->
+                <div class="guide">
+                    <div id="pre">
+                        Mixology Connect는 스팸, 부적절한 콘텐츠, 신용사기, 잘못된 정보 등을 
+                        등록하는 것을 절대 허용하지 않습니다. <a href="#">커뮤니티 정책</a>은 허용되거나 
+                        허용되지 않는 활동을 규정하며 스팸이나 부적절하거나 폭력적인 콘텐츠의 신고 가이드를 제공합니다.
                     </div>
                 </div>
-            </c:if>
-               
-
-            <!-- 게시글 작성란 -->
-            <div class="detail">
-                <textarea name="boardContent" id="detail" style="resize: none;" maxlength="500">${detail.boardContent}</textarea>
-                <p> <span id="counter">0</span>/500</p>
-            </div>
-
-            <!-- 작성완료 버튼 -->
-            <div class="btn">
-                <button type="submit" id="btn">작성 완료</button>
-            </div>
 
             
-            <input type="hidden" name = "mode" value = "${param.mode}">
-            <input type="hidden" name = "type" value = "${param.type}">
-            <input type="hidden" name = "no" value = "${param.no}">
-            <input type="hidden" name = "cp" value = "${param.cp}">
+
+
+                <!-- 게시글 제목란 -->
+                <div class="boardTitle"> 
+                    <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)" value="${detail.boardTitle}" maxlength="20">
+                    <label for="image">
+                        <div class="image">이미지 선택</div>
+                    </label>
+                    <input type="file" name="0" id="image" class="inputImage" accept="image/*">
+        
+                </div>
+
+                <!-- 이미지 미리보기 영역 -->
+                <c:if test="${boardImage.imageLevel == 0}">
+                    <c:set var="boardImage" value="${detail.imageList[0]}"/>
+                </c:if>
+                    <div class="image-box">
+                        <div class="columnImg">
+                            <article>
+                                <img class="preview" src="${contextPath}${boardImage}">
+                            </article>
+                            <span class="delete-image">&times;</span>
+                        </div>
+                    </div>
+                
+
+                <!-- 게시글 작성란 -->
+                <div class="detail">
+                    <textarea name="boardContent" id="detail" style="resize: none;" maxlength="500">${detail.boardContent}</textarea>
+                    <p> <span id="counter">0</span>/500</p>
+                </div>
+
+
+                <!-- 버튼 영역 -->
+                <c:if test = "${loginMember.managerCode=='Y'}">
+                    <div class="btn">
+                        <!-- 작성완료 버튼 -->
+                        <button type="submit" id="btn" >작성 완료</button>
+                        <!-- insert 모드 -->
+                        <c:if test="${param.mode == 'insert'}">
+                            <button type="button" onclick="location.href='${header.referer}'">목록으로</button>
+                        </c:if>
     
-            <input type="hidden" id="dlelteList" name = "deleteList" value = "">
-        </form>
+                        <!-- update 모드 -->
+                        <c:if test="${param.mode == 'update'}">
+                            <button type="button" onclick="location.href='${header.referer}'">이전으로</button>
+                        </c:if>
+                    </div>
+                </c:if>
+                    
+
+                
+                <input type="hidden" name = "mode" value = "${param.mode}">
+                <input type="hidden" name = "type" value = "${param.type}">
+                <input type="hidden" name = "no" value = "${param.no}">
+                <input type="hidden" name = "cp" value = "${param.cp}">
+        
+                <input type="hidden" id="dlelteList" name = "deleteList" value = "">
+            </form>
 
         </div>
 
@@ -103,6 +102,7 @@
 
     </div>
     <script src="${contextPath}/resources/js/columnWrite.js"></script>
+    <script src="${contextPath}/resources/js/board.js"></script>
     
 </body>
 </html>
