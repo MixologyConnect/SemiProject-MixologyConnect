@@ -66,7 +66,7 @@
 							<div class="img">
 								<c:if test = "${!empty map.imageList}">
 								<c:forEach var = "imageList" items ="${imageList}">
-									<img src="${contextPath}${imageList.boardImage[0].imageRename}">
+									<img src="${contextPath}${imageList.imageRename}">
 								</c:forEach>
 								</c:if>
 							</div>
