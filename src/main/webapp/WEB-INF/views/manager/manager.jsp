@@ -50,7 +50,7 @@
             </div>
             
             <form action="#" method="" name="manager-member">
-                <table border="1">
+                <table>
                 
                     <tr>
                         <!-- 전체 선택 체크 박스 -->
@@ -60,7 +60,6 @@
                         <th >이름</th>
                         <th >전화번호</th>
                         <th >주소</th>
-                        <th >가입일</th>
                         <th >탈퇴여부</th>
                     </tr>
                         
@@ -85,14 +84,14 @@
 
             <div class="searchArea">
                 
-                <input type="text" id="searchBoard" name="search" 
+                <input type="text" id="searchBoard" name="search1" 
                 placeholder="게시글 검색" autocomplete="off">
                 
                 <button type="submit" id="board-btn" class="fa-solid fa-magnifying-glass"></button>
             </div>
         
             <form action="#" method="" name="manager-board">
-                <table border="1">
+                <table>
                 
                     <tr>
                         <!-- 전체 선택 체크 박스 -->
@@ -110,7 +109,7 @@
                     <tr id="resultBoard">
                         <td ><input type="checkbox" name="chk2"></td >
                         <td ><div class="memberNo">1</div></td >
-                        <td > <div class="memberId" name="memberId">user01</div></td>
+                        <td > <div class="memberId">user01</div></td>
                         <td > <div class="memberName">유저일</div></td>
                         <td > <div class="memberTel">01012345678</div></td>
                         <td > <div class="enrollDate">2023-07-12</div></td >

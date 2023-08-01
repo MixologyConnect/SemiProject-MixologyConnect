@@ -1,0 +1,133 @@
+#page-divider {
+	width: 960px;
+	height: 1px;
+	background-color: rgb(180, 180, 180);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+
+#head {
+	width: 960px;
+	margin: 50px 0 20px 0;
+}
+
+#head > p:first-of-type {
+	font-size: 2.4rem;
+	font-weight: bold;
+}
+
+#head > p:last-of-type {
+	font-size: 1.2rem;
+}
+
+#cocktail-detail {
+	display: flex;
+	width: 960px;
+	margin: 20px 0;
+	justify-content: center;
+	align-items: center;
+}
+
+#cocktail-image {
+	width: 460px;
+	height: 460px;
+	border-radius: 30px;
+	margin: 10px 20px 10px 0;
+	background-color: black;
+	overflow: hidden;
+}
+
+#cocktail-image > img {
+	height: 100%;
+}
+
+#cocktail-info {
+	width: 480px;
+	height: 480px;
+}
+
+#cocktail-property {
+	font-size: 1.4rem;
+	margin-bottom: 20px;
+}
+
+#cocktail-property > table {
+	text-align: left;
+}
+
+#cocktail-recipe {
+	display: flex;
+	width: 960px;
+	flex-direction: column;
+}
+
+#cocktail-recipe > ul {
+	display: flex;
+	width: 960px;
+	height: 300px;
+	padding: 0;
+	list-style: none;
+	flex-wrap: wrap;
+	overflow: hidden;
+	align-self: center;
+}
+
+#cocktail-recipe > ul > li {
+	display: flex;
+	width: 280px;
+	height: 60px;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px;
+	background-color: rgba(0, 0, 0, 0.1);
+	align-items: center;
+} html.dark #cocktail-recipe > ul > li {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+#cocktail-recipe > ul > li > div:first-of-type {
+	display: flex;
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	margin: 0 5px 0 0;
+	background-color: rgba(0, 0, 0, 0.2);
+	justify-content: center;
+	align-items: center;
+} html.dark #cocktail-recipe > ul > li > div:first-of-type {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+#cocktail-recipe > ul > li > div:first-of-type > img {
+	width: 35px;
+	filter: invert(0.3);
+} html.dark #cocktail-recipe > ul > li > div:first-of-type > img {
+	filter: invert(1);
+}
+
+#cocktail-recipe > ul > li > div:last-of-type > p:first-of-type {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+#cocktail-recipe > ul > li > div:last-of-type > p:last-of-type {
+	opacity: 0.7;
+	font-size: 1rem;
+	font-weight: lighter;
+}
+
+#cocktail-description {
+	display: flex;
+	width: 480px;
+	font-size: 0.9rem;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#cocktail-page {
+	height: 200px;
+}

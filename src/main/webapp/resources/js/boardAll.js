@@ -15,4 +15,21 @@ $.ajax({
 
 
 
+$.ajax({
 
+url : "/board/boardAll",
+
+data : {"boardNo" : boardNo},
+
+type : "POST",
+
+
+success : function (imageList){
+  console.log(imageList)
+
+},
+error: function () {
+  console.log("에러 발생");
+}
+
+})

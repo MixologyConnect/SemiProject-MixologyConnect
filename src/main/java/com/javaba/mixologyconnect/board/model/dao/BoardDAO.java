@@ -124,7 +124,6 @@ public class BoardDAO {
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start + pagination.getLimit() - 1;
 
-			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, type);
 			pstmt.setInt(2, start);
@@ -141,8 +140,10 @@ public class BoardDAO {
 				board.setBoardDate(rs.getString("BOARD_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
-
+				
+					
 				boardList.add(board);
+				
 			}
 
 		} finally {
@@ -207,7 +208,6 @@ public class BoardDAO {
 	 * @return imageList
 	 */
 	public List<BoardImage> selectImageList(Connection conn, int boardNo) throws Exception {
-		System.out.println("게시글 이미지 리스트 조회 다오 왔다");
 		List<BoardImage> imageList = new ArrayList<>();
 
 		try {
@@ -232,7 +232,6 @@ public class BoardDAO {
 				imageList.add(image);
 
 			}
-			System.out.println("imageList : " + imageList);
 
 		} finally {
 			close(rs);
@@ -475,5 +474,36 @@ public class BoardDAO {
 
 		return result;
 	}
+
+	/** 게시글 번호 찾기
+	 * @param conn
+	 * @param type
+	 * @return boardNo
+	 * @throws Exception
+	 */
+//	public int selectBoardNo(Connection conn, int type) throws Exception {
+//		
+//		int boardNo = 0;
+//		
+//		try {
+//			
+//			String sql = prop.getProperty("selectBoardNo");
+//			pstmt = conn.prepareStatement(sql);
+//			
+//			pstmt.setInt(1, type);
+//			
+//			rs = pstmt.executeQuery();
+//			
+//			 {
+//				boardNo = rs.getInt("BOARD_NO");
+//			}
+//			
+//		}finally {
+//			close(rs);
+//			close(pstmt);
+//		}
+//		
+//		return boardNo;
+//	}
 
 }

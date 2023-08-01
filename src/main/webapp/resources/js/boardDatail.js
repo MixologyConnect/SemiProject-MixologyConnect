@@ -8,32 +8,49 @@
     var cnt = 1;
     
     function likeBtnClick() {
-    
-        const img = document.getElementById("likeBtnImg");
-        img.src = contextPath + "/resources/images/heart-fill.svg";
-    
-        if(cnt%2==1) {
+        
+        if(loginMemberNo==""){
+            alert("로그인후 이용해주세요.")
+        }else{
+            const img = document.getElementById("likeBtnImg");
             img.src = contextPath + "/resources/images/heart-fill.svg";
-        }else {
-            img.src = contextPath + "/resources/images/heart.svg";
+        
+            if(cnt%2==1) {
+                img.src = contextPath + "/resources/images/heart-fill.svg";
+            }else {
+                img.src = contextPath + "/resources/images/heart.svg";
+            }
+            cnt++;
+            console.log(cnt)
         }
-        cnt++;
+
     }
     
     function bookBtnClick() {
-    
-        const img = document.getElementById("bookBtnImg");
-        img.src = contextPath + "/resources/images/bookmark-fill.svg";
-    
-        if(cnt%2==1) {
+        if(loginMemberNo==""){
+            alert("로그인후 이용해주세요.")
+        }else{
+            const img = document.getElementById("bookBtnImg");
             img.src = contextPath + "/resources/images/bookmark-fill.svg";
-        }else {
-            img.src = contextPath + "/resources/images/bookmark.svg";
+        
+            if(cnt%2==1) {
+                img.src = contextPath + "/resources/images/bookmark-fill.svg";
+            }else {
+                img.src = contextPath + "/resources/images/bookmark.svg";
+            }
+            cnt++;
+
         }
-        cnt++;
+        
+
     }
 
 
+
+
+
+
+    // 좋아요 구현 
 
 
 

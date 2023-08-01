@@ -45,7 +45,6 @@
             <c:choose>
 
             <c:when test = "${boardImage.imageLevel == 0}">
-                <%-- c:set 변수는 page scope가 기본값(조건문이 끝나도 사용 가능) --%>
             <c:set var ="img0" value = "${contextPath}${boardImage.imageRename}"></c:set>
             </c:when>
 
@@ -104,8 +103,7 @@
             </div>
         </div>
 
-
-
+       
 
             <!-- 게시글 작성란 -->
             <div class="detail">
