@@ -224,25 +224,23 @@ public class MemberService {
 
 		return followings;
 	}
-	
-	
+
 
 	/**@author ISS
 	 * 관리자 회원 정보 변경 Service
 	 * @param memberId
 	 * @return member
 	 */
-<<<<<<< HEAD
-	//	public Member managerSecession(String memberId) throws Exception {
-	//		
-	//		Connection conn = getConnection();
-	//		
-	//		//Member member = dao.managerSecession(conn, memberId);
-	//		
-	//		close(conn);
-	//		
-	//		return member;
-	//	}
+		public Member managerSecession(String memberId) throws Exception {
+			
+			Connection conn = getConnection();
+			
+			Member member = dao.managerSecession(conn, memberId);
+			
+			close(conn);
+			
+			return member;
+		}
 
 	/**@author 지영
 	 * 팔로우 
@@ -252,14 +250,7 @@ public class MemberService {
 	 */
 	public Map<String, Integer> followInsertDelete(int loginMemberNo, int boardNo) throws Exception {
 
-=======
-	public int managerSecession(String memberId) throws Exception {
-		
->>>>>>> 150334927151e68448244226afd817144fcb55fe
 		Connection conn = getConnection();
-
-
-
 
 		//게시글 작성자 회원번호 조회 
 		int boardWriter = dao.selectBoardWrite(conn, boardNo);
@@ -281,23 +272,12 @@ public class MemberService {
 		if(followResult>0) 	commit(conn);
 		else 				rollback(conn);
 		
-<<<<<<< HEAD
 		if(dFollowResult>0) 	commit(conn);
 		else 				rollback(conn);
 
 		close(conn);
 		return map;
-=======
-		int result = dao.managerSecession(conn, memberId);
-		
-		close(conn);
-		
-		return result;
->>>>>>> 150334927151e68448244226afd817144fcb55fe
 	}
-
-
-	
 
 
 
