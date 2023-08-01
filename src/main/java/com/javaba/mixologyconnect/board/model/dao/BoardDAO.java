@@ -140,10 +140,10 @@ public class BoardDAO {
 				board.setBoardDate(rs.getString("BOARD_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
-				
-					
+
+
 				boardList.add(board);
-				
+
 			}
 
 		} finally {
@@ -476,15 +476,15 @@ public class BoardDAO {
 	}
 
 	public List<BoardImage> selectThumbnail(Connection conn, int type) throws Exception{
-		
+
 		List<BoardImage> imageList = new ArrayList<BoardImage>();
-		
+
 		try {
 			String sql = prop.getProperty("selectThumbnail");
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, type);
-			
+
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -499,19 +499,19 @@ public class BoardDAO {
 				imageList.add(image);
 
 			}
-			
-			
+
+
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-		
-		
-		
+
+
+
 		return imageList;
 	}
 
-	
+
 	/**조하요 했을 시 DAO
 	 * @author 이지영
 	 * @param conn
@@ -519,9 +519,92 @@ public class BoardDAO {
 	 * @param boardNo
 	 * @return likeResult
 	 */
-	public int insertLike(Connection conn, int memberNo, int boardNo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertLike(Connection conn, int memberNo, int boardNo) throws Exception {
+
+		int likeResult = 0;
+
+		try {
+			String sql = prop.getProperty("insertLike");
+
+			pstmt = conn.prepareStatement(sql);
+
+			//
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, boardNo);
+
+			likeResult = pstmt.executeUpdate(); 
+
+		}finally {
+			close(pstmt);
+		}
+
+		return likeResult;
+	}
+
+
+	/**좋아요 취소 했을 시 DAO
+	 * @author 이지영
+	 * @param conn
+	 * @param memberNo
+	 * @param boardNo
+	 * @return dlikeResult
+	 */
+	public int deleteLike(Connection conn, int memberNo, int boardNo)throws Exception {
+		int dlikeResult = 0;
+
+		try {
+			String sql = prop.getProperty("deleteLike");
+
+			pstmt = conn.prepareStatement(sql);
+
+			//
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, boardNo);
+
+			dlikeResult = pstmt.executeUpdate(); 
+
+		}finally {
+			close(pstmt);
+		}
+
+		return dlikeResult;
+	}
+
+	
+	/** 특성 게시글에 조하요 수 조회 DAO
+	 * @param conn
+	 * @param memberNo
+	 * @param boardNo
+	 * @return likeCount
+	 */
+	public int selectLike(Connection conn, int memberNo, int boardNo) throws Exception{
+		
+		int likeCount = 0;
+		
+		try {
+		
+			String sql = prop.getProperty("selectLike");
+			
+			pstmt= conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				likeCount=rs.getInt("COUNT(*)");
+			}
+			
+			
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+	
+	
+		return likeCount;
+	
 	}
 
 
