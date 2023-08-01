@@ -698,9 +698,6 @@ public class BoardDAO {
 
 			result = pstmt.executeUpdate();
 			
-			System.out.println(result);
-			System.out.println("나오라고 result");
-			
 		} finally { 
 			close(pstmt);
 		}

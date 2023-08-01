@@ -16,7 +16,6 @@ public class managerBaordDeleteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String boardTitle = req.getParameter("boardTitle");
-		System.out.println(boardTitle);
 
 		try {
 
@@ -24,9 +23,6 @@ public class managerBaordDeleteServlet extends HttpServlet {
 
 			int result = service.managerBoardDelete(boardTitle);
 			
-			
-			System.out.println(result);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
