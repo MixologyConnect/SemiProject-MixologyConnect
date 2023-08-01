@@ -2,6 +2,7 @@ package com.javaba.mixologyconnect.myPage.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,11 +23,15 @@ public class BookMarkServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, NumberFormatException {
+			MypageService service = new MypageService();
 		
-			HttpSession session = req.getSession();
-			List<BookMark> bookMarkList = (List<BookMark>)session.getAttribute("bookMarkList");
-			
-			req.setAttribute("bookMarkList", bookMarkList);
+			int cp = 1;
+			if(req.getParameter("cp") != null) cp = Integer.parseInt(req.getParameter("cp"));
+	
+			Map<String, Object> map =service.selectMypageList(cp);
+	
+			req.setAttribute("map", map);
+				
 			
 			String path = "/WEB-INF/views/myPage/bookMark.jsp";
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);

@@ -2,7 +2,7 @@ const bookMarkBtn = document.getElementById("bookBtnImg")
 
 bookMarkBtn.addEventListener("click", function(){
    
-    console.log("dd")
+    bookMarkInsert();
 
         
     
@@ -85,4 +85,32 @@ function bookMarkList(){
 }
 
 
+function bookMarkInsert(){
+
+    const params = new URL(location.href).searchParams;
+    const boardNo = params.get("no")
+
+    console.log(boardNo)
+
+    $.ajax({
+
+        url : contextPath + "/myPage/bookMarkInsert",
+        data : {"boardNo" : boardNo},
+        type : "get",
+
+        success : function(result){
+            if(result > 0){
+                alert("북마크 등록완료")
+            }
+        
+            
+        },
+        error : function(req, status, error){
+            console.log("댓글 삭제 실패")
+            console.log(req.responseText)
+            
+        }
+        })
+
+    }
 
