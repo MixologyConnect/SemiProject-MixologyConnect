@@ -26,7 +26,7 @@
 						<div class="title">${detail.boardTitle}</div>
 						<div class="name">
 							
-								<c:if test="${empty detail.profileImage}">
+							<c:if test="${empty detail.profileImage}">
 								<!-- 프로필 이미지가 없는 경우 -->
 								<img src="${contextPath}/resources/images/user.png">
 							</c:if>
@@ -38,6 +38,9 @@
 
 							${detail.memberName}
 
+							
+							<button type="button" id="followBtn" onclick="followBtnClick()">FOLLOW</button>
+							
 						</div>
 						<div class="date">${detail.boardDate}
 							<div class="views">조회수 : ${detail.readCount}</div>

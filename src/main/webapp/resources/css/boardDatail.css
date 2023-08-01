@@ -249,6 +249,24 @@
     color: red;
 }
 
+/* 팔로우 하기 버튼 */
+#followBtn{
+    height: 30px;
+    background-color: #ddd;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    width: 100px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 50px;
+}
+#followBtn:hover {
+    color:  darkgray;
+}
+
+
 
 
 
