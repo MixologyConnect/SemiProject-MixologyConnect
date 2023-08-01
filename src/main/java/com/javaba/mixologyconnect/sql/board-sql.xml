@@ -154,4 +154,12 @@
 	<entry key="selectMemberLike">
 		SELECT BOARD_NO FROM BOARD_LIKE WHERE MEMBER_NO=? AND BOARD_NO=?
 	</entry>
+	
+	<!-- 관리자가 게시글 삭제 -->
+	<entry key="managerBoardDelete">
+		UPDATE BOARD SET
+		BOARD_ST = DECODE(BOARD_ST , 'Y','N','N','Y')
+		WHERE BOARD_TITLE = ?
+	</entry>
+
 </properties>
