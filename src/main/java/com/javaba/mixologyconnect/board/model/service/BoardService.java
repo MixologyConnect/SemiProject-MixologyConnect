@@ -45,7 +45,7 @@ public class BoardService {
 		// 3. 게시글 목록 조회
 		List<Board> boardList = dao.selectBoardList(conn, pagination, type);
 		
-		List<BoardImage> imageList = dao.selectThumbnail(conn, type);
+		//List<BoardImage> imageList = dao.selectThumbnail(conn, type);
 		
 			
 		// 4. Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장
@@ -54,7 +54,7 @@ public class BoardService {
 		map.put("boardName", boardTitle);
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
-		map.put("imageList", imageList);
+		//map.put("imageList", imageList);
 
 		close(conn);
 		return map;
@@ -279,7 +279,7 @@ public Map<String, Integer> likeSelect(int memberNo, int boardNo, int likeCheck)
 		
 	}
 	
-	int likeCount = dao.selectLike(conn,memberNo, boardNo);
+	int likeCount = dao.selectLike(conn, boardNo);
 	
 	Map<String, Integer> map = new HashMap<>();
 	
@@ -294,11 +294,19 @@ public Map<String, Integer> likeSelect(int memberNo, int boardNo, int likeCheck)
 	return map;
 	
 	
-	//3. 해당 게시판의 좋아요 수 조회
-	
-	//4. 회원이 좋아요한 게시글 조회 
-	
 }
+/**좋아요 조회
+ * @param boardNo
+ * @return likeCount
+ */
+public int selectLike(int boardNo)throws Exception {
+	Connection conn = getConnection();
+	int likeCount = dao.selectLike(conn, boardNo);
+	close(conn);
+	return likeCount;
+}
+
+
 
 
 

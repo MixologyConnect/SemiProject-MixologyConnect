@@ -69,8 +69,8 @@
                 
                 </table>
                 <!-- typw="submit" id="borderbtn" -->
-                <button type="button" onclick="selectMember()" >회원 탈퇴</button>
                 <input type="hidden" id="result1" value="${member.memberId}">
+                <button type="submit" onclick="selectMember()" >회원 탈퇴</button>
             </form>
 
 
@@ -108,10 +108,7 @@
 
                     </tbody>
                     
-                   <tbody id="noBoard">
-
-                   </tbody>
-                
+                 
                     
                 </table>
                 
