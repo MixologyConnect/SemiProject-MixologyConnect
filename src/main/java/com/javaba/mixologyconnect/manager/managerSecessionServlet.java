@@ -19,13 +19,19 @@ public class managerSecessionServlet extends HttpServlet {
 		
 		String memberId = req.getParameter("memberId");
 		
+		System.out.println(memberId);
+		
 		try {
 			
 			MemberService service = new MemberService();
 
-			Member member = new Member();
+			
 
-			member = service.managerSecession(memberId);
+<<<<<<< HEAD
+			//member = service.managerSecession(memberId);
+=======
+			int result = service.managerSecession(memberId);
+>>>>>>> 150334927151e68448244226afd817144fcb55fe
 
 			
 		} catch (Exception e) {
