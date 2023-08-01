@@ -70,22 +70,7 @@ public class MypageService {
 		}
 
 
-		/** 북마크 게시글 회원번호 얻어오기 Service
-		 * @param boardNo
-		 * @return memberNo
-		 * @throws Exception
-		 */
-		public int bookMarkMemberNo(int boardNo) throws Exception{
-			
-			Connection conn = getConnection();
-			
-			int memberNo = dao.bookMarkMemberNo(conn, boardNo);
-			
-			close(conn);
-			
-			return memberNo;
-		}
-
+	
 	
 
 		
@@ -94,7 +79,7 @@ public class MypageService {
 		
 		
 
-		/** 북마크 게시글 회원번호 얻어오기 Service
+		/** 북마크 게시글정보 얻어오기 Service
 		 * @param boardNo
 		 * @return memberNo
 		 * @throws Exception
@@ -104,7 +89,9 @@ public class MypageService {
 			
 			BookMark bk = dao.selectInfo(conn, boardNo);
 			
-			return null;
+			close(conn);
+			
+			return bk;
 		}
 
 		

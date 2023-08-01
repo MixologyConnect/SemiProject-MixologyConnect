@@ -44,14 +44,16 @@ public class BoardService {
 		// 3. 게시글 목록 조회
 		List<Board> boardList = dao.selectBoardList(conn, pagination, type);
 		
-			
+		List<BoardImage> imageList = dao.selectThumbnail(conn, type);
 		
+			
 		// 4. Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		map.put("boardName", boardTitle);
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
+		map.put("imageList", imageList);
 
 		close(conn);
 		return map;
