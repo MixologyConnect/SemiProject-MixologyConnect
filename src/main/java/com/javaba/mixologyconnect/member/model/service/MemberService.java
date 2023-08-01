@@ -290,6 +290,11 @@ public class MemberService {
 =======
 		int result = dao.managerSecession(conn, memberId);
 		
+		if (result > 0)
+			conn.commit();
+		else
+			conn.rollback();
+		
 		close(conn);
 		
 		return result;
