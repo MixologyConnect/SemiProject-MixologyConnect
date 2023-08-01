@@ -242,6 +242,12 @@
     color: rgb(0, 220, 244);
 }
 
+/* 좋아요 수 */
+.share > span{
+    font-size: 20px;
+    padding: 5px;
+    color: red;
+}
 
 
 
