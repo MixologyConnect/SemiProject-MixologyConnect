@@ -1,26 +1,33 @@
-const memberList = document.getElementsByName("chk1");
+
 const result = document.getElementById("result1");
 const test = document.getElementsByName("memberId");
 
-function selectMember(){
-    let str = "";
-    for(let i=0; i<memberList.length; i++){
-        if(memberList[i].checked){
-            str += test[i].innerHTML + " ";
-        }
-    }
+console.log("asdf5");
 
-    result.innerHTML = str;
+function banMember(){
+    const member = $("#resultMember > tr > td:nth-of-type(3) > div").text();
+
+    $.ajax({
+        url : "manager/secession",
+        data : {"memberId" : result.value},
+        type : "POST",
+        
+
+    })
+
+    const memberSt =  $("#resultMember > tr > td:last-of-type > div").text();
+    if(memberSt == 'Y'){
+        memberSt = 'N';
+    }else{
+        memberSt = 'Y';
+    }
 }
 
 /* ajax */
-document.getElementById("member-btn").addEventListener("click", function(){
-
+document.getElementById("member-btn").addEventListener("click", function() {
     const input = document.getElementById("searchMember");
     const table = document.getElementById("resultMember");
 
-    
-    
     $.ajax({
         url : "manager/selectMember",
         data : {"memberId" : input.value},
@@ -110,8 +117,7 @@ document.getElementById("member-btn").addEventListener("click", function(){
 
         }
     })
-
-}); 
+});
 
 document.getElementById("board-btn").addEventListener("click",function(){
 

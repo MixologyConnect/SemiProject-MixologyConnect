@@ -88,5 +88,12 @@
 		    ON F.MEMBER_NO = M.MEMBER_NO
 		 WHERE F.FOLLOWER_NO = ?
 	</entry>
+	
+	<!-- 관리자 회원 정보 변경 -->
+	<entry key="managerSecession">
+		UPDATE MEMBER SET
+		SECESSION_FL = 'Y'
+		WHERE MEMBER_ID = ?
+	</entry>
 
 </properties>
