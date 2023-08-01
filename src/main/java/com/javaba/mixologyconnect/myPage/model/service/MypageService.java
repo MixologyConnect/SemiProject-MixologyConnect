@@ -161,6 +161,28 @@ public class MypageService {
 
 
 
+		/** 북마크 해제 Service
+		 * @param loginMember
+		 * @return result
+		 * @throws Exception
+		 */
+		public int delete(int boardNo, Member loginMember)throws Exception {
+			Connection conn = getConnection();
+			
+			int result = dao.delete(conn, boardNo, loginMember);
+			
+			if(result>0) {conn.commit();}
+			else				{conn.rollback();}
+			
+			close(conn);
+			
+			return result;
+		}
+
+
+
+
+
 	
 		
 		

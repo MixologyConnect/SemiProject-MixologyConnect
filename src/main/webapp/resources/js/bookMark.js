@@ -1,12 +1,4 @@
 
-
-// if(cnt%2==1) {
-//     img.src = contextPath + "/resources/images/bookmark-fill.svg";
-// }else {
-//     img.src = contextPath + "/resources/images/bookmark.svg";
-// }
-// cnt++;
-
 // 북마크 버튼 이미지
 const img = document.getElementById("bookBtnImg");
 
@@ -14,33 +6,27 @@ const img = document.getElementById("bookBtnImg");
 // 즉시실행 함수(북마크 이미지 채워지는지 확인)
 (function(){
 
+    // bordDetail 화면 띄우자마자
+    // 북마크 해 놓은 페이지에 들어오면 북마크 표시되는 함수 호출
     bookMarkImage();
 
-    // if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
-    //     console.log("ddddddddddddddd")
-    // }
+
+    
 
 
 })();
 
+// function bookBtnClick(){
+//     console.log("눌리나?")
+// }
 
 
 
 
 
 
-function bookBtnClick() {
-    if(loginMemberNo==""){
-        alert("로그인후 이용해주세요.")
-    }else{
-        bookMarkInsert();
-        
-        
 
-    }
-    
 
-}
 
 
 // 북마크 버튼 누르면 데이터 삽입 함수
@@ -62,11 +48,9 @@ function bookMarkInsert(){
                 if(result > 0){
                     alert("북마크 등록완료")
                     let bkNum = 1;
-                    img.src = contextPath + "/resources/images/bookmark-fill.svg";
                 }else{
                     alert("북마크 등록 실패..")
                     let bkNum = 0;
-                    img.src = contextPath + "/resources/images/bookmark.svg";
                 }
 
             }catch(e){
@@ -107,12 +91,19 @@ function bookMarkImage(){
                 console.log("성공")
                 img.src = contextPath + "/resources/images/bookmark-fill.svg";
 
+                // function bookBtnClick(){
 
-
+                //     deleteBookMark();
+                // }
 
             }else{
                 console.log("에러")
                 img.src = contextPath + "/resources/images/bookmark.svg";
+                // function bookBtnClick(){
+                //     console.log("왜 안돼?")
+                //     bookMarkInsert();
+                    
+                // }
             }
         },
 
@@ -131,6 +122,11 @@ function bookMarkImage(){
 }
 
 
+
+
+
+
+
 // 북마크 해제
 function deleteBookMark(){
 
@@ -140,11 +136,82 @@ function deleteBookMark(){
     console.log(boardNo)
 
     
+    
+
+        $.ajax({
+    
+            url : contextPath + "/myPage/bookMarkDelete",
+            data : {"boardNo" : boardNo},
+            type : "get",
+    
+            
+            success : function(result){
+                if(result>0){
+                    alert("북마크 삭제 완료")
+                }else{
+                    alert("북마크 삭제 실패")
+                }
+    
+    
+            }
+    
+    
+        })
+
 
 
 
 }
 
+function bookBtnClick() {
+    if(loginMemberNo==""){
+        alert("로그인후 이용해주세요.")
+    }
+
+    if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+        console.log("안졸려")
+        deleteBookMark();
+        // 북마크 삽입 함수
+        img.src = contextPath + "/resources/images/bookmark.svg"
+        
+        if(img.src = contextPath + "/resources/images/bookmark.svg"){
+
+            bookMarkInsert();
+            img.src = contextPath + "/resources/images/bookmark-fill.svg"
+        }
+    } 
+    // if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+    
+    //     return false;
+    // }
+
+    
+}
+
+
+
+// // 북마크가 체크 안되어있으면 실행하는 함수
+// if(img.src = contextPath + "/resources/images/bookmark.svg"){
+
+    
+// }
+
+
+// // 북마크 체크 되어있으면 실행하는 함수
+// if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+
+//     function bookBtnClick() {
+     
+          
+//         // 북마크 삭제 함수
+//         deleteBookMark()
+
+      
+    
+//     }
+
+
+// }
 
 
 
