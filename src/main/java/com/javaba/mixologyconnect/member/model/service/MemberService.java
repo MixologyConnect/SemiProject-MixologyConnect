@@ -210,7 +210,7 @@ public class MemberService {
 
 	
 
-}
+
 
 	public List<Member> selectFollowers(int memberNo) throws Exception {
 		Connection conn = getConnection();

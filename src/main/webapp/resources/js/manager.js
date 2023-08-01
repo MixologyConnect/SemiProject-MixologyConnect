@@ -17,7 +17,6 @@ function selectMember(){
 document.getElementById("member-btn").addEventListener("click", function(){
 
     const input = document.getElementById("searchMember");
-    console.log(input);
     const table = document.getElementById("resultMember");
 
     
@@ -30,10 +29,10 @@ document.getElementById("member-btn").addEventListener("click", function(){
         
         success : function(member){
             
-            $('#resultMember > *').remove();
             console.log(member);
-
-            if(member != null){
+            
+            if(member.memberNo != 0){
+                $('#resultMember > *').remove();
                 const tr = document.createElement("tr");
                 
                 const input = document.createElement("input")
@@ -81,6 +80,23 @@ document.getElementById("member-btn").addEventListener("click", function(){
                 table.append(tr);
 
                 
+            }else{
+
+                $('#resultMember > *').remove();
+                
+                const tr = document.createElement("tr");
+                
+                const td1 = document.createElement("td");
+                td1.setAttribute("colspan","7");
+                const div1 = document.createElement("div")
+                div1.innerText= "일치하는 회원이 없습니다.";
+                td1.append(div1);
+
+                tr.append(td1);
+                table.append(tr);
+
+
+
             }
         },
         error : function(request,staus,error){
@@ -110,7 +126,7 @@ document.getElementById("board-btn").addEventListener("click",function(){
         type : "POST",
         dataType : "JSON",
         success : function(board){
-            if(board != null){
+            if(board.boardNo != 0){
                 $('#resultBoard > *').remove();
                 const tr = document.createElement("tr");
                 
@@ -152,15 +168,19 @@ document.getElementById("board-btn").addEventListener("click",function(){
                 result.append(tr);
 
             }else{
+
+                $('#resultBoard > *').remove();
+
                 const tr = document.createElement("tr");
                 
                 const td1 = document.createElement("td");
+                td1.setAttribute("colspan","6");
                 const div1 = document.createElement("div")
                 div1.innerText= "조회된 게시글이 없습니다.";
                 td1.append(div1);
 
                 tr.append(td1);
-
+                result.append(tr);
 
 
 
