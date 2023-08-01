@@ -25,7 +25,7 @@ public class managerSecessionServlet extends HttpServlet {
 
 			Member member = new Member();
 
-			member = service.managerSecession(memberId);
+			//member = service.managerSecession(memberId);
 
 			
 		} catch (Exception e) {

@@ -3,7 +3,9 @@ package com.javaba.mixologyconnect.member.model.service;
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
 import java.sql.Connection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.member.model.dao.MemberDAO;
@@ -180,11 +182,11 @@ public class MemberService {
 	public Member searchPw(String memberId, String memberName) throws Exception{
 
 		Connection conn = getConnection();
-		
+
 		Member member = dao.searchPw(conn, memberId, memberName);
-		
+
 		close(conn);
-		
+
 		return member;
 	}		
 
@@ -229,15 +231,55 @@ public class MemberService {
 	 * @param memberId
 	 * @return member
 	 */
-	public Member managerSecession(String memberId) throws Exception {
-		
+	//	public Member managerSecession(String memberId) throws Exception {
+	//		
+	//		Connection conn = getConnection();
+	//		
+	//		//Member member = dao.managerSecession(conn, memberId);
+	//		
+	//		close(conn);
+	//		
+	//		return member;
+	//	}
+
+	/**@author 지영
+	 * 팔로우 
+	 * @param loginMemberNo
+	 * @param boardNo
+	 * @return
+	 */
+	public Map<String, Integer> followInsertDelete(int loginMemberNo, int boardNo) throws Exception {
+
 		Connection conn = getConnection();
+
+
+
+
+		//게시글 작성자 회원번호 조회 
+		int boardWriter = dao.selectBoardWrite(conn, boardNo);
+
+		// 팔로우하기 결과 반환 변수
+		int followResult = dao.insertfollow(conn, boardWriter, loginMemberNo);
+
+		//팔로우 취소하기 결과 변환 변수
+		int dFollowResult = dao.deletefollow(conn, boardWriter, loginMemberNo);
+
+
+		Map<String, Integer> map = new HashMap<>();
+
+		map.put("boardWriter", boardWriter);
+		map.put("followResult", followResult);
+		map.put("dFollowResult", dFollowResult);
+
+
+		if(followResult>0) 	commit(conn);
+		else 				rollback(conn);
 		
-		Member member = dao.managerSecession(conn, memberId);
-		
+		if(dFollowResult>0) 	commit(conn);
+		else 				rollback(conn);
+
 		close(conn);
-		
-		return member;
+		return map;
 	}
 
 
