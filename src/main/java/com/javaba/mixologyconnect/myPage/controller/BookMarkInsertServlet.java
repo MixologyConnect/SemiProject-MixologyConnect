@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
+import com.javaba.mixologyconnect.member.model.vo.Member;
 import com.javaba.mixologyconnect.myPage.model.service.MypageService;
 import com.javaba.mixologyconnect.myPage.model.vo.BookMark;
 
@@ -21,6 +23,9 @@ public class BookMarkInsertServlet extends HttpServlet {
 		MypageService service = new MypageService();
 		
 		try {
+			HttpSession session = req.getSession();
+			Member loginMember = (Member)(session.getAttribute("loginMember") );
+			
 			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 			System.out.println("북마크 보드넘버 : " + boardNo);
 			
@@ -29,7 +34,7 @@ public class BookMarkInsertServlet extends HttpServlet {
 			
 			
 			
-			int result = service.bookMarkInsert(bk);
+			int result = service.bookMarkInsert(bk , loginMember);
 			
 			resp.getWriter().print(result);
 			//new Gson().toJson(result , resp.getWriter());
