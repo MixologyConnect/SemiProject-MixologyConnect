@@ -19,26 +19,31 @@
 
 	<!-- 게시글 목록 조회 -->
 	<entry key="selectBoardList">
-		SELECT * FROM(
-		SELECT ROWNUM RNUM, A. * FROM(
+	    with row_check as
+	        (
+	            select 
+	                        row_number() over(order by a.board_no desc) as rn    
+	                ,       a.*
+	            from board a
+	            order by board_no desc
+	        )
 		SELECT
-		BOARD_NO, BOARD_TITLE,BOARD_CONTENT,
-		MEMBER_NM,
-		TO_CHAR(BOARD_DT,
-		'YYYY-MM-DD') AS BOARD_DT,
-		READ_COUNT, IMG_RENAME
-		FROM BOARD
-		FULL OUTER JOIN MEMBER USING(MEMBER_NO)
-        FULL OUTER JOIN BOARD_IMG USING (BOARD_NO) 
-		WHERE BOARD_CD = ?
-		AND BOARD_ST = 'Y'
-		ORDER BY
-		BOARD_NO
-		DESC
-		)A
-		)
-		WHERE RNUM BETWEEN ? AND ?
-
+						a.BOARD_NO
+				,		a.BOARD_TITLE
+	            ,       a.BOARD_CONTENT
+				,		b.MEMBER_NM
+				,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
+				,		a.READ_COUNT
+				,		c.IMG_RENAME
+		FROM row_check a
+		left join member b
+			on	b.member_no		=	a.member_no
+		left join board_img c
+			on	c.board_no		=	a.board_no
+			and	c.img_level		=	'0'
+		WHERE 	a.rn BETWEEN ? AND ?
+		AND		BOARD_CD	=	?
+		AND		BOARD_ST	=	'Y'
 	</entry>
 
 	<!-- 게시글 상세 조회 -->
@@ -162,4 +167,33 @@
 		WHERE BOARD_TITLE = ?
 	</entry>
 
+	<entry key = "boardListPopularity">
+	with row_check as
+	        (
+	            select 
+	                        row_number() over(order by a.board_no desc) as rn    
+	                ,       a.*
+	            from board a
+	            order by board_no desc
+	        )
+		SELECT
+						a.BOARD_NO
+				,		a.BOARD_TITLE
+	            ,       a.BOARD_CONTENT
+				,		b.MEMBER_NM
+				,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
+				,		a.READ_COUNT
+				,		c.IMG_RENAME
+		FROM row_check a
+		left join member b
+			on	b.member_no		=	a.member_no
+		left join board_img c
+			on	c.board_no		=	a.board_no
+			and	c.img_level		=	'0'
+            join follow d on b.member_no = d.member_no
+		WHERE 	a.rn BETWEEN 1 AND 10
+		AND		BOARD_CD	=	1
+		AND		BOARD_ST	=	'Y'
+
+</entry>
 </properties>

@@ -348,6 +348,31 @@ public class BoardService {
 		return result;
 	}
 
+	public Map<String, Object> boardListPopularity(int type, int cp) throws Exception {
+		
+		Connection conn = getConnection();
+
+		// 게시글 제목
+		String boardTitle = dao.boardTitle(conn, type);
+
+		int listCount = dao.getListCount(conn, type);
+
+		Pagination pagination = new Pagination(cp, listCount);
+
+		List<Board> boardList = dao.selectBoardPopularity(conn, pagination, type);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("boardName", boardTitle);
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+
+		close(conn);
+		return map;
+		
+	}
+
+
 
 
 
