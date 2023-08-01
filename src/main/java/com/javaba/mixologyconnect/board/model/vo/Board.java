@@ -18,7 +18,11 @@ public class Board {
 	   private String memberName;
 	   private int readCount; // 조회수
 	   private String thumbnail;
-	
+	   private String modifyDate;
+	   private String boardSt;
+	   private String memberId;
+	   private String memberTel;
+	   
 	   
 	   
 
