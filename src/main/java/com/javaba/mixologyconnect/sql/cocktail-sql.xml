@@ -17,5 +17,6 @@
 		  FROM COCKTAIL
 		  JOIN COCKTAIL_AMOUNT USING("CKTL_NO")
 		 WHERE CKTL_NO = ?
+		 ORDER BY 1
 	</entry>
 </properties>

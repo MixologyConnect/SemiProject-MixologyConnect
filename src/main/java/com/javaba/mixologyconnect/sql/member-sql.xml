@@ -72,6 +72,21 @@
 		FROM MEMBER
 		WHERE MEMBER_ID = ?
 	</entry>
-	
+
+	<entry key="selectFollowers">
+		SELECT *
+		  FROM FOLLOW F
+		  JOIN MEMBER M
+		    ON F.FOLLOWER_NO = M.MEMBER_NO
+		 WHERE F.MEMBER_NO = ?
+	</entry>
+
+	<entry key="selectFollowings">
+		SELECT *
+		  FROM FOLLOW F
+		  JOIN MEMBER M
+		    ON F.MEMBER_NO = M.MEMBER_NO
+		 WHERE F.FOLLOWER_NO = ?
+	</entry>
 
 </properties>

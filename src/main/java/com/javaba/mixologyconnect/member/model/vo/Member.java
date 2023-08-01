@@ -13,7 +13,7 @@ import lombok.ToString;
 @AllArgsConstructor
 
 public class Member {
-	
+
 	private int memberNo;
 	private String memberId;
 	private String memberPw;
@@ -24,8 +24,5 @@ public class Member {
 	private String profileImage;
 	private String managerCode;
 	private String secessionFlag;
-	
-	
-	
 
 }

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 
 import com.javaba.mixologyconnect.cocktail.model.vo.Ingredient;
 import com.javaba.mixologyconnect.cocktail.model.vo.IngredientType;
+import com.javaba.mixologyconnect.member.controller.VerifyEmail;
 
 public class start extends HttpServlet {
 
@@ -21,6 +22,8 @@ public class start extends HttpServlet {
 		Connection conn = getConnection();
 		Statement stmt;
 		ResultSet rs;
+
+		//VerifyEmail.sendEmail("");
 
 		try {
 			stmt = conn.createStatement();
@@ -46,6 +49,8 @@ public class start extends HttpServlet {
 			e.printStackTrace();
 		} finally {
 			close(conn);
+			if (IngredientType.maps.size() > 0) System.out.println("\u001B[36m[JH] " + IngredientType.maps.size() + " IngredientType data sets are fully loaded from the DB.");
+			if (Ingredient.maps.size() > 0) System.out.println("[JH] " + Ingredient.maps.size() + " Ingredient data sets are fully loaded from the DB.\u001B[0m");
 		}
 	}
 

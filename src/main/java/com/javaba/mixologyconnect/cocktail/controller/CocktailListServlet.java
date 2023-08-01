@@ -21,16 +21,12 @@ public class CocktailListServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		System.out.println(Ingredient.maps);
-		System.out.println(IngredientType.maps);
 		try {
 			CocktailService service = new CocktailService();
-//			List<Cocktail> cocktails = service.selectCocktailList();
 			req.getRequestDispatcher("/WEB-INF/views/cocktail/cocktailList.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }
