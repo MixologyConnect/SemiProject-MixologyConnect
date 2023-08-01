@@ -56,9 +56,6 @@
 							<c:set var="start" value="0"></c:set>
 						</c:if>
 
-						<c:if test="${!empty thumbnail}"> <!-- 썸네일 O -->
-							<c:set var="start" value="1"></c:set>
-						</c:if>
 
 						<!-- 썸네일만 있고 이미지가 없는 경우 -->
 						<c:if test="${fn:length(detail.imageList) > start}">
