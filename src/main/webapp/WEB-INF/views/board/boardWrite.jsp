@@ -70,7 +70,7 @@
                     <img class="preview" src="${img0}">
                 </label>
 
-                <input type="file" class="inputImage" id="img0" name = "0" accept="image/*">
+                <input type="file" multiple class="inputImage" id="img0" name = "0" accept="image/*">
                 <span class="delete-image">&times;</span>
             </div>
 
@@ -80,7 +80,7 @@
                     <img class="preview" src="${img1}">
                 </label>
 
-                <input type="file" class="inputImage" id="img1" name = "1" accept="image/*">
+                <input type="file" multiple class="inputImage" id="img1" name = "1" accept="image/*">
                 <span class="delete-image">&times;</span>
             </div>
 
@@ -89,7 +89,7 @@
                     <img class="preview" src="${img2}">
                 </label>
 
-                <input type="file" class="inputImage" id="img2" name = "2" accept="image/*">
+                <input type="file" multiple class="inputImage" id="img2" name = "2" accept="image/*">
                 <span class="delete-image">&times;</span>
             </div>
 
@@ -98,7 +98,7 @@
                     <img class="preview" src="${img3}">
                 </label>
 
-                <input type="file" class="inputImage" id="img3" name = "3" accept="image/*">
+                <input type="file" multiple class="inputImage" id="img3" name = "3" accept="image/*">
                 <span class="delete-image">&times;</span>
             </div>
         </div>

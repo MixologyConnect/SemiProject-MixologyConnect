@@ -4,7 +4,6 @@
 	<c:set var="boardName" value="${map.boardName}"/>
 	<c:set var="pagination" value="${map.pagination}"/>
 	<c:set var="boardList" value="${map.boardList}"/>
-	<c:set var="imageList" value="${map.imageList}"/>
 	
 	
 	<!DOCTYPE html>
@@ -64,11 +63,10 @@
 								</div>
 							</div>
 							<div class="img">
-								<c:if test = "${!empty map.imageList}">
-								<c:forEach var = "imageList" items ="${imageList}">
-									<img src="${contextPath}${imageList.imageRename}">
-								</c:forEach>
+								<c:if test = "${!empty board.thumbnail}">
+									<img src="${contextPath}${board.thumbnail}">
 								</c:if>
+
 							</div>
 						</a>
 						</section>
