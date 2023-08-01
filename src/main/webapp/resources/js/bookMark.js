@@ -101,6 +101,8 @@ function bookMarkInsert(){
         success : function(result){
             if(result > 0){
                 alert("북마크 등록완료")
+            }else{
+                alert("북마크 등록 실패..")
             }
         
             
