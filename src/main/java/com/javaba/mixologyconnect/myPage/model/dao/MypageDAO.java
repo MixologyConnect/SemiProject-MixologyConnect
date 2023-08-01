@@ -34,7 +34,7 @@ public class MypageDAO {
 		try {
 			prop = new Properties();
 
-			String filePath = BoardDAO.class.getResource("/com/javaba/mixologyconnect/sql/mypage-sql.xml").getPath();
+			String filePath = MypageDAO.class.getResource("/com/javaba/mixologyconnect/sql/mypage-sql.xml").getPath();
 
 			prop.loadFromXML(new FileInputStream(filePath));
 
@@ -220,37 +220,90 @@ public class MypageDAO {
 	}
 
 
+
+
+
+	
+	
+
+	
+
+	
+
+
+	/** 북마크 표시 게시글 정보 조회 DAO
+	 * @param conn
+	 * @param boardNo
+	 * @return bookMark
+	 * @throws Exception
+	 */
+	public BookMark selectInfo(Connection conn, int boardNo)throws Exception {
+		BookMark bk = new BookMark();
+		try {
+			
+			String sql = prop.getProperty("selectInfo");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				bk.setBoardNo(boardNo);
+				bk.setBoardTitle(rs.getString(1));
+				bk.setMemberName(rs.getString(2));
+				bk.setCreateDate(rs.getInt(3));
+				bk.setReadCount(rs.getInt(4));
+				
+			
+				
+				System.out.println(bk);
+			}
+			
+			
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+			
+		}
+		
+		return bk;
+	}
+
+	
+	
+
 	/** 북마크 삽입 DAO
 	 * @param conn
 	 * @param boardNo
 	 * @return result
 	 * @throws Exception
 	 */
-	public int bookMarkInsert(Connection conn, int memberNo, int boardNo)throws Exception {
-		
+	public int bookMarkInsert(Connection conn, BookMark bk)throws Exception {
 		int result = 0;
-		
 		try {
 			
 			String sql = prop.getProperty("insert");
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, memberNo);
-			pstmt.setInt(2, boardNo);
+			pstmt.setInt(1, bk.getBoardNo());
+			pstmt.setString(2, bk.getBoardTitle());
+			pstmt.setString(3, bk.getMemberName());
+			pstmt.setInt(4, bk.getReadCount());
 			
 			result = pstmt.executeUpdate();
-			
 			
 			
 		}finally {
 			close(pstmt);
 		}
 		
-		
 		return result;
-		
-		
 	}
 	
 	

@@ -129,7 +129,7 @@
     text-align: center;
 
     position: relative;
-    border: 1px solid black;
+    border: 1px solid #ccc;
 }
 
 .boardImg > label {
@@ -147,7 +147,10 @@
     display: none;
 }
 
-
+.preview{
+    max-width: 100%;
+    max-height: 100%;
+}
 
 /* 내용칸 */
 .detail {
