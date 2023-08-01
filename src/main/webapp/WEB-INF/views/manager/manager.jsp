@@ -62,22 +62,14 @@
                         <th >주소</th>
                         <th >탈퇴여부</th>
                     </tr>
-                        
                     <tbody id="resultMember">
-
                     </tbody>
-                
                 </table>
                 <!-- typw="submit" id="borderbtn" -->
                 <input type="hidden" id="result1" value="${member.memberId}">
-                <button type="submit" onclick="selectMember()" >회원 탈퇴</button>
+                <button type="button" onclick="banMember()" >회원 탈퇴</button>
             </form>
-
-
-
         </section>
-
-
         <section class="manager-area1">
                 <br><br>
                 <h3>게시글 관리</h3>
@@ -89,36 +81,34 @@
                 
                 <button type="submit" id="board-btn" class="fa-solid fa-magnifying-glass"></button>
             </div>
-        
-            <form action="#" method="" name="manager-board">
-                <table>
-                
-                    <tr>
-                        <!-- 전체 선택 체크 박스 -->
-                        <th ></th>
-                        <th >게시글 번호</th>
-                        <th >게시글 제목</th>
-                        <th >아이디</th>
-                        <th >전화번호</th>
-                        <th >게시글 삭제 여부</th>
-                    </tr>
-                    
 
-                    <tbody id="resultBoard">
+            <table>
+            
+                <tr>
+                    <!-- 전체 선택 체크 박스 -->
+                    <th ></th>
+                    <th >게시글 번호</th>
+                    <th >게시글 제목</th>
+                    <th >아이디</th>
+                    <th >전화번호</th>
+                    <th >게시글 삭제 여부</th>
+                </tr>
+                
 
-                    </tbody>
-                    
-                 
-                    
-                </table>
-                
-                
-                
-                <!-- typw="submit" id="borderbtn" -->
-                <button type="button" onclick="selectMember()" >회원 탈퇴</button>
-                <div id="result2"></div>
+                <tbody id="resultBoard">
 
-            </form>
+                </tbody>
+                
+                
+                
+            </table>
+            
+            
+            
+            <!-- typw="submit" id="borderbtn" -->
+            <button type="button" onclick="banMember()" >회원 탈퇴</button>
+            <div id="result2"></div>
+
         </section>
 
 

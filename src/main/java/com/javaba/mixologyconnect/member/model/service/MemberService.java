@@ -232,5 +232,21 @@ public class MemberService {
 		return followings;
 	}
 
+	/**@author ISS
+	 * 관리자 회원 정보 변경 Service
+	 * @param memberId
+	 * @return member
+	 */
+	public Member managerSecession(String memberId) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		Member member = dao.managerSecession(conn, memberId);
+		
+		close(conn);
+		
+		return member;
+	}
+
 
 }
