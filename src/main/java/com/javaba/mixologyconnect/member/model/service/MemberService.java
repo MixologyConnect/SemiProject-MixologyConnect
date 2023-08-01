@@ -170,7 +170,6 @@ public class MemberService {
 		return result;
 	}
 
-	
 	/** @author 이미래
 	 * 비밀번호 찾기 Service
 	 * @param memberId
@@ -189,14 +188,12 @@ public class MemberService {
 		return member;
 	}		
 
-	
 	/**
 	 * @author seongsuim 회원 조회 service
 	 * @param memberId
 	 * @return member
 	 */
 	public Member selectMember(String memberId) throws Exception {
-		
 		Connection conn = getConnection();
 
 		Member member = dao.selectMember(conn, memberId);
@@ -204,13 +201,7 @@ public class MemberService {
 		close(conn);
 
 		return member; 
-		
 	}
-
-
-	
-
-
 
 	public List<Member> selectFollowers(int memberNo) throws Exception {
 		Connection conn = getConnection();
@@ -231,6 +222,5 @@ public class MemberService {
 
 		return followings;
 	}
-
 
 }

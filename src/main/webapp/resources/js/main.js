@@ -31,9 +31,12 @@ window.addEventListener("scroll", function(e) {
         $("header").css({"height": "120px",
                          "transform": "translateY(0px)",
                          "box-shadow": ""});
+        $("#sub-nav").css({"opacity": "",
+                           "pointer-events": ""});
         $("#title").css({"pointer-events": "auto",
                          "filter": "opacity(100%)"});
-        $(".account-image").css("transform", "none");
+        $(".account-image").css({"height": "",
+                                 "transform": "none"});
         $(".account-text").css({"pointer-events": "auto",
                                         "filter": "opacity(100%)"});
     } else {
@@ -42,9 +45,12 @@ window.addEventListener("scroll", function(e) {
         $("header").css({"height": "120px",
                          "transform": "translateY(-50px)",
                          "box-shadow": "0 0 20px 4px rgba(0, 0, 0, 0.1)"});
+        $("#sub-nav").css({"opacity": "100%",
+                          "pointer-events": "auto"});
         $("#title").css({"pointer-events": "none",
                          "filter": "opacity(0%)"});
-        $(".account-image").css("transform", "translate(23px, -13px)");
+        $(".account-image").css({"height": "40px",
+                                 "transform": "translate(24px, -14px)"});
         $(".account-text").css({"pointer-events": "none",
                                         "filter": "opacity(0%)"});
     }
