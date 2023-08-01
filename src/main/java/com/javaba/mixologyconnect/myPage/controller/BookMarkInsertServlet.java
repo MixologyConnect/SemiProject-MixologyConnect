@@ -22,7 +22,9 @@ public class BookMarkInsertServlet extends HttpServlet {
 		
 		try {
 			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+			System.out.println("북마크 보드넘버 : " + boardNo);
 			
+			// 북마크 게시글 정보 얻어오기
 			BookMark bk = service.selectInfo(boardNo);
 			
 			

@@ -29,8 +29,9 @@ public class BoardLikeServlet extends HttpServlet{
 			
 			BoardService service=new BoardService();
 			
-			Map<String, Object> like = service.likeSelect(memberNo, boardNo, likeCheck);
+			Map<String, Integer> like = service.likeSelect(memberNo, boardNo, likeCheck);
 			
+			new Gson().toJson(like, resp.getWriter());
 		} catch (Exception e) {
 
 			e.printStackTrace();
