@@ -198,13 +198,13 @@ public int boardUpdate(BoardDetail detail, List<BoardImage> imageList, String de
 	return result;
 }
 
-/** 게시글 삭제
- * @param boardNo
- * @return result
- * @throws Exception
- */
-public int boardDelete(int boardNo) throws Exception{
-	
+	/** 게시글 삭제
+	 * @param boardNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int boardDelete(int boardNo) throws Exception{
+
 	Connection conn = getConnection();
 	
 	int result = dao.boardDelete(conn, boardNo);
@@ -230,23 +230,38 @@ public List<BoardImage> selectImage(int boardNo) throws Exception {
 	return imageList;
 }
 
-///** 게시글 번호 찾기
-// * @param type
-// * @return boardNo
-// * @throws Exception
-// */
-//public int selectBoardNo(int type) throws Exception {
-//	
-//	Connection conn = getConnection();
-//	
-//	int boardNo = dao.selectBoardNo(conn, type);
-//	
-//	close(conn);
-//	
-//	return boardNo;
-//}
 
 
+/**
+ * 좋아요 Service
+ * @param memberNo
+ * @param boardNo
+ * @param likeCheck
+ * @return map
+ */
+public Map<String, Object> likeSelect(int memberNo, int boardNo, int likeCheck) throws Exception{
+	
+	Connection conn = getConnection();
+	
+	if(likeCheck==1) {
+		//1. 회원이 좋아요 눌렀을 시 
+		int likeResult = dao.insertLike(conn, memberNo, boardNo);
+	}else if(likeCheck==0) {
+		//2. 회원이 좋아요 취소 했을 시 
+		
+	}
+	
+	Map<String, Object> map = new HashMap<>();
+	
+	close(conn);
+	return map;
+	
+	
+	//3. 해당 게시판의 좋아요 수 조회
+	
+	//4. 회원이 좋아요한 게시글 조회 
+	
+}
 
 
 
