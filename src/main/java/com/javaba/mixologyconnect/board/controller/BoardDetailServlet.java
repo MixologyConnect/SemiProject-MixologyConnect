@@ -39,13 +39,13 @@ public class BoardDetailServlet extends HttpServlet {
 
 			HttpSession session = req.getSession();
 			Member loginMember = (Member)(session.getAttribute("loginMember"));
-			int loginMemberNo = loginMember.getMemberNo();
 			
 			//좋아요 관련
 			int likeMember=0;
 			//팔로우 관련
 			int writerNo= 0;
 			if(loginMember!=null) {
+				int loginMemberNo = loginMember.getMemberNo();
 				int memberNo = loginMember.getMemberNo();
 				likeMember = service.selectMemberLike(boardNo, memberNo);
 				writerNo = service2.selectFollower(loginMemberNo);
