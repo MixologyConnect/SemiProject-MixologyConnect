@@ -550,26 +550,27 @@ public class MemberDAO {
 	 * @param loginMemberNo
 	 * @return
 	 */
-	public int selectFollower(Connection conn, int loginMemberNo) throws Exception{
-		int followSelect=0;
+	public int selectFollower(Connection conn, int loginMemberNo, int memberNo) throws Exception{
+		int followingNo=0;
 		try {
 			String sql = prop.getProperty("selectFollower");
 
 			pstmt= conn.prepareStatement(sql);
 
 			pstmt.setInt(1, loginMemberNo );
+			pstmt.setInt(2, memberNo );
 
 			rs=pstmt.executeQuery();
 
 			if(rs.next()) {
-				followSelect=rs.getInt("MEMBER_NO");
+				
 			}
 
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-		return followSelect;
+		return followingNo;
 	}
 	
 }

@@ -45,10 +45,10 @@ public class BoardDetailServlet extends HttpServlet {
 			//팔로우 관련
 			int writerNo= 0;
 			if(loginMember!=null) {
-				int loginMemberNo = loginMember.getMemberNo();
-				int memberNo = loginMember.getMemberNo();
-				likeMember = service.selectMemberLike(boardNo, memberNo);
-				writerNo = service2.selectFollower(loginMemberNo);
+				
+				int loginmemberNo = loginMember.getMemberNo();
+				likeMember = service.selectMemberLike(boardNo, loginmemberNo);
+				writerNo = service2.selectFollower(loginmemberNo, detail.getMemberNo());
 			}
 
 			int likeCount = service.selectLike(boardNo);

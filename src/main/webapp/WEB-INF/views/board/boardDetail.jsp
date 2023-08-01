@@ -39,8 +39,10 @@
 							${detail.memberName}
 
 							<!-- 팔로우 버튼 -->
-							<button type="button" id="followBtn" onclick="followBtnClick()">FOLLOW</button>
-							<input type="hidden" name="0" id="followCheck">
+							<c:if test="${loginMember.memberNo != detail.memberNo}">
+								<button type="button" id="followBtn" onclick="followBtnClick()">FOLLOW</button>
+								<input type="hidden" name="0" id="followCheck">
+							</c:if>
 						</div>
 						<div class="date">${detail.boardDate}
 							<div class="views">조회수 : ${detail.readCount}</div>
