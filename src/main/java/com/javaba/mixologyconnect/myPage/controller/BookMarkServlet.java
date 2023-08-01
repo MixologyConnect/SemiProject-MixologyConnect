@@ -23,21 +23,28 @@ public class BookMarkServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, NumberFormatException {
-			MypageService service = new MypageService();
-		
-			int cp = 1;
-			if(req.getParameter("cp") != null) cp = Integer.parseInt(req.getParameter("cp"));
-	
-			Map<String, Object> map =service.selectMypageList(cp);
-	
-			req.setAttribute("map", map);
+			
+			try {
+				MypageService service = new MypageService();
 				
-			
-			String path = "/WEB-INF/views/myPage/bookMark.jsp";
-			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
-			
-			dispatcher.forward(req, resp);
-			
+				int cp = 1;
+				if(req.getParameter("cp") != null) cp = Integer.parseInt(req.getParameter("cp"));
+				
+				Map<String, Object> map =service.selectbookMarkList(cp);
+				
+				req.setAttribute("map", map);
+				
+				
+				String path = "/WEB-INF/views/myPage/bookMark.jsp";
+				RequestDispatcher dispatcher = req.getRequestDispatcher(path);
+				
+				dispatcher.forward(req, resp);
+				
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
 			
 			
 			
