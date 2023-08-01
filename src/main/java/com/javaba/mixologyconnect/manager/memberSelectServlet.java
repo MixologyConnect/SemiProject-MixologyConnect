@@ -15,31 +15,11 @@ import com.javaba.mixologyconnect.member.model.vo.Member;
 @WebServlet("/manager/manager/selectMember")
 public class memberSelectServlet extends HttpServlet {
 
-	//	@Override
-	//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	//		String memberId = req.getParameter("search");
-	//		System.out.println(memberId);
-	//		try {
-	//			MemberService service = new MemberService(); 
-	//
-	//			Member member = service.selectMember(memberId);
-	//			System.out.println(member);
-	//
-	//			new Gson().toJson(member, resp.getWriter());
-	//
-	//
-	//
-	//		} catch (Exception e) {
-	//			e.printStackTrace();
-	//		}
-	//	}
-
 
 	@Override protected void doPost(HttpServletRequest req, HttpServletResponse
 			resp) throws ServletException, IOException { 
 			
 			String memberId = req.getParameter("memberId");
-			System.out.println(memberId);
 			
 			try { MemberService service = new MemberService();
 
