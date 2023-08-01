@@ -31,28 +31,25 @@ public class BoardAllServlet extends HttpServlet {
 			
 			int cp = 1;
 			
-			if(req.getParameter("cp") != null) { // 쿼리스트링에 "cp"가 존재한다면
+			if(req.getParameter("cp") != null) {
 				cp = Integer.parseInt(req.getParameter("cp"));
 			}
 			
 			BoardService service = new BoardService();
 			
-			//int boardNo = service.selectBoardNo(type);
-			
-			
-			//BoardDetail detail = service.selectBoardDetail(boardNo);
 			
 			Map<String, Object> map = service.selectBoardAll(type, cp);
 			
 
 			req.setAttribute("map", map);
 			
+			System.out.println("map : " + map);
+			
 			
 			String path = "/WEB-INF/views/board/boardAll.jsp";
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
 			dispatcher.forward(req, resp);
-			
 			
 			
 		}catch (Exception e) {
@@ -64,26 +61,27 @@ public class BoardAllServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		doGet(req, resp);
 		
-		try {
-			
-				
-				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
-				System.out.println(boardNo);
-				
-				BoardService service = new BoardService();
-				
-				List<BoardImage> imageList = service.selectImage(boardNo);
-				
-				System.out.println(imageList);
-				
-				resp.getWriter().print(imageList);			
-				
-			
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			
+//				
+//				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+//				System.out.println(boardNo);
+//				
+//				BoardService service = new BoardService();
+//				
+//				List<BoardImage> imageList = service.selectImage(boardNo);
+//				
+//				System.out.println(imageList);
+//				
+//				resp.getWriter().print(imageList);			
+//				
+//			
+//			
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//		}
 	
 	
 	}
