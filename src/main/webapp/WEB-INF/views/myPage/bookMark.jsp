@@ -3,6 +3,9 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
     
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="bookMarkList" value="${map.bookMarkList}"/>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +25,11 @@
 
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
+   
+
     
     <section class="board-list">
-        <h1 class="board-name">${bookMarkList}</h1>
+        <h1 class="board-name">북마크</h1>
         
         <div class="list-wrapper">
             <table class="list-table">
@@ -40,15 +45,32 @@
 
                 
                 <tbody id="list">
-                    <c:forEach var="bookmark" items="${bookMarkList}">
-                        <tr>
-                            <td>${bookmark.boardNo}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                         
-                    </c:forEach>
+
+                    <c:choose>
+                        <c:when test="${empty bookMarkList}">
+                            <tr>
+                                <th>게시글이 존재하지 않습니다.</th>
+                            </tr>
+                        </c:when>
+                
+                            <c:otherwise>
+                
+                                <c:forEach var="bk" items="${bookMarkList}">
+                                    <tr>
+                                        <td>${bk.boardNo}</td>
+                                        <td>${bk.boardTitle}</td>
+                                        <td>${bk.memberName}</td>
+                                        <td>${bk.createDate}</td>
+                                        <td>${bk.readCount}</td>
+                                    </tr>
+                
+                                </c:forEach>
+                
+                            </c:otherwise>
+                
+                    </c:choose>
+
+                   
                 </tbody>
 
 
@@ -60,24 +82,33 @@
 
 
         <div class="pagination-area">
+            <c:set var="url" value="myPage?&cp="/>
+
             <ul class="pagination">
-                <li><a href="#">&lt;&lt</a></li>
-                <li><a href="#">&lt;</a></li>
+                <!-- 첫 페이지로 이동 -->
+                <li><a href="${url}1">&lt;&lt;</a></li>
+                <!-- 이전 목록 마지막 번호로 이동 -->
+                <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
 
-                <li><a class="current">1</a></li>
 
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">6</a></li>
-                <li><a href="#">7</a></li>
-                <li><a href="#">8</a></li>
-                <li><a href="#">9</a></li>
-                <li><a href="#">10</a></li>
+                <!-- 범위가 정해진 일반 for문 사용 -->
+                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                    <c:choose>
+                        <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${url}${i}">${i}</a></li>
+                        </c:otherwise>
+                    </c:choose>
 
-                <li><a href="#">&gt;</a></li>
-                <li><a href="#">&gt;&gt;</a></li>
+                </c:forEach>
+
+                <!-- 다음 목록 시작 번호로 이동 -->
+                <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+
+                <!-- 끝 페이지로 이동 -->
+                <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
             </ul>
         </div>
 

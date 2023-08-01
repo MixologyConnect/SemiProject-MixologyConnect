@@ -186,38 +186,7 @@ public class MypageDAO {
 
 
 
-	/** 북마크 게시글 회원번호 얻어오기 DAO
-	 * @param conn
-	 * @param boardNo
-	 * @return memberNo
-	 * @throws Exception
-	 */
-	public int bookMarkMemberNo(Connection conn, int boardNo) throws Exception{
-		
-		int memberNo = 0;
-		
-		try {
-			
-			String sql = prop.getProperty("memberNo");
-			
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, boardNo);
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				memberNo = rs.getInt(1);
-				System.out.println("회원번호 : " + memberNo);
-			}
-			
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return 0;
-	}
+
 
 
 
@@ -252,11 +221,11 @@ public class MypageDAO {
 			
 			if(rs.next()) {
 				
-				bk.setBoardNo(boardNo);
-				bk.setBoardTitle(rs.getString(1));
-				bk.setMemberName(rs.getString(2));
-				bk.setCreateDate(rs.getString(3));
-				bk.setReadCount(rs.getInt(4));
+				bk.setBoardNo(rs.getInt(1));
+				bk.setBoardTitle(rs.getString(2));
+				bk.setMemberName(rs.getString(3));
+				bk.setCreateDate(rs.getString(4));
+				bk.setReadCount(rs.getInt(5));
 				
 			
 				
@@ -306,6 +275,93 @@ public class MypageDAO {
 		}
 		
 		return result;
+	}
+
+
+	/** 북마크 테이블 게시글 수 조회 DAO
+	 * @param conn
+	 * @return listCount
+	 * @throws Exception
+	 */
+	public int bookMarkListCount(Connection conn)throws Exception {
+		int listCount = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("listCount");
+			
+		
+			
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+				
+			}
+			System.out.println("북마크게시글 수 : " + listCount);
+			
+		}finally {
+			close(rs);
+			close(stmt);
+		}
+		
+		return listCount;
+	}
+
+
+	/** 북마크 게시글 목록 조회 DAO
+	 * @param conn
+	 * @param pagination
+	 * @return
+	 */
+	public List<BookMark> bookMarkList(Connection conn, Pagination pagination) throws Exception{
+		
+		List<BookMark> bookMarkList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("selectBookmark");
+			
+			// BETWEEN 구문에 들어갈 범위 계산
+			int start = (pagination.getCurrentPage() - 1 ) * pagination.getLimit() + 1;
+
+			int end = start + pagination.getLimit() - 1;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			
+			rs = pstmt.executeQuery();
+			
+			
+			
+			while(rs.next()) {
+				
+				BookMark bk = new BookMark();
+				
+				bk.setBoardNo(rs.getInt("BOOKMARK_NO"));
+				bk.setBoardTitle(rs.getString("BOOKMARK_TITLE"));
+				bk.setMemberName(rs.getString("BOOKMARK_NICK"));
+				bk.setCreateDate(rs.getString("BOOKMARK_DT"));
+				bk.setReadCount(rs.getInt("BOOKMARK_COUNT"));
+				
+				bookMarkList.add(bk);
+				
+				
+			}
+			
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return bookMarkList;
 	}
 	
 	
