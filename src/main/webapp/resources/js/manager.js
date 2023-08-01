@@ -19,6 +19,7 @@ document.getElementById("member-btn").addEventListener("click", function(){
     const input = document.getElementById("searchMember");
     console.log(input);
     const table = document.getElementById("resultMember");
+
     
     
     $.ajax({
@@ -28,7 +29,8 @@ document.getElementById("member-btn").addEventListener("click", function(){
         dataType : "JSON",
         
         success : function(member){
-
+            
+            $('#resultMember > *').remove();
             console.log(member);
 
             if(member != null){
@@ -78,14 +80,6 @@ document.getElementById("member-btn").addEventListener("click", function(){
                 tr.append(td1, td2, td3, td4, td5, td6, td7)
                 table.append(tr);
 
-                // var htmls = "<tr>"+"<td>" + "<input type='checkbox' name='chk1'>" +"</td>" +
-                //             "<td>" + member.memberNo +"</td>" +
-                //             "<td>" + member.memberId +"</td>" +
-                //             "<td>" + member.memberName +"</td>" +
-                //             "<td>" + member.memberTel +"</td>" +
-                //             "<td>" + member.memberAddress +"</td>" +
-                //             "<td>" + member.secessionFlag +"</td>" + "</tr>";
-                //table.append(htmls);
                 
             }
         },
@@ -102,4 +96,88 @@ document.getElementById("member-btn").addEventListener("click", function(){
     })
 
 }); 
+
+document.getElementById("board-btn").addEventListener("click",function(){
+
+    const input = document.getElementById("searchBoard");
+    const result = document.getElementById("resultBoard");
+    const no = document.getElementById("noBoard");
+
+    
+    $.ajax({
+        url : "manager/selectBoard",
+        data : {"searchBoard": input.value},
+        type : "POST",
+        dataType : "JSON",
+        success : function(board){
+            if(board != null){
+                $('#resultBoard > *').remove();
+                const tr = document.createElement("tr");
+                
+                const input = document.createElement("input")
+                input.setAttribute("type", "checkbox");
+                input.setAttribute("name", "chk2");
+
+                const td1 = document.createElement("td");
+                td1.append(input);
+
+                const td2 = document.createElement("td");
+                const div1 = document.createElement("div")
+                div1.innerText= board.boardNo;
+                td2.append(div1);
+
+                const td3 = document.createElement("td");
+                const div2 = document.createElement("div")
+                div2.innerText= board.boardTitle;
+                td3.append(div2);
+                
+                
+                const td4 = document.createElement("td");
+                const div3 = document.createElement("div")
+                div3.innerText= board.memberId;
+                td4.append(div3);
+
+                const td5 = document.createElement("td");
+                const div4 = document.createElement("div")
+                div4.innerText= board.memberTel;
+                td5.append(div4);
+
+                const td6 = document.createElement("td");
+                const div5 = document.createElement("div")
+                div5.innerText= board.boardSt;
+                td6.append(div5);
+
+
+                tr.append(td1, td2, td3, td4, td5, td6)
+                result.append(tr);
+
+            }else{
+                const tr = document.createElement("tr");
+                
+                const td1 = document.createElement("td");
+                const div1 = document.createElement("div")
+                div1.innerText= "조회된 게시글이 없습니다.";
+                td1.append(div1);
+
+                tr.append(td1);
+
+
+
+
+            }
+
+        },
+        error : function(request,staus,error){
+            console.log("에러 발생");
+
+            console.log("상태코드 : " + request.status);
+
+            console.log(request.responseText);
+
+            console.log(error);
+
+        }
+    })
+
+});
 

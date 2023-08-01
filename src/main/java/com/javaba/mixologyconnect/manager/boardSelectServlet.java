@@ -1,7 +1,6 @@
-package com.javaba.mixologyconnect.board.controller;
+package com.javaba.mixologyconnect.manager;
 
 import java.io.IOException;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,35 +11,30 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.javaba.mixologyconnect.board.model.service.BoardService;
 import com.javaba.mixologyconnect.board.model.vo.Board;
+import com.javaba.mixologyconnect.member.model.service.MemberService;
+import com.javaba.mixologyconnect.member.model.vo.Member;
 
-@WebServlet("/board/like")
-public class BoardLikeServlet extends HttpServlet{
-	
-	
+@WebServlet("/manager/manager/selectBoard")
+public class boardSelectServlet extends HttpServlet{
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String boardTitle = req.getParameter("searchBoard");
 		try {
-
 			
-			int memberNo = Integer.parseInt(req.getParameter("loginMemberNo"));
-			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
-			int likeCheck = Integer.parseInt(req.getParameter("likeCheck"));
+			Board board = new Board();
 			
-			BoardService service=new BoardService();
+			Member member = new Member();
 			
-			Map<String, Integer> like = service.likeSelect(memberNo, boardNo, likeCheck);
+			BoardService service = new BoardService();
 			
-			new Gson().toJson(like, resp.getWriter());
+			board = service.searchBoard(member, boardTitle);
+			
+			new Gson().toJson(board, resp.getWriter());
+			
 		} catch (Exception e) {
-
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
 	}
-
 }
