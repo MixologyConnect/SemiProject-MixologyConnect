@@ -226,22 +226,7 @@ public class MemberService {
 	}
 
 
-	/**@author ISS
-	 * 관리자 회원 정보 변경 Service
-	 * @param memberId
-	 * @return member
-	 */
-		public Member managerSecession(String memberId) throws Exception {
-			
-			Connection conn = getConnection();
-			
-			Member member = dao.managerSecession(conn, memberId);
-			
-			close(conn);
-			
-			return member;
-		}
-
+	
 	/**@author 지영
 	 * 팔로우 
 	 * @param loginMemberNo
@@ -278,15 +263,26 @@ public class MemberService {
 		close(conn);
 		return map;
 
-		int result = dao.managerSecession(conn, memberId);
 		
+	}
+
+	/**@author ISS
+	 * @param memberId
+	 * @return
+	 */
+	public int managerSecession(String memberId) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.managerSecession(conn, memberId);
+
 		if (result > 0)
 			conn.commit();
 		else
 			conn.rollback();
-		
+
 		close(conn);
-		
+
 		return result;
 
 	}
