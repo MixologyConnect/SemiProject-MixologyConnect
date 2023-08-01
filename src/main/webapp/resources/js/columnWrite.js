@@ -6,16 +6,16 @@ console.log(length);
 let interval;
 
 document.getElementById("counter").innerText = length ;
-if(length <= 499 && length >= 0) {
-    document.getElementById("counter").style.color = "black";
-    
-} else { 
-    document.getElementById("counter").style.color = "red"
-    
+    if(length <= 499 && length >= 0) {
+        document.getElementById("counter").style.color = "black";
+        
+    } else { 
+        document.getElementById("counter").style.color = "red"
+        
 
 
-    document.getElementById("counter").innerText = 500;
-}
+        document.getElementById("counter").innerText = 500;
+    }
 
 })
 
@@ -98,28 +98,40 @@ function writeValidate(){
 
 
 
-/* 삭제 버튼 실행 */
 (function(){
+    const goToBtn = document.getElementById("goToBtn");
 
-const deleteBtn = document.getElementById("deleteBtn");
+    if(goToBtn != null){
+        goToBtn.addEventListener("click",function(){
 
-if(deleteBtn != null){
-    deleteBtn.addEventListener("click", function(){
+            const pathname = location.pathname;
 
-        let url = "boardDelete";
+            let url = pathname.substring(0, pathname.indexOf("/",1));
 
-        const params = new URL(location.href).searchParams;
+            url += "/column/columnList?"
 
-        const no = "?no=" + params.get("no");
-        const type = "&type=" + params.get("type");
+            const params = new URL(location.href).searchParams;
 
-        url += no + type;
+            const type = "type=" + params.get("type");
+            let cp;
+            if(params.get("cp") != ""){
+                cp = "cp=" + params.get("cp");
+            }else{
+                cp = "cp=1";
+            }
 
-        if(confirm("정말 삭제하시겠습니까?")){
+            url += type + "&" + cp;
+
+            if(params.get("title") != null){
+                const title = "&title=" + params.get("title");
+                const query = "&query=" + params.get("query");
+
+                url += key + query;
+            }
+
             location.href = url;
-        }
 
-    })
-}
+        })
 
+    }
 })();

@@ -112,3 +112,24 @@ p{
 span{
     color: orange;
 }
+
+/* 수정, 삭제, 목록으로 버튼 */
+.alterBtn > button {
+    background-color:rgb(0, 220, 244);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
+    margin-left : 20px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .alterBtn > button:hover {
+    background-color: white;
+    border: 2px solid rgb(0, 220, 244);
+    color: rgb(0, 220, 244);
+  }
+  
