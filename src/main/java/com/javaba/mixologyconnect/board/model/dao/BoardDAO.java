@@ -15,6 +15,7 @@ import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import com.javaba.mixologyconnect.board.model.vo.BoardImage;
 import com.javaba.mixologyconnect.board.model.vo.Pagination;
+import com.javaba.mixologyconnect.member.model.vo.Member;
 
 public class BoardDAO {
 
@@ -474,6 +475,44 @@ public class BoardDAO {
 
 		return result;
 	}
+
+	/**@author 임성수
+	 * 게시글 조회 DAO
+	 * @param conn
+	 * @param board
+	 * @param boardTitle
+	 * @return board
+	 */
+	public Board searchBoard(Connection conn, Member member, String boardTitle) throws Exception {
+
+		Board board = new Board();
+
+		try {
+
+			String sql = prop.getProperty("searchBoard");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, boardTitle);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setMemberId(rs.getString("MEMBER_ID"));
+				board.setMemberTel(rs.getString("MEMBER_TEL"));
+				board.setBoardSt(rs.getString("BOARD_ST"));
+			}
+
+		} finally {
+			close(rs);
+			close(pstmt);
+
+		}
+
+		return board;
+	}
+
 
 	/** 게시글 번호 찾기
 	 * @param conn

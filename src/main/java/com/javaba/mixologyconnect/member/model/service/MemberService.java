@@ -4,6 +4,7 @@ import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 
+import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.member.model.dao.MemberDAO;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 
@@ -198,13 +199,14 @@ public class MemberService {
 		Connection conn = getConnection();
 
 		Member member = dao.selectMember(conn, memberId);
-		System.out.println("s : "+member);
 
 		close(conn);
 
 		return member; 
 		
 	}
+
+	
 
 }
 

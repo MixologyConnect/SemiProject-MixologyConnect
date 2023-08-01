@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
 
+import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 
 
@@ -372,6 +373,7 @@ public class MemberDAO {
 		return member; 
 		}
 
+	
 
 
 

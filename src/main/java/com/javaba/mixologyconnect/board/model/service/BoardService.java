@@ -13,6 +13,7 @@ import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import com.javaba.mixologyconnect.board.model.vo.BoardImage;
 import com.javaba.mixologyconnect.board.model.vo.Pagination;
 import com.javaba.mixologyconnect.common.Util;
+import com.javaba.mixologyconnect.member.model.vo.Member;
 
 
 public class BoardService {
@@ -226,6 +227,23 @@ public List<BoardImage> selectImage(int boardNo) throws Exception {
 	close(conn);
 	
 	return imageList;
+}
+
+/**@author 임성수
+ * 게시글 조회
+ * @param board
+ * @param boardTitle
+ * @return board
+ */
+public Board searchBoard(Member member, String boardTitle) throws Exception {
+	
+	Connection conn = getConnection();
+	
+	Board board =  dao.searchBoard(conn,member,boardTitle);
+
+	close(conn);
+
+	return board;
 }
 
 ///** 게시글 번호 찾기
