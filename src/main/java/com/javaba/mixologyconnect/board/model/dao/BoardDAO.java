@@ -475,6 +475,42 @@ public class BoardDAO {
 		return result;
 	}
 
+	public List<BoardImage> selectThumbnail(Connection conn, int type) throws Exception{
+		
+		List<BoardImage> imageList = new ArrayList<BoardImage>();
+		
+		try {
+			String sql = prop.getProperty("selectThumbnail");
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, type);
+			
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				BoardImage image = new BoardImage();
+
+				image.setImageNo(rs.getInt("IMG_NO"));
+				image.setImageRename(rs.getString("IMG_RENAME"));
+				image.setImageOriginal(rs.getString("IMG_ORIGINAL"));
+				image.setImageLevel(rs.getInt("IMG_LEVEL"));
+				image.setBoardNo(rs.getInt("BOARD_NO"));
+
+				imageList.add(image);
+
+			}
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		
+		return imageList;
+	}
+
 	/** 게시글 번호 찾기
 	 * @param conn
 	 * @param type

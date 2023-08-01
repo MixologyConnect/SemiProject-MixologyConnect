@@ -88,9 +88,9 @@
 								<button type="button" id="likeBtn">
 									<img src="${contextPath}/resources/images/heart.svg" id="likeBtnImg"
 										onclick="likeBtnClick()"> 
-									<input type="hidden" id="likeCheck" value="${like.like_check}">
+									<input type="hidden" id="likeCheck" name="0">
 								</button>
-								<span>4</span> 
+								
 
 							</div>
 							<div class="alterBtn">	

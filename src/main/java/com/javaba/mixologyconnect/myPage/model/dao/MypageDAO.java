@@ -246,6 +246,7 @@ public class MypageDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, boardNo);
+			System.out.println("북마크 게시글번호 : "  + boardNo);
 			
 			rs = pstmt.executeQuery();
 			
@@ -254,7 +255,7 @@ public class MypageDAO {
 				bk.setBoardNo(boardNo);
 				bk.setBoardTitle(rs.getString(1));
 				bk.setMemberName(rs.getString(2));
-				bk.setCreateDate(rs.getInt(3));
+				bk.setCreateDate(rs.getString(3));
 				bk.setReadCount(rs.getInt(4));
 				
 			
@@ -297,6 +298,7 @@ public class MypageDAO {
 			pstmt.setInt(4, bk.getReadCount());
 			
 			result = pstmt.executeUpdate();
+			System.out.println("insert 결과값 : " + result);
 			
 			
 		}finally {

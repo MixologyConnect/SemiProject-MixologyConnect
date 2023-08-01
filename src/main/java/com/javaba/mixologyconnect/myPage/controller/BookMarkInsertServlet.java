@@ -29,7 +29,8 @@ public class BookMarkInsertServlet extends HttpServlet {
 			
 			int result = service.bookMarkInsert(bk);
 			
-			new Gson().toJson(result , resp.getWriter());
+			resp.getWriter().print(result);
+			//new Gson().toJson(result , resp.getWriter());
 			
 		}catch(Exception e){
 			e.printStackTrace();
