@@ -147,6 +147,7 @@
 								const loginMemberNo = "${loginMember.memberNo}";
 
 								const likeMember = "${likeMember}"
+								const writerNo = "${writerNo}"
 							</script>
 
 							<script src="${contextPath}/resources/js/board/reply.js"></script>

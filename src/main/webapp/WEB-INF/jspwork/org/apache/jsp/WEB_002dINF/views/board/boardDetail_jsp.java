@@ -316,6 +316,9 @@ static {
       out.write("								const likeMember = \"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${likeMember}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
       out.write("\"\r\n");
+      out.write("								const writerNo = \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${writerNo}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
+      out.write("\"\r\n");
       out.write("							</script>\r\n");
       out.write("\r\n");
       out.write("							<script src=\"");

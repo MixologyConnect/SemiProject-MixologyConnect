@@ -23,6 +23,8 @@ public class FollowServlet extends HttpServlet{
 		int loginMemberNo = Integer.parseInt(req.getParameter("loginMemberNo"));
 		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 		int followCheck = Integer.parseInt(req.getParameter("followCheck"));
+		
+		
 		MemberService service = new MemberService();
 		
 		Map<String, Integer> follow = service.followInsertDelete(loginMemberNo, boardNo, followCheck);

@@ -1,6 +1,8 @@
 
   $(document).ready(function(){
-    console.log(likeMember)
+    console.log(likeMember);
+    console.log(writerNo);
+    console.log(loginMemberNo);
 
     if(likeMember==boardNo){
         const img = document.getElementById("likeBtnImg");
@@ -10,6 +12,13 @@
         const img = document.getElementById("likeBtnImg");
         img.src = contextPath + "/resources/images/heart.svg";
     }
+    //내 게시글 팔로우 막기 
+    if(writerNo == loginMemberNo){
+        const button = document.getElementById("followBtn");
+        button.remove();
+    }
+    //목록으로 돌아가기 후에 내가 팔로우한 사람 은 unfollow 뜨게하기 
+
   })  
     
     
@@ -128,10 +137,13 @@ function followBtnClick() {
                 success : function(follow){
                     if(follow.followResult == 1){
                         const followBtn = document.getElementById("followBtn");
-                        followBtn.removeAttribute("onclick")
-                        followBtn.setAttribute("onclick","followCansle()");
                         followBtn.innerHTML="";
                         followBtn.innerHTML="UNFOLLOW";
+                    }else if(follow.dfollowResult == 1){
+                        const followBtn = document.getElementById("followBtn");
+                        followBtn.innerHTML="";
+                        followBtn.innerHTML="FOLLOW";
+
                     }
         
                 },
@@ -147,52 +159,50 @@ function followBtnClick() {
     }
 }
 
-function followCansle(){
+// function followCansle(){
     
-    if(loginMemberNo==""){
-        alert("로그인후 이용해주세요.")
-    }else{
+//     if(loginMemberNo==""){
+//         alert("로그인후 이용해주세요.")
+//     }else{
 
-        let followCheck = document.getElementById('followCheck');
+//         let followCheck = document.getElementById('followCheck');
       
     
-        if(followCheck.getAttribute("name")==0) {
+//         if(followCheck.getAttribute("name")==0) {
             
-            followCheck.removeAttribute("name")
-            followCheck.setAttribute("name",1)
-        }else {
-            followCheck.removeAttribute("name")
-            followCheck.setAttribute("name",0)
-        }
+//             followCheck.removeAttribute("name")
+//             followCheck.setAttribute("name",1)
+//         }else {
+//             followCheck.removeAttribute("name")
+//             followCheck.setAttribute("name",0)
+//         }
         
-        const nameValue = followCheck.getAttribute("name");
-        console.log(nameValue);
+//         const nameValue = followCheck.getAttribute("name");
+//         console.log("name: "+nameValue);
 
 
-        $.ajax({
-            url:contextPath+"/member/follow",
-            type:"post",
-            dataType : "JSON",
-            data: {'loginMemberNo': loginMemberNo,
-                    'boardNo' : boardNo,
-                    'followCheck' : followCheck.getAttribute("name")
-                    },
-                success : function(follow){
-                    if(follow.dFollowResult == 1){
-                        const followBtn = document.getElementById("followBtn");
-                        followBtn.removeAttribute("onclick")
-                        followBtn.setAttribute("onclick","followBtnClick()");
-                        followBtn.innerHTML="";
-                        followBtn.innerHTML="FOLLOW";
-                    }
-                },
-                error : function(follow){
-                    console.log("오류발생")
-                }
+//         $.ajax({
+//             url:contextPath+"/member/follow",
+//             type:"post",
+//             dataType : "JSON",
+//             data: {'loginMemberNo': loginMemberNo,
+//                     'boardNo' : boardNo,
+//                     'followCheck' : followCheck.getAttribute("name")
+//                     },
+//                 success : function(follow){
+//                     if(follow.dFollowResult == 1){
+//                         const followBtn = document.getElementById("followBtn");
+//                         followBtn.innerHTML="";
+//                         followBtn.innerHTML="FOLLOW";
+//                     }
+//                 },
+//                 error : function(follow){
+//                     console.log("오류발생")
+//                 }
 
 
-        })
+//         })
 
 
-    }
-}
+//     }
+// }
