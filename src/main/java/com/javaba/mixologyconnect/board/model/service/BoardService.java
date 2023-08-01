@@ -330,6 +330,26 @@ public class BoardService {
 		return likeMember;
 	}
 
+	/** 관리자 게시글 삭제
+	 * @param boardTitle
+	 * @return  result
+	 */
+	public int managerBoardDelete(String boardTitle) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.managerBoardDelete(conn,boardTitle);
+		System.out.println("뭐라도 나와");
+		
+		
+		if(result>0) 	commit(conn);
+		else 				rollback(conn);
+
+		close(conn);
+		
+		return result;
+	}
+
 
 
 

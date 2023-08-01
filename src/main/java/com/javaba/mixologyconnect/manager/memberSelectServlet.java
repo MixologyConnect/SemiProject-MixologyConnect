@@ -20,7 +20,6 @@ public class memberSelectServlet extends HttpServlet {
 			resp) throws ServletException, IOException { 
 
 		String memberId = req.getParameter("memberId");
-		
 
 		try { 
 
@@ -31,8 +30,6 @@ public class memberSelectServlet extends HttpServlet {
 			member	=service.selectMember(memberId);
 
 			new Gson().toJson(member, resp.getWriter());
-
-
 
 		} catch (Exception e) { e.printStackTrace(); }
 

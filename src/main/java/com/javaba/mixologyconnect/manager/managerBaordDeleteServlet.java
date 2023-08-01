@@ -8,26 +8,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.javaba.mixologyconnect.member.model.service.MemberService;
-import com.javaba.mixologyconnect.member.model.vo.Member;
+import com.javaba.mixologyconnect.board.model.service.BoardService;
 
-@WebServlet("/manager/manager/secession")
-public class managerSecessionServlet extends HttpServlet {
-
+@WebServlet("/manager/manager/boardDelete")
+public class managerBaordDeleteServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		String memberId = req.getParameter("memberId");
-		
-		
-		try {
-			
-			MemberService service = new MemberService();
 
-			int result = service.managerSecession(memberId);
+		String boardTitle = req.getParameter("boardTitle");
+		System.out.println(boardTitle);
+
+		try {
+
+			BoardService service = new BoardService();
+
+			int result = service.managerBoardDelete(boardTitle);
 			
+			
+			System.out.println(result);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
 }

@@ -1,7 +1,6 @@
 
-const result = document.getElementById("result1");
-const test = document.getElementsByName("memberId");
-const result2 = document.getElementById("result2")
+const result = document.getElementById("memberResult"); // 회원 input
+const result2 = document.getElementById("boardResult") // 게시글 input
 
 const chk1 = document.getElementById("chk1");
 
@@ -29,18 +28,30 @@ function banMember(){
     else memberStatus.text("Y");
 }
 
-function deleteBaord(){
+function deleteBoard(){
     
     $.ajax({
         url : "manager/boardDelete",
-        data : {}
+        data : {"boardTitle" : result2.value},
+        type : "POST",
+        success : function(){
+
+        },
+        error : function(){
+            console.log("에러발생")
+        }
     })
+
+    const boardStatus = $("#resultBoard > tr > td:last-of-type > div")
+    let boardSt = boardStatus.text();
+    if(boardSt == 'Y') boardStatus.text("N");
+    else boardStatus.text("Y");
 }
 
 /* ajax */
 document.getElementById("member-btn").addEventListener("click", function() {
-    const input = document.getElementById("searchMember");
-    const table = document.getElementById("resultMember");
+    const input = document.getElementById("searchMember"); // 회원 아이디 검색
+    const table = document.getElementById("resultMember"); // 회원 tbody
 
     $.ajax({
         url : "manager/selectMember",
@@ -100,7 +111,8 @@ document.getElementById("member-btn").addEventListener("click", function() {
                 tr.append(td1, td2, td3, td4, td5, td6, td7)
                 table.append(tr);
 
-                result.value = member.memberId;
+                result.value = member.memberId; // 회원 input에 들어가는 거
+
                 
             }else{
 
@@ -136,8 +148,8 @@ document.getElementById("member-btn").addEventListener("click", function() {
 
 document.getElementById("board-btn").addEventListener("click",function(){
 
-    const input = document.getElementById("searchBoard");
-    const result = document.getElementById("resultBoard");
+    const input = document.getElementById("searchBoard"); // board 검색
+    const result = document.getElementById("resultBoard"); // tbody
     const no = document.getElementById("noBoard");
 
     
@@ -187,6 +199,8 @@ document.getElementById("board-btn").addEventListener("click",function(){
 
                 tr.append(td1, td2, td3, td4, td5, td6)
                 result.append(tr);
+
+                result2.value = board.boardTitle;
 
             }else{
 

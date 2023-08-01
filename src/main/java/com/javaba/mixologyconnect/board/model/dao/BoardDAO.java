@@ -680,6 +680,30 @@ public class BoardDAO {
 		return likeMember;
 	}
 
+	/** 관리자 게시글 삭제 DAO
+	 * @param conn
+	 * @param boardTitle
+	 * @return result
+	 */
+	public int managerBoardDelete(Connection conn, String boardTitle) throws Exception {
+		
+		int result = 0;
+		
+		try {
 
+			String sql = prop.getProperty("managerBoardDelete"); 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, boardTitle); 
 
+			result = pstmt.executeUpdate();
+			
+			System.out.println(result);
+			System.out.println("나오라고 result");
+			
+		} finally { 
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }
