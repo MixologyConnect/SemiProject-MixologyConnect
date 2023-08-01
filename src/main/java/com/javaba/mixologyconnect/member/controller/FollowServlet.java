@@ -20,12 +20,12 @@ public class FollowServlet extends HttpServlet{
 	
 	try {
 		
-		int loginMemberNo = Integer.parseInt("loginMemberNo");
-		int boardNo = Integer.parseInt("boardNo");
-		
+		int loginMemberNo = Integer.parseInt(req.getParameter("loginMemberNo"));
+		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+		int followCheck = Integer.parseInt(req.getParameter("followCheck"));
 		MemberService service = new MemberService();
 		
-		Map<String, Integer> follow = service.followInsertDelete(loginMemberNo, boardNo);
+		Map<String, Integer> follow = service.followInsertDelete(loginMemberNo, boardNo, followCheck);
 		
 		new Gson().toJson(follow,resp.getWriter());
 		

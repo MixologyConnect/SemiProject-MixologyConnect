@@ -38,9 +38,9 @@
 
 							${detail.memberName}
 
-							
+							<!-- 팔로우 버튼 -->
 							<button type="button" id="followBtn" onclick="followBtnClick()">FOLLOW</button>
-							
+							<input type="hidden" name="0" id="followCheck">
 						</div>
 						<div class="date">${detail.boardDate}
 							<div class="views">조회수 : ${detail.readCount}</div>
