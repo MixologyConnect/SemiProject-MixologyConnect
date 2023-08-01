@@ -128,10 +128,24 @@
 
 	</entry>
 
+	<!-- 좋아요 했을 시  -->
+	<entry key="insertLike">
+		INSERT INTO BOARD_LIKE VALUES(?,?)
+	</entry>
+	<!-- 좋아요 취소 했을 시 -->
+	<entry key="deleteLike">
+		DELETE FROM BOARD_LIKE WHERE MEMBER_NO=? AND BOARD_NO=?
+	</entry>
+	<!-- 특정게시글의 좋아요 수 조회  -->
+	<entry key="selectLike">
+		SELECT COUNT(*) FROM BOARD_LIKE WHERE BOARD_NO=?
+
+
 	<entry key="searchBoard">
 		SELECT BOARD_NO, BOARD_TITLE, MEMBER_ID, MEMBER_TEL, BOARD_ST
 		FROM BOARD
 		JOIN MEMBER USING(MEMBER_NO)
 		WHERE BOARD_TITLE = ?
+
 	</entry>
 </properties>
