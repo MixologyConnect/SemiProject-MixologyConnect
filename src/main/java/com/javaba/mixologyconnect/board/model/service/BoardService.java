@@ -198,13 +198,13 @@ public int boardUpdate(BoardDetail detail, List<BoardImage> imageList, String de
 	return result;
 }
 
-/** 게시글 삭제
- * @param boardNo
- * @return result
- * @throws Exception
- */
-public int boardDelete(int boardNo) throws Exception{
-	
+	/** 게시글 삭제
+	 * @param boardNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int boardDelete(int boardNo) throws Exception{
+
 	Connection conn = getConnection();
 	
 	int result = dao.boardDelete(conn, boardNo);
@@ -262,8 +262,6 @@ public Map<String, Object> likeSelect(int memberNo, int boardNo, int likeCheck) 
 	//4. 회원이 좋아요한 게시글 조회 
 	
 }
-
-
 
 
 
