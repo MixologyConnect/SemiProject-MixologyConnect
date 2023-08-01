@@ -5,7 +5,7 @@
     
     /* 좋아요 누르면 하트 채워지기 */
     
-    var cnt = 1;
+   var cnt = 1;
     
     function likeBtnClick() {
         
@@ -13,18 +13,53 @@
             alert("로그인후 이용해주세요.")
         }else{
             const img = document.getElementById("likeBtnImg");
+            let likeCheck = document.getElementById('likeCheck');
             img.src = contextPath + "/resources/images/heart-fill.svg";
         
             if(cnt%2==1) {
-                img.src = contextPath + "/resources/images/heart-fill.svg";
+               
+                likeCheck.removeAttribute("name")
+                likeCheck.setAttribute("name",1)
             }else {
-                img.src = contextPath + "/resources/images/heart.svg";
+                likeCheck.removeAttribute("name")
+                likeCheck.setAttribute("name",0)
             }
             cnt++;
-            console.log(cnt)
+            
+            const nameValue = likeCheck.getAttribute("name");
+            console.log(nameValue);
+
+
+            $.ajax({
+                url:contextPath+"/board/like",
+                type:"post",
+                dataType : "JSON",
+                data: {'loginMemberNo': loginMemberNo,
+                        'boardNo' : boardNo,
+                        'likeCheck' : likeCheck.getAttribute("name")
+                    },
+                success : function(data){
+                    if(data == 1){
+                        img.src = contextPath + "/resources/images/heart.svg"
+                    }else{
+                        img.src = contextPath + "/resources/images/heart-fill.svg";
+                    }
+        
+                },
+                error : function(data){
+                    img.src = contextPath + "/resources/images/heart.svg"
+                    console.log("오류발생")
+                }
+            })
+            
         }
 
     }
+
+    
+    
+
+   
     
     function bookBtnClick() {
         if(loginMemberNo==""){
@@ -44,13 +79,6 @@
         
 
     }
-
-
-
-
-
-
-    // 좋아요 구현 
 
 
 
