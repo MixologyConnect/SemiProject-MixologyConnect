@@ -1,5 +1,16 @@
 
-    
+  $(document).ready(function(){
+    console.log(likeMember)
+
+    if(likeMember==boardNo){
+        const img = document.getElementById("likeBtnImg");
+        img.src = contextPath + "/resources/images/heart-fill.svg";
+    }
+    if(likeMember!=boardNo){
+        const img = document.getElementById("likeBtnImg");
+        img.src = contextPath + "/resources/images/heart.svg";
+    }
+  })  
     
     
     
@@ -16,7 +27,7 @@
             let likeCheck = document.getElementById('likeCheck');
             img.src = contextPath + "/resources/images/heart-fill.svg";
         
-            if(cnt%2==1) {
+            if(likeCheck.getAttribute("name")==0) {
                 img.src = contextPath + "/resources/images/heart-fill.svg";
                 likeCheck.removeAttribute("name")
                 likeCheck.setAttribute("name",1)
