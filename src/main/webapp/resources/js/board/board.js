@@ -1,10 +1,10 @@
 // 목록으로
 (function(){
-    const goToBtn = document.getElementById("goToBtn");
+    const Btn = document.getElementById("goToBtn");
 
-    if(goToBtn != "") {
+    if(Btn != "") {
         
-        goToBtn.addEventListener("click", function(){
+        Btn.addEventListener("click", function(){
 
             const pathname = location.pathname; 
 

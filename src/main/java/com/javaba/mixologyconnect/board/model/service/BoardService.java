@@ -198,13 +198,13 @@ public int boardUpdate(BoardDetail detail, List<BoardImage> imageList, String de
 	return result;
 }
 
-/** 게시글 삭제
- * @param boardNo
- * @return result
- * @throws Exception
- */
-public int boardDelete(int boardNo) throws Exception{
-	
+	/** 게시글 삭제
+	 * @param boardNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int boardDelete(int boardNo) throws Exception{
+
 	Connection conn = getConnection();
 	
 	int result = dao.boardDelete(conn, boardNo);
@@ -245,8 +245,6 @@ public List<BoardImage> selectImage(int boardNo) throws Exception {
 //	
 //	return boardNo;
 //}
-
-
 
 
 

@@ -162,7 +162,7 @@
 }
 
 /* 작성완료 버튼 */
-#btn {
+.btn > button {
     width: 85px;
     height: 40px;
     font-size: 15px;
@@ -176,7 +176,7 @@
     cursor: pointer;
 }
 
-#btn:hover {
+.btn > button:hover {
     color: rgb(0, 220, 244);
     background-color: white;
     border: 2px solid rgb(0, 220, 244);
