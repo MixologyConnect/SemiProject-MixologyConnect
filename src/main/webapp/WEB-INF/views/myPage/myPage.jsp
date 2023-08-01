@@ -33,8 +33,8 @@
             <section class="follow2">
                 <div id="top">@chosungjin</div>
                 <div class="bottom">
-                    <span><a href="#">팔로워 8</a></span>
-                    <span><a href="#">팔로잉 3</a></span>
+                    <span><a href="#">팔로워 ${followers.size()}</a></span>
+                    <span><a href="#">팔로잉 ${followings.size()}</a></span>
                 </div>
             </section>
         </section>
