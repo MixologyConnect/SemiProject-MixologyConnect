@@ -139,6 +139,28 @@ public class MypageService {
 
 
 
+
+		/** 북마크 버튼 이미지 
+		 * @param boardNo
+		 * @param loginMember
+		 * @return result
+		 * @throws Exception
+		 */
+		public int existNo(int boardNo, Member loginMember)throws Exception {
+			
+			Connection conn = getConnection();
+			
+			int result = dao.existNo(conn, boardNo, loginMember);
+			
+			close(conn);
+			
+			return result;
+		}
+
+
+
+
+
 	
 		
 		

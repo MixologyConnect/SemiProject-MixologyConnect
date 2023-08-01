@@ -70,6 +70,13 @@
 		WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	
+	<!-- 북마크 버튼 이미지 -->
+	<entry key="btnImage">
+		SELECT BOARD_NO FROM BOOKMARK_TB
+		WHERE BOARD_NO = ?
+		AND MEMBER_NO = ?
+	</entry>
 
 
 
