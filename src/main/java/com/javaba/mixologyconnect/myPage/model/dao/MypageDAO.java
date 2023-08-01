@@ -247,35 +247,6 @@ public class MypageDAO {
 	
 	
 
-	/** 북마크 삽입 DAO
-	 * @param conn
-	 * @param boardNo
-	 * @return result
-	 * @throws Exception
-	 */
-	public int bookMarkInsert(Connection conn, BookMark bk)throws Exception {
-		int result = 0;
-		try {
-			
-			String sql = prop.getProperty("insert");
-			
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, bk.getBoardNo());
-			pstmt.setString(2, bk.getBoardTitle());
-			pstmt.setString(3, bk.getMemberName());
-			pstmt.setInt(4, bk.getReadCount());
-			
-			result = pstmt.executeUpdate();
-			System.out.println("insert 결과값 : " + result);
-			
-			
-		}finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}
 
 
 	/** 북마크 테이블 게시글 수 조회 DAO
@@ -283,18 +254,19 @@ public class MypageDAO {
 	 * @return listCount
 	 * @throws Exception
 	 */
-	public int bookMarkListCount(Connection conn)throws Exception {
+	public int bookMarkListCount(Connection conn, Member loginMember)throws Exception {
 		int listCount = 0;
 		
 		try {
 			
 			String sql = prop.getProperty("listCount");
 			
-		
+			pstmt = conn.prepareStatement(sql);
 			
-			stmt = conn.createStatement();
+			pstmt.setInt(1, loginMember.getMemberNo());
 			
-			rs = stmt.executeQuery(sql);
+			rs = pstmt.executeQuery();
+			
 			
 			if(rs.next()) {
 				listCount = rs.getInt(1);
@@ -311,13 +283,13 @@ public class MypageDAO {
 	}
 
 
+	
 	/** 북마크 게시글 목록 조회 DAO
 	 * @param conn
 	 * @param pagination
 	 * @return
 	 */
-	public List<BookMark> bookMarkList(Connection conn, Pagination pagination) throws Exception{
-		
+	public List<BookMark> bookMarkList(Connection conn, Pagination pagination, Member loginMember)throws Exception {
 		List<BookMark> bookMarkList = new ArrayList<>();
 		
 		try {
@@ -331,8 +303,9 @@ public class MypageDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, end);
+			pstmt.setInt(1, loginMember.getMemberNo());
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
 			
 			rs = pstmt.executeQuery();
 			
@@ -342,11 +315,11 @@ public class MypageDAO {
 				
 				BookMark bk = new BookMark();
 				
-				bk.setBoardNo(rs.getInt("BOOKMARK_NO"));
-				bk.setBoardTitle(rs.getString("BOOKMARK_TITLE"));
-				bk.setMemberName(rs.getString("BOOKMARK_NICK"));
-				bk.setCreateDate(rs.getString("BOOKMARK_DT"));
-				bk.setReadCount(rs.getInt("BOOKMARK_COUNT"));
+				bk.setBoardNo(rs.getInt("BOARD_NO"));
+				bk.setBoardTitle(rs.getString("BOARD_TITLE"));
+				bk.setMemberName(rs.getString("MEMBER_NICK"));
+				bk.setCreateDate(rs.getString("CREATE_DT"));
+				bk.setReadCount(rs.getInt("READ_COUNT"));
 				
 				bookMarkList.add(bk);
 				
@@ -362,6 +335,38 @@ public class MypageDAO {
 		
 		
 		return bookMarkList;
+	}
+
+
+	/** 북마크 삽입 DAO
+	 * @param conn
+	 * @param boardNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int bookMarkInsert(Connection conn, BookMark bk, Member loginMember)throws Exception {
+		int result = 0;
+		try {
+			
+			String sql = prop.getProperty("insert");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			pstmt.setInt(2, bk.getBoardNo());
+			pstmt.setString(3, bk.getBoardTitle());
+			pstmt.setString(4, bk.getMemberName());
+			pstmt.setInt(5, bk.getReadCount());
+			
+			result = pstmt.executeUpdate();
+			System.out.println("insert 결과값 : " + result);
+			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 	
 	
