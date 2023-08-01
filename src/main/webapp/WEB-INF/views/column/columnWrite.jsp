@@ -75,7 +75,7 @@
                         <button type="submit" id="btn" >작성 완료</button>
                         <!-- insert 모드 -->
                         <c:if test="${param.mode == 'insert'}">
-                            <button type="button" onclick="location.href='${header.referer}'">목록으로</button>
+                            <button type="button" id="goToBtn">목록으로</button>
                         </c:if>
     
                         <!-- update 모드 -->
@@ -102,7 +102,7 @@
 
     </div>
     <script src="${contextPath}/resources/js/columnWrite.js"></script>
-    <script src="${contextPath}/resources/js/board.js"></script>
+
     
 </body>
 </html>
