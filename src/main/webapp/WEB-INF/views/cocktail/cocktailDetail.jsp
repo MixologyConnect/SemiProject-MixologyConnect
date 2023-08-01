@@ -17,7 +17,6 @@
 			<p>칵테일 정보</p>
             <p>${cocktail.cocktailName}</p>
 		</div>
-        <div id="page-divider"></div>
         <div id="cocktail-detail">
             <div id="cocktail-image">
                 <img src="${contextPath}${cocktail.imagePath}">
@@ -40,16 +39,14 @@
                     </table>
                     <p> </p>
                 </div>
-                <div id="divider"></div>
                 <div id="cocktail-description">
                     <h2>설명</h2>
                     <p>${cocktail.cocktailContent}</p>
                 </div>
             </div>
         </div>
-        <div id="page-divider"></div>
         <div id="cocktail-recipe">
-            <h2>RECIPE</h2>
+            <h2>레시피</h2>
             <p>${cocktail.recipeContent}</p>
             <ul>
                 <c:forEach var="cktl" items="${cocktail.recipe}">
@@ -63,7 +60,6 @@
                 </c:forEach>
             </ul>
         </div>
-        <div id="page-divider"></div>
         <div id="cocktail-page">
             <p>다음 칵테일  이전 칵테일  목록으로</p>
         </div>

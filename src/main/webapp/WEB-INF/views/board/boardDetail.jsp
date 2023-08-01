@@ -85,12 +85,20 @@
 									<img id="bookBtnImg" src="${contextPath}/resources/images/bookmark.svg"
 										onclick="bookBtnClick()">
 								</button>
+								
 								<button type="button" id="likeBtn">
 									<img src="${contextPath}/resources/images/heart.svg" id="likeBtnImg"
 										onclick="likeBtnClick()"> 
-									<input type="hidden" id="likeCheck" name="0">
+
+									<c:if test="${likeMember==detail.boardNo}">
+										<input type="hidden" id="likeCheck" name="1">
+									</c:if>
+									<c:if test="${likeMember!=detail.boardNo}">
+										<input type="hidden" id="likeCheck" name="0">
+									</c:if>
 								</button>
 								<span id="likeResult">${likeCount}</span>
+								
 								
 
 							</div>
@@ -135,7 +143,7 @@
 
 								const loginMemberNo = "${loginMember.memberNo}";
 
-								
+								const likeMember = "${likeMember}"
 							</script>
 
 							<script src="${contextPath}/resources/js/board/reply.js"></script>
