@@ -33,7 +33,7 @@ public class BoardDetailServlet extends HttpServlet {
 		BoardService service = new BoardService();
 		
 		BoardDetail detail = service.selectBoardDetail(boardNo);
-		
+		int likeCount = service.selectLike(boardNo);
 		List<BoardImage> ImageList = detail.getImageList();
 		
 		if(detail != null) {
@@ -52,7 +52,7 @@ public class BoardDetailServlet extends HttpServlet {
 		}
 		
 		req.setAttribute("detail", detail);
-		
+		req.setAttribute("likeCount", likeCount);
 		String path = "/WEB-INF/views/board/boardDetail.jsp";
 		RequestDispatcher dispatcher = req.getRequestDispatcher(path);
 		

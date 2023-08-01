@@ -44,6 +44,7 @@
                         
                         
                         const likeResult = document.getElementById("likeResult");
+                        likeResult.innerText= "";
                         likeResult.innerText= like.likeCount;
                         
                         
@@ -52,6 +53,7 @@
                         
                         
                         const likeResult = document.getElementById("likeResult");
+                        likeResult.innerText= "";
                         likeResult.innerText= like.likeCount;
                     }
         

@@ -26,4 +26,5 @@ public class BoardDetail {
 	
 	private List<BoardImage> imageList;
 	
+	
 }

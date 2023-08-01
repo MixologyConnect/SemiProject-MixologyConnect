@@ -140,7 +140,7 @@
 	<entry key="selectLike">
 		SELECT COUNT(*) FROM BOARD_LIKE WHERE BOARD_NO=?
 
-
+	</entry>
 	<entry key="searchBoard">
 		SELECT BOARD_NO, BOARD_TITLE, MEMBER_ID, MEMBER_TEL, BOARD_ST
 		FROM BOARD

@@ -190,7 +190,6 @@ public class BoardDAO {
 				detail.setMemberNo(rs.getInt("MEMBER_NO"));
 				detail.setBoardName(rs.getString("BOARD_NM"));
 				detail.setProfileImage(rs.getString("MEMBER_PROFILE"));
-
 			}
 
 		} finally {
@@ -620,7 +619,7 @@ public class BoardDAO {
 	 * @param boardNo
 	 * @return likeCount
 	 */
-	public int selectLike(Connection conn, int memberNo, int boardNo) throws Exception{
+	public int selectLike(Connection conn, int boardNo) throws Exception{
 		
 		int likeCount = 0;
 		
@@ -650,5 +649,6 @@ public class BoardDAO {
 	
 	}
 
+	
 
 }
