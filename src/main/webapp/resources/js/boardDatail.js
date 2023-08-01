@@ -13,10 +13,7 @@
         img.src = contextPath + "/resources/images/heart.svg";
     }
     //내 게시글 팔로우 막기 
-    if(writerNo == loginMemberNo){
-        const button = document.getElementById("followBtn");
-        button.remove();
-    }
+   
     //목록으로 돌아가기 후에 내가 팔로우한 사람 은 unfollow 뜨게하기 
 
   })  
@@ -110,15 +107,17 @@ function followBtnClick() {
 
         
         let followCheck = document.getElementById('followCheck');
-      
+        const followBtn = document.getElementById('followBtn');
     
         if(followCheck.getAttribute("name")==0) {
             
             followCheck.removeAttribute("name")
             followCheck.setAttribute("name",1)
+            followBtn.innerText="UNFOLLOW"
         }else {
             followCheck.removeAttribute("name")
             followCheck.setAttribute("name",0)
+            followBtn.innerText="FOLLOW"
         }
         
         const nameValue = followCheck.getAttribute("name");

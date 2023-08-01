@@ -239,13 +239,13 @@ public class MemberService {
 
 		//게시글 작성자 회원번호 조회 
 		int boardWriter = dao.selectBoardWrite(conn, boardNo);
-		int followResult= 0;
+		int followingNo= 0;
 		int dFollowResult=0;
-		int followSelect = 0;
+		int followResult = 0;
 		
 		
-		followSelect = dao.selectFollower(conn, loginMemberNo);
-		if(followSelect == 0) {
+		followingNo = dao.selectFollower(conn, loginMemberNo, boardWriter);
+		if(followingNo==boardWriter) {
 			if(followCheck > 0) {
 				// 팔로우하기 결과 반환 변수
 				followResult = dao.insertfollow(conn, boardWriter, loginMemberNo);
@@ -305,12 +305,12 @@ public class MemberService {
 	 * @param loginMemberNo
 	 * @return
 	 */
-	public int selectFollower(int loginMemberNo) throws Exception {
-		int writerNo = 0;
+	public int selectFollower(int loginMemberNo, int writerNo ) throws Exception {
+		int followingNo = 0;
 		Connection conn = getConnection();
-		writerNo = dao.selectFollower(conn, loginMemberNo);
+		followingNo = dao.selectFollower(conn, loginMemberNo, writerNo);
 		close(conn);
-		return writerNo;
+		return followingNo;
 	}
 
 
