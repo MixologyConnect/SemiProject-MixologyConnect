@@ -58,32 +58,5 @@ public class BoardAllServlet extends HttpServlet {
 	
 	
 	} 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		doGet(req, resp);
-		
-//		try {
-//			
-//				
-//				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
-//				System.out.println(boardNo);
-//				
-//				BoardService service = new BoardService();
-//				
-//				List<BoardImage> imageList = service.selectImage(boardNo);
-//				
-//				System.out.println(imageList);
-//				
-//				resp.getWriter().print(imageList);			
-//				
-//			
-//			
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//		}
-	
-	
-	}
-	
+
 }
