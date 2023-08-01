@@ -475,7 +475,7 @@ public class MemberDAO {
 			rs= pstmt.executeQuery();
 			
 			if(rs.next()) {
-				boardWrite=rs.getInt("MEMBET_NO");
+				boardWrite=rs.getInt("MEMBER_NO");
 			}
 		} finally {
 			close(rs);

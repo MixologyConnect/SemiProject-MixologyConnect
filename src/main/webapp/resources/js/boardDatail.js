@@ -51,6 +51,7 @@
                         'likeCheck' : likeCheck.getAttribute("name")
                     },
                 success : function(like){
+                    
                     if(like.likeResult == 1){
                         
                         
@@ -71,6 +72,7 @@
                 },
                 error : function(like){
                     img.src = contextPath + "/resources/images/heart.svg"
+                    
                     console.log("오류발생")
                 }
             })
@@ -84,6 +86,24 @@
 
    
     
+    function bookBtnClick() {
+        if(loginMemberNo==""){
+            alert("로그인후 이용해주세요.")
+        }else{
+            const img = document.getElementById("bookBtnImg");
+            img.src = contextPath + "/resources/images/bookmark-fill.svg";
+        
+            if(cnt%2==1) {
+                img.src = contextPath + "/resources/images/bookmark-fill.svg";
+            }else {
+                img.src = contextPath + "/resources/images/bookmark.svg";
+            }
+            cnt++;
+
+        }
+        
+
+    }
 
 
 
@@ -91,9 +111,28 @@
 
 // follow 버튼 클릭 시 
 function followBtnClick() {
+    
     if(loginMemberNo==""){
         alert("로그인후 이용해주세요.")
     }else{
+
+        
+        let followCheck = document.getElementById('followCheck');
+      
+    
+        if(followCheck.getAttribute("name")==0) {
+            
+            followCheck.removeAttribute("name")
+            followCheck.setAttribute("name",1)
+        }else {
+            followCheck.removeAttribute("name")
+            followCheck.setAttribute("name",0)
+        }
+        
+        const nameValue = followCheck.getAttribute("name");
+        console.log(nameValue);
+
+
 
         $.ajax({
             url:contextPath+"/member/follow",
@@ -101,18 +140,70 @@ function followBtnClick() {
             dataType : "JSON",
             data: {'loginMemberNo': loginMemberNo,
                     'boardNo' : boardNo,
+                    'followCheck' : followCheck.getAttribute("name")
                     },
                 success : function(follow){
-                    if(follow == 1){
-                        
-                    
-                    }else if(follow ==0){
-                        Text= like.likeCount;
+                    if(follow.followResult == 1){
+                        const followBtn = document.getElementById("followBtn");
+                        followBtn.removeAttribute("onclick")
+                        followBtn.setAttribute("onclick","followCansle()");
+                        followBtn.innerHTML="";
+                        followBtn.innerHTML="UNFOLLOW";
                     }
         
                 },
                 error : function(follow){
-                    img.src = contextPath + "/resources/images/heart.svg"
+                   
+                    console.log("오류발생")
+                }
+
+
+        })
+
+
+    }
+}
+
+function followCansle(){
+    
+    if(loginMemberNo==""){
+        alert("로그인후 이용해주세요.")
+    }else{
+
+        let followCheck = document.getElementById('followCheck');
+      
+    
+        if(followCheck.getAttribute("name")==0) {
+            
+            followCheck.removeAttribute("name")
+            followCheck.setAttribute("name",1)
+        }else {
+            followCheck.removeAttribute("name")
+            followCheck.setAttribute("name",0)
+        }
+        
+        const nameValue = followCheck.getAttribute("name");
+        console.log(nameValue);
+
+
+        $.ajax({
+            url:contextPath+"/member/follow",
+            type:"post",
+            dataType : "JSON",
+            data: {'loginMemberNo': loginMemberNo,
+                    'boardNo' : boardNo,
+                    'followCheck' : followCheck.getAttribute("name")
+                    },
+                success : function(follow){
+                    if(follow.dFollowResult == 1){
+                        const followBtn = document.getElementById("followBtn");
+                        followBtn.removeAttribute("onclick")
+                        followBtn.setAttribute("onclick","followBtnClick()");
+                        followBtn.innerHTML="";
+                        followBtn.innerHTML="FOLLOW";
+                    }
+                },
+                error : function(follow){
                     console.log("오류발생")
                 }
 

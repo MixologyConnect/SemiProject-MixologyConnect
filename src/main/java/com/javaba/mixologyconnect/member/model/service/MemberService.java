@@ -233,19 +233,22 @@ public class MemberService {
 	 * @param boardNo
 	 * @return
 	 */
-	public Map<String, Integer> followInsertDelete(int loginMemberNo, int boardNo) throws Exception {
+	public Map<String, Integer> followInsertDelete(int loginMemberNo, int boardNo, int followCheck) throws Exception {
 
 		Connection conn = getConnection();
 
 		//게시글 작성자 회원번호 조회 
 		int boardWriter = dao.selectBoardWrite(conn, boardNo);
-
-		// 팔로우하기 결과 반환 변수
-		int followResult = dao.insertfollow(conn, boardWriter, loginMemberNo);
-
-		//팔로우 취소하기 결과 변환 변수
-		int dFollowResult = dao.deletefollow(conn, boardWriter, loginMemberNo);
-
+		int followResult= 0;
+		int dFollowResult=0;
+		
+		if(followCheck==1) {
+			// 팔로우하기 결과 반환 변수
+			followResult = dao.insertfollow(conn, boardWriter, loginMemberNo);
+		}else if(followCheck== 0) {
+			//팔로우 취소하기 결과 변환 변수
+			dFollowResult = dao.deletefollow(conn, boardWriter, loginMemberNo);
+		}
 
 		Map<String, Integer> map = new HashMap<>();
 
@@ -254,10 +257,10 @@ public class MemberService {
 		map.put("dFollowResult", dFollowResult);
 
 
-		if(followResult>0) 	commit(conn);
+		if(followResult> 0) 	commit(conn);
 		else 				rollback(conn);
 		
-		if(dFollowResult>0) 	commit(conn);
+		if(dFollowResult> 0) 	commit(conn);
 		else 				rollback(conn);
 
 		close(conn);
