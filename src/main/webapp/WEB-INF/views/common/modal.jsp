@@ -2,19 +2,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div id="overlay">
-    <div id="modal-account">
-        <form id="modal-account-form" action="${contextPath}/member/login" method="post">
-            <img id="modal-account-logo" src="${contextPath}/resources/images/logo2.svg">
-            <p id="modal-account-head">Mixology Connect</p>
-            <h3 id="modal-account-login">로그인</h3>
-            <input class="modal-account-input" name="inputId" type="text" placeholder="ID">
-            <input class="modal-account-input" name="inputPw" type="password" placeholder="PW">
+    <div id="modal">
+        <form id="modal-login-form" action="${contextPath}/member/login" method="post">
+            <img id="modal-login-logo" src="${contextPath}/resources/images/logo2.svg">
+            <p id="modal-login-head">Mixology Connect</p>
+            <h3>로그인</h3>
+            <input class="modal-login-input" name="inputId" type="text" placeholder="ID">
+            <input class="modal-login-input" name="inputPw" type="password" placeholder="PW">
             <span>아이디 저장</span><input type="checkbox">
             <span>아직 회원이 아니신가요?</span>&nbsp;<a>회원가입</a>
-            <button id="modal-account-button">LOGIN</button>
+            <button id="modal-login-button">LOGIN</button>
         </form>
-    </div>
-    <div id="modal-signup">
         <form id="modal-signup-form" action="signUp" method="post" name="signUp-form" onsubmit="return signValidate()">
             <fieldset>
                 <h2>회원가입</h2>
