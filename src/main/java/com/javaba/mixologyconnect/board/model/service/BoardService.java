@@ -337,8 +337,6 @@ public class BoardService {
 		Connection conn = getConnection();
 		
 		int result = dao.managerBoardDelete(conn,boardTitle);
-		System.out.println("뭐라도 나와");
-		
 		
 		if(result>0) 	commit(conn);
 		else 				rollback(conn);
@@ -347,7 +345,8 @@ public class BoardService {
 		
 		return result;
 	}
-
+	
+	
 	public Map<String, Object> boardListPopularity(int type, int cp) throws Exception {
 		
 		Connection conn = getConnection();
