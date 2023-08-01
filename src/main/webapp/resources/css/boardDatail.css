@@ -1,8 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/segoe-ui-4');
-
 * {
-    font-family: "Segoe UI";
-    color: rgb(60, 60, 60);
     box-sizing: border-box;
 }
 
@@ -68,6 +64,7 @@
     height: 50vh;
     width: 1000px;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-around;
     
 }

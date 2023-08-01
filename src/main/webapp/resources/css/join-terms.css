@@ -1,11 +1,6 @@
 @charset "UTF-8";
 /* *{border: 1px solid black;} */
 
-* {
-    font-family: "Segoe UI";
-    color: rgb(60, 60, 60);
-}
-
 #terms-area{
     width: 700px;
     height: 750px;

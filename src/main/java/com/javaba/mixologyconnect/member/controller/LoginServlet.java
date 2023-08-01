@@ -25,6 +25,7 @@ public class LoginServlet extends HttpServlet {
 
 			if(loginMember != null) session.setAttribute("loginMember", loginMember);
 			else session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			session.setMaxInactiveInterval(3600);
 
 			//resp.sendRedirect(req.getContextPath());
 			resp.sendRedirect(req.getHeader("referer"));

@@ -1,6 +1,8 @@
 
   $(document).ready(function(){
-    console.log(likeMember)
+    console.log(likeMember);
+    console.log(writerNo);
+    console.log(loginMemberNo);
 
     if(likeMember==boardNo){
         const img = document.getElementById("likeBtnImg");
@@ -10,6 +12,10 @@
         const img = document.getElementById("likeBtnImg");
         img.src = contextPath + "/resources/images/heart.svg";
     }
+    //내 게시글 팔로우 막기 
+   
+    //목록으로 돌아가기 후에 내가 팔로우한 사람 은 unfollow 뜨게하기 
+
   })  
     
     
@@ -51,6 +57,7 @@
                         'likeCheck' : likeCheck.getAttribute("name")
                     },
                 success : function(like){
+                    
                     if(like.likeResult == 1){
                         
                         
@@ -71,6 +78,7 @@
                 },
                 error : function(like){
                     img.src = contextPath + "/resources/images/heart.svg"
+                    
                     console.log("오류발생")
                 }
             })
@@ -84,6 +92,7 @@
 
    
     
+   
 
 
 
@@ -91,9 +100,30 @@
 
 // follow 버튼 클릭 시 
 function followBtnClick() {
+    
     if(loginMemberNo==""){
         alert("로그인후 이용해주세요.")
     }else{
+
+        
+        let followCheck = document.getElementById('followCheck');
+        const followBtn = document.getElementById('followBtn');
+    
+        if(followCheck.getAttribute("name")==0) {
+            
+            followCheck.removeAttribute("name")
+            followCheck.setAttribute("name",1)
+            followBtn.innerText="UNFOLLOW"
+        }else {
+            followCheck.removeAttribute("name")
+            followCheck.setAttribute("name",0)
+            followBtn.innerText="FOLLOW"
+        }
+        
+        const nameValue = followCheck.getAttribute("name");
+        console.log(nameValue);
+
+
 
         $.ajax({
             url:contextPath+"/member/follow",
@@ -101,18 +131,23 @@ function followBtnClick() {
             dataType : "JSON",
             data: {'loginMemberNo': loginMemberNo,
                     'boardNo' : boardNo,
+                    'followCheck' : followCheck.getAttribute("name")
                     },
                 success : function(follow){
-                    if(follow == 1){
-                        
-                    
-                    }else if(follow ==0){
-                        Text= like.likeCount;
+                    if(follow.followResult == 1){
+                        const followBtn = document.getElementById("followBtn");
+                        followBtn.innerHTML="";
+                        followBtn.innerHTML="UNFOLLOW";
+                    }else if(follow.dfollowResult == 1){
+                        const followBtn = document.getElementById("followBtn");
+                        followBtn.innerHTML="";
+                        followBtn.innerHTML="FOLLOW";
+
                     }
         
                 },
                 error : function(follow){
-                    img.src = contextPath + "/resources/images/heart.svg"
+                   
                     console.log("오류발생")
                 }
 
@@ -122,3 +157,51 @@ function followBtnClick() {
 
     }
 }
+
+// function followCansle(){
+    
+//     if(loginMemberNo==""){
+//         alert("로그인후 이용해주세요.")
+//     }else{
+
+//         let followCheck = document.getElementById('followCheck');
+      
+    
+//         if(followCheck.getAttribute("name")==0) {
+            
+//             followCheck.removeAttribute("name")
+//             followCheck.setAttribute("name",1)
+//         }else {
+//             followCheck.removeAttribute("name")
+//             followCheck.setAttribute("name",0)
+//         }
+        
+//         const nameValue = followCheck.getAttribute("name");
+//         console.log("name: "+nameValue);
+
+
+//         $.ajax({
+//             url:contextPath+"/member/follow",
+//             type:"post",
+//             dataType : "JSON",
+//             data: {'loginMemberNo': loginMemberNo,
+//                     'boardNo' : boardNo,
+//                     'followCheck' : followCheck.getAttribute("name")
+//                     },
+//                 success : function(follow){
+//                     if(follow.dFollowResult == 1){
+//                         const followBtn = document.getElementById("followBtn");
+//                         followBtn.innerHTML="";
+//                         followBtn.innerHTML="FOLLOW";
+//                     }
+//                 },
+//                 error : function(follow){
+//                     console.log("오류발생")
+//                 }
+
+
+//         })
+
+
+//     }
+// }

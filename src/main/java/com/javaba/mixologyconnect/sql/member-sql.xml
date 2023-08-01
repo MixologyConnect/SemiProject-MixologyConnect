@@ -112,5 +112,10 @@
 		DELETE FROM FOLLOW WHERE FOLLOWER_NO =? AND MEMBER_NO =?
 	</entry>
 	
+	<!-- 팔로우 했는지 조회 -->
+	<entry key="selectFollower">
+		SELECT MEMBER_NO FROM FOLLOW WHERE FOLLOWER_NO=? AND MEMBER_NO=?
+	</entry>
+	
 	
 </properties>

@@ -475,7 +475,7 @@ public class MemberDAO {
 			rs= pstmt.executeQuery();
 			
 			if(rs.next()) {
-				boardWrite=rs.getInt("MEMBET_NO");
+				boardWrite=rs.getInt("MEMBER_NO");
 			}
 		} finally {
 			close(rs);
@@ -541,6 +541,36 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		return dfollowResult;
+	}
+
+	
+	/**
+	 * 로그인한 회원이 이미 팔로 우한 회원인지 조회하는 Dao
+	 * @param conn
+	 * @param loginMemberNo
+	 * @return
+	 */
+	public int selectFollower(Connection conn, int loginMemberNo, int memberNo) throws Exception{
+		int followingNo=0;
+		try {
+			String sql = prop.getProperty("selectFollower");
+
+			pstmt= conn.prepareStatement(sql);
+
+			pstmt.setInt(1, loginMemberNo );
+			pstmt.setInt(2, memberNo );
+
+			rs=pstmt.executeQuery();
+
+			if(rs.next()) {
+				
+			}
+
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return followingNo;
 	}
 	
 }

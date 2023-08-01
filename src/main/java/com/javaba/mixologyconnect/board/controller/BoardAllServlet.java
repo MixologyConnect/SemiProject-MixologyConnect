@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.javaba.mixologyconnect.board.model.service.BoardService;
+import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import com.javaba.mixologyconnect.board.model.vo.BoardImage;
 
@@ -52,11 +53,23 @@ public class BoardAllServlet extends HttpServlet {
 			dispatcher.forward(req, resp);
 			
 			
+			
+			
+			
+			
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 	
 	
 	} 
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+		doGet(req,resp);
+	
+	}
 
 }

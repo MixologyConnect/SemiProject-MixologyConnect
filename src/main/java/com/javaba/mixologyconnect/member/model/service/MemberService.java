@@ -233,19 +233,30 @@ public class MemberService {
 	 * @param boardNo
 	 * @return
 	 */
-	public Map<String, Integer> followInsertDelete(int loginMemberNo, int boardNo) throws Exception {
+	public Map<String, Integer> followInsertDelete(int loginMemberNo, int boardNo, int followCheck) throws Exception {
 
 		Connection conn = getConnection();
 
 		//게시글 작성자 회원번호 조회 
 		int boardWriter = dao.selectBoardWrite(conn, boardNo);
-
-		// 팔로우하기 결과 반환 변수
-		int followResult = dao.insertfollow(conn, boardWriter, loginMemberNo);
-
-		//팔로우 취소하기 결과 변환 변수
-		int dFollowResult = dao.deletefollow(conn, boardWriter, loginMemberNo);
-
+		int followingNo= 0;
+		int dFollowResult=0;
+		int followResult = 0;
+		
+		
+		followingNo = dao.selectFollower(conn, loginMemberNo, boardWriter);
+		if(followingNo==boardWriter) {
+			if(followCheck > 0) {
+				// 팔로우하기 결과 반환 변수
+				followResult = dao.insertfollow(conn, boardWriter, loginMemberNo);
+			}else if(followCheck == 0) {
+				//팔로우 취소하기 결과 변환 변수
+				dFollowResult = dao.deletefollow(conn, boardWriter, loginMemberNo);
+			}
+		}else {
+			dFollowResult = dao.deletefollow(conn, boardWriter, loginMemberNo);
+		}
+		
 
 		Map<String, Integer> map = new HashMap<>();
 
@@ -253,12 +264,15 @@ public class MemberService {
 		map.put("followResult", followResult);
 		map.put("dFollowResult", dFollowResult);
 
-
-		if(followResult>0) 	commit(conn);
-		else 				rollback(conn);
-		
-		if(dFollowResult>0) 	commit(conn);
-		else 				rollback(conn);
+		if(followCheck > 0) {
+			if(followResult> 0) 	commit(conn);
+			else 				rollback(conn);
+			
+		}
+		if(followCheck == 0) {
+			if(dFollowResult> 0) 	commit(conn);
+			else 				rollback(conn);
+		}
 
 		close(conn);
 		return map;
@@ -285,6 +299,18 @@ public class MemberService {
 
 		return result;
 
+	}
+
+	/**로그인한 회원이 현재 글 작성자를 팔로우 했는지 조회
+	 * @param loginMemberNo
+	 * @return
+	 */
+	public int selectFollower(int loginMemberNo, int writerNo ) throws Exception {
+		int followingNo = 0;
+		Connection conn = getConnection();
+		followingNo = dao.selectFollower(conn, loginMemberNo, writerNo);
+		close(conn);
+		return followingNo;
 	}
 
 

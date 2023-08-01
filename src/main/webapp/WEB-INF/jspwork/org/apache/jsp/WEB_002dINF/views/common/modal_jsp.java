@@ -147,7 +147,7 @@ public final class modal_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </form>\r\n");
       out.write("    </div>\r\n");
       out.write("    <div id=\"modal-signup\">\r\n");
-      out.write("        <form id=\"modal-signup-form\" action=\"signUp\" method=\"post\" name=\"signUp-form\" onsubmit=\"return signValidate()\">\r\n");
+      out.write("        <form id=\"modal-signup\" action=\"signUp\" method=\"post\" name=\"signUp-form\" onsubmit=\"return signValidate()\">\r\n");
       out.write("            <fieldset>\r\n");
       out.write("                <h2>회원가입</h2>\r\n");
       out.write("                <p>회원가입 후 회원들과 소통해보세요.</p>\r\n");
