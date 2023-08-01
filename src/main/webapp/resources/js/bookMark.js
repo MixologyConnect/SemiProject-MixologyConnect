@@ -1,67 +1,24 @@
-const bookMarkBtn = document.getElementById("bookBtnImg")
 
-bookMarkBtn.addEventListener("click", function(){
-   
-    bookMarkInsert();
+// 북마크 버튼 이미지
+const img = document.getElementById("bookBtnImg");
 
-        
+
+// 즉시실행 함수(북마크 이미지 채워지는지 확인)
+(function(){
+
+    // bordDetail 화면 띄우자마자
+    // 북마크 해 놓은 페이지에 들어오면 북마크 표시되는 함수 호출
+    bookMarkImage();
+
+
     
-    
-    
-    
-})
-
-/* 북마크 조회 함수 */
-function bookMarkList(){
-
-    // 현재 머물고 있는 페이지 주소의 쿼리스트링을 가져옴
-    const params = new URL(location.href).searchParams;
-
-    const boardNo = params.get("no")
-
-    console.log(boardNo);
-
-    $.ajax({
 
 
-        url : contextPath + "/myPage/bookMarkList",
-        data : {"boardNo" : boardNo},
-        type : "get",
-        dataType : "json",
+})();
 
-        
-        success : function(bookMarkList){
-            console.log(bookMarkList)
-
-            const list = document.getElementById("list")
-
-            for(let item of bookMarkList){
-
-                // tr 요소 생성
-                const tr = document.createElement("tr")
-
-                // td 요소 생성 + 내용추가 * 4
-                const no = document.createElement("td")
-                no.innerText = item.boardNo // 게시글 번호
-
-                const title = document.createElement("td")
-                title.innerText = item.boardTitle
-
-                const name = document.createElement("td")
-                name.innerText = item.memberName
-
-                const read = document.createElement("td")
-                read.innerText = item.readCount;
-
-                tr.append(no, title, name, read)
-
-                list.append(tr);
-
-
-
-
-
-            }
+// function bookBtnClick(){
+//     console.log("눌리나?")
+// }
 
 
 
@@ -69,22 +26,10 @@ function bookMarkList(){
 
 
 
-        } ,
-        
-        error : function(req, status, error){
-            console.log("댓글 삭제 실패")
-            console.log(req.responseText)
-            
-        }
 
 
 
-    })
-
-
-}
-
-
+// 북마크 버튼 누르면 데이터 삽입 함수
 function bookMarkInsert(){
 
     const params = new URL(location.href).searchParams;
@@ -99,18 +44,174 @@ function bookMarkInsert(){
         type : "get",
 
         success : function(result){
-            if(result > 0){
-                alert("북마크 등록완료")
+            try{
+                if(result > 0){
+                    alert("북마크 등록완료")
+                    let bkNum = 1;
+                }else{
+                    alert("북마크 등록 실패..")
+                    let bkNum = 0;
+                }
+
+            }catch(e){
+                let bkNum = 0;
             }
         
             
         },
-        error : function(req, status, error){
-            console.log("댓글 삭제 실패")
-            console.log(req.responseText)
+        error : function(){
+            let bkNum = 0;
             
         }
         })
 
     }
+
+
+
+
+// 북마크 버튼 이미지 
+function bookMarkImage(){
+
+    const params = new URL(location.href).searchParams;
+    const boardNo = params.get("no")
+
+    console.log(boardNo)
+
+
+    $.ajax({
+
+        url : contextPath + "/myPage/bookMarkImage",
+        data : {"boardNo" : boardNo},
+        type : "get",
+
+        success : function(result){
+            console.log(result)
+            if(result > 0){
+                console.log("성공")
+                img.src = contextPath + "/resources/images/bookmark-fill.svg";
+
+                // function bookBtnClick(){
+
+                //     deleteBookMark();
+                // }
+
+            }else{
+                console.log("에러")
+                img.src = contextPath + "/resources/images/bookmark.svg";
+                // function bookBtnClick(){
+                //     console.log("왜 안돼?")
+                //     bookMarkInsert();
+                    
+                // }
+            }
+        },
+
+        error : function(){
+            console.log("에러")
+        }
+
+
+
+    })
+
+
+
+
+
+}
+
+
+
+
+
+
+
+// 북마크 해제
+function deleteBookMark(){
+
+    const params = new URL(location.href).searchParams;
+    const boardNo = params.get("no")
+
+    console.log(boardNo)
+
+    
+    
+
+        $.ajax({
+    
+            url : contextPath + "/myPage/bookMarkDelete",
+            data : {"boardNo" : boardNo},
+            type : "get",
+    
+            
+            success : function(result){
+                if(result>0){
+                    alert("북마크 삭제 완료")
+                }else{
+                    alert("북마크 삭제 실패")
+                }
+    
+    
+            }
+    
+    
+        })
+
+
+
+
+}
+
+function bookBtnClick() {
+    if(loginMemberNo==""){
+        alert("로그인후 이용해주세요.")
+    }
+
+    if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+        console.log("안졸려")
+        deleteBookMark();
+        // 북마크 삽입 함수
+        img.src = contextPath + "/resources/images/bookmark.svg"
+        
+        if(img.src = contextPath + "/resources/images/bookmark.svg"){
+
+            bookMarkInsert();
+            img.src = contextPath + "/resources/images/bookmark-fill.svg"
+        }
+    } 
+    // if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+    
+    //     return false;
+    // }
+
+    
+}
+
+
+
+// // 북마크가 체크 안되어있으면 실행하는 함수
+// if(img.src = contextPath + "/resources/images/bookmark.svg"){
+
+    
+// }
+
+
+// // 북마크 체크 되어있으면 실행하는 함수
+// if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+
+//     function bookBtnClick() {
+     
+          
+//         // 북마크 삭제 함수
+//         deleteBookMark()
+
+      
+    
+//     }
+
+
+// }
+
+
 

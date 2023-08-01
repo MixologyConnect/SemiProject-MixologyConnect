@@ -18,20 +18,20 @@ public class memberSelectServlet extends HttpServlet {
 
 	@Override protected void doPost(HttpServletRequest req, HttpServletResponse
 			resp) throws ServletException, IOException { 
-			
-			String memberId = req.getParameter("memberId");
-			
-			try { MemberService service = new MemberService();
+
+		String memberId = req.getParameter("memberId");
+
+		try { 
+
+			MemberService service = new MemberService();
 
 			Member member = new Member();
-					
+
 			member	=service.selectMember(memberId);
 
 			new Gson().toJson(member, resp.getWriter());
 
-
-
-			} catch (Exception e) { e.printStackTrace(); }
+		} catch (Exception e) { e.printStackTrace(); }
 
 	}
 

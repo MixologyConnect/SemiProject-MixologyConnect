@@ -47,7 +47,6 @@ public class BoardService {
 		// 3. 게시글 목록 조회
 		List<Board> boardList = dao.selectBoardList(conn, pagination, type);
 
-		//List<BoardImage> imageList = dao.selectThumbnail(conn, type);
 
 
 		// 4. Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장
@@ -56,7 +55,6 @@ public class BoardService {
 		map.put("boardName", boardTitle);
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
-		//map.put("imageList", imageList);
 
 		close(conn);
 		return map;
@@ -329,6 +327,51 @@ public class BoardService {
 		close(conn);
 		return likeMember;
 	}
+
+	/** 관리자 게시글 삭제
+	 * @param boardTitle
+	 * @return  result
+	 */
+	public int managerBoardDelete(String boardTitle) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.managerBoardDelete(conn,boardTitle);
+		System.out.println("뭐라도 나와");
+		
+		
+		if(result>0) 	commit(conn);
+		else 				rollback(conn);
+
+		close(conn);
+		
+		return result;
+	}
+
+	public Map<String, Object> boardListPopularity(int type, int cp) throws Exception {
+		
+		Connection conn = getConnection();
+
+		// 게시글 제목
+		String boardTitle = dao.boardTitle(conn, type);
+
+		int listCount = dao.getListCount(conn, type);
+
+		Pagination pagination = new Pagination(cp, listCount);
+
+		List<Board> boardList = dao.selectBoardPopularity(conn, pagination, type);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("boardName", boardTitle);
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+
+		close(conn);
+		return map;
+		
+	}
+
 
 
 

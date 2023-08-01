@@ -26,7 +26,7 @@
 						<div class="title">${detail.boardTitle}</div>
 						<div class="name">
 							
-								<c:if test="${empty detail.profileImage}">
+							<c:if test="${empty detail.profileImage}">
 								<!-- 프로필 이미지가 없는 경우 -->
 								<img src="${contextPath}/resources/images/user.png">
 							</c:if>
@@ -38,6 +38,11 @@
 
 							${detail.memberName}
 
+							<!-- 팔로우 버튼 -->
+							<c:if test="${loginMember.memberNo != detail.memberNo}">
+								<button type="button" id="followBtn" onclick="followBtnClick()">FOLLOW</button>
+								<input type="hidden" name="0" id="followCheck">
+							</c:if>
 						</div>
 						<div class="date">${detail.boardDate}
 							<div class="views">조회수 : ${detail.readCount}</div>
@@ -53,9 +58,6 @@
 							<c:set var="start" value="0"></c:set>
 						</c:if>
 
-						<c:if test="${!empty thumbnail}"> <!-- 썸네일 O -->
-							<c:set var="start" value="1"></c:set>
-						</c:if>
 
 						<!-- 썸네일만 있고 이미지가 없는 경우 -->
 						<c:if test="${fn:length(detail.imageList) > start}">
@@ -144,6 +146,7 @@
 								const loginMemberNo = "${loginMember.memberNo}";
 
 								const likeMember = "${likeMember}"
+								const writerNo = "${writerNo}"
 							</script>
 
 							<script src="${contextPath}/resources/js/board/reply.js"></script>

@@ -1,6 +1,8 @@
 
   $(document).ready(function(){
-    console.log(likeMember)
+    console.log(likeMember);
+    console.log(writerNo);
+    console.log(loginMemberNo);
 
     if(likeMember==boardNo){
         const img = document.getElementById("likeBtnImg");
@@ -10,13 +12,17 @@
         const img = document.getElementById("likeBtnImg");
         img.src = contextPath + "/resources/images/heart.svg";
     }
+    //내 게시글 팔로우 막기 
+   
+    //목록으로 돌아가기 후에 내가 팔로우한 사람 은 unfollow 뜨게하기 
+
   })  
     
     
     
     /* 좋아요 누르면 하트 채워지기 */
     
-   var cnt = 1;
+//    var cnt = 1;
     
     function likeBtnClick() {
         
@@ -36,7 +42,7 @@
                 likeCheck.removeAttribute("name")
                 likeCheck.setAttribute("name",0)
             }
-            cnt++;
+            // cnt++;
             
             const nameValue = likeCheck.getAttribute("name");
             console.log(nameValue);
@@ -51,6 +57,7 @@
                         'likeCheck' : likeCheck.getAttribute("name")
                     },
                 success : function(like){
+                    
                     if(like.likeResult == 1){
                         
                         
@@ -69,8 +76,9 @@
                     }
         
                 },
-                error : function(data){
+                error : function(like){
                     img.src = contextPath + "/resources/images/heart.svg"
+                    
                     console.log("오류발생")
                 }
             })
@@ -84,38 +92,116 @@
 
    
     
-    function bookBtnClick() {
-        if(loginMemberNo==""){
-            alert("로그인후 이용해주세요.")
-        }else{
-            const img = document.getElementById("bookBtnImg");
-            img.src = contextPath + "/resources/images/bookmark-fill.svg";
-        
-            if(cnt%2==1) {
-                img.src = contextPath + "/resources/images/bookmark-fill.svg";
-            }else {
-                img.src = contextPath + "/resources/images/bookmark.svg";
-            }
-            cnt++;
+   
 
+
+
+// 팔로우 관련-------------------------------------
+
+// follow 버튼 클릭 시 
+function followBtnClick() {
+    
+    if(loginMemberNo==""){
+        alert("로그인후 이용해주세요.")
+    }else{
+
+        
+        let followCheck = document.getElementById('followCheck');
+        const followBtn = document.getElementById('followBtn');
+    
+        if(followCheck.getAttribute("name")==0) {
+            
+            followCheck.removeAttribute("name")
+            followCheck.setAttribute("name",1)
+            followBtn.innerText="UNFOLLOW"
+        }else {
+            followCheck.removeAttribute("name")
+            followCheck.setAttribute("name",0)
+            followBtn.innerText="FOLLOW"
         }
         
+        const nameValue = followCheck.getAttribute("name");
+        console.log(nameValue);
+
+
+
+        $.ajax({
+            url:contextPath+"/member/follow",
+            type:"post",
+            dataType : "JSON",
+            data: {'loginMemberNo': loginMemberNo,
+                    'boardNo' : boardNo,
+                    'followCheck' : followCheck.getAttribute("name")
+                    },
+                success : function(follow){
+                    if(follow.followResult == 1){
+                        const followBtn = document.getElementById("followBtn");
+                        followBtn.innerHTML="";
+                        followBtn.innerHTML="UNFOLLOW";
+                    }else if(follow.dfollowResult == 1){
+                        const followBtn = document.getElementById("followBtn");
+                        followBtn.innerHTML="";
+                        followBtn.innerHTML="FOLLOW";
+
+                    }
+        
+                },
+                error : function(follow){
+                   
+                    console.log("오류발생")
+                }
+
+
+        })
+
 
     }
+}
+
+// function followCansle(){
+    
+//     if(loginMemberNo==""){
+//         alert("로그인후 이용해주세요.")
+//     }else{
+
+//         let followCheck = document.getElementById('followCheck');
+      
+    
+//         if(followCheck.getAttribute("name")==0) {
+            
+//             followCheck.removeAttribute("name")
+//             followCheck.setAttribute("name",1)
+//         }else {
+//             followCheck.removeAttribute("name")
+//             followCheck.setAttribute("name",0)
+//         }
+        
+//         const nameValue = followCheck.getAttribute("name");
+//         console.log("name: "+nameValue);
 
 
+//         $.ajax({
+//             url:contextPath+"/member/follow",
+//             type:"post",
+//             dataType : "JSON",
+//             data: {'loginMemberNo': loginMemberNo,
+//                     'boardNo' : boardNo,
+//                     'followCheck' : followCheck.getAttribute("name")
+//                     },
+//                 success : function(follow){
+//                     if(follow.dFollowResult == 1){
+//                         const followBtn = document.getElementById("followBtn");
+//                         followBtn.innerHTML="";
+//                         followBtn.innerHTML="FOLLOW";
+//                     }
+//                 },
+//                 error : function(follow){
+//                     console.log("오류발생")
+//                 }
 
 
-$.ajax({
-url: 'https://gist.githubusercontent.com/abs013r/cb774124e29ab7e396b638939ec0bda1/raw/479c0716a7104236e2e4fdc089586b3aeef5831b/MCnav.html',
-type: 'GET',
-success: function(data) { $('#mc-nav').html(data); },
-error: function() { console.log('이거 뜨면 실패입니다… 조훈한테 문의하세요'); }
-});
+//         })
 
-$.ajax({
-url: 'https://gist.githubusercontent.com/abs013r/0d6ff4139684cf842192a2d312266a83/raw/6e629f95c437670fc573560fd8559829a25b30c8/MCfooter.html',
-type: 'GET',
-success: function(data) { $('#mc-footer').html(data); },
-error: function() { console.log('이거 뜨면 실패입니다… 조훈한테 문의하세요'); }
-});
+
+//     }
+// }

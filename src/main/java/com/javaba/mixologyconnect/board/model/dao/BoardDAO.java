@@ -126,9 +126,9 @@ public class BoardDAO {
 			int end = start + pagination.getLimit() - 1;
 
 
-			pstmt.setInt(1, type);
-			pstmt.setInt(2, start);
-			pstmt.setInt(3, end);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			pstmt.setInt(3, type);
 
 			rs = pstmt.executeQuery();
 
@@ -141,6 +141,7 @@ public class BoardDAO {
 				board.setBoardDate(rs.getString("BOARD_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setThumbnail(rs.getString("IMG_RENAME"));
 
 
 				boardList.add(board);
@@ -680,6 +681,78 @@ public class BoardDAO {
 		return likeMember;
 	}
 
+	/** 관리자 게시글 삭제 DAO
+	 * @param conn
+	 * @param boardTitle
+	 * @return result
+	 */
+	public int managerBoardDelete(Connection conn, String boardTitle) throws Exception {
+		
+		int result = 0;
+		
+		try {
+
+			String sql = prop.getProperty("managerBoardDelete"); 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, boardTitle); 
+
+			result = pstmt.executeUpdate();
+			
+			System.out.println(result);
+			System.out.println("나오라고 result");
+			
+		} finally { 
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public List<Board> selectBoardPopularity(Connection conn, Pagination pagination, int type) throws Exception {
+		
+		List<Board> boardList = new ArrayList<Board>();
+
+		try {
+
+			String sql = prop.getProperty("selectBoardPopularity");
+
+			pstmt = conn.prepareStatement(sql);
+
+			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
+			int end = start + pagination.getLimit() - 1;
+
+
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			pstmt.setInt(3, type);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Board board = new Board();
+
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setMemberName(rs.getString("MEMBER_NM"));
+				board.setBoardDate(rs.getString("BOARD_DT"));
+				board.setReadCount(rs.getInt("READ_COUNT"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setThumbnail(rs.getString("IMG_RENAME"));
+
+
+				boardList.add(board);
+
+			}
+
+		} finally {
+			close(rs);
+			close(pstmt);
+
+		}
+
+		return boardList;
+		
+	}
 
 
 }

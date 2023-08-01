@@ -49,7 +49,7 @@
                     <c:choose>
                         <c:when test="${empty bookMarkList}">
                             <tr>
-                                <th>게시글이 존재하지 않습니다.</th>
+                                <td colspan="5">게시글이 존재하지 않습니다.</td>
                             </tr>
                         </c:when>
                 
@@ -58,7 +58,7 @@
                                 <c:forEach var="bk" items="${bookMarkList}">
                                     <tr>
                                         <td>${bk.boardNo}</td>
-                                        <td>${bk.boardTitle}</td>
+                                        <td><a href="${contextPath}/board/boardDetail?no=${bk.boardNo}&cp=${pagination.currentPage}&type=1">${bk.boardTitle}</a></td>
                                         <td>${bk.memberName}</td>
                                         <td>${bk.createDate}</td>
                                         <td>${bk.readCount}</td>
