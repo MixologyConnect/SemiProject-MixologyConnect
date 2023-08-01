@@ -28,16 +28,12 @@
             <section class="img">
                 <c:if test="${empty loginMember.profileImage}">
 
-                    <div><img src="${contextPath}/resources/images/user.png"></div>
+                    <div><img src="${contextPath}/resources/images/user.png"  ></div>
                 </c:if>
                 <c:if test="${!empty loginMember.profileImage}">
 
-                    <div><img src="${loginMember.profileImage}"></div>
+                    <div><img src="${contextPath}${loginMember.profileImage}"></div>
                 </c:if>
-
-                
-                
-            <input type="file" id="chooseFile"accept="image/*"></div>
             </section>
             <section class="follow2">
                 <div id="top">${loginMember.memberName}</div>
@@ -55,13 +51,6 @@
            <p class="thead"><a href="#">작성글</a></p>  
            <p><a href="${contextPath}/myPage/bookMark">북마크</a></p>  
            <p>
-            <li id="myAlarm">
-            <a href="#">알림 <i class="fa-solid fa-bell"></i></a>
-                <div class="sub-wrap">
-                    <div><a href=""><i class="fa-solid fa-bell"></i> 답글이 달렸습니다.</a></div>
-                    <div><i class="fa-solid fa-bell"></i> <a href="">@khacademy</a>님의 팔로우 신청 : <button>수락</button> <button>거부</button></div>
-                </div>
-        </li></p>  
            <p id="alarm"><a href="#">글쓰기 <i class="fa-solid fa-pen-to-square"></i></a></p>  
         </section> 
 
