@@ -141,6 +141,7 @@ public class BoardDAO {
 				board.setBoardDate(rs.getString("BOARD_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setThumbnail(rs.getString("IMG_RENAME"));
 
 
 				boardList.add(board);
@@ -703,4 +704,6 @@ public class BoardDAO {
 		
 		return result;
 	}
+
+
 }

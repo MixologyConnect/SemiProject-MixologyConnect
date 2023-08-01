@@ -16,6 +16,7 @@ import com.javaba.mixologyconnect.board.model.service.ReplyService;
 import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import com.javaba.mixologyconnect.board.model.vo.BoardImage;
 import com.javaba.mixologyconnect.board.model.vo.Reply;
+import com.javaba.mixologyconnect.member.model.service.MemberService;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 
 
@@ -33,22 +34,27 @@ public class BoardDetailServlet extends HttpServlet {
 
 
 			BoardService service = new BoardService();
-
+			MemberService service2 = new MemberService();
 			BoardDetail detail = service.selectBoardDetail(boardNo);
 
-			//좋아요 관련
 			HttpSession session = req.getSession();
 			Member loginMember = (Member)(session.getAttribute("loginMember"));
-
+			
+			//좋아요 관련
 			int likeMember=0;
+			//팔로우 관련
+			int writerNo= 0;
 			if(loginMember!=null) {
+				int loginMemberNo = loginMember.getMemberNo();
 				int memberNo = loginMember.getMemberNo();
 				likeMember = service.selectMemberLike(boardNo, memberNo);
+				writerNo = service2.selectFollower(loginMemberNo);
 			}
 
 			int likeCount = service.selectLike(boardNo);
 
-
+			
+			
 
 			List<BoardImage> ImageList = detail.getImageList();
 
@@ -71,6 +77,7 @@ public class BoardDetailServlet extends HttpServlet {
 			req.setAttribute("likeCount", likeCount);
 
 			req.setAttribute("likeMember", likeMember);
+			req.setAttribute("writerNo", writerNo);
 
 
 			String path = "/WEB-INF/views/board/boardDetail.jsp";
