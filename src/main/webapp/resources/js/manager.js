@@ -1,8 +1,10 @@
 
 const result = document.getElementById("result1");
 const test = document.getElementsByName("memberId");
+const result2 = document.getElementById("result2")
 
-console.log("asdf5");
+const chk1 = document.getElementById("chk1");
+
 
 function banMember(){
     const member = $("#resultMember > tr > td:nth-of-type(3) > div").text();
@@ -18,16 +20,21 @@ function banMember(){
             console.log("에러발생");
         }
 
-        
-
     })
 
-    var memberStd =  $("#resultMember > tr > td:last-of-type > div").text();
-    if(memberStd == 'Y'){
-        memberStd = 'N';
-    }else{
-        memberStd = 'Y';
-    }
+
+    const memberStatus = $("#resultMember > tr > td:last-of-type > div")
+    let memberStd = memberStatus.text();
+    if(memberStd == 'Y') memberStatus.text("N");
+    else memberStatus.text("Y");
+}
+
+function deleteBaord(){
+    
+    $.ajax({
+        url : "manager/boardDelete",
+        data : {}
+    })
 }
 
 /* ajax */
@@ -51,7 +58,7 @@ document.getElementById("member-btn").addEventListener("click", function() {
                 
                 const input = document.createElement("input")
                 input.setAttribute("type", "checkbox");
-                input.setAttribute("name", "chk1");
+                input.setAttribute("id", "chk1");
 
                 const td1 = document.createElement("td");
                 td1.append(input);
@@ -63,7 +70,6 @@ document.getElementById("member-btn").addEventListener("click", function() {
 
                 const td3 = document.createElement("td");
                 const div2 = document.createElement("div")
-                div2.setAttribute("id","good")
                 div2.innerText= member.memberId;
                 td3.append(div2);
                 
@@ -94,6 +100,7 @@ document.getElementById("member-btn").addEventListener("click", function() {
                 tr.append(td1, td2, td3, td4, td5, td6, td7)
                 table.append(tr);
 
+                result.value = member.memberId;
                 
             }else{
 
