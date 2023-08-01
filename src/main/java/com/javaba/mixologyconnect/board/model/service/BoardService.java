@@ -35,19 +35,25 @@ public class BoardService {
 		
 
 		int listCount = dao.getListCount(conn, type);
+		
 
 		// 2-2. 전체 게시글 수 + 현재 페이지 (cp)를 이용해 페이지네이션 객체 생성
 		Pagination pagination = new Pagination(cp, listCount);
 
+		
 		// 3. 게시글 목록 조회
 		List<Board> boardList = dao.selectBoardList(conn, pagination, type);
-
+		
+		List<BoardImage> imageList = dao.selectThumbnail(conn, type);
+		
+			
 		// 4. Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		map.put("boardName", boardTitle);
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
+		map.put("imageList", imageList);
 
 		close(conn);
 		return map;
@@ -120,7 +126,6 @@ public class BoardService {
 			for (BoardImage image : imageList) { 
 				image.setBoardNo(boardNo); 
 
-				System.out.println(imageList);
 				
 				result = dao.insertBoardImage(conn, image);
 
@@ -213,6 +218,33 @@ public int boardDelete(int boardNo) throws Exception{
 	
 	return result;
 }
+
+public List<BoardImage> selectImage(int boardNo) throws Exception {
+	
+	Connection conn = getConnection();
+	
+	List<BoardImage> imageList = dao.selectImageList(conn, boardNo);
+	
+	close(conn);
+	
+	return imageList;
+}
+
+///** 게시글 번호 찾기
+// * @param type
+// * @return boardNo
+// * @throws Exception
+// */
+//public int selectBoardNo(int type) throws Exception {
+//	
+//	Connection conn = getConnection();
+//	
+//	int boardNo = dao.selectBoardNo(conn, type);
+//	
+//	close(conn);
+//	
+//	return boardNo;
+//}
 
 
 

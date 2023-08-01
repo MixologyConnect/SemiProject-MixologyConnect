@@ -14,6 +14,7 @@ public class BookMark {
 	  private int boardNo;
 	   private String boardTitle;
 	   private String memberName;
+	   private String createDate;
 	   private int readCount; // 조회수
 	
 }

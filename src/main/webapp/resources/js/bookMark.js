@@ -1,8 +1,13 @@
 const bookMarkBtn = document.getElementById("bookBtnImg")
 
 bookMarkBtn.addEventListener("click", function(){
-    bookMarkInsert();
-    bookMarkList()
+   
+    console.log("dd")
+
+        
+    
+    
+    
     
 })
 
@@ -79,30 +84,5 @@ function bookMarkList(){
 
 }
 
-function bookMarkInsert(){
 
-    const params = new URL(location.href).searchParams;
-
-    const boardNo = params.get("no")
-
-    console.log(boardNo);
-
-    $.ajax({
-
-        url : contextPath + "/myPage/bookMarkInsert",
-        data : {"boardNo" : boardNo},
-        type : "get",
-
-        success : function(result){
-            alert("북마크에 등록되었습니다.")
-        },
-        error : function(){
-            console.log("에러 발생")
-        }
-
-
-    })
-
-
-}
 

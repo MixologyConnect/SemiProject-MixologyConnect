@@ -3,7 +3,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
     
-    
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,15 +38,17 @@
                     </tr>
                 </thead>
 
-               
-
+                
                 <tbody id="list">
-                    <tr>
-                        <td>${bookMarkList}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <c:forEach var="bookmark" items="${bookMarkList}">
+                        <tr>
+                            <td>${bookmark.boardNo}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                         
+                    </c:forEach>
                 </tbody>
 
 

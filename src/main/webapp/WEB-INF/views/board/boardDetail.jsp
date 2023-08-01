@@ -61,12 +61,12 @@
 						<c:if test="${fn:length(detail.imageList) > start}">
 
 							<!-- 업로드 이미지 영역 -->
-							<div class="img">
+							<div class="img-box">
 								<c:forEach var="i" begin="${start}" end="${fn:length(detail.imageList) -1}">
 									<div class="boardImg">
 										<img src="${contextPath}${detail.imageList[i].imageRename}" class="boardImg1">
 										<a href="${contextPath}${detail.imageList[i].imageRename}"
-											download="${detail.imageList[i].imageOriginal}"><img src="${contextPath}/resources/images/download.svg" class="download"></a>
+											download="${detail.imageList[i].imageOriginal}" id="boardImg1"></a>
 									</div>
 								</c:forEach>
 
@@ -80,14 +80,18 @@
 						<form>
 							<!-- 좋아요, 북마크 -->
 							<div class="share">
+								
 								<button type="button" id="bookBtn">
 									<img id="bookBtnImg" src="${contextPath}/resources/images/bookmark.svg"
 										onclick="bookBtnClick()">
 								</button>
 								<button type="button" id="likeBtn">
 									<img src="${contextPath}/resources/images/heart.svg" id="likeBtnImg"
-										onclick="likeBtnClick()">
+										onclick="likeBtnClick()"> 
+									<input type="hidden" id="likeCheck" name="0">
 								</button>
+								
+
 							</div>
 							<div class="alterBtn">	
 								<c:if test="${loginMember.memberNo == detail.memberNo}">
@@ -130,10 +134,12 @@
 
 								const loginMemberNo = "${loginMember.memberNo}";
 
+								
 							</script>
 
 							<script src="${contextPath}/resources/js/board/reply.js"></script>
 							<script src="${contextPath}/resources/js/search/search.js"></script>
+							<script src="${contextPath}/resources/js/bookMark.js"></script>
 			</body>
 
 			</html>

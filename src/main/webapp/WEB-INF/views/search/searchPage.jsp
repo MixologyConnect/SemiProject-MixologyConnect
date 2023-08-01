@@ -77,7 +77,7 @@
 							</c:if>
 							<c:forEach var="cocktail" items="${cocktailList}">
 								<li>
-									<a href="cocktail/cocktailDetail?cktlno=${cocktail.cocktailNo}&query=${param.query}">
+									<a href="cocktail/detail?no=${cocktail.cocktailNo}&query=${param.query}">
 										<div class="box_img">
 	
 											<img

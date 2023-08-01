@@ -30,7 +30,6 @@
 		FROM BOARD
 		JOIN MEMBER
 		USING(MEMBER_NO)
-		JOIN BOARD_IMG USING(BOARD_NO)
 		WHERE BOARD_CD = ?
 		AND BOARD_ST = 'Y'
 		ORDER BY
@@ -57,7 +56,8 @@
 
 	<entry key="ReadCountUp">
 		UPDATE BOARD SET READ_COUNT = READ_COUNT + 1
-		WHERE BOARD_NO = ?
+		WHERE
+		BOARD_NO = ?
 
 	</entry>
 
@@ -111,4 +111,20 @@
 		WHERE BOARD_NO = ?
 	</entry>
 
+	<entry key="selectBoardNo">
+		SELECT BOARD_NO FROM BOARD
+		WHERE BOARD_CD = ?
+
+	</entry>
+
+	<!-- 썸네일 찾기 -->
+	<entry key="selectThumbnail">
+		SELECT BOARD_NO, IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL FROM BOARD_IMG
+		JOIN BOARD USING (BOARD_NO)
+		JOIN BOARD_TYPE USING(BOARD_CD)
+		WHERE IMG_LEVEL = 0
+		AND BOARD_CD = ?
+		ORDER BY BOARD_NO DESC
+
+	</entry>
 </properties>
