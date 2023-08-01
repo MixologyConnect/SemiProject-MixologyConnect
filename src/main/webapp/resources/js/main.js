@@ -24,26 +24,6 @@ function preventScroll(b) {
     scrollY = null;
 }
 
-function showOverlay(b) {
-    if (b) $("#overlay").css({"pointer-events": "auto",
-                              "opacity": "100%"});
-    else $("#overlay").css({"pointer-events": "none",
-           "opacity": "0"});
-}
-
-function showModal(modal, b) {
-    preventScroll(b);
-    showOverlay(b);
-    if (b) $("#modal-" + modal + "").css({"pointer-events": "auto",
-             "opacity": "100%"});
-    else $("#modal-" + modal + "").css({"pointer-events": "none",
-           "opacity": "0"});
-    switch (modal + ":" + b) {
-        case "login:true" : $(".account-text").css("color", "rgb(0, 220, 244)"); break;
-        case "login:false" : $(".account-text").css("color", ""); break;
-    }
-}
-
 window.addEventListener("scroll", function(e) {
     if (getScrollY() <= 0 && preventScroll() == false) {
         $("nav").css({"filter": "opacity(100%)",
@@ -78,18 +58,8 @@ window.addEventListener("scroll", function(e) {
 
 $("nav > a").hover(function() {
     $("header").css("borderColor", "rgb(0, 220, 244)");
-    $("nav ").css("borderColor", "rgb(0, 220, 244)");
+    $("nav").css("borderColor", "rgb(0, 220, 244)");
 }, function () {
     $("header").css("borderColor", "lightgray");
     $("nav").css("borderColor", "lightgray");
-});
-
-$("#account-cbox").change(function() {
-    if ($(this).prop("checked")) showModal("login-form", true);
-    else showModal("login-form", false);
-});
-
-$("#modal-login-form").click(function() {
-    showModal("login-form", false);
-    showModal("signup-form", true);
 });

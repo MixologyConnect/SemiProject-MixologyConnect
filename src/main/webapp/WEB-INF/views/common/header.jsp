@@ -36,7 +36,6 @@
         <a href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
         <a href="${contextPath}/cocktail/list">칵테일</a>
         <a href="${contextPath}/cocktailTest/cocktailTest">테스트</a>
-        <a href="${contextPath}/member/signUpterms">회원가입</a>
         <a href="${contextPath}/manager/manager">관리자 모드</a>
     </div>
 </header>
@@ -45,6 +44,5 @@
     <a href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
     <a href="${contextPath}/cocktail/list">칵테일</a>
     <a href="${contextPath}/cocktailTest/cocktailTest">테스트</a>
-    <a href="${contextPath}/member/signUpterms">회원가입</a>
     <a href="${contextPath}/manager/manager">관리자 모드</a>
 </nav>

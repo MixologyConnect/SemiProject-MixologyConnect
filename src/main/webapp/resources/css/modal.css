@@ -1,0 +1,243 @@
+#overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(3px) brightness(0.5);
+    -webkit-backdrop-filter: blur(3px) brightness(0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition-duration: 0.8s;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal {
+    position: fixed;
+    max-height: 95vh;
+    padding: 55px;
+    border: 1px solid rgba(0, 220, 244, 0.9);
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px 4px rgba(0, 220, 244, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center;
+    transition-duration: 1.2s;
+} html.dark #modal {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modal-login {
+    position: fixed;
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    transition-duration: 1.2s;
+}
+
+#modal-login > h2 {
+    margin-top: 30px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#modal-login > a {
+    cursor: pointer;
+}
+
+#modal-login-logo {
+    width: 60px;
+    filter: drop-shadow(0 0 10px rgba(0, 220, 244, 0.4));
+}
+
+#modal-login-head {
+    font-family: "Playfair Display";
+    font-style: italic;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(0, 220, 244, 0.4);;
+    letter-spacing: 1.6px;
+    color: rgb(0, 220, 244);
+}
+
+#modal-login-button {
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.8s;
+}
+
+#modal-login-button:hover {
+    background-color: rgba(0, 220, 244, 0.8);
+}
+
+.modal-login-input {
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    margin: 10px 0;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+}
+
+/* ------------------------ */
+
+#modal-contract {
+    position: fixed;
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    transition-duration: 1.2s;
+}
+
+#modal-constract > h2 {
+    margin-top: 30px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#modal-contract-term {
+    display: flex;
+    padding: 30px 0 10px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contract-terms {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-contract label {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.modal-contract-scrollbox {
+    width: 350px;
+    height: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: scroll;
+    transition-duration: 0.8s;
+}
+
+.modal-contract-scrollbox > p {
+    font-size: 0.8rem;
+}
+
+#modal-contract-button {
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+#modal-contract-button:hover {
+    background-color: rgba(0, 220, 244, 0.8);
+}
+
+.modal-contract-checks:checked ~ div {
+    background-color: rgba(0, 220, 244, 0.2);
+}
+
+/* ------------------------ */
+
+#modal-signup {
+    position: fixed;
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    transition-duration: 1.2s;
+}
+
+#modal-signup > h2 {
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#modal-signup > p {
+    margin-top: 10px;
+}
+
+#modal-signup > table {
+    padding: 30px 0;
+}
+
+#modal-signup input[type="button"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+#modal-signup input[type="button"]:hover {
+    background-color: rgba(0, 220, 244, 0.8);
+}
+
+#modal-signup button {
+    width: 170px;
+    height: 40px;
+    padding: 8px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+#modal-signup button:first-of-type:hover {
+    color: rgb(60, 60, 60);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#modal-signup button:last-of-type:hover {
+    background-color: rgba(0, 220, 244, 0.8);
+}
+
+#modal-signup input[type="text"], #modal-signup input[type="password"] {
+    width: 230px;
+    margin: 5px 0;
+    padding: 5px 0;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    font-size: 0.9rem;
+}

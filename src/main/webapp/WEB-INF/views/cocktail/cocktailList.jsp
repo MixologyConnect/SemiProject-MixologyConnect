@@ -17,18 +17,15 @@
 			<p>칵테일 목록</p>
 			<p>칵테일 정보와 레시피를 조회할 수 있습니다</p>
 		</div>
-		<div id="page-divider"></div>
 		<div id="search">
 			<img src="${contextPath}/resources/images/magnifier.png">
 			<input type="text" placeholder="어떤 칵테일을 찾고 계신가요?">
 		</div>
-		<div id="page-divider"></div>
 		<div id="filter">
 			<div>
 				<p>베이스</p>
 			</div>
 		</div>
-		<div id="page-divider"></div>
 		<div id="ad"></div>
 		<ul class="contents">
            	<li><a>
