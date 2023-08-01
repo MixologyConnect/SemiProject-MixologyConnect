@@ -92,7 +92,7 @@
 	<!-- 관리자 회원 정보 변경 -->
 	<entry key="managerSecession">
 		UPDATE MEMBER SET
-		SECESSION_FL = 'Y'
+		SECESSION_FL = DECODE(SECESSION_FL , 'Y','N','N','Y')
 		WHERE MEMBER_ID = ?
 	</entry>
 

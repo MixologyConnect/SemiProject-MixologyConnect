@@ -224,13 +224,15 @@ public class MemberService {
 
 		return followings;
 	}
-
+	
+	
 
 	/**@author ISS
 	 * 관리자 회원 정보 변경 Service
 	 * @param memberId
 	 * @return member
 	 */
+<<<<<<< HEAD
 	//	public Member managerSecession(String memberId) throws Exception {
 	//		
 	//		Connection conn = getConnection();
@@ -250,6 +252,10 @@ public class MemberService {
 	 */
 	public Map<String, Integer> followInsertDelete(int loginMemberNo, int boardNo) throws Exception {
 
+=======
+	public int managerSecession(String memberId) throws Exception {
+		
+>>>>>>> 150334927151e68448244226afd817144fcb55fe
 		Connection conn = getConnection();
 
 
@@ -275,12 +281,23 @@ public class MemberService {
 		if(followResult>0) 	commit(conn);
 		else 				rollback(conn);
 		
+<<<<<<< HEAD
 		if(dFollowResult>0) 	commit(conn);
 		else 				rollback(conn);
 
 		close(conn);
 		return map;
+=======
+		int result = dao.managerSecession(conn, memberId);
+		
+		close(conn);
+		
+		return result;
+>>>>>>> 150334927151e68448244226afd817144fcb55fe
 	}
+
+
+	
 
 
 
