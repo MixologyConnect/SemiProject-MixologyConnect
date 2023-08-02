@@ -16,15 +16,21 @@ let count = 1;
 
 
     
-    console.log("내려와")
+    console.log(loginMemberNo)
 
 
 })();
 
 // 북마크 등록 
 function bookBtnClickMinus(){
-    if (confirm("북마크에 등록하시겠습니까?")) {
-        bookMarkInsert();
+    if(loginMemberNo == 0){
+        alert("로그인 후 이용해주세요.")
+        location.href = contextPath;
+    }else{
+
+        if (confirm("북마크에 등록하시겠습니까?")) {
+            bookMarkInsert();
+        }
     }
 }
 
