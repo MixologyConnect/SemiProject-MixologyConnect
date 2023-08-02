@@ -109,6 +109,7 @@
 
 							</div>
 							<div class="alterBtn">	
+								
 								<c:if test="${loginMember.memberNo == detail.memberNo}">
 									<c:if test="${empty param.cp}">
 										<c:set var="cp" value="1"></c:set>
