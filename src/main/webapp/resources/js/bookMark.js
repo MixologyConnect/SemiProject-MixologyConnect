@@ -22,6 +22,44 @@ const img = document.getElementById("bookBtnImg");
 
 
 
+let count = 1;
+if(img.src = contextPath + "/resources/images/bookmark.svg"){
+    // console.log("없음")
+
+    function bookBtnClick() {
+    
+    
+        if(count % 2 == 0){
+            // console.log("삭제")
+            deleteBookMark();
+        } else {
+            // console.log("등록")
+            bookMarkInsert();
+        }
+        count += 1;
+    
+    
+    
+        // if(loginMemberNo==""){
+        //     alert("로그인후 이용해주세요.")
+        // }
+    
+        
+        // if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+        
+        //     return false;
+        // }
+    
+        
+    }
+
+
+
+
+}
+
+
+
 
 
 
@@ -163,30 +201,23 @@ function deleteBookMark(){
 
 }
 
-function bookBtnClick() {
-    if(loginMemberNo==""){
-        alert("로그인후 이용해주세요.")
+
+if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+    console.log("안졸려")
+    deleteBookMark();
+    // 북마크 삽입 함수
+    img.src = contextPath + "/resources/images/bookmark.svg"
+    
+    if(img.src = contextPath + "/resources/images/bookmark.svg"){
+
+        bookMarkInsert();
+        img.src = contextPath + "/resources/images/bookmark-fill.svg"
     }
+} 
 
-    if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
-        console.log("안졸려")
-        deleteBookMark();
-        // 북마크 삽입 함수
-        img.src = contextPath + "/resources/images/bookmark.svg"
-        
-        if(img.src = contextPath + "/resources/images/bookmark.svg"){
 
-            bookMarkInsert();
-            img.src = contextPath + "/resources/images/bookmark-fill.svg"
-        }
-    } 
-    // if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
-    
-    //     return false;
-    // }
 
-    
-}
+
 
 
 
