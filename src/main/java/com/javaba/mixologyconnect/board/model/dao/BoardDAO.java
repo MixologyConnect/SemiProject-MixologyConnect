@@ -826,7 +826,6 @@ public class BoardDAO {
 				board.setMemberName(rs.getString("MEMBER_NM"));
 				board.setBoardDate(rs.getString("BOARD_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
-				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setThumbnail(rs.getString("IMG_RENAME"));
 
 

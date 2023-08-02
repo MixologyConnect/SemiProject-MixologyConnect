@@ -9,7 +9,7 @@
 			<head>
 				<meta charset="UTF-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<title>상세 게시글</title>
+				<title>${detail.boardTitle}</title>
 				<link rel="stylesheet" href="${contextPath}/resources/css/boardDatail.css">
 				<link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
 				<link rel="stylesheet" href="${contextPath}/resources/css/reply.css">
@@ -53,7 +53,6 @@
 
 						<!-- 게시글 사진, 내용, 좋아요, 공유버튼 있는 칸 -->
 						
-
 						<c:if test="${empty thumbnail}"> <!-- 썸네일 X -->
 							<c:set var="start" value="0"></c:set>
 						</c:if>
