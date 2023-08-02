@@ -70,10 +70,12 @@
 }
 /* 사진 div*/
 .picture{
-    width: 80%;
-    height: 300px;
+    width: 45vw;
+    height: 35vh;
     margin-top: 40px;
-    text-align: center;
+    /* display: flex;
+    justify-content: center;
+    text-align: center; */
 }
 /* 사진 */
 #colPic{
