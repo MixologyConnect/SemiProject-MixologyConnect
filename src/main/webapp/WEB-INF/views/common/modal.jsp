@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link rel="stylesheet" href="${contextPath}/resources/css/modal.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/modal/modal.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/modal/login.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/modal/contract.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/modal/signUp.css">
 
 <div id="overlay">
     <div id="modal"></div>
@@ -12,56 +15,8 @@
         <input class="modal-login-input" name="inputId" type="text" placeholder="ID">
         <input class="modal-login-input" name="inputPw" type="password" placeholder="PW">
         <!--<span>아이디 저장</span><input type="checkbox">-->
-        <!--<span>아직 회원이 아니신가요?</span>&nbsp;--><a>회원가입</a>
+        <!--<span>아직 회원이 아니신가요?</span>--><a>회원가입</a>
         <button id="modal-login-button">LOGIN</button>
-    </form>
-    <form id="modal-signup" action="signUp" method="post" name="signUp-form" onsubmit="return signValidate()">
-        <h2>회원가입</h2>
-        <p>회원가입 후 회원들과 소통해보세요.</p>
-        <table>
-            <tr>
-                <td width="100px">이름</td>
-                <td colspan="2"><input type="text" name="memberName" maxlength="10" placeholder="이름" required></td>
-            </tr>
-            <tr>
-                <td>아이디</td>
-                <td colspan="2"><input type="text" name="memberId" maxlength="20" placeholder="아이디" required></td>
-            </tr>
-            <tr>
-                <td rowspan="2">비밀번호</td>
-                <td colspan="2"><input type="password" name="memberPw" placeholder="비밀번호" autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="password" name="memberPwConfirm" placeholder="비밀번호 확인" autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td>휴대폰 번호</td>
-                <td colspan="2"><input type="text" name="memberTel" maxlength="11" placeholder="(-없이 숫자만 입력)" required></td>
-            </tr>
-            <tr>
-                <td>이메일</td>
-                <td><input type="text" id="modal-signup-email" name="memberEmail" placeholder="이메일" required></td>
-                <td><input type="button" onclick="verifyEmail()" value="인증 번호 받기"></td>
-            </tr>
-            <tr>
-                <td rowspan="4">주소</td>
-                <td><input type="text" id="sample6_postcode" name="memberAddress" placeholder="우편 번호" readonly></td>
-                <td><input type="button" onclick="sample6_execDaumPostcode()" value="우편 번호 찾기"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="text" id="sample6_address" name="memberAddress" placeholder="주소" readonly><br></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="text" id="sample6_extraAddress" name="memberAddress" placeholder="추가 주소" readonly></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="text" id="sample6_detailAddress" name="memberAddress" placeholder="상세 주소" ></td>
-            </tr>
-        </table>
-        <div class="btn-area">
-            <button type="reset" id="resetBtn">회원가입 취소</button>
-            <button type="submit" id="signUp-btn">회원가입</button>
-        </div>
     </form>
     <div id="modal-contract">
         <h2>약관 동의</h2>
@@ -258,6 +213,59 @@
         </div>
         <button id="modal-contract-button">다음</button>
     </div>
+    <form id="modal-signup" action="member/signUp" method="post" onsubmit="return signValidate()">
+        <h2>회원가입</h2>
+        <p>가입 후 다른 회원들과 소통할 수 있습니다.</p>
+        <table>
+            <tr>
+                <td width="105px">이름</td>
+                <td colspan="2"><input type="text" name="memberName" placeholder="한글 2~5 자" maxlength="10" required><br><small></small></td>
+            </tr>
+            <tr>
+                <td>아이디</td>
+                <td colspan="2"><input type="text" name="memberId" placeholder="영어, 숫자 20 자 이하" maxlength="20" required><br><small></small></td>
+            </tr>
+            <tr>
+                <td rowspan>비밀번호</td>
+                <td colspan="2"><input type="password" name="memberPw" placeholder="영어, 숫자, !, @, #, -, _ 6~30 자" autocomplete="off" required><br><small></small></td>
+            </tr>
+            <tr>
+                <td>비밀번호 확인</td>
+                <td colspan="2"><input type="password" name="memberPwConfirm" placeholder="" autocomplete="off" required><br><small></small></td>
+            </tr>
+            <tr>
+                <td>휴대폰 번호</td>
+                <td colspan="2"><input type="text" name="memberTel" maxlength="11" placeholder="붙임표(-) 제외" required><br><small></small></td>
+            </tr>
+            <tr>
+                <td rowspan="2">이메일</td>
+                <td><input type="text" id="modal-signup-email" name="memberEmail" placeholder="이메일" required><br><small></small></td>
+                <td><input type="button" onclick="verifyEmail()" value="인증 번호 받기"></td>
+            </tr>
+            <tr>
+                <td class="modal-signup-vrfcode-hide"><input type="text" id="modal-signup-vrfcode"><br><small></small></td>
+                <td><input type="button" id="modal-signup-vrfcode-confirm" class="modal-signup-vrfcode-hide" onclick="confirmVrfCode()" value="인증 확인"></td>
+            </tr>
+            <tr>
+                <td rowspan="4">주소</td>
+                <td><input type="text" id="sample6_postcode" name="memberAddress" placeholder="우편 번호" readonly></td>
+                <td><input type="button" onclick="sample6_execDaumPostcode()" value="우편 번호 찾기"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" id="sample6_address" name="memberAddress" placeholder="주소" readonly></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" id="sample6_extraAddress" name="memberAddress" placeholder="추가 주소" readonly></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" id="sample6_detailAddress" name="memberAddress" placeholder="상세 주소"></td>
+            </tr>
+        </table>
+        <div class="btn-area">
+            <button type="reset" id="resetBtn">회원가입 취소</button>
+            <button type="submit" id="signUp-btn">회원가입</button>
+        </div>
+    </form>
 </div>
 
 <input type="checkbox" id="theme-switch-cbox">
@@ -274,7 +282,8 @@
 	<c:remove var="message" scope="session"/>
 </c:if>
 
-<script src="${contextPath}/resources/js/modal.js"></script>
-<script src="${contextPath}/resources/js/join-signUp.js"></script>
-<script src="${contextPath}/resources/js/join-terms.js"></script>
+<script src="${contextPath}/resources/js/modal/modal.js"></script>
+<script src="${contextPath}/resources/js/modal/login.js"></script>
+<script src="${contextPath}/resources/js/modal/contract.js"></script>
+<script src="${contextPath}/resources/js/modal/signUp.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

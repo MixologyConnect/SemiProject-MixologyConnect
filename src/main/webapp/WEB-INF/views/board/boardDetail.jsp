@@ -83,9 +83,13 @@
 							<!-- 좋아요, 북마크 -->
 							<div class="share">
 								
-								<button type="button" id="bookBtn">
+								<button type="button" id="bookBtnMinus">
+									<img id="bookBtnImg" src="${contextPath}/resources/images/bookmark-fill.svg"
+										onclick="bookBtnClickPlus()">
+								</button>
+								<button type="button" id="bookBtnPlus">
 									<img id="bookBtnImg" src="${contextPath}/resources/images/bookmark.svg"
-										onclick="bookBtnClick()">
+										onclick="bookBtnClickMinus()">
 								</button>
 								
 								<button type="button" id="likeBtn">
@@ -142,11 +146,14 @@
 								const contextPath = "${contextPath}";
 
 								const boardNo = "${detail.boardNo}";
+								const writerNo = "${detail.memberNo}";
 
 								const loginMemberNo = "${loginMember.memberNo}";
 
 								const likeMember = "${likeMember}"
-								const writerNo = "${writerNo}"
+								
+								const followingWriter = "${writerNo}"
+
 							</script>
 
 							<script src="${contextPath}/resources/js/board/reply.js"></script>

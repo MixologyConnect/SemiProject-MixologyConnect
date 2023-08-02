@@ -16,8 +16,8 @@
             const type = "type=" + params.get("type");
             let cp;
             
-            if(params.get("cp") != ""){
-            cp = "cp" + params.get("cp");
+            if(params.get("cp") != null){
+            cp = "cp=" + params.get("cp");
             }else {
                 cp = "cp=1";
             }
@@ -40,7 +40,7 @@
     if(deleteBtn != null){
         deleteBtn.addEventListener("click", function(){
 
-            let url = "columnDelete";
+            let url = "boardDelete";
 
             const params = new URL(location.href).searchParams;
 

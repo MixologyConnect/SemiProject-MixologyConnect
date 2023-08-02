@@ -40,9 +40,7 @@
         <c:if test="${loginMember.managerCode == 'Y'}">
             <a href="${contextPath}/manager/manager">관리자 모드</a>
         </c:if>
-        <c:if test="${loginMember.managerCode == 'N'}">
-            <a href="${contextPath}/manager/manager">관리자 모드</a>
-        </c:if>
+      
 
     </div>
 </header>
@@ -54,7 +52,5 @@
     <c:if test="${loginMember.managerCode == 'Y'}">
         <a href="${contextPath}/manager/manager">관리자 모드</a>
     </c:if>
-    <c:if test="${loginMember.managerCode == 'N'}">
-        <a href="${contextPath}/manager/manager">관리자 모드</a>
-    </c:if>
+  
 </nav>

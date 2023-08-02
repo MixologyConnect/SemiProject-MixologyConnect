@@ -15,7 +15,15 @@
     //내 게시글 팔로우 막기 
    
     //목록으로 돌아가기 후에 내가 팔로우한 사람 은 unfollow 뜨게하기 
+    if(writerNo==followingWriter){
+        let followCheck = document.getElementById('followCheck');
+        const followBtn = document.getElementById('followBtn');
 
+        followCheck.removeAttribute("name")
+        followCheck.setAttribute("name",1)
+        followBtn.innerText="UNFOLLOW"
+
+    }
   })  
     
     
@@ -27,7 +35,7 @@
     function likeBtnClick() {
         
         if(loginMemberNo==""){
-            alert("로그인후 이용해주세요.")
+            showModal("login", true);   
         }else{
             const img = document.getElementById("likeBtnImg");
             let likeCheck = document.getElementById('likeCheck');
@@ -102,7 +110,9 @@
 function followBtnClick() {
     
     if(loginMemberNo==""){
-        alert("로그인후 이용해주세요.")
+        if(confirm("로그인 후 이용해주세요 로그인화면으로 갑니다 슝-")){
+            showModal("login", true);
+        } 
     }else{
 
         
