@@ -4,6 +4,10 @@ function verifyEmail() {
     const e = $("#modal-signup-email");
     const email = e.val();
     const s = e.next().next();
+    if (!/^[\w\-\_]{4,}@[\w\-\_]+(\.\w+){1,3}$/.test(email)) {
+        s.text("유효하지 않은 이메일입니다.");
+        return;
+    }
     s.text("잠시만 기다려 주세요...");
     $.ajax({
         url: "email/verify",
@@ -15,7 +19,7 @@ function verifyEmail() {
             $(".modal-signup-vrfcode-hide").css("display", "block")
         },
         error: function(e) {
-            alert("오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
+            s.html("메일 서버 연결에 실패했습니다.<br>추후 다시 시도해 주세요.");
         }
     });
 }
@@ -29,6 +33,7 @@ function confirmVrfCode() {
         return;
     }
     s.text("인증 번호가 일치하지 않습니다.");
+    s.css("color", "rgb(255, 255, 255)");
 }
 
 function signValidate() {
