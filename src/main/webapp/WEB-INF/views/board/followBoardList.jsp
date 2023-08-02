@@ -31,7 +31,7 @@
 
 				<!-- 전체, 팔로잉, 공지 -->
 				<div class="top-2">
-					<button id="all" name="all">전체</button>
+					<button id="all" name="all" onclick="location.href ='boardAll?type=1'">전체</button>
 					<button id="Following" name="Following" onclick="location.href ='followList?type=1&cp=1'">팔로잉</button>
 				</div>
 

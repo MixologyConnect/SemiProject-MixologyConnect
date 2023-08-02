@@ -48,12 +48,17 @@
 
 
                 <div class="image-box">
-                    <label for="image">
+                    <label for="image0">
                         <div class="image">이미지 선택</div>
                     </label>
                     <div class="columnImg">
                         <label for="image0">
-                            <img class="preview" src="${contextPath}${detail.imageList[0]}">
+                            <c:if test="${param.mode}=='insert'">
+                                <img class="preview" src="">
+                            </c:if>
+                            <c:if test="${param.mode}=='update'">
+                                <img class="preview" src="${contextPath}${detail.imageList[0]}">
+                            </c:if>
                         </label>
                         <input type="file" name="0" id="image0" class="inputImage" accept="image/*">
                         <span class="delete-image">&times;</span>
