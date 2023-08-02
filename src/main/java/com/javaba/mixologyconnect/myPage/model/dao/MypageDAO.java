@@ -276,7 +276,7 @@ public class MypageDAO {
 			
 		}finally {
 			close(rs);
-			close(stmt);
+			close(pstmt);
 		}
 		
 		return listCount;
