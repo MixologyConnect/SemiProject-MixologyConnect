@@ -54,13 +54,13 @@
                             <img class="preview" src="">
                             
                             <c:if test="${param.mode=='update'}">
-                                <img class="preview" src="${contextPath}${detail.imageList[0].imageRename}">
+                                <img class="preview" id="preview" src="${contextPath}${detail.imageList[0].imageRename}">
                                 
                             </c:if>
                             
                         </label>
                         <input type="file" name="0" id="image0" class="inputImage" accept="image/*">
-                        <span class="delete-image">&times;</span>
+                        <span class="delete-image" id="delete-image">&times;</span>
                     </div>
                 </div>
                 <label for="image0">
@@ -99,7 +99,7 @@
                 <input type="hidden" name = "no" value = "${param.no}">
                 <input type="hidden" name = "cp" value = "${param.cp}">
         
-                <input type="hidden" id="delteList" name = "deleteList" value = "">
+                <input type="hidden" id="deleteList" name = "deleteList" value = "">
             </form>
 
         </div>

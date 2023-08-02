@@ -41,36 +41,36 @@ document.getElementById("title").addEventListener("input", function() {
 
     
 
-// // 미리보기 관련 요소 모두 얻어오기 
-// const inputImage = document.getElementsByClassName("inputImage")[0];
-// const preview = document.getElementsByClassName("preview")[0];
-// const deleteImage = document.getElementsByClassName("delete-image")[0];
+// 미리보기 관련 요소 모두 얻어오기 
+const inputImage = document.getElementById("image0");
+const preview = document.getElementById("preview");
+const deleteImage = document.getElementById("delete-image");
 
-// const deleteList = document.getElementById("deleteList");
+const deleteList = document.getElementById("deleteList");
 
-// const deleteSet = new Set(); 
+const deleteSet = new Set(); 
 
-// inputImage.addEventListener("change",function(){
-//     if(this.files != undefined){
-//         const reader = new FileReader();
-//         reader.readAsDataURL(this.files)
+inputImage.addEventListener("change",function(){
+    if(this.file != undefined){
+        const reader = new FileReader();
+        reader.readAsDataURL(this.file)
 
-//         reader.onload =function(e){
-//             preview.setAttribute("src", e.target.result);
-//             deleteSet.delete(0);
-//         }
-//     }else{
-//         preview.removeAttribute("src");
-//     }
-// })
+        reader.onload =function(e){
+            preview.setAttribute("src", e.target.result);
+            deleteSet.delete(inputImage);
+        }
+    }else{
+        preview.removeAttribute("src");
+    }
+})
 
-// deleteImage.addEventListener("click", function(){
-//     if(preview.getAttribute("src") != ""){
-//         preview.removeAttribute("src");
-//         inputImage.value="";
-//         deleteSet.add(0);
-//     }
-// })
+deleteImage.addEventListener("click", function(){
+    if(preview.getAttribute("src") != ""){
+        preview.removeAttribute("src");
+        inputImage.value="";
+        deleteSet.add(deleteImage);
+    }
+})
 
 // 유효성 검사
 function writeValidate(){
