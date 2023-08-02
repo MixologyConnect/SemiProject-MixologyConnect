@@ -563,7 +563,7 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 
 			if(rs.next()) {
-				
+				followingNo= rs.getInt("MEMBER_NO");
 			}
 
 		}finally {
