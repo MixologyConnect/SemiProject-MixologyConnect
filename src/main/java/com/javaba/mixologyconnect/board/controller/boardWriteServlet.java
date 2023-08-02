@@ -98,6 +98,9 @@ public class boardWriteServlet extends HttpServlet {
 			String boardTitle = mpReq.getParameter("boardTitle");
 			String boardContent = mpReq.getParameter("boardContent");
 			int boardType = Integer.parseInt(mpReq.getParameter("type"));
+	
+			
+			
 			
 			Member loginMember = (Member)session.getAttribute("loginMember");
 			int memberNo = loginMember.getMemberNo(); 
