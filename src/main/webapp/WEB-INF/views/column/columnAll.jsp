@@ -75,7 +75,7 @@
                 <div class="">
                     <ul>
                         <c:choose>
-                            <c:when test="${empty map}">
+                            <c:when test="${empty columnList}">
                                 <span><h4>게시글이 존재하지 않습니다.</h4></span>
                             </c:when>
                             <c:otherwise>

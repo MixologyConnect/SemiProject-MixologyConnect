@@ -51,7 +51,7 @@ public class columnAllServlet extends HttpServlet{
 			
 			
 			
-			System.out.println(map);
+//			System.out.println(map);
 			
 			req.setAttribute("map", map);
 			

@@ -32,9 +32,7 @@
 				<!-- 전체, 팔로잉, 공지 -->
 				<div class="top-2">
 					<button id="all" name="all">전체</button>
-					<c:if test="${!empty loginMember}">
-						<button id="Following" name="Following" onclick="location.href = 'followList?type=1&cp=1'">팔로잉</button>
-					</c:if>
+					<button id="Following" name="Following" onclick="location.href ='followList?type=1&cp=1'">팔로잉</button>
 					
 					<div class="right">
 						<button id="new" name="new"><a href="${contextPath}/board/boardAll?type=1&cp1">최신순</a></button>
