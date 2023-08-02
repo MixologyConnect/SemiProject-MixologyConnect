@@ -68,7 +68,7 @@ deleteImage.addEventListener("click", function(){
     if(preview.getAttribute("src") != ""){
         preview.removeAttribute("src");
         inputImage.value="";
-        deleteSet.add(deleteImage);
+        deleteSet.add();
     }
 })
 
