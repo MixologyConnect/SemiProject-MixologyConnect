@@ -16,7 +16,7 @@
             const type = "type=" + params.get("type");
             let cp;
             
-            if(params.get("cp") != ""){
+            if(params.get("cp") != null){
             cp = "cp=" + params.get("cp");
             }else {
                 cp = "cp=1";
