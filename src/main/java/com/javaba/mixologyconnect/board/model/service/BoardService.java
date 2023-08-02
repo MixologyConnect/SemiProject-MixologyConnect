@@ -347,11 +347,16 @@ public class BoardService {
 	}
 	
 	
+	/** 게시글 목록 인기순
+	 * @param type
+	 * @param cp
+	 * @return map
+	 * @throws Exception
+	 */
 	public Map<String, Object> boardListPopularity(int type, int cp) throws Exception {
 		
 		Connection conn = getConnection();
 
-		// 게시글 제목
 		String boardTitle = dao.boardTitle(conn, type);
 
 		int listCount = dao.getListCount(conn, type);
