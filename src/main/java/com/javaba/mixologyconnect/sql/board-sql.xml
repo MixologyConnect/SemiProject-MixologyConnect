@@ -217,9 +217,9 @@
 		SELECT
 						a.BOARD_NO
 				,		a.BOARD_TITLE
-	           			,    		a.BOARD_CONTENT
+	           	,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
 				,		b.MEMBER_NM
-				,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
+				,		a.BOARD_DT
 				,		a.READ_COUNT
 				,		c.IMG_RENAME
 				

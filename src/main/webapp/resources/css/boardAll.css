@@ -160,11 +160,13 @@ height: 200px;
 }
 
 .titleContent {
-  padding: 10px;
+  padding: 15px;
+  margin: 15px 0;
 }
 
 .nameDateCount{
   float: right;
+  margin-top: -10px;
 }
 
 
@@ -187,15 +189,18 @@ display: flex;
 .fir{
 display: flex;
 margin-left: 20px;
-border: 3px solid white;
-border-radius: 10px;
+border-radius: 30px;
 border-bottom: 3px solid #ddd;
 width: 960px;
 height: 244px;
-border: 1px solid #ddd;
+border: 2px solid #ddd;
 margin: 10px 0;
 padding: 0 20px;
 flex-direction: column;
+}
+
+.fir:hover{
+border: 2px solid rgb(0, 220, 244);;
 }
 
 
@@ -229,11 +234,12 @@ font-weight: bold;
 
 
 .boardContent{
-height: 100px;
+height: 110px;
 width: 600px;
 overflow: hidden;  		
 text-overflow: ellipsis;  	
 display: flex;
+padding: 7px 0;
 
 }
 
@@ -326,10 +332,6 @@ font-weight: bold;
 border-radius: 50%;
 }
 
-.nameDateCount span{
-
-}
-
 
 
 .btn-area{
@@ -368,4 +370,14 @@ text-decoration: none;
 
 .board h3{
   font-size: 30px;
+}
+
+.boardContent{
+  font-size:14px; 
+}
+
+
+.read{
+  display: inline-block;
+  padding: 0 10px;
 }
