@@ -44,16 +44,23 @@
                 </div>
                 
                 <!-- 이미지 미리보기 영역 -->
-                <c:if test="${boardImage.imageLevel == 0}">
-                    <c:set var="boardImage" value="${detail.imageList[0]}"/>
-                </c:if>
+                <c:forEach items=${detail.imageList} var="boardImage">
+                    <c:choose>
+                        <c:when test="${boardImage.imageLevel == 0}">
+                            <c:set var="thumbnail" value="${contextPath}${boardImage.imageRename}"/>
+                        </c:when>
+                    </c:choose>
+                </c:forEach>
+
+
+
                 <div class="image-box">
                     <label for="image">
                         <div class="image">이미지 선택</div>
                     </label>
                     <div class="columnImg">
                         <article>
-                            <img class="preview" src="${boardImage}">
+                            <img class="preview" src="${thumbnail}">
                         </article>
                         <input type="file" name="0" id="image" class="inputImage" accept="image/*">
                         <span class="delete-image">&times;</span>

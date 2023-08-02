@@ -40,7 +40,7 @@
     if(deleteBtn != null){
         deleteBtn.addEventListener("click", function(){
 
-            let url = "columnDelete";
+            let url = "boardDelete";
 
             const params = new URL(location.href).searchParams;
 
