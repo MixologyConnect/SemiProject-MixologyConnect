@@ -142,11 +142,14 @@
 								const contextPath = "${contextPath}";
 
 								const boardNo = "${detail.boardNo}";
+								const writerNo = "${detail.memberNo}";
 
 								const loginMemberNo = "${loginMember.memberNo}";
 
 								const likeMember = "${likeMember}"
-								const writerNo = "${writerNo}"
+								
+								const followingWriter = "${writerNo}"
+
 							</script>
 
 							<script src="${contextPath}/resources/js/board/reply.js"></script>

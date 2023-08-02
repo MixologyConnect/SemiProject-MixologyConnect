@@ -15,7 +15,15 @@
     //내 게시글 팔로우 막기 
    
     //목록으로 돌아가기 후에 내가 팔로우한 사람 은 unfollow 뜨게하기 
+    if(writerNo==followingWriter){
+        let followCheck = document.getElementById('followCheck');
+        const followBtn = document.getElementById('followBtn');
 
+        followCheck.removeAttribute("name")
+        followCheck.setAttribute("name",1)
+        followBtn.innerText="UNFOLLOW"
+
+    }
   })  
     
     
