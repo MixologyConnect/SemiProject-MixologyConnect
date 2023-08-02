@@ -33,7 +33,7 @@
 				<div class="top-2">
 					<button id="all" name="all">전체</button>
 					<button id="Following" name="Following">팔로잉</button>
-					<button id="notice" name="notice">공지</button>
+					
 					<div class="right">
 						<button id="new" name="new"><a href="${contextPath}/board/boardAll?type=1&cp1">최신순</a></button>
 						<button id="top" name="top" onclick = "location.href = 'choice?mode=popularity&type=${param.type}&cp=${param.cp}'">인기순</button>
