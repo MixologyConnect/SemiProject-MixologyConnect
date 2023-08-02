@@ -242,13 +242,16 @@
    	     	    with row_check as
 	        (
 	            select 
+	            
 	                        row_number() over(order by a.board_no desc) as rn    
 	                ,       a.*
 	            from board a
 	            order by board_no desc
 	        )
 
-     SELECT a.*, b.member_nm, c.img_rename
+     SELECT 
+       TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT,
+     a.*, b.member_nm, c.img_rename
                             FROM row_check a
                             LEFT JOIN (
                             SELECT board_no, COUNT(*) as likes_count

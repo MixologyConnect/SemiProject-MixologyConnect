@@ -38,7 +38,6 @@
 					</c:if>
 
 					<div class="right">
-						<button id="all" name="all"><a href="${contextPath}/board/boardAll?type=1&cp1">전체</a></button>
 						<button id="new" name="new"><a href="${contextPath}/board/boardAll?type=1&cp1">최신순</a></button>
 						<button id="top" name="top"><a
 								href="${contextPath}/board/boardListPopularity?type=1&cp1">인기순</a></button>
