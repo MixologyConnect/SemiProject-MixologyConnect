@@ -48,17 +48,24 @@
 
 
                 <div class="image-box">
-                    <label for="image">
-                        <div class="image">이미지 선택</div>
-                    </label>
                     <div class="columnImg">
-                        <article>
-                            <img class="preview" src="${contextPath}${detail.imageList[0].imageRename}">
-                        </article>
+                        <label for="image0">
+                            
+                            <img class="preview" src="">
+                            
+                            <c:if test="${param.mode=='update'}">
+                                <img class="preview" src="${contextPath}${detail.imageList[0].imageRename}">
+                                
+                            </c:if>
+                            
+                        </label>
                         <input type="file" name="0" id="image0" class="inputImage" accept="image/*">
                         <span class="delete-image">&times;</span>
                     </div>
                 </div>
+                <label for="image0">
+                    <div class="image">이미지 선택</div>
+                </label>
                 
 
                 <!-- 게시글 작성란 -->
@@ -92,7 +99,7 @@
                 <input type="hidden" name = "no" value = "${param.no}">
                 <input type="hidden" name = "cp" value = "${param.cp}">
         
-                <input type="hidden" id="dlelteList" name = "deleteList" value = "">
+                <input type="hidden" id="delteList" name = "deleteList" value = "">
             </form>
 
         </div>

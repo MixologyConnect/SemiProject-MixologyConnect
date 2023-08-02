@@ -371,6 +371,42 @@ public class BoardService {
 		
 	}
 
+	/**팔로우게시글 모아보기 
+	 * @throws Exception
+	 * @param type
+	 * @param cp
+	 * @return
+	 */
+	public Map<String, Object> followBoardAll(int type, int cp, int loginMemberNo) throws Exception {
+		Connection conn = getConnection();
+
+		// 게시글 제목
+		String boardTitle = dao.boardTitle(conn, type);
+
+
+		int listCount = dao.getFollowListCount(conn, type, loginMemberNo);
+
+
+		// 2-2. 전체 게시글 수 + 현재 페이지 (cp)를 이용해 페이지네이션 객체 생성
+		Pagination pagination = new Pagination(cp, listCount);
+
+
+		// 3. 게시글 목록 조회
+		List<Board> boardList = dao.selectFollowBoardList(conn, pagination, type, loginMemberNo);
+
+
+
+		// 4. Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("boardName", boardTitle);
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+
+		close(conn);
+		return map;
+	}
+
 
 
 

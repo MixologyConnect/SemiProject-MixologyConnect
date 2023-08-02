@@ -1,0 +1,73 @@
+#modal-contract {
+    position: fixed;
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    transition-duration: 1.2s;
+}
+
+#modal-constract > h2 {
+    margin-top: 30px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#modal-contract-term {
+    display: flex;
+    padding: 30px 0 10px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contract-terms {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-contract label {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.modal-contract-scrollbox {
+    width: 350px;
+    height: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    overflow: scroll;
+    transition-duration: 0.8s;
+} html.dark .modal-contract-scrollbox {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-contract-scrollbox > p {
+    font-size: 0.8rem;
+}
+
+#modal-contract-button {
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+#modal-contract-button:hover {
+    background-color: rgba(0, 220, 244, 0.8);
+}
+
+.modal-contract-checks:checked ~ div {
+    background-color: rgba(0, 220, 244, 0.2);
+}
