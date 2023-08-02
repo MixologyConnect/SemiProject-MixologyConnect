@@ -17,7 +17,7 @@
             let cp;
             
             if(params.get("cp") != ""){
-            cp = "cp" + params.get("cp");
+            cp = "cp=" + params.get("cp");
             }else {
                 cp = "cp=1";
             }
