@@ -14,7 +14,12 @@ $.ajax({
 });
 
 
+const all = document.getElementById("all");
 
+all.addEventListener("click", function(e){
+
+    all.style.color = "rgb(0, 220, 244)";
+})
 
 
 

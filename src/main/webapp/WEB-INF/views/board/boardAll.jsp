@@ -18,7 +18,7 @@
 			
 			<script src="https://code.jquery.com/jquery-3.7.0.min.js"
 			integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-			<script src="${contextPath}/resources/js/boardAll.js"></script>
+			
 			<script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
 
 		<body style="overflow-x: hidden">
@@ -27,18 +27,19 @@
 			<main>
 				<div class="top">
 					<p>${boardName}</p>
+					<p>모든 글을 모아보세요</p>
 				</div>
 
 				<!-- 전체, 팔로잉, 공지 -->
 				<div class="top-2">
-					<button id="all" name="all">전체</button>
 					<c:if test="${!empty loginMember}">
 						<button id="Following" name="Following" onclick="location.href = 'followList?type=1&cp=1'">팔로잉</button>
 					</c:if>
 					
 					<div class="right">
+						<button id="all" name="all"><a href="${contextPath}/board/boardAll?type=1&cp1">전체</a></button>
 						<button id="new" name="new"><a href="${contextPath}/board/boardAll?type=1&cp1">최신순</a></button>
-						<button id="top" name="top" onclick = "location.href = 'choice?mode=popularity&type=${param.type}&cp=${param.cp}'">인기순</button>
+						<button id="top" name="top"><a href="${contextPath}/board/boardListPopularity?type=1&cp1">인기순</a></button>
 					</div>
 				</div>
 
@@ -54,22 +55,26 @@
 					<c:forEach var="board" items="${boardList}">
 						<section class="fir">
 							<div class="left">
-								<div class="board">
-									<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3>${board.boardTitle}</h3>
+								<div class="img">
+									<c:if test = "${!empty board.thumbnail}">
+										<img src="${contextPath}${board.thumbnail}">
+									</c:if>
 								</div>
-								<div class="boardContent">${board.boardContent}</div>
+								<div class="titleContent">
+									<div class="board">
+										<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3>${board.boardTitle}</h3>
+										</div>
+										<span class="memberName">${board.memberName}</span> 
+										
+										<div class="boardContent">${board.boardContent}</div>
+									</div>
+									
+								</div>
 								<div class="nameDateCount">
-									<span class="memberName">${board.memberName}</span> 
+									<span class="like">좋아요는 여기~</span> 
 									<span class="read">조회수 : ${board.readCount}</span>
 									<span class="boardDate">${board.boardDate}</span> 
 								</div>
-							</div>
-							<div class="img">
-								<c:if test = "${!empty board.thumbnail}">
-									<img src="${contextPath}${board.thumbnail}">
-								</c:if>
-
-							</div>
 						</a>
 						</section>
 
@@ -119,6 +124,7 @@
 			</main>
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 			<jsp:include page="/WEB-INF/views/common/modal.jsp"/>
+			<script src="${contextPath}/resources/js/boardAll.js"></script>
 			<script src="${contextPath}/resources/js/board/board.js"></script>
 			<script src="${contextPath}/resources/js/main.js"></script>
 		</body>
