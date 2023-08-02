@@ -1,40 +1,87 @@
 
 // 북마크 버튼 이미지
-const img = document.getElementById("bookBtnImg");
+const imgPlus = document.getElementById("bookBtnImgPlus");
+const imgMinus = document.getElementById("bookBtnImgMinus");
 
+let count = 1;
 
 // 즉시실행 함수(북마크 이미지 채워지는지 확인)
 (function(){
 
     // bordDetail 화면 띄우자마자
     // 북마크 해 놓은 페이지에 들어오면 북마크 표시되는 함수 호출
-    bookMarkImage();
+    // bookMarkImage();
+
 
 
     
+    console.log("내려와")
 
 
 })();
+
+// 북마크 등록 
+function bookBtnClickPlus(){
+    if (confirm("북마크에 등록하시겠습니까?")) {
+        bookMarkInsert();
+    }
+    bookMarkInsert();
+}
+
+// 북마크 해제
+function bookBtnClickMinus(){
+    if (confirm("북마크를 삭제하시겠습니까?")) {
+        deleteBookMark();
+    } 
+}
+
+
+
+
+
+
+
+
 
 // function bookBtnClick(){
 //     console.log("눌리나?")
 // }
 
+// function bookBtnClick(){
 
+   
 
-let count = 1;
-if(img.src = contextPath + "/resources/images/bookmark.svg"){
-    // console.log("없음")
-
-    function bookBtnClick() {
+//         if(count % 2 == 0){
+//             console.log("짝")
+//             deleteBookMark();
+//             img.src = contextPath + "/resources/images/bookmark.svg"
+//         } else {
+//             console.log("홀")
+//             bookMarkInsert();
+//             img.src = contextPath + "/resources/images/bookmark-fill.svg"
+//         }
+//         count += 1;
     
+// }
+
+
+
+
+    
+/*if(img.src = contextPath + "/resources/images/bookmark.svg"){
+    
+    function bookBtnClick() {
+        
+        console.log("없음")
     
         if(count % 2 == 0){
-            // console.log("삭제")
+            console.log("삭제")
             deleteBookMark();
+            img.src = contextPath + "/resources/images/bookmark.svg"
         } else {
-            // console.log("등록")
+            console.log("등록")
             bookMarkInsert();
+            img.src = contextPath + "/resources/images/bookmark-fill.svg"
         }
         count += 1;
     
@@ -56,7 +103,49 @@ if(img.src = contextPath + "/resources/images/bookmark.svg"){
 
 
 
-}
+}*/
+
+
+
+
+
+
+/*if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+    // console.log("없음")
+
+    function bookBtnClick() {
+    
+    
+        if(count % 2 == 0){
+            console.log("삭제")
+            deleteBookMark();
+            img.src = contextPath + "/resources/images/bookmark.svg"
+        } else {
+            console.log("등록")
+            bookMarkInsert();
+            img.src = contextPath + "/resources/images/bookmark-fill.svg"
+        }
+        count += 1;
+    
+    
+    
+        // if(loginMemberNo==""){
+        //     alert("로그인후 이용해주세요.")
+        // }
+    
+        
+        // if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+        
+        //     return false;
+        // }
+    
+        
+    }
+
+
+
+
+}*/
 
 
 
@@ -82,18 +171,16 @@ function bookMarkInsert(){
         type : "get",
 
         success : function(result){
-            try{
-                if(result > 0){
-                    alert("북마크 등록완료")
-                    let bkNum = 1;
-                }else{
-                    alert("북마크 등록 실패..")
-                    let bkNum = 0;
-                }
-
-            }catch(e){
+          
+            if(result > 0){
+                alert("북마크 등록완료")
+                let bkNum = 1;
+            }else{
+                alert("이미 북마크에 등록되어있습니다.")
                 let bkNum = 0;
             }
+
+           
         
             
         },
@@ -103,7 +190,7 @@ function bookMarkInsert(){
         }
         })
 
-    }
+}
 
 
 
@@ -114,7 +201,7 @@ function bookMarkImage(){
     const params = new URL(location.href).searchParams;
     const boardNo = params.get("no")
 
-    console.log(boardNo)
+    // console.log(boardNo)
 
 
     $.ajax({
@@ -127,21 +214,9 @@ function bookMarkImage(){
             console.log(result)
             if(result > 0){
                 console.log("성공")
-                img.src = contextPath + "/resources/images/bookmark-fill.svg";
-
-                // function bookBtnClick(){
-
-                //     deleteBookMark();
-                // }
-
             }else{
                 console.log("에러")
-                img.src = contextPath + "/resources/images/bookmark.svg";
-                // function bookBtnClick(){
-                //     console.log("왜 안돼?")
-                //     bookMarkInsert();
-                    
-                // }
+              
             }
         },
 
@@ -187,7 +262,7 @@ function deleteBookMark(){
                 if(result>0){
                     alert("북마크 삭제 완료")
                 }else{
-                    alert("북마크 삭제 실패")
+                    alert("북마크에 등록되어있지 않습니다.")
                 }
     
     
@@ -202,18 +277,18 @@ function deleteBookMark(){
 }
 
 
-if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
-    console.log("안졸려")
-    deleteBookMark();
-    // 북마크 삽입 함수
-    img.src = contextPath + "/resources/images/bookmark.svg"
+// if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
+//     console.log("안졸려")
+//     deleteBookMark();
+//     // 북마크 삽입 함수
+//     img.src = contextPath + "/resources/images/bookmark.svg"
     
-    if(img.src = contextPath + "/resources/images/bookmark.svg"){
+//     if(img.src = contextPath + "/resources/images/bookmark.svg"){
 
-        bookMarkInsert();
-        img.src = contextPath + "/resources/images/bookmark-fill.svg"
-    }
-} 
+//         bookMarkInsert();
+//         img.src = contextPath + "/resources/images/bookmark-fill.svg"
+//     }
+// } 
 
 
 
