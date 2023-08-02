@@ -69,7 +69,7 @@ public class ColumnWriteServlet extends HttpServlet{
 			while (files.hasMoreElements()) {
 				String name = files.nextElement();
 				
-				System.out.println("name : "+name);
+//				System.out.println("name : "+name);
 				String rename = mpReq.getFilesystemName(name);
 				String original = mpReq.getOriginalFileName(name);
 				
@@ -132,7 +132,7 @@ public class ColumnWriteServlet extends HttpServlet{
 			
 			String message = null;
 			
-			System.out.println("result" + result);
+//			System.out.println("result" + result);
 			
 			if(result >0) {
 				
