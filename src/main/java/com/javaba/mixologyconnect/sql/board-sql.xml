@@ -196,4 +196,46 @@
 		AND		BOARD_ST	=	'Y'
 
 </entry>
+
+<entry key="getFollowListCount">
+	SELECT COUNT(*)  FROM BOARD
+		join follow USING(member_no)
+	WHERE BOARD_CD = ?
+	AND follower_no= ?
+	AND BOARD_ST = 'Y'
+</entry>
+
+<entry key="selectFollowBoardList">
+	with row_check as
+	        (
+	            select 
+	                        row_number() over(order by a.board_no desc) as rn    
+	                ,       a.*
+	            from board a
+	            order by board_no desc
+	        )
+		SELECT
+						a.BOARD_NO
+				,		a.BOARD_TITLE
+	           			,    		a.BOARD_CONTENT
+				,		b.MEMBER_NM
+				,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
+				,		a.READ_COUNT
+				,		c.IMG_RENAME
+				
+		FROM row_check a
+		left join member b
+			on	b.member_no		=	a.member_no
+		left join board_img c
+			on	c.board_no		=	a.board_no
+			and	c.img_level		=	'0'
+		join follow d
+			on 	d.member_no		= 	b.member_no
+		WHERE 	a.rn BETWEEN ? AND ?
+		AND		BOARD_CD	=	?
+		AND		BOARD_ST	=	'Y'
+		and 	follower_no 	= 	?
+</entry>
+
+
 </properties>
