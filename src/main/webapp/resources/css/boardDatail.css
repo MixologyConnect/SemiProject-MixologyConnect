@@ -134,13 +134,24 @@
 }
 
 
-#bookBtn img {
+#bookBtnPlus img {
+    width: 30px;
+    height: 30px;
+}
+#bookBtnMinus img {
     width: 30px;
     height: 30px;
 }
 
 /* 북마크 버튼 */
-#bookBtn {
+#bookBtnPlus {
+    width: 50px;
+    height: 40px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+#bookBtnMinus {
     width: 50px;
     height: 40px;
     background-color: white;
