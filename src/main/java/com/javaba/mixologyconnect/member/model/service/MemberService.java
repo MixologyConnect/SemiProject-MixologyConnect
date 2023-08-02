@@ -238,23 +238,27 @@ public class MemberService {
 		Connection conn = getConnection();
 
 		//게시글 작성자 회원번호 조회 
-		int boardWriter = dao.selectBoardWrite(conn, boardNo);
-		int followingNo= 0;
-		int dFollowResult=0;
-		int followResult = 0;
+		int boardWriter = dao.selectBoardWrite(conn, boardNo); //게시글 작성자 조회
+		int followingNo= 0; //팔로우 당하는 게시글 작성자 번호 
+		int dFollowResult=0; // 팔로우 취소 결과 
+		int followResult = 0; // 팔로우 추가 결과 
 		
 		
 		followingNo = dao.selectFollower(conn, loginMemberNo, boardWriter);
 		if(followingNo==boardWriter) {
-			if(followCheck > 0) {
-				// 팔로우하기 결과 반환 변수
-				followResult = dao.insertfollow(conn, boardWriter, loginMemberNo);
-			}else if(followCheck == 0) {
+			if(followCheck == 0) {
 				//팔로우 취소하기 결과 변환 변수
 				dFollowResult = dao.deletefollow(conn, boardWriter, loginMemberNo);
 			}
 		}else {
-			dFollowResult = dao.deletefollow(conn, boardWriter, loginMemberNo);
+			
+			if(followCheck > 0) {
+				// 팔로우하기 결과 반환 변수
+				followResult = dao.insertfollow(conn, boardWriter, loginMemberNo);
+			}else {
+				//팔로우 취소 결과 
+				dFollowResult = dao.deletefollow(conn, boardWriter, loginMemberNo);
+			}
 		}
 		
 
