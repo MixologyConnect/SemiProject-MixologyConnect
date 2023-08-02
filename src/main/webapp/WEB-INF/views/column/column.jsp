@@ -79,7 +79,15 @@
                         <button id="updateBtn" type="button" onclick="location.href='columnWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${detail.boardNo}'">수정</button>
                         <button id="deleteBtn" >삭제</button>
                     </c:if>
-                    <button id="goToBtn" >목록으로</button>
+                
+                    <c:if test = "${!empty param.query}">
+                        <button id="selectListBtn" type="button">목록으로</button>
+                    </c:if>
+                    <c:if test="${empty param.query}">
+                        <button id="goToBtn" type="button">목록으로</button>
+                    </c:if>
+                
+                
                 </div>
         
             <!-- </form> -->
@@ -94,5 +102,6 @@
    <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
    <script src="${contextPath}/resources/js/column.js"></script>
+   <script src="${contextPath}/resources/js/search/search.js"></script>
 </body>
 </html>
