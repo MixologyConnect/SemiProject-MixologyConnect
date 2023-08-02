@@ -57,7 +57,7 @@ inputImage.addEventListener("change", function() {
 
         reader.onload = function(e) {
             preview.setAttribute("src", e.target.result);
-            deleteSet.clear(); // Corrected: Use clear() instead of delete;
+            deleteSet.clear(); 
         }
     } else {
         preview.removeAttribute("src");
@@ -68,7 +68,7 @@ deleteImage.addEventListener("click", function() {
     if (preview.getAttribute("src") != "") {
         preview.removeAttribute("src");
         inputImage.value = "";
-        deleteSet.add(inputImage.files[0]); // Corrected: Add inputImage.files[0] to the set instead of inputImage;
+        deleteSet.add(inputImage.files[0]);
     }
 })
 
