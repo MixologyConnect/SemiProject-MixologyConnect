@@ -69,7 +69,7 @@
 							<div class="left">
 								<div class="board">
 									<a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
-                                    <h3><input type="checkbox" name="feed" value="${board.boardNo}" id="checkbox">${board.boardTitle}</h3>
+                                    <h3><input type="checkbox" name="feed" value="${board.boardNo}" id="check">${board.boardTitle}</h3>
 								</div>
 								<div>${board.boardContent}</div>
 								<div class="nameDateCount">
@@ -97,7 +97,7 @@
 
         <section class="number">
             <div>
-                <span><input type="checkbox" id="all">전체선택</span>
+                <span><input type="checkbox" id="all" onclick="deleteAll()">전체선택</span>
 
             </div>
 
@@ -133,7 +133,7 @@
             </div>
 
             <div id="delete">
-                <span><button>삭제하기</button></span>
+                <span><button onclick="deletePost()">삭제하기</button></span>
             </div>
 
         </section>
@@ -143,6 +143,10 @@
 
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <script>
+        const contextPath = "${contextPath}"
+     </script>
 
 
     <script src="${contextPath}/resources/js/LoginMyPage.js"></script>
