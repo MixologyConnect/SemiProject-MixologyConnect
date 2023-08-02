@@ -705,6 +705,13 @@ public class BoardDAO {
 		return result;
 	}
 
+	/** 인기순 게시글 목록
+	 * @param conn
+	 * @param pagination
+	 * @param type
+	 * @return boardList
+	 * @throws Exception
+	 */
 	public List<Board> selectBoardPopularity(Connection conn, Pagination pagination, int type) throws Exception {
 		
 		List<Board> boardList = new ArrayList<Board>();
