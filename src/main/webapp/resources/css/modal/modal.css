@@ -1,0 +1,31 @@
+#overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(3px) brightness(0.5);
+    -webkit-backdrop-filter: blur(3px) brightness(0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition-duration: 0.8s;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal {
+    position: fixed;
+    max-height: 95vh;
+    padding: 55px;
+    border: 1px solid rgb(0, 220, 244);
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px 4px rgba(0, 220, 244, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center;
+    transition-duration: 1s;
+} html.dark #modal {
+    background-color: rgba(0, 0, 0, 0.4);
+}

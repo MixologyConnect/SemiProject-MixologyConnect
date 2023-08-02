@@ -1,0 +1,62 @@
+#modal-login {
+    position: fixed;
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    transition-duration: 1.2s;
+}
+
+#modal-login > h2 {
+    margin-top: 30px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#modal-login > a {
+    cursor: pointer;
+}
+
+#modal-login-logo {
+    width: 60px;
+    filter: drop-shadow(0 0 10px rgba(0, 220, 244, 0.4));
+}
+
+#modal-login-head {
+    font-family: "Playfair Display";
+    font-style: italic;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(0, 220, 244, 0.4);;
+    letter-spacing: 1.6px;
+    color: rgb(0, 220, 244);
+}
+
+#modal-login-button {
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.8s;
+}
+
+#modal-login-button:hover {
+    background-color: rgba(0, 220, 244, 0.8);
+}
+
+.modal-login-input {
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    margin: 10px 0;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+}
