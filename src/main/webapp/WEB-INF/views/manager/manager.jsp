@@ -95,17 +95,12 @@
                     <th >전화번호</th>
                     <th >게시글 삭제 여부</th>
                 </tr>
-                
 
                 <tbody id="resultBoard">
 
                 </tbody>
                 
-                
-                
             </table>
-            
-            
             
             <!-- typw="submit" id="borderbtn" -->
             <input type="hidden" id="boardResult">
@@ -113,14 +108,9 @@
 
         </section>
 
-
-
-            
-
         </div>
         
     </div>
-
 
     <script src="${contextPath}/resources/js/manager.js"></script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

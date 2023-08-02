@@ -147,7 +147,7 @@ public class ColumnDAO {
 				column.setBoardNo(rs.getInt("BOARD_NO"));
 				
 				
-//				System.out.println(column.getThumbnail());
+//				System.out.println(column.getBoardNo());
 				columnList.add(column);
 	
 			
@@ -238,6 +238,7 @@ public class ColumnDAO {
 				column.setThumbnail(rs.getString("IMG_RENAME"));
 				column.setBoardTitle(rs.getString("BOARD_TITLE"));
 				column.setMemberName(rs.getString("MEMBER_NM"));
+				column.setBoardNo(rs.getInt("BOARD_NO"));
 				
 				columnList.add(column);
 	

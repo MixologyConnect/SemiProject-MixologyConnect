@@ -35,7 +35,9 @@
     function likeBtnClick() {
         
         if(loginMemberNo==""){
-            showModal("login", true);   
+            if(confirm("로그인 후 이용해주세요 로그인화면으로 갑니다 슝-")){
+                showModal("login", true);
+            } 
         }else{
             const img = document.getElementById("likeBtnImg");
             let likeCheck = document.getElementById('likeCheck');
