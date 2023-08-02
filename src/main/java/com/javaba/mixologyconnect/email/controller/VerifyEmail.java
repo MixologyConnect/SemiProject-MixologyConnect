@@ -17,13 +17,10 @@ public class VerifyEmail extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		HttpSession session = req.getSession();
-
 		try {
-			String vrfCode = EmailService.sendEmail((String)req.getParameter("email"), (String)req.getParameter("serv"));
-			session.setAttribute("vrfCode", vrfCode);
+			resp.getWriter().print(EmailService.sendEmail((String)req.getParameter("email"), (String)req.getParameter("serv")));
 		} catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 
 	}

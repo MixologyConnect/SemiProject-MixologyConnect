@@ -303,6 +303,8 @@ function signValidate(){
 
      let str;
 
+
+
     for( let key in checkObj){ //객체용 향상된 for문
 
         

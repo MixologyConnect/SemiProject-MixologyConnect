@@ -31,33 +31,3 @@ function showModal(m, b) {
         case "login:false" : $(".account-text").css("color", ""); break;
     }
 }
-
-$("#account-cbox").change(function() {
-    if ($(this).prop("checked")) showModal("login", true);
-    else showModal("login", false);
-});
-
-$("#modal-login > a").click(function() {
-    showModal("login", false);
-    showModal("contract", true);
-});
-
-$("#modal-contract-button").click(function() {
-    if ($(".modal-contract-checks:checked").length >= 2) {
-        showModal("contract", false);
-        showModal("signup", true);
-    }
-})
-
-function verifyEmail() {
-    let email = $("#modal-signup-email").val();
-    $.ajax({
-        url: "email/verify",
-        type: "post",
-        data: {"serv": "signUp",
-               "email": email},
-        error: function(e) {
-            alert("오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
-        }
-    });
-}
