@@ -49,7 +49,7 @@
            <span><a href="#">알림</a></span>  
            <span id="alarm"><a href="#">글쓰기</a></span>   -->
            <p class="thead"><a href="#">작성글</a></p>  
-           <p><a href="${contextPath}/board/followlist"></a></p>
+           <p><a href="${contextPath}/board/followList?type=1">팔로우</a></p>
            <p><a href="${contextPath}/myPage/bookMark">북마크</a></p>  
            <p>
            <p id="alarm"><a href="#">글쓰기 <i class="fa-solid fa-pen-to-square"></i></a></p>  
