@@ -412,6 +412,17 @@ public class BoardService {
 		return map;
 	}
 
+	/** ISS
+	 * @param detail
+	 * @param imageList
+	 * @param boardCode
+	 * @return
+	 */
+	public int insertNotice(BoardDetail detail, List<BoardImage> imageList, int boardCode) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 
 
