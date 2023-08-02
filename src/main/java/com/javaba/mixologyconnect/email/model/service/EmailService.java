@@ -51,7 +51,7 @@ public class EmailService {
 
 		try {
 			message.setFrom(new InternetAddress("mixologyconnect2@gmail.com", "Mixology Connect", "UTF-8"));
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress("abs013r@gmail.com"));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
 			message.setSubject(subject);
 			message.setContent(content, "text/html; charset=utf-8");
 			Transport.send(message);
