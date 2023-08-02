@@ -48,7 +48,7 @@
 
 
                 <div class="image-box">
-                    <label for="image">
+                    <label for="image0">
                         <div class="image">이미지 선택</div>
                     </label>
                     <div class="columnImg">
