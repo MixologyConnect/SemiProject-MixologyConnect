@@ -35,7 +35,7 @@
         <!-- 칵쓸신잡 배너-->
         <div id="banner">
             <!-- 칵쓸신잡 배너 사진 -->
-            <a href="">
+            <a href="#">
                 <img src="https://i.ibb.co/9ZDf4Jk/logo.png" id="bannerPic">
             </a>
            
@@ -72,7 +72,7 @@
                     <h3>"${param.query}" 검색색결과</h3>
                 </c:if>
                 
-                <div class="">
+                <div>
                     <ul>
                         <c:choose>
                             <c:when test="${empty columnList}">
@@ -86,8 +86,8 @@
                                                 <img id="picture" src="${contextPath}${column.thumbnail}" style="width: 100%;">
                                             </div>
                                             <div class="title">
-                                                <p style="margin-top: 10px;"><h3>${column.boardTitle}</h3></p><br>
-                                                <p style="margin-bottom: 10px;">${column.memberName}</p>
+                                                <p><h3>${column.boardTitle}</h3></p>
+                                                <p>${column.memberName}</p>
                                             </div>
                                         </a>
                                     </li>
