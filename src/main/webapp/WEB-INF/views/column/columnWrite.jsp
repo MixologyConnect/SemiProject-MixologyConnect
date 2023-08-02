@@ -50,10 +50,12 @@
                 <div class="image-box">
                     <div class="columnImg">
                         <label for="image0">
+                            <c:if test="${param.mode == 'insert'}">
+                                <img class="preview" src="">
+
+                            </c:if>
                             
-                            <img class="preview" src="">
-                            
-                            <c:if test="${param.mode=='update'}">
+                            <c:if test="${param.mode == 'update'}">
                                 <img class="preview" id="preview" src="${contextPath}${detail.imageList[0].imageRename}">
                                 
                             </c:if>

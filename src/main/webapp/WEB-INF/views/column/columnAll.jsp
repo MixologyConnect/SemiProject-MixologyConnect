@@ -69,7 +69,7 @@
             <ul class="list-content">
 
                 <c:if test="${!empty param.title}">
-                    <h3>"${param.query}" 검색색결과</h3>
+                    <h3>"${param.query}" 검색결과</h3>
                 </c:if>
                 
                 <div>

@@ -44,7 +44,7 @@ public class columnAllServlet extends HttpServlet{
 				String query = req.getParameter("query");
 				
 				map = service.selectColumnAll(type, cp, title, query);
-						
+				
 				
 				
 			}
