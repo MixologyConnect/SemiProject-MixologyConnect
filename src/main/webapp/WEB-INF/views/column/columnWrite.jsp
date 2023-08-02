@@ -44,13 +44,6 @@
                 </div>
                 
                 <!-- 이미지 미리보기 영역 -->
-                <c:forEach items=${detail.imageList} var="boardImage">
-                    <c:choose>
-                        <c:when test="${boardImage.imageLevel == 0}">
-                            <c:set var="thumbnail" value="${contextPath}${boardImage.imageRename}"/>
-                        </c:when>
-                    </c:choose>
-                </c:forEach>
 
 
 
@@ -60,9 +53,9 @@
                     </label>
                     <div class="columnImg">
                         <article>
-                            <img class="preview" src="${thumbnail}">
+                            <img class="preview" src="${contextPath}${detail.imageList[0].imageRename}">
                         </article>
-                        <input type="file" name="0" id="image" class="inputImage" accept="image/*">
+                        <input type="file" name="0" id="image0" class="inputImage" accept="image/*">
                         <span class="delete-image">&times;</span>
                     </div>
                 </div>
