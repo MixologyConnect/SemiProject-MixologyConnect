@@ -51,7 +51,7 @@
                     <div class="columnImg">
                         <label for="image0">
                             <c:if test="${param.mode == 'insert'}">
-                                <img class="preview" src="">
+                                <img class="preview" id="preview" src="">
 
                             </c:if>
                             
