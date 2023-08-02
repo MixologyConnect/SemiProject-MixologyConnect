@@ -36,7 +36,14 @@
         <a href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
         <a href="${contextPath}/cocktail/list">칵테일</a>
         <a href="${contextPath}/cocktailTest/cocktailTest">테스트</a>
-        <a href="${contextPath}/manager/manager">관리자 모드</a>
+
+        <c:if test="${loginMember.managerCode == 'Y'}">
+            <a href="${contextPath}/manager/manager">관리자 모드</a>
+        </c:if>
+        <c:if test="${loginMember.managerCode == 'N'}">
+            <a href="${contextPath}/manager/manager">관리자 모드</a>
+        </c:if>
+
     </div>
 </header>
 <nav>
@@ -44,5 +51,10 @@
     <a href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
     <a href="${contextPath}/cocktail/list">칵테일</a>
     <a href="${contextPath}/cocktailTest/cocktailTest">테스트</a>
-    <a href="${contextPath}/manager/manager">관리자 모드</a>
+    <c:if test="${loginMember.managerCode == 'Y'}">
+        <a href="${contextPath}/manager/manager">관리자 모드</a>
+    </c:if>
+    <c:if test="${loginMember.managerCode == 'N'}">
+        <a href="${contextPath}/manager/manager">관리자 모드</a>
+    </c:if>
 </nav>
