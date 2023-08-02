@@ -2,6 +2,7 @@ package com.javaba.mixologyconnect.board.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,7 +49,11 @@ public class BoardDetailServlet extends HttpServlet {
 				
 				int loginmemberNo = loginMember.getMemberNo();
 				likeMember = service.selectMemberLike(boardNo, loginmemberNo);
+				//팔로우 당하는 게시글 작성자의 번호 
 				writerNo = service2.selectFollower(loginmemberNo, detail.getMemberNo());
+				System.out.println("writerNo :"+writerNo);
+				System.out.println("detail.getMemberNo() :"+detail.getMemberNo());
+			
 			}
 
 			int likeCount = service.selectLike(boardNo);
