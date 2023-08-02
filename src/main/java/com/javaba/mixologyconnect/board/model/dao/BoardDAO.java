@@ -751,5 +751,89 @@ public class BoardDAO {
 		
 	}
 
+	/**팔로우한 사람의 게시글 수 조회
+	 * @throws Exception
+	 * @param conn
+	 * @param type
+	 * @return listCount
+	 */
+	public int getFollowListCount(Connection conn, int type, int loginMemberNo) throws Exception {
+		int listCount = 0;
+
+		try {
+
+			String sql = prop.getProperty("getFollowListCount");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, type);
+			pstmt.setInt(2, loginMemberNo);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				listCount = rs.getInt(1);
+			}
+
+		} finally {
+			close(rs);
+			close(pstmt);
+
+		}
+
+		return listCount;
+	}
+
+	/**팔로우한 게시글 목록 리스트
+	 * 
+	 * @param conn
+	 * @param pagination
+	 * @param type
+	 * @param loginMemberNo
+	 * @return
+	 */
+	public List<Board> selectFollowBoardList(Connection conn, Pagination pagination, int type, int loginMemberNo) throws Exception{
+
+		List<Board> boardList = new ArrayList<Board>();
+
+		try {
+
+			String sql = prop.getProperty("selectFollowBoardList");
+
+			pstmt = conn.prepareStatement(sql);
+
+			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
+			int end = start + pagination.getLimit() - 1;
+
+
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			pstmt.setInt(3, type);
+			pstmt.setInt(4, loginMemberNo);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Board board = new Board();
+
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setMemberName(rs.getString("MEMBER_NM"));
+				board.setBoardDate(rs.getString("BOARD_DT"));
+				board.setReadCount(rs.getInt("READ_COUNT"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setThumbnail(rs.getString("IMG_RENAME"));
+
+
+				boardList.add(board);
+
+			}
+
+		} finally {
+			close(rs);
+			close(pstmt);
+
+		}
+
+		return boardList;
+	}
 
 }
