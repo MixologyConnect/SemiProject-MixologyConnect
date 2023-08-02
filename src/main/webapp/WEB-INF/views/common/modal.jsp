@@ -218,7 +218,7 @@
         <p>가입 후 다른 회원들과 소통할 수 있습니다.</p>
         <table>
             <tr>
-                <td width="100px">이름</td>
+                <td width="105px">이름</td>
                 <td colspan="2"><input type="text" name="memberName" placeholder="한글 2~5 자" maxlength="10" required><br><small></small></td>
             </tr>
             <tr>
@@ -226,10 +226,11 @@
                 <td colspan="2"><input type="text" name="memberId" placeholder="영어, 숫자 20 자 이하" maxlength="20" required><br><small></small></td>
             </tr>
             <tr>
-                <td rowspan="2">비밀번호</td>
+                <td rowspan>비밀번호</td>
                 <td colspan="2"><input type="password" name="memberPw" placeholder="영어, 숫자, !, @, #, -, _ 6~30 자" autocomplete="off" required><br><small></small></td>
             </tr>
             <tr>
+                <td>비밀번호 확인</td>
                 <td colspan="2"><input type="password" name="memberPwConfirm" placeholder="" autocomplete="off" required><br><small></small></td>
             </tr>
             <tr>
