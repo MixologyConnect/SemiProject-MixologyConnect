@@ -1,52 +1,6 @@
-
 const result = document.getElementById("memberResult"); // 회원 input
 const result2 = document.getElementById("boardResult") // 게시글 input
 
-const chk1 = document.getElementById("chk1");
-
-
-function banMember(){
-    const member = $("#resultMember > tr > td:nth-of-type(3) > div").text();
-
-    $.ajax({
-        url : "manager/secession",
-        data : {"memberId" : result.value},
-        type : "POST",
-        success : function(){
-
-        },
-        error : function(){
-            console.log("에러발생");
-        }
-
-    })
-
-
-    const memberStatus = $("#resultMember > tr > td:last-of-type > div")
-    let memberStd = memberStatus.text();
-    if(memberStd == 'Y') memberStatus.text("N");
-    else memberStatus.text("Y");
-}
-
-function deleteBoard(){
-    
-    $.ajax({
-        url : "manager/boardDelete",
-        data : {"boardTitle" : result2.value},
-        type : "POST",
-        success : function(){
-
-        },
-        error : function(){
-            console.log("에러발생")
-        }
-    })
-
-    const boardStatus = $("#resultBoard > tr > td:last-of-type > div")
-    let boardSt = boardStatus.text();
-    if(boardSt == 'Y') boardStatus.text("N");
-    else boardStatus.text("Y");
-}
 
 /* ajax */
 document.getElementById("member-btn").addEventListener("click", function() {
@@ -143,8 +97,60 @@ document.getElementById("member-btn").addEventListener("click", function() {
             console.log(error);
 
         }
+
+
     })
+
 });
+
+
+
+function banMember(){
+    if(confirm("정말로 탈퇴처리 하시겠습니까?")){
+        
+        $.ajax({
+            url : "manager/secession",
+            data : {"memberId" : result.value},
+            type : "POST",
+            success : function(){
+                
+            },
+            error : function(){
+                console.log("에러발생");
+            }
+            
+        })
+        
+        const chk1 = $('input:checkbox[id="chk1"]').is(":checked")
+        
+        if(chk1 == true){
+            
+            
+            const memberStatus = $("#resultMember > tr > td:last-of-type > div")
+            let memberStd = memberStatus.text();
+            if(memberStd == 'Y') memberStatus.text("N");
+            else memberStatus.text("Y");
+
+            const memberBan = document.getElementById("memberban");
+            if(memberBan.innerHTML=="회원 탈퇴"){
+                memberBan.innerHTML = "";
+                memberBan.innerHTML = "회원 복구";
+                
+            }else{
+                memberBan.innerHTML = "";
+                memberBan.innerHTML = "회원 탈퇴";
+    
+            }
+
+        }else{
+            alert("회원 선택 후 클릭해주세요.")
+        }
+        
+    }
+}
+    
+
+    
 
 document.getElementById("board-btn").addEventListener("click",function(){
 
@@ -165,7 +171,7 @@ document.getElementById("board-btn").addEventListener("click",function(){
                 
                 const input = document.createElement("input")
                 input.setAttribute("type", "checkbox");
-                input.setAttribute("name", "chk2");
+                input.setAttribute("id", "chk2");
 
                 const td1 = document.createElement("td");
                 td1.append(input);
@@ -236,3 +242,51 @@ document.getElementById("board-btn").addEventListener("click",function(){
 
 });
 
+function deleteBoard(){
+    if(confirm("정말로 게시글을 삭제하시겠습니까?")){
+        
+        $.ajax({
+            url : "manager/boardDelete",
+            data : {"boardTitle" : result2.value},
+            type : "POST",
+            success : function(){
+                
+            },
+            error : function(){
+                console.log("에러발생")
+            }
+        })
+        
+
+        const chk2 = $('input:checkbox[id="chk2"]').is(":checked")
+        
+        if(chk2 == true){
+            
+            
+            const boardStatus = $("#resultBoard > tr > td:last-of-type > div")
+            let boardSt = boardStatus.text();
+            if(boardSt == 'Y') boardStatus.text("N");
+            else boardStatus.text("Y");
+
+            const deleteBoard = document.getElementById("deleteBoard");
+            if(deleteBoard.innerHTML=="게시글 삭제"){
+                deleteBoard.innerHTML = "";
+                deleteBoard.innerHTML = "게시글 복구";
+                
+            }else{
+                deleteBoard.innerHTML = "";
+                deleteBoard.innerHTML = "게시글 삭제";
+    
+            }
+
+
+        }else{
+            alert("게시글 선택 후 클릭해주세요.");
+        }
+        
+
+        
+
+
+    }
+}

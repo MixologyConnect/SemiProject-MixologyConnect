@@ -67,7 +67,7 @@
                 </table>
                 <!-- typw="submit" id="borderbtn" -->
                 <input type="hidden" id="memberResult">
-                <button type="button" onclick="banMember()" >회원 탈퇴</button>
+                <button type="button" onclick="banMember()" id="memberban" >회원 탈퇴</button>
             </form>
         </section>
 
@@ -109,7 +109,7 @@
             
             <!-- typw="submit" id="borderbtn" -->
             <input type="hidden" id="boardResult">
-            <button type="button" onclick="deleteBoard()" >게시글 삭제</button>
+            <button type="button" onclick="deleteBoard()" id="deleteBoard" >게시글 삭제</button>
 
         </section>
 
