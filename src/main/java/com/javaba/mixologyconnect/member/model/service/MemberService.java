@@ -264,9 +264,10 @@ public class MemberService {
 
 		Map<String, Integer> map = new HashMap<>();
 
-		map.put("boardWriter", boardWriter);
-		map.put("followResult", followResult);
-		map.put("dFollowResult", dFollowResult);
+		map.put("boardWriter", boardWriter); //게시글 작성자 
+		map.put("followResult", followResult); // 팔로우 추가 결과
+		map.put("dFollowResult", dFollowResult);//팔로우 취소 결과 
+		map.put("followingNo", followingNo); //팔로우 당하는 게시글 자성자의 번호 
 
 		if(followCheck > 0) {
 			if(followResult> 0) 	commit(conn);
