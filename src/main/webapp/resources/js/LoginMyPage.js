@@ -6,7 +6,18 @@ all.addEventListener("click", function(){
     for(let i=0; i<feedList.length; i++){
         feedList[i].checked = all.checked;
     }
+    allcheck();
 })
+
+
+const value = ""
+for(let i=0; i<feedList.length; i++){
+    if(feedList[i].checked){
+
+        value = feedList[i].checked.value
+        console.log(value)
+    }
+}
 
 
 this.addEventListener("click", function(e){
@@ -34,8 +45,22 @@ this.addEventListener("click", function(e){
 })
 
 const checkbox = document.getElementById("checkbox")
-console.log(checkbox.value)
 
+var postCheck = document.getElementsByName("feed")
+var boardNum = ""
+
+function allcheck(){
+
+
+    for(let i=0; i<postCheck.length; i++){
+        if(postCheck[i].checked){
+            console.log(postCheck[i].value)
+        }
+    }
+}
+
+const length = $("input:checkbox[name=feed]").length
+const checked = $("input:checkbox[name=feed]:checked").length
 
 
 

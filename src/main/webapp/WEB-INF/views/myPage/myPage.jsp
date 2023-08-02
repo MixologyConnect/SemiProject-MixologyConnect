@@ -67,7 +67,8 @@
 						<section class="fir">
 							<div class="left">
 								<div class="board">
-									<a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3><input type="checkbox" name="feed" value="${board.boardNo}" id="checkbox">${board.boardTitle}</h3>
+									<a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
+                                    <h3><input type="checkbox" name="feed" value="${board.boardNo}" id="checkbox">${board.boardTitle}</h3>
 								</div>
 								<div>${board.boardContent}</div>
 								<div class="nameDateCount">
@@ -80,7 +81,7 @@
 								</c:if>
 								<img src="${contextPath}${board.thumbnail}">
 							</div>
-						</a>
+						    </a>
 						</section>
 
 					</c:forEach>
