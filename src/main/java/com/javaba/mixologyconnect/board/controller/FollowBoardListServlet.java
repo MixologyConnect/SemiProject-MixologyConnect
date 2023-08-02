@@ -46,7 +46,7 @@ public class FollowBoardListServlet extends HttpServlet {
 			//System.out.println("map : " + map);
 			
 			
-			String path = "/WEB-INF/views/board/boardAll.jsp";
+			String path = "/WEB-INF/views/board/followBoardList.jsp";
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
 			dispatcher.forward(req, resp);
