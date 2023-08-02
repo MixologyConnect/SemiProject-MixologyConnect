@@ -1,11 +1,12 @@
 /* 게시글 글자 수 세기 */
 document.getElementById("detail").addEventListener("input", function() {
-let length = this.value.length;
-console.log(length);
-    
-let interval;
+    let length = this.value.length;
 
-document.getElementById("counter").innerText = length ;
+    console.log(length);
+        
+    let interval;
+
+    document.getElementById("counter").innerText = length ;
     if(length <= 499 && length >= 0) {
         document.getElementById("counter").style.color = "black";
         

@@ -83,11 +83,11 @@
 							<!-- 좋아요, 북마크 -->
 							<div class="share">
 								
-								<button type="button" id="bookBtnPlus">
+								<button type="button" id="bookBtnMinus">
 									<img id="bookBtnImg" src="${contextPath}/resources/images/bookmark-fill.svg"
 										onclick="bookBtnClickPlus()">
 								</button>
-								<button type="button" id="bookBtnMinus">
+								<button type="button" id="bookBtnPlus">
 									<img id="bookBtnImg" src="${contextPath}/resources/images/bookmark.svg"
 										onclick="bookBtnClickMinus()">
 								</button>

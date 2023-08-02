@@ -147,7 +147,7 @@ public class ColumnDAO {
 				column.setBoardNo(rs.getInt("BOARD_NO"));
 				
 				
-				System.out.println(column.getThumbnail());
+//				System.out.println(column.getThumbnail());
 				columnList.add(column);
 	
 			
@@ -254,6 +254,8 @@ public class ColumnDAO {
 		
 		return columnList;
 	}
+	
+	
 	
 
 }
