@@ -37,7 +37,7 @@ $("#account-cbox").change(function() {
     else showModal("login", false);
 });
 
-$("#modal-login").click(function() {
+$("#modal-login-button").click(function() {
     showModal("login", false);
     showModal("contract", true);
 });
