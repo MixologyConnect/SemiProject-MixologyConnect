@@ -61,29 +61,34 @@
 
 
 .img-box {
-    height: 50vh;
-    width: 1000px;
+    height: 300px;
+    width: 1300px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
-    
+    /* margin: auto; */
+    margin: 30px 0;
+   
 }
+    
+
 
 /* 이미지를 감싸는 div */
 .boardImg {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     display: flex;
     text-align: center;
-    padding: 20px 0 ;
-   
+    padding: 20px 0;
+    border: 3px solid #ddd;
+    border-radius: 10px;
 
 }
 
 /* 이미지 */
 .boardImg1{
-    width: 230px;
-    height: 230px;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -101,9 +106,12 @@
 
 /* 내용 */
 .datail {
+    border: 2px solid #ddd;
+    border-radius: 30px;
     height: 300px;
-    width: 100%;
-    overflow: hiddlen;
+    width: 98%;
+    margin-left: auto;
+    padding: 20px;
 }
 
 
@@ -129,8 +137,10 @@
 /* 공유버튼 칸 */
 .share {
     width: 50%;
-    height: 5vh;
+    height: 3vh;
     display: flex;
+    align-items: center;
+    margin: 10px;
 }
 
 
@@ -165,7 +175,7 @@
 
 /* 수정, 삭제 버튼 있는 칸 */
 .alterBtn {
-    height: 5vh;
+    height: 3vh;
     display: flex;
     flex-direction: row-reverse;
 }
