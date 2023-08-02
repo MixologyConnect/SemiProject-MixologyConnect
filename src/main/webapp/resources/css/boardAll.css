@@ -1,18 +1,18 @@
 * {
-    font-family: "Segoe UI";
-    box-sizing: border-box;
-    color: rgb(60, 60, 60);
-  
+  font-family: "Segoe UI";
+  box-sizing: border-box;
+  color: rgb(60, 60, 60);
+
 }
 
 
 
 main{
-  display: flex;
-	width: 1280px;
-	margin: auto;
-	flex-direction: column;
-    align-items: center;
+display: flex;
+width: 1280px;
+margin: auto;
+flex-direction: column;
+  align-items: center;
 }
 
 
@@ -20,36 +20,36 @@ main{
 
 /* 게시글 목록 적혀있는 칸 */
 .top {
-  width: 100%;
-  font-size: 35px;
-  font-weight: bold;
-  margin-top: 30px;
+width: 100%;
+font-size: 35px;
+font-weight: bold;
+margin-top: 30px;
 }
 /* 전체 팔로잉 공지 버튼 있는 칸 */
 .top-2 {
-  width: 100%;
-  font-size: 20px;
-  font-weight: bold;
-  margin: auto;
-  margin-top: 30px;
-  border-bottom: 1px solid #ddd;
+width: 100%;
+font-size: 20px;
+font-weight: bold;
+margin: auto;
+margin-top: 30px;
+border-bottom: 1px solid #ddd;
 }
 
 .right{
-  float: right;
-  display: block;
-  
+float: right;
+display: block;
+
 }
 /* 인기순 버튼 */
 #top {
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 25px;
-  color:rgb(60, 60, 60);
-  background-color: white;
-  
+border: none;
+cursor: pointer;
+font-size: 18px;
+font-weight: bold;
+margin-top: 25px;
+color:rgb(60, 60, 60);
+background-color: white;
+
 }
 
 #top:hover {
@@ -63,19 +63,19 @@ background-color: white;
 }
 
 .right a {
-  text-decoration: none;
+text-decoration: none;
 }
 
 
 /* 최신순 버튼 */
 #new {
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 25px;
-  color:rgb(60, 60, 60);
-  background-color: white;
+border: none;
+cursor: pointer;
+font-size: 18px;
+font-weight: bold;
+margin-top: 25px;
+color:rgb(60, 60, 60);
+background-color: white;
 }
 
 #new > a:hover {
@@ -90,13 +90,13 @@ background-color: white;
 
 /* 공지 버튼 */
 #notice {
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 25px;
-  color:rgb(60, 60, 60);
-  background-color: white;
+border: none;
+cursor: pointer;
+font-size: 18px;
+font-weight: bold;
+margin-top: 25px;
+color:rgb(60, 60, 60);
+background-color: white;
 }
 
 #notice:hover {
@@ -111,13 +111,13 @@ background-color: white;
 
 /* 팔로잉 버튼 */
 #Following {
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 25px;
-  color:rgb(60, 60, 60);
-  background-color: white;
+border: none;
+cursor: pointer;
+font-size: 18px;
+font-weight: bold;
+margin-top: 25px;
+color:rgb(60, 60, 60);
+background-color: white;
 }
 
 #Following:hover {
@@ -132,240 +132,240 @@ background-color: white;
 
 /* 전체 버튼 */
 #all {
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 25px;
-  color:rgb(60, 60, 60);
-  background-color: white;
+border: none;
+cursor: pointer;
+font-size: 18px;
+font-weight: bold;
+margin-top: 25px;
+color:rgb(60, 60, 60);
+background-color: white;
 }
 
 #all:hover {
-  cursor: pointer;
-  font-weight: bold;
-  color:rgb(0, 220, 244);
-  background-color: white;
-  }
-  
-  
+cursor: pointer;
+font-weight: bold;
+color:rgb(0, 220, 244);
+background-color: white;
+}
+
+
 .fir {
-  width: 1280px;
+width: 1280px;
 }
 
 
 .fir a {
-  text-decoration: none;
+text-decoration: none;
 }
 
 .img {
-  margin-top: 10px;
+margin-top: 10px;
 }
 
 
 .img img {
-  width: 200px; 
-  height: 200px;
+width: 200px; 
+height: 200px;
 }
 
 .nameDateCount{
-  margin-top: 65px;
+margin-top: 65px;
 }
 
 
 /* 첫번째 게시물 사진 */
 .fir img{
-  margin: 10px 20px;
-  border-radius: 10px;
-  
+margin: 10px 20px;
+border-radius: 10px;
+
 }
 
 
 #alarm{
-  margin-left: 550px;
+margin-left: 550px;
 }
 
 
 main > section:nth-child(3){
-  display: flex;
-  flex-basis: 20.25%;
+display: flex;
+flex-basis: 20.25%;
 }
 
 .fir{
-  display: flex;
-  margin-left: 20px;
-  border: 3px solid white;
-  border-bottom: 3px solid #ddd;
+display: flex;
+margin-left: 20px;
+border: 3px solid white;
+border-bottom: 3px solid #ddd;
 }
 
 
 .fir > div:nth-child(1){
-  display: flex;
-  flex-basis: 80%;
-  font-size: 20px;
-  
+display: flex;
+flex-basis: 80%;
+font-size: 20px;
+
 }
 
 .left{
-  display: block;
-  
-  flex-direction: column;
-  
+display: block;
+
+flex-direction: column;
+
 }
 
 .left > div{
-  margin-top: 10px;
-  margin-bottom: 10px;
+margin-top: 10px;
+margin-bottom: 10px;
 }
 
 .left >div:nth-child(1){
-  font-size: 20px;
-  font-weight: bold;
-  
+font-size: 20px;
+font-weight: bold;
+
 }
 .boardContent{
-  height: 100px;
-  width: 1000px;
-  overflow: hidden;  		
-  text-overflow: ellipsis;  	
-  white-space: nowrap; 		
-  word-break:break-all;
-  margin-top: -20px;
+height: 100px;
+width: 1000px;
+overflow: hidden;  		
+text-overflow: ellipsis;  	
+white-space: nowrap; 		
+word-break:break-all;
+margin-top: -20px;
 
 }
 
 
 .thr{
-  border-bottom: 3px solid #ddd;
+border-bottom: 3px solid #ddd;
 }
 
 .thr > span{
-  margin-right: 40px;
+margin-right: 40px;
 }
 
 main > section:nth-child(6){
-  display: flex;
-  flex-basis: 5%;
+display: flex;
+flex-basis: 5%;
 }
 
 .number{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  justify-content: space-between;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+justify-content: space-between;
 
 }
 
 #all{
-  margin-left: 20px;
-  font-size: 20px;
+margin-left: 20px;
+font-size: 20px;
 
 }
 
 .number > span{
-  margin-right: 10px;
+margin-right: 10px;
 }
 
 .number button{
-  cursor: pointer;
+cursor: pointer;
 }
 
 /* 삭제 버튼 */
 #delete button{
-  background-color:rgb(0, 220, 244);
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
-  width: 80px;
-  height: 40px;
-  border: 0;
-  border-radius: 10px;
+background-color:rgb(0, 220, 244);
+color: white;
+font-weight: bold;
+font-size: 15px;
+width: 80px;
+height: 40px;
+border: 0;
+border-radius: 10px;
 }
 
 #delete button:hover {
-  background-color: white;
-  border: 2px solid rgb(0, 220, 244);
-  color: rgb(0, 220, 244);
+background-color: white;
+border: 2px solid rgb(0, 220, 244);
+color: rgb(0, 220, 244);
 }
 
 
 
 /* 페이지네이션(Pagination) */
 .pagination {
-  padding: 0;
-  list-style : none;
+padding: 0;
+list-style : none;
 
-  display: flex;
-  justify-content: center;
+display: flex;
+justify-content: center;
 
 }
 
 .pagination > li {
-  width: 20px;
-  margin: 0 5px;
-  text-align: center;
+width: 20px;
+margin: 0 5px;
+text-align: center;
 }
 
 .pagination a {
-  width: 100%;
-  height: 100%;
-  display: block;
- /*  letter-spacing: -2px; */
+width: 100%;
+height: 100%;
+display: block;
+/*  letter-spacing: -2px; */
 }
 
 
 /* 현재 페이지 번호 */
 .pagination .current{
-  background-color:rgb(0, 220, 244);
-  color: white;
-  font-weight: bold;
-  border-radius: 50%;
+background-color:rgb(0, 220, 244);
+color: white;
+font-weight: bold;
+border-radius: 50%;
 }
 
 .nameDateCount span{
-  position: relative;
-  bottom: 15px;
+position: relative;
+bottom: 15px;
 }
 
 .boardDate{
-  float: right;
-  margin-right: 40px;
+float: right;
+margin-right: 40px;
 }
 
 
 .read{
-  float: right;
+float: right;
 }
 
 
 .btn-area{
-  width: 1200px;
-  display: flex;
-  justify-content: right;
-  padding: 20px 0;
+width: 1200px;
+display: flex;
+justify-content: right;
+padding: 20px 0;
 }
 
 #insertBtn {
-  background-color:rgb(0, 220, 244);
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
-  width: 80px;
-  height: 40px;
-  border: 0;
-  border-radius: 10px;
-  cursor: pointer;
+background-color:rgb(0, 220, 244);
+color: white;
+font-weight: bold;
+font-size: 15px;
+width: 80px;
+height: 40px;
+border: 0;
+border-radius: 10px;
+cursor: pointer;
 }
 
 #insertBtn:hover {
-  background-color: white;
-  border: 2px solid rgb(0, 220, 244);
-  color: rgb(0, 220, 244);
+background-color: white;
+border: 2px solid rgb(0, 220, 244);
+color: rgb(0, 220, 244);
 }
 
 .pagination a {
-  text-decoration: none;
+text-decoration: none;
 }
 
 
