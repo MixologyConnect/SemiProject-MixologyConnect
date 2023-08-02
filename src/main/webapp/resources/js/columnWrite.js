@@ -50,27 +50,29 @@ const deleteList = document.getElementById("deleteList");
 
 const deleteSet = new Set(); 
 
-inputImage.addEventListener("change",function(){
-    if(this.file != undefined){
+inputImage.addEventListener("change", function() {
+    if (this.files[0] != undefined) {
         const reader = new FileReader();
-        reader.readAsDataURL(this.file)
+        reader.readAsDataURL(this.files[0]);
 
-        reader.onload =function(e){
+        reader.onload = function(e) {
             preview.setAttribute("src", e.target.result);
-            deleteSet.delete(inputImage);
+            deleteSet.clear(); // Corrected: Use clear() instead of delete;
         }
-    }else{
+    } else {
         preview.removeAttribute("src");
     }
 })
 
-deleteImage.addEventListener("click", function(){
-    if(preview.getAttribute("src") != ""){
+deleteImage.addEventListener("click", function() {
+    if (preview.getAttribute("src") != "") {
         preview.removeAttribute("src");
-        inputImage.value="";
-        deleteSet.add();
+        inputImage.value = "";
+        deleteSet.add(inputImage.files[0]); // Corrected: Add inputImage.files[0] to the set instead of inputImage;
     }
 })
+
+
 
 // 유효성 검사
 function writeValidate(){
