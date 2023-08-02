@@ -36,7 +36,7 @@ public class LoginFilter extends HttpFilter implements Filter {
 		
 		HttpSession session = req.getSession();
 		
-		if(session.getAttribute("loginmember")!= null) {
+		if(session.getAttribute("loginMember")!= null) {
 			
 			chain.doFilter(request, response);
 			
