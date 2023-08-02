@@ -19,7 +19,7 @@
 
 	<!-- 게시글 목록 조회 -->
 	<entry key="selectBoardList">
-	    with row_check as
+	   	    with row_check as
 	        (
 	            select 
 	                        row_number() over(order by a.board_no desc) as rn    
