@@ -1,0 +1,58 @@
+#modal-confirmEmail {
+    position: fixed;
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    transition-duration: 1.2s;
+}
+
+#modal-confirmEmail > h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition-duration: 1.2s;
+}
+
+#modal-confirmEmail > img {
+    width: 70px;
+    padding-bottom: 30px;
+    filter: invert(0.2);
+    transition-duration: 1.2s;
+} html.dark #modal-confirmEmail > img {
+    filter: invert(1);
+}
+
+#modal-confirmEmail-inputVrfcode {
+    width: 300px;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    outline: none;
+    margin: 10px 0;
+    background-color: transparent;
+    font-size: 1rem;
+}
+
+#modal-confirmEmail-inputVrfcode:hover {
+    border-bottom: 1px solid white;
+}
+
+#modal-confirmEmail-button {
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.8s;
+}
+
+#modal-confirmEmail-button:focus {
+    background-color: rgba(0, 220, 244, 0.8);
+}

@@ -17,9 +17,10 @@ function verifyEmail() {
             vrfCode = value;
             s.text("해당 이메일 주소로 인증 번호를 전송했습니다.");
             $(".modal-signup-vrfcode-hide").css("display", "block")
+            refreshModal("signup");
         },
         error: function(e) {
-            s.html("메일 서버 연결에 실패했습니다.<br>추후 다시 시도해 주세요.");
+            s.html("메일 서버 연결에 실패했습니다.<br>잠시 후 다시 시도해 주세요.");
         }
     });
 }
@@ -59,18 +60,11 @@ $("#modal-signup > table input").on("input", function() {
     const e = $(this);
     const v = e.val();
     const s = e.next().next();
-    if (!v.trim().length) {
-        s.text("");
-        return;
-    }
     switch (e.attr("name")) {
     case "memberName":
-        if (/^[가-힣]{2,10}$/.test(v)) {
-            s.text("");
-            return;
-        }
-        s.text("유효하지 않은 이름입니다.");
-        return;
+        if (/^[가-힣]{2,5}$/.test(v)) s.text("");
+        else s.text("유효하지 않은 이름입니다.");
+        break;
     case "memberId":
         if (/^(?=.*[A-Za-z]{3})[A-Za-z\d]{5,}$/.test(v)) {
             $.ajax({
@@ -78,44 +72,29 @@ $("#modal-signup > table input").on("input", function() {
                 type: "get",
                 data: {"memberId": v},
                 success : function(result) {
-                    if (result == 0) {
-                        s.text("");
-                        return;
-                    }
-                    s.text("이미 사용 중인 아이디입니다.");
-                    return;
+                    if (result == 0) s.text("");
+                    else s.text("이미 사용 중인 아이디입니다.");
                 }
             });
-            return;
         }
         s.text("유효하지 않은 아이디입니다.");
-        return;
+        break;
     case "memberPw":
-        if (/^[\w!@#_-]{6,30}$/.test(v)) {
-            s.text("");
-            return;
-        }
+        if (/^[\w!@#_-]{6,30}$/.test(v)) s.text("");
         s.text("유효하지 않은 비밀번호입니다.");
-        return;
+        break;
     case "memberPwConfirm":
-        if (v == $("input[name='memberPw']").val()) {
-            s.text("");
-            return;
-        }
+        if (v == $("input[name='memberPw']").val()) s.text("");
         s.text("비밀번호가 일치하지 않습니다.");
-        return;
+        break;
     case "memberTel":
-        if (/^0(1[01679]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/.test(v)) {
-            s.text("");
-            return;
-        }
+        if (/^0(1[01679]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/.test(v)) s.text("");
         s.text("유효하지 않은 전화번호입니다.");
-        return;
+        break;
     case "memberEmail":
-        if (/^[\w\-\_]{4,}@[\w\-\_]+(\.\w+){1,3}$/.test(v)) {
-            s.text("");
-            return;
-        }
+        if (/^[\w\-\_]{4,}@[\w\-\_]+(\.\w+){1,3}$/.test(v)) s.text("");
         s.text("유효하지 않은 이메일입니다.");
     }
+    if (!v.trim().length) s.text("");
+    refreshModal("signup");
 });

@@ -346,34 +346,30 @@ public class MemberDAO {
 	 * @param memberId
 	 * @return member
 	 */
-	public Member selectMember(Connection conn, String memberId) throws Exception {
-		Member member = new Member();
+	public List<Member> selectMember(Connection conn, String column, String value) throws Exception {
+		List<Member> members = new ArrayList<Member>();
 
 		try { String sql = prop.getProperty("selectMember"); 
-		
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberId);
-
-				rs = pstmt.executeQuery();
-
-				if(rs.next()) { 
-
-				member.setMemberNo(rs.getInt("MEMBER_NO")); 
-				member.setMemberId(rs.getString("MEMBER_ID"));
-				member.setMemberTel(rs.getString("MEMBER_TEL"));
-				member.setMemberName(rs.getString("MEMBER_NM")); 
-				member.setMemberAddress(rs.getString("MEMBER_ADDR"));
-				member.setSecessionFlag(rs.getString("SECESSION_FL"));
-
-				} } finally {
-
-					close(rs); 
-					close(pstmt); 
-					
-				}
-		return member; 
+			pstmt = conn.prepareStatement(sql + " " + column + " " + "= ?");
+			pstmt.setString(1, value);
+			rs = pstmt.executeQuery();
+			while (rs.next()) members.add(new Member(rs.getInt("MEMBER_NO"),
+													 rs.getString("MEMBER_ID"),
+													 rs.getString("MEMBER_PW"),
+													 rs.getString("MEMBER_TEL"),
+													 rs.getString("MEMBER_NM"),
+													 rs.getString("MEMBER_ADDR"),
+													 rs.getString("MEMBER_EMAIL"),
+													 rs.getString("MEMBER_PROFILE"),
+													 rs.getString("MANAGER_CODE"),
+													 rs.getString("SECESSION_FL")
+													 ));
+		} finally {
+			close(rs); 
+			close(pstmt); 
 		}
-
+	return members; 
+	}
 
 	public List<Member> selectFollowers(Connection conn, int memberNo) throws Exception {
 		List<Member> followers = new ArrayList<Member>();

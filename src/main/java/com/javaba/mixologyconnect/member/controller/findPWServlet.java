@@ -1,4 +1,4 @@
-package com.javaba.mixologyconnect.email.controller;
+package com.javaba.mixologyconnect.member.controller;
 
 import java.io.IOException;
 
@@ -7,22 +7,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.javaba.mixologyconnect.email.model.service.EmailService;
+import com.javaba.mixologyconnect.member.model.service.MemberService;
 
-@WebServlet("/email/verify")
-public class VerifyEmail extends HttpServlet {
+@WebServlet("/member/findPW")
+public class findPWServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		MemberService service = new MemberService();
+
 		try {
-			resp.getWriter().print(EmailService.sendEmail(req.getParameter("email"), req.getParameter("serv")));
-		} catch(Exception e) {
+			resp.getWriter().print(service.findPW(req.getParameter("id"),
+												  req.getParameter("email")));
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }

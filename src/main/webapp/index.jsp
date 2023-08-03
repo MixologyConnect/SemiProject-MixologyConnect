@@ -23,7 +23,7 @@
         <div id="search">
             <label for="search-button"><img src="${contextPath}/resources/images/magnifier.png"></label>
             <form action="search">
-        	    <input type="text" name="query" placeholder="검색할 칵테일, 게시글">
+        	    <input type="text" name="query" placeholder="칵테일, 게시글">
                 <button id="search-button">검색</button>
             </form>
         </div>
@@ -52,5 +52,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
     <script src="${contextPath}/resources/js/main.js"></script>
+    <script src="${contextPath}/resources/js/place.js"></script>
 </body>
 </html>
