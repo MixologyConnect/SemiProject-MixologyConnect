@@ -12,7 +12,8 @@
         <title>다른사용자 게시글 모아보기</title>
         
         <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css">
+        <link rel="stylesheet" href="${contextPath}/resources/css/boardAll.css">
+         <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css"> 
         <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
     	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -25,7 +26,7 @@
     <main>
 
         <section class="follow">
-            <section class="img">
+            <section class="img1">
                 <c:if test="${empty loginMember.profileImage}">
 
                     <div><img src="${contextPath}/resources/images/user.png"  ></div>
@@ -70,26 +71,30 @@
 
 					<c:forEach var="board" items="${boardList}">
 						<section class="fir">
-							<div class="left">
-								<div class="board">
-									<a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
-                                    <h3><input type="checkbox" name="feed" value="${board.boardNo}" id="check">${board.boardTitle}</h3>
-								</div>
-								<div>${board.boardContent}</div>
-								<div class="nameDateCount">
-									<span>${board.memberName}</span> <span>${board.boardDate}</span> <span>조회수 : ${board.readCount}</span>
-								</div>
-							</div>
-							<div class="img">
-								<c:if test = "${empty board.thumbnail}">
-									<img src="${contextPath}/resources/images/heart.svg">
-								</c:if>
-                                <c:if test="${!empty board.thumbnail}">
-                                    <img src="${contextPath}${board.thumbnail}">
-                                </c:if>
-							</div>
-						    </a>
-						</section>
+                            <a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=1">
+                            <div class="left">
+                                <div class="img">
+                                    <c:if test="${!empty board.thumbnail}">
+                                        <img src="${contextPath}${board.thumbnail}">
+                                    </c:if>
+                                    <div class="titleContent">
+                                        <div class="board">
+                                            <h3><input type="checkbox" name="feed" value="${board.boardNo}">${board.boardTitle}</h3>
+                                        </div>
+                                        <span class="memberName">${board.memberName}</span>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="nameDateCount">
+                                    <span class="boardDate">${board.boardDate}</span>
+                                    <span class="read">조회수 : ${board.readCount}</span>
+                                    <span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>
+                                </div>
+                                </a>
+                            </div>
+                            
+                        </section>
 
 					</c:forEach>
 
@@ -103,7 +108,7 @@
 
         <section class="number">
             <div>
-                <span><input type="checkbox" id="all" onclick="deleteAll()">전체선택</span>
+                <span><input type="checkbox" id="all">전체선택</span>
 
             </div>
 

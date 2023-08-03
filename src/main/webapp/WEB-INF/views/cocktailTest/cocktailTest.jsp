@@ -543,7 +543,6 @@
     </main>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
     <script src="${contextPath}/resources/js/cocktailTest.js"></script>
     <script src="${contextPath}/resources/js/main.js"></script>

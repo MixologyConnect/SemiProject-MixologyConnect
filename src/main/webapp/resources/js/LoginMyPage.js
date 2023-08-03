@@ -44,7 +44,7 @@ function deletePost(){
         dataType : "json",
 
         success : function(result){
-            if(result > 0){
+            if(result){
                 if(confirm("삭제하시겠습니까?")){
 
                     alert("삭제 완료~!")

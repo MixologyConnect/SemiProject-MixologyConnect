@@ -15,7 +15,7 @@
     letter-spacing: 1px;
 }
 
-#modal-login span, a {
+#modal-login span, #modal-login a {
     font-size: 0.9rem;
 }
 

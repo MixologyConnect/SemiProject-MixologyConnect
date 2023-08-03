@@ -77,23 +77,23 @@ $("#modal-signup > table input").on("input", function() {
                 }
             });
         }
-        s.text("유효하지 않은 아이디입니다.");
+        else s.text("유효하지 않은 아이디입니다.");
         break;
     case "memberPw":
         if (/^[\w!@#_-]{6,30}$/.test(v)) s.text("");
-        s.text("유효하지 않은 비밀번호입니다.");
+        else s.text("유효하지 않은 비밀번호입니다.");
         break;
     case "memberPwConfirm":
         if (v == $("input[name='memberPw']").val()) s.text("");
-        s.text("비밀번호가 일치하지 않습니다.");
+        else s.text("비밀번호가 일치하지 않습니다.");
         break;
     case "memberTel":
         if (/^0(1[01679]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/.test(v)) s.text("");
-        s.text("유효하지 않은 전화번호입니다.");
+        else s.text("유효하지 않은 전화번호입니다.");
         break;
     case "memberEmail":
         if (/^[\w\-\_]{4,}@[\w\-\_]+(\.\w+){1,3}$/.test(v)) s.text("");
-        s.text("유효하지 않은 이메일입니다.");
+        else s.text("유효하지 않은 이메일입니다.");
     }
     if (!v.trim().length) s.text("");
     refreshModal("signup");
