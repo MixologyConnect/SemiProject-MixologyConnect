@@ -88,6 +88,14 @@
 		WHERE BOARD_NO = ?
 		AND MEMBER_NO = ?
 	</entry>
+	
+	
+	
+	<!-- 마이페이지 삭제 -->
+	<entry key="deleteMypage">
+		UPDATE BOARD SET BOARD_ST = 'N'
+		WHERE BOARD_NO IN
+	</entry>
 
 
 
