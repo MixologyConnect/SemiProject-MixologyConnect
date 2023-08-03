@@ -304,12 +304,9 @@
     </div>
 </div>
 
-<input type="checkbox" id="theme-switch-cbox">
-<label for="theme-switch-cbox">
-    <div id="theme-switch">
-        <img>
-    </div>
-</label>
+<div id="theme-switch">
+    <img>
+</div>
 
 <c:if test="${!empty sessionScope.message}">
 	<script>

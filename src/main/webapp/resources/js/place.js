@@ -1,5 +1,5 @@
 function initMap() {
-    let map = new naver.maps.Map('map', {center: new naver.maps.LatLng(37, 127), zoom: 15})
+    let map = new naver.maps.Map("map", {center: new naver.maps.LatLng(37, 127), zoom: 15})
 }
 
 function searchPlace(place) {
@@ -13,6 +13,7 @@ function searchPlace(place) {
         success: function(result) {
             result = JSON.parse(result);
             for (let i of result.items) {
+                console.log(i.mapy);
                 let li = document.createElement("li");
                 li.innerHTML = `<img>
                                 <h2 class='title'>` + i.title + `</h2>
