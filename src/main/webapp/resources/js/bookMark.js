@@ -16,15 +16,21 @@ let count = 1;
 
 
     
-    console.log("내려와")
+    console.log(loginMemberNo)
 
 
 })();
 
 // 북마크 등록 
 function bookBtnClickMinus(){
-    if (confirm("북마크에 등록하시겠습니까?")) {
-        bookMarkInsert();
+    if(loginMemberNo == 0){
+        alert("로그인 후 이용해주세요.")
+        location.href = contextPath;
+    }else{
+
+        if (confirm("북마크에 등록하시겠습니까?")) {
+            bookMarkInsert();
+        }
     }
 }
 
@@ -108,7 +114,6 @@ function bookMarkImage(){
                 console.log("성공")
                 imgPlus.style.display = 'none';
             }else{
-                console.log("에러")
                 imgMinus.style.display = 'none';
               
             }
@@ -155,7 +160,8 @@ function deleteBookMark(){
             success : function(result){
                 if(result>0){
                     alert("북마크 삭제 완료")
-                    location.href = contextPath + "/myPage/bookMark";
+                    imgMinus.style.display = 'none';
+                    imgPlus.style.display = 'block';
                 }else{
                     alert("북마크에 등록되어있지 않습니다.")
                 }

@@ -23,7 +23,7 @@
                                     <img src="${contextPath}${reply.profileImage}">
                                 </c:if>
 
-                                <span>${reply.memberName}</span>
+                                <span class="memberName">${reply.memberName}</span>
                                 <span class="reply-date">${reply.replyDate}</span>
                             </p>
 

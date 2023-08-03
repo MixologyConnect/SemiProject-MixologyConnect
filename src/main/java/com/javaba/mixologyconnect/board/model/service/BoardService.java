@@ -47,7 +47,10 @@ public class BoardService {
 		// 3. 게시글 목록 조회
 		List<Board> boardList = dao.selectBoardList(conn, pagination, type);
 
-
+		for(Board b : boardList) {
+			int likeCount= dao.selectLike(conn,b.getBoardNo());
+			b.setBoardLikeCount(likeCount); 
+		}
 
 		// 4. Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -347,11 +350,16 @@ public class BoardService {
 	}
 	
 	
+	/** 게시글 목록 인기순
+	 * @param type
+	 * @param cp
+	 * @return map
+	 * @throws Exception
+	 */
 	public Map<String, Object> boardListPopularity(int type, int cp) throws Exception {
 		
 		Connection conn = getConnection();
 
-		// 게시글 제목
 		String boardTitle = dao.boardTitle(conn, type);
 
 		int listCount = dao.getListCount(conn, type);
@@ -405,6 +413,17 @@ public class BoardService {
 
 		close(conn);
 		return map;
+	}
+
+	/** ISS
+	 * @param detail
+	 * @param imageList
+	 * @param boardCode
+	 * @return
+	 */
+	public int insertNotice(BoardDetail detail, List<BoardImage> imageList, int boardCode) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 

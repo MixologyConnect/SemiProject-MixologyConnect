@@ -24,7 +24,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <c:if test="${!empty param.title}">
-        <c:set var="sURL" value="&title=${param.title}&query=${param.query}"/>
+        <c:set var="sURL" value="&title=${param.title}&columnquery=${param.columnquery}"/>
     </c:if>
 
     <!-- 전체 브라우저 container -->
@@ -35,7 +35,7 @@
         <!-- 칵쓸신잡 배너-->
         <div id="banner">
             <!-- 칵쓸신잡 배너 사진 -->
-            <a href="">
+            <a href="#">
                 <img src="https://i.ibb.co/9ZDf4Jk/logo.png" id="bannerPic">
             </a>
            
@@ -58,7 +58,7 @@
                     <option value="TC">제목 + 내용</option>
                 </select>
                 <!-- 검색 input -->
-                <input type="text" name="query" id="search" placeholder="원하는 정보를 입력하세요!">
+                <input type="text" name="columnquery" id="search" placeholder="원하는 정보를 입력하세요!">
                 <!-- 검색 버튼 -->
                 <button id="searchBtn">검색</button>
             </div>
@@ -69,10 +69,10 @@
             <ul class="list-content">
 
                 <c:if test="${!empty param.title}">
-                    <h3>"${param.query}" 검색색결과</h3>
+                    <h3>"${param.columnquery}" 검색결과</h3>
                 </c:if>
                 
-                <div class="">
+                <div>
                     <ul>
                         <c:choose>
                             <c:when test="${empty columnList}">
@@ -86,8 +86,8 @@
                                                 <img id="picture" src="${contextPath}${column.thumbnail}" style="width: 100%;">
                                             </div>
                                             <div class="title">
-                                                <p style="margin-top: 10px;"><h3>${column.boardTitle}</h3></p><br>
-                                                <p style="margin-bottom: 10px;">${column.memberName}</p>
+                                                <p><h3>${column.boardTitle}</h3></p>
+                                                <p>${column.memberName}</p>
                                             </div>
                                         </a>
                                     </li>
@@ -140,6 +140,12 @@
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
+<<<<<<< HEAD
     <script src="${contextPath}/resources/js/columnAll.js"></script>
+    <script src="${contextPath}/resources/js/main.js"></script>
+=======
+<script src="${contextPath}/resources/js/columnAll.js"></script>
+<script src="${contextPath}/resources/js/main.js"></script>
+>>>>>>> e000f44396a9672c94f9eb7d348c48a9b7bff99a
 </body>
 </html>

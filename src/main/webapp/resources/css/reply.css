@@ -14,17 +14,21 @@
 .reply-writer > img{
     width: 40px;
     height: 40px;
+    border-radius: 50%;
 }
 
 /* 댓글 작성자 닉네임, 작성일 */
 .reply-writer > span{
     font-weight: bold;
     margin-left: 10px;
+  
 }
+
+
 
 /* 댓글 작성일 */
 .reply-date{
-    font-size: 0.8em;
+    font-size: 12px;
     color: #aaa;
 }
 
@@ -70,6 +74,15 @@
     resize: none;
     margin-right: 10px;
     flex-basis: 75%;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+   
+}
+.replycontent{
+    font-size: 13px;
+    padding: 10px 40px;
 }
 
 
@@ -99,6 +112,10 @@
     width: 100%;
     height: 90px;
     resize: none;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
 }
 
 

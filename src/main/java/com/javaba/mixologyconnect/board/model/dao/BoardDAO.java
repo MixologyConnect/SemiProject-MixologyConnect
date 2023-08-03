@@ -142,7 +142,8 @@ public class BoardDAO {
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setThumbnail(rs.getString("IMG_RENAME"));
-
+				board.setThumbnail(rs.getString("IMG_RENAME"));
+				board.setMemberNo(rs.getInt("MEMBER_NO"));
 
 				boardList.add(board);
 
@@ -705,6 +706,13 @@ public class BoardDAO {
 		return result;
 	}
 
+	/** 인기순 게시글 목록
+	 * @param conn
+	 * @param pagination
+	 * @param type
+	 * @return boardList
+	 * @throws Exception
+	 */
 	public List<Board> selectBoardPopularity(Connection conn, Pagination pagination, int type) throws Exception {
 		
 		List<Board> boardList = new ArrayList<Board>();
@@ -819,7 +827,6 @@ public class BoardDAO {
 				board.setMemberName(rs.getString("MEMBER_NM"));
 				board.setBoardDate(rs.getString("BOARD_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
-				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setThumbnail(rs.getString("IMG_RENAME"));
 
 

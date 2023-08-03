@@ -34,9 +34,13 @@
 
                     <div><img src="${contextPath}${loginMember.profileImage}"></div>
                 </c:if>
+                
             </section>
             <section class="follow2">
-                <div id="top">${loginMember.memberName}</div>
+                <div id="top">${loginMember.memberName} 
+                    <span><button type="button" class="memberUpdate" onclick="location.href = '${contextPath}/member/myPage/profile'">내 정보 수정<i class="fa-solid fa-pen"></i></button></span>
+                </div>
+                
                 <div class="bottom">
                     <span><a href="#">팔로워 ${followers.size()}</a></span>
                     <span><a href="#">팔로잉 ${followings.size()}</a></span>
@@ -49,10 +53,10 @@
            <span><a href="#">알림</a></span>  
            <span id="alarm"><a href="#">글쓰기</a></span>   -->
            <p class="thead"><a href="#">작성글</a></p>  
-           <p><a href="${contextPath}/board/followlist"></a></p>
+           <p><a href="${contextPath}/board/followList?type=1">팔로우</a></p>
            <p><a href="${contextPath}/myPage/bookMark">북마크</a></p>  
            <p>
-           <p id="alarm"><a href="#">글쓰기 <i class="fa-solid fa-pen-to-square"></i></a></p>  
+           <p id="alarm"><a href="${contextPath}/board/boardWrite?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기 <i class="fa-solid fa-pen-to-square"></i></a></p>  
         </section> 
 
         <c:choose>
@@ -68,7 +72,8 @@
 						<section class="fir">
 							<div class="left">
 								<div class="board">
-									<a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3><input type="checkbox" name="feed">${board.boardTitle}</h3>
+									<a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
+                                    <h3><input type="checkbox" name="feed" value="${board.boardNo}" id="check">${board.boardTitle}</h3>
 								</div>
 								<div>${board.boardContent}</div>
 								<div class="nameDateCount">
@@ -76,12 +81,14 @@
 								</div>
 							</div>
 							<div class="img">
-								<c:if test = "empty${board.thumbnail}">
+								<c:if test = "${empty board.thumbnail}">
 									<img src="${contextPath}/resources/images/heart.svg">
 								</c:if>
-								<img src="${contextPath}${board.thumbnail}">
+                                <c:if test="${!empty board.thumbnail}">
+                                    <img src="${contextPath}${board.thumbnail}">
+                                </c:if>
 							</div>
-						</a>
+						    </a>
 						</section>
 
 					</c:forEach>
@@ -96,7 +103,7 @@
 
         <section class="number">
             <div>
-                <span><input type="checkbox" id="all">전체선택</span>
+                <span><input type="checkbox" id="all" onclick="deleteAll()">전체선택</span>
 
             </div>
 
@@ -132,7 +139,7 @@
             </div>
 
             <div id="delete">
-                <span><button>삭제하기</button></span>
+                <span><button onclick="deletePost()">삭제하기</button></span>
             </div>
 
         </section>
@@ -142,9 +149,16 @@
 
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
+
+    <script>
+        const contextPath = "${contextPath}"
+     </script>
 
 
     <script src="${contextPath}/resources/js/LoginMyPage.js"></script>
+</body>
+    <script src="${contextPath}/resources/js/main.js"></script>
     
     
 </body>

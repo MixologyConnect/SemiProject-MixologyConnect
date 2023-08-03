@@ -6,7 +6,7 @@
 
 main{
 display: flex;
-width: 1280px;
+width: 960px;
 margin: auto;
 flex-direction: column;
   align-items: center;
@@ -17,17 +17,59 @@ flex-direction: column;
 width: 100%;
 font-size: 35px;
 font-weight: bold;
-margin-top: 30px;
+padding: 50px 0 20px 0;
+}
+.top > p:first-of-type {
+	font-size: 2.4rem;
+	font-weight: bold;
+}
+
+#head > p:last-of-type {
+	font-size: 1.2rem;
+}
+
+.top > p:last-of-type {
+	font-size: 1.2rem;
 }
 /* 전체 팔로잉 공지 버튼 있는 칸 */
 .top-2 {
 width: 100%;
-font-size: 20px;
 font-weight: bold;
 margin: auto;
 margin-top: 30px;
 border-bottom: 1px solid #ddd;
+padding: 10px 0;
 }
+
+
+/* 전체 버튼 */
+#all  {
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 25px;
+  background-color: white;
+}
+
+#all a {
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 25px;
+  background-color: white;
+}
+
+
+#all a:hover {
+cursor: pointer;
+font-weight: bold;
+color:rgb(0, 220, 244);
+background-color: white;
+font-size: 24px;
+}
+
 
 .right{
 float: right;
@@ -38,16 +80,16 @@ display: block;
 #top {
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   margin-top: 25px;
   background-color: white;
 }
 
-#top:hover {
+#top a:hover {
 border: none;
 cursor: pointer;
-font-size: 18px;
+font-size: 24px;
 font-weight: bold;
 margin-top: 25px;
 color:rgb(0, 220, 244);
@@ -63,7 +105,7 @@ text-decoration: none;
 #new {
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   margin-top: 25px;
   background-color: white;
@@ -72,39 +114,20 @@ text-decoration: none;
 #new > a:hover {
 border: none;
 cursor: pointer;
-font-size: 18px;
+font-size: 24px;
 font-weight: bold;
 margin-top: 25px;
 color:rgb(0, 220, 244);
 background-color: white;
 }
 
-/* 공지 버튼 */
-#notice {
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 25px;
-  background-color: white;
 
-}
-
-#notice:hover {
-border: none;
-cursor: pointer;
-font-size: 18px;
-font-weight: bold;
-margin-top: 25px;
-color:rgb(0, 220, 244);
-background-color: white;
-}
 
 /* 팔로잉 버튼 */
 #Following {
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   margin-top: 25px;
   background-color: white;
@@ -113,33 +136,11 @@ background-color: white;
 #Following:hover {
 border: none;
 cursor: pointer;
-font-size: 18px;
+font-size: 24px;
 font-weight: bold;
 margin-top: 25px;
 color:rgb(0, 220, 244);
 background-color: white;
-}
-
-/* 전체 버튼 */
-#all {
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 25px;
-  background-color: white;
-}
-
-#all:hover {
-cursor: pointer;
-font-weight: bold;
-color:rgb(0, 220, 244);
-background-color: white;
-}
-
-
-.fir {
-width: 1280px;
 }
 
 
@@ -147,8 +148,10 @@ width: 1280px;
 text-decoration: none;
 }
 
-.img {
-margin-top: 10px;
+.img{
+  width: 200px;
+  height: 200px;
+  display: flex;
 }
 
 
@@ -157,34 +160,54 @@ width: 200px;
 height: 200px;
 }
 
+.titleContent {
+  padding: 15px;
+  margin: 15px 0;
+}
+
 .nameDateCount{
-margin-top: 65px;
+  display: flex;
+  margin-top: -20px;
+  flex-direction: row-reverse;
+}
+
+.nameDateCount span{
+  display: block;
+  
 }
 
 
 /* 첫번째 게시물 사진 */
 .fir img{
-margin: 10px 20px;
+margin: 10px 0;
 border-radius: 10px;
-
 }
 
 
-#alarm{
+/* #alarm{
 margin-left: 550px;
-}
+} */
 
 
 main > section:nth-child(3){
 display: flex;
-flex-basis: 20.25%;
 }
 
 .fir{
 display: flex;
 margin-left: 20px;
-border: 3px solid white;
+border-radius: 30px;
 border-bottom: 3px solid #ddd;
+width: 960px;
+height: 244px;
+border: 2px solid #ddd;
+margin: 10px 0;
+padding: 0 20px;
+flex-direction: column;
+}
+
+.fir:hover{
+border: 2px solid rgb(0, 220, 244);;
 }
 
 
@@ -197,29 +220,33 @@ font-size: 20px;
 
 .left{
 display: block;
-
-flex-direction: column;
-
+flex-direction: row;
 }
 
-.left > div{
+ .left > div{
 margin-top: 10px;
 margin-bottom: 10px;
-}
+} 
 
 .left >div:nth-child(1){
 font-size: 20px;
 font-weight: bold;
 
 }
+
+.board{
+  height: 40px;
+  width: 600px;
+}
+
+
 .boardContent{
-height: 100px;
-width: 1000px;
+height: 110px;
+width: 600px;
 overflow: hidden;  		
 text-overflow: ellipsis;  	
-white-space: nowrap; 		
-word-break:break-all;
-margin-top: -20px;
+display: flex;
+padding: 7px 0;
 
 }
 
@@ -312,24 +339,10 @@ font-weight: bold;
 border-radius: 50%;
 }
 
-.nameDateCount span{
-position: relative;
-bottom: 15px;
-}
-
-.boardDate{
-float: right;
-margin-right: 40px;
-}
-
-
-.read{
-float: right;
-}
 
 
 .btn-area{
-width: 1200px;
+width: 960px;
 display: flex;
 justify-content: right;
 padding: 20px 0;
@@ -355,4 +368,54 @@ color: rgb(0, 220, 244);
 
 .pagination a {
 text-decoration: none;
+}
+
+.memberName{
+  font-size: 15px;
+  
+}
+
+.board h3{
+  font-size: 26px;
+}
+
+.boardContent{
+  font-size:14px; 
+}
+
+
+.read{
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.boardDate {
+  display: inline-block;
+  padding: 2px 4px;
+  margin-bottom: -2px;
+}
+
+/* 좋아요버튼 관련css */
+#likeBtn {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: rgba( 255, 255, 255, 0 );
+  cursor: pointer;
+  border: none;
+
+}
+
+/* 좋아요 버튼 이미지 */
+#likeBtn img {
+  width: 30px;
+  height: 38px;
+  margin-top: -6px;
+  filter: invert(15%) sepia(93%) saturate(7473%) hue-rotate(0deg) brightness(109%) contrast(111%);
+}
+/* 좋아요 수 */
+.share > span{
+    font-size: 20px;
+    padding: 5px;
+    color: red;
 }

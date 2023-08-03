@@ -90,5 +90,6 @@
         const contextPath ="${contextPath}"; //최상위 경로를 JS 전역 변수로 선언
     </script>
     <script src="${contextPath}/resources/js/myPage-info.js"></script>
+    <script src="${contextPath}/resources/js/main.js"></script>
 </body>
 </html>

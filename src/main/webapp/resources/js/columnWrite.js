@@ -42,35 +42,37 @@ document.getElementById("title").addEventListener("input", function() {
     
 
 // 미리보기 관련 요소 모두 얻어오기 
-const inputImage = document.getElementsByClassName("inputImage")[0];
-const preview = document.getElementsByClassName("preview")[0];
-const deleteImage = document.getElementsByClassName("delete-image")[0];
+const inputImage = document.getElementById("image0");
+const preview = document.getElementById("preview");
+const deleteImage = document.getElementById("delete-image");
 
 const deleteList = document.getElementById("deleteList");
 
 const deleteSet = new Set(); 
 
-inputImage.addEventListener("change",function(){
-    if(this.files[0] != undefined){
+inputImage.addEventListener("change", function() {
+    if (this.files[0] != undefined) {
         const reader = new FileReader();
-        reader.readAsDataURL(this.files[0])
+        reader.readAsDataURL(this.files[0]);
 
-        reader.onload =function(e){
+        reader.onload = function(e) {
             preview.setAttribute("src", e.target.result);
-            deleteSet.delete(0);
+            deleteSet.clear(); 
         }
-    }else{
+    } else {
         preview.removeAttribute("src");
     }
 })
 
-deleteImage.addEventListener("click", function(){
-    if(preview.getAttribute("src") !=""){
+deleteImage.addEventListener("click", function() {
+    if (preview.getAttribute("src") != "") {
         preview.removeAttribute("src");
-        inputImage.value=""
-        deleteSet.add(0);
+        inputImage.value = "";
+        deleteSet.add(inputImage.files[0]);
     }
 })
+
+
 
 // 유효성 검사
 function writeValidate(){
@@ -125,9 +127,9 @@ function writeValidate(){
 
             if(params.get("title") != null){
                 const title = "&title=" + params.get("title");
-                const query = "&query=" + params.get("query");
+                const columnquery = "&columnquery=" + params.get("columnquery");
 
-                url += key + query;
+                url += key + columnquery;
             }
 
             location.href = url;

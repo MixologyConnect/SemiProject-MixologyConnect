@@ -35,6 +35,7 @@
 				,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
 				,		a.READ_COUNT
 				,		c.IMG_RENAME
+				,		b.member_no
 		FROM row_check a
 		left join member b
 			on	b.member_no		=	a.member_no
@@ -217,9 +218,9 @@
 		SELECT
 						a.BOARD_NO
 				,		a.BOARD_TITLE
-	           			,    		a.BOARD_CONTENT
+	           	,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
 				,		b.MEMBER_NM
-				,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
+				,		a.BOARD_DT
 				,		a.READ_COUNT
 				,		c.IMG_RENAME
 				
@@ -236,6 +237,38 @@
 		AND		BOARD_ST	=	'Y'
 		and 	follower_no 	= 	?
 </entry>
+
+
+	<entry key = "selectBoardPopularity">
+   	     	    with row_check as
+	        (
+	            select 
+	            
+	                        row_number() over(order by a.board_no desc) as rn    
+	                ,       a.*
+	            from board a
+	            order by board_no desc
+	        )
+
+     SELECT 
+       TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT,
+     a.*, b.member_nm, c.img_rename
+                            FROM row_check a
+                            LEFT JOIN (
+                            SELECT board_no, COUNT(*) as likes_count
+                            FROM board_like
+                           
+                            GROUP BY board_no 
+                            ) l ON a.board_no = l.board_no
+                             join member b on a.member_no = b.member_no
+                             left join board_img c on a.board_no	 =	c.board_no
+                            and	c.img_level		=	'0'
+                            where	a.rn BETWEEN ? AND ?
+                            and         a.BOARD_CD	=	?
+                            AND		a.BOARD_ST	=	'Y'
+                            ORDER BY COALESCE(l.likes_count, 0) DESC
+
+	</entry>
 
 
 </properties>
