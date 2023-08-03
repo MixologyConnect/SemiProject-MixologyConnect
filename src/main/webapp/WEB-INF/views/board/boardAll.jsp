@@ -56,26 +56,24 @@
 						<c:forEach var="board" items="${boardList}">
 							
 							<section class="fir">
+								<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
 								<div class="left">
-									
-										
 									<div class="img">
 										<c:if test="${!empty board.thumbnail}">
 											<img src="${contextPath}${board.thumbnail}">
 										</c:if>
-									</div>
-									<div class="titleContent">
-										<div class="board">
-											<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3>${board.boardTitle}</h3>
+										<div class="titleContent">
+											<div class="board">
+												<h3>${board.boardTitle}</h3>
+											</div>
+											<span class="memberName">${board.memberName}</span>
 										</div>
-										<span class="memberName">${board.memberName}</span>
 
 
 									</div>
 									</a>
 								</div>
 								<div class="nameDateCount">
-									<!-- 지영이가 수정 중!!! -->
 									<span class="boardDate">${board.boardDate}</span>
 									<span class="read">조회수 : ${board.readCount}</span>
 									<span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>
