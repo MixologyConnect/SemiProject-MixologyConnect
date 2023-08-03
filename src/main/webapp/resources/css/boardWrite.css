@@ -193,7 +193,11 @@
     border: 3px solid #ddd;
     padding: 10px;
     background-color: transparent;
+    outline: none;
 
+}
+#boardContent:focus{
+    border: 3px solid rgb(0, 220, 244);
 }
 
 #detail:hover {
