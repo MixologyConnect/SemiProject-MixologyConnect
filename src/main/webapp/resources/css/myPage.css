@@ -126,7 +126,7 @@ label{
 
 .bottom  a{
     text-decoration: none;
-    color: black;
+   
 }
 
 main > section:nth-child(2){
@@ -157,7 +157,7 @@ main > section:nth-child(2){
 
 #list a{
     text-decoration: none;
-    color: black;
+   
 }
 
 .thead{
@@ -193,7 +193,7 @@ main > section:nth-child(2){
 
 .sub-wrap a{
     text-decoration: none;
-    color: black;
+   
 }
 
 #alarm{
@@ -252,7 +252,7 @@ main > section:nth-child(3){
 
 .left a{
     text-decoration: none;
-    color: black;
+    
 }
 
 .left >div:nth-child(2){
@@ -267,7 +267,7 @@ main > section:nth-child(3){
 
 .title > a{
     text-decoration: none;
-    color: black;
+   
     font-size: 30px;
 }
 
@@ -331,9 +331,6 @@ main > section:nth-child(4){
     margin-left: 20px;
 }
 
-.sec > div{
-}
-
 .sec > div:nth-child(1){
     display: flex;
     flex-basis: 15%;
@@ -376,8 +373,6 @@ main > section:nth-child(5){
     margin-left: 20px;
 }
 
-.third > div{
-}
 
 .third > div:nth-child(1){
     display: flex;
@@ -455,7 +450,7 @@ main > section:nth-child(6){
     height: 100%;
     display: block;
     letter-spacing: -2px;
-    color: black;
+
     text-decoration: none;
 
 }
@@ -463,7 +458,7 @@ main > section:nth-child(6){
 /* 현재 페이지 번호 */
 .pagination .current{
     background-color: rgb(0, 220, 244);
-    color: white;
+
     font-weight: bold;
     border-radius: 50%;
 }
@@ -475,7 +470,7 @@ main > section:nth-child(6){
 
 #delete button{
     background-color: rgb(0, 220, 244);
-    color: white;
+
     font-weight: bold;
     font-size: 15px;
     width: 80px;
@@ -493,9 +488,14 @@ main > section:nth-child(6){
     border: 2px solid #ddd;
     border-radius: 10px;
     margin-left: 30px;
-    color: darkgray
+  
 }
 
 .memberUpdate:hover{
     background-color:  rgba( 255, 255, 255, 0 );
+}
+
+/* 게시글이 존재하기 않습니다. */
+.center{
+    text-align:center;
 }
