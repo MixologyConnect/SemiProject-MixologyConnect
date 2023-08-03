@@ -27,7 +27,7 @@
 (function(){
     const goToBtn = document.getElementById("goToBtn");
 
-    if(goToBtn != null){
+    if(goToBtn != ""){
         goToBtn.addEventListener("click",function(){
 
             const pathname = location.pathname;
@@ -50,9 +50,9 @@
 
             if(params.get("title") != null){
                 const title = "&title=" + params.get("title");
-                const query = "&query=" + params.get("query");
+                const columnquery = "&columnquery=" + params.get("columnquery");
 
-                url += key + query;
+                url += title + columnquery;
             }
 
             location.href = url;

@@ -74,7 +74,21 @@
 
 									</div>
 								<div class="nameDateCount">
-									<span class="like">좋아요는 여기~</span>
+									<!-- 지영이가 수정 중!!! -->
+									<span class="like">
+										<button type="button" id="likeBtn">
+											<img src="${contextPath}/resources/images/heart.svg" id="likeBtnImg"
+												onclick="likeBtnClick()"> 
+		
+											<c:if test="${likeMember==detail.boardNo}">
+												<input type="hidden" id="likeCheck" name="1">
+											</c:if>
+											<c:if test="${likeMember!=detail.boardNo}">
+												<input type="hidden" id="likeCheck" name="0">
+											</c:if>
+										</button>
+										<span id="likeResult">${likeCount}</span>
+									</span>
 									<span class="read">조회수 : ${board.readCount}</span>
 									<span class="boardDate">${board.boardDate}</span>
 								</div>
