@@ -77,11 +77,7 @@
 								</div>
 								<div class="nameDateCount">
 									<!-- 지영이가 수정 중!!! -->
-<<<<<<< HEAD
-									
-									<span id="likeResult">좋아요 수: ${board.boardLikeCount} </span>
-=======
->>>>>>> ad4b2c7d2d0c621ad57cb068c52fbb841791c640
+
 									<span class="boardDate">${board.boardDate}</span>
 									<span class="read">조회수 : ${board.readCount}</span>
 									<span id="likeResult">좋아요 수: ${board.boardLikeCount} </span>

@@ -154,6 +154,7 @@
 				<script src="${contextPath}/resources/js/board/reply.js"></script>
 				<script src="${contextPath}/resources/js/search/search.js"></script>
 				<script src="${contextPath}/resources/js/bookMark.js"></script>
+				<script src="${contextPath}/resources/js/main.js"></script>
 			</body>
 
 			</html>
