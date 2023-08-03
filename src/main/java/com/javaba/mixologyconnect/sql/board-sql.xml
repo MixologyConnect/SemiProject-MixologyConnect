@@ -35,6 +35,7 @@
 				,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
 				,		a.READ_COUNT
 				,		c.IMG_RENAME
+				,		b.member_no
 		FROM row_check a
 		left join member b
 			on	b.member_no		=	a.member_no

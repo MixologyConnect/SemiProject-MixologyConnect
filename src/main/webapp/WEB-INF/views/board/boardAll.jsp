@@ -52,9 +52,9 @@
 					</c:when>
 
 					<c:otherwise>
-
+						
 						<c:forEach var="board" items="${boardList}">
-							<input type="hidden" name="boardNo" value="${board.boardNo}">
+							
 							<section class="fir">
 								<div class="left">
 									
@@ -71,32 +71,19 @@
 										<span class="memberName">${board.memberName}</span>
 
 										<div class="boardContent">${board.boardContent}</div>
+
 									</div>
-									
+									</a>
 								</div>
-							</a>
 								<div class="nameDateCount">
 									<!-- 지영이가 수정 중!!! -->
-									<span class="like">
-										<button type="button" id="likeBtn">
-											<img src="${contextPath}/resources/images/heart.svg" id="likeBtnImg"
-												onclick="likeBtnClick()"> 
-		
-											<c:if test="${likeMember==detail.boardNo}">
-												<input type="hidden" id="likeCheck" name="1">
-											</c:if>
-											<c:if test="${likeMember!=detail.boardNo}">
-												<input type="hidden" id="likeCheck" name="0">
-											</c:if>
-										</button>
-										<span id="likeResult">${likeCount}</span>
-									</span>
-									<span class="read">조회수 : ${board.readCount}</span>
 									<span class="boardDate">${board.boardDate}</span>
+									<span class="read">조회수 : ${board.readCount}</span>
+									<span id="likeResult">좋아요 수: ${board.boardLikeCount} </span>
 								</div>
-							
+								
 							</section>
-							
+
 						</c:forEach>
 
 					</c:otherwise>
@@ -143,18 +130,14 @@
 				</div>
 
 				
+				
 			</main>
 
 			
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 			<jsp:include page="/WEB-INF/views/common/modal.jsp" />
 			
-			<script>
-				const contextPath = "${contextPath}";
-
-				const loginMemberNo = "${loginMember.memberNo}";
-
-			</script>
+			
 
 
 
