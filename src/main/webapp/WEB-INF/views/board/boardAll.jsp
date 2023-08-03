@@ -59,15 +59,9 @@
 								<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
 								<div class="left">
 									<div class="img">
-										<c:choose>
-											<c:when test="${!empty board.thumbnail}">
-												<img src="${contextPath}${board.thumbnail}">
-											</c:when>
-											<c:otherwise>
-											</c:otherwise>
-										</c:choose>
-										
-
+										<c:if test="${!empty board.thumbnail}">
+											<img src="${contextPath}${board.thumbnail}">
+										</c:if>
 										<div class="titleContent">
 											<div class="board">
 												<h3>${board.boardTitle}</h3>
@@ -76,11 +70,11 @@
 										</div>
 										
 										
-										<div class="nameDateCount">
-											<span class="boardDate">${board.boardDate}</span>
-											<span class="read">조회수 : ${board.readCount}</span>
-											<span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>
-										</div>
+									</div>
+									<div class="nameDateCount">
+										<span class="boardDate">${board.boardDate}</span>
+										<span class="read">조회수 : ${board.readCount}</span>
+										<span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>
 									</div>
 									</a>
 								</div>

@@ -67,18 +67,19 @@
 											</div>
 											<span class="memberName">${board.memberName}</span>
 										</div>
-										
-										
-										<div class="nameDateCount">
-											<span class="boardDate">${board.boardDate}</span>
-											<span class="read">조회수 : ${board.readCount}</span>
-											<span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>
-										</div>
+
+
 									</div>
 									</a>
 								</div>
+								<div class="nameDateCount">
+									<span class="boardDate">${board.boardDate}</span>
+									<span class="read">조회수 : ${board.readCount}</span>
+									<span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>
+								</div>
 								
 							</section>
+
 						</c:forEach>
 
 					</c:otherwise>
