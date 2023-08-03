@@ -115,7 +115,7 @@
 
             <!-- 작성완료 버튼 -->
             <div class="btn">
-                <button id="goToBtn" type="button">작성 취소</button>
+                <button id="goToBtn" type="button" onclick="location.href = '${contextPath}/board/boardDetail?type=${param.type}&cp=${param.cp}&no=${param.no}'">작성 취소</button>
                 <button type="submit" id="btn">작성 완료</button>
             </div>
 

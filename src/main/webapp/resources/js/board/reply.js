@@ -235,24 +235,13 @@ function updateReply(replyNo, btn){
                 "replyContent" : replyContent},
         type : "post",
         success : function(result){
-
-            updateBtn.addEventListener("click", function(){
-
                 if(result > 0){
                     alert("댓글이 수정되었습니다.");
                     selectReplyList();
                     
-                   
-                    
-                    
                 }else{
                     alert("댓글 수정을 실패하였습니다.");
                 }
-
-
-            })
-
-            
         },
 
         error : function(req, status, error){

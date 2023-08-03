@@ -70,7 +70,6 @@
 										</div>
 										<span class="memberName">${board.memberName}</span>
 
-										<div class="boardContent">${board.boardContent}</div>
 
 									</div>
 									</a>
@@ -79,7 +78,7 @@
 									<!-- 지영이가 수정 중!!! -->
 									<span class="boardDate">${board.boardDate}</span>
 									<span class="read">조회수 : ${board.readCount}</span>
-									<span id="likeResult">좋아요 수: ${board.boardLikeCount} </span>
+									<span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>
 								</div>
 								
 							</section>
