@@ -62,9 +62,9 @@
 
         <c:choose>
             <c:when test="${empty boardList}">
-                <tr>
-                    <th>게시글이 존재하지 않습니다.</th>
-                </tr>
+                
+                <span class="center">게시글이 존재하지 않습니다.</span>
+                
             </c:when>
 
                 <c:otherwise>
@@ -162,7 +162,7 @@
 
 
     <script src="${contextPath}/resources/js/LoginMyPage.js"></script>
-</body>
+
     <script src="${contextPath}/resources/js/main.js"></script>
     
     
