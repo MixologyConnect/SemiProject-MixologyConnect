@@ -200,7 +200,7 @@ public class MypageService {
 			Connection conn = getConnection();
 			
 			String condition = null;	// 조건
-			
+		
 			
 			System.out.println("service 배열 길이 : " + arr.length);
 			
@@ -222,6 +222,7 @@ public class MypageService {
 			
 			
 			int result = dao.deletePost(conn, arr, condition);
+			System.out.println(result);
 			
 			if(result > 0) {conn.commit();}
 			else					{conn.rollback();}

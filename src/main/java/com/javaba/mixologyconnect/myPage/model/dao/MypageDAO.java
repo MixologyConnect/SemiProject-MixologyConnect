@@ -117,7 +117,6 @@ public class MypageDAO {
 				board.setBoardNo(rs.getInt("BOARD_NO"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setMemberName(rs.getString("MEMBER_NM"));
-				System.out.println("이름 : " + rs.getString("MEMBER_NM"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 
@@ -455,6 +454,7 @@ public class MypageDAO {
 			stmt = conn.createStatement();
 			
 			result = stmt.executeUpdate(sql);
+			System.out.println("다오 다오");
 			
 			
 			
