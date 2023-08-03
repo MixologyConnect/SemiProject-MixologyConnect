@@ -215,6 +215,7 @@ input[type=range] {
 
 .choice button:hover{
     background-color: white;
+    color: darkgray;
 }
 
 /* 질문번호, 질문 margin */
@@ -343,7 +344,13 @@ input[type=range] {
     cursor: pointer;
 }
 
-.reset button:hover{
-    border: 5px solid rgb(61, 166, 214); ;
+
+
+.content{
+    color: darkgray;
 }
 
+.reset{
+    display: flex;
+    justify-content: center;
+}

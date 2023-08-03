@@ -12,7 +12,8 @@
         <title>다른사용자 게시글 모아보기</title>
         
         <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css">
+        <link rel="stylesheet" href="${contextPath}/resources/css/boardAll.css">
+         <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css"> 
         <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
     	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -25,7 +26,7 @@
     <main>
 
         <section class="follow">
-            <section class="img">
+            <section class="img1">
                 <c:if test="${empty loginMember.profileImage}">
 
                     <div><img src="${contextPath}/resources/images/user.png"  ></div>
@@ -34,9 +35,13 @@
 
                     <div><img src="${contextPath}${loginMember.profileImage}"></div>
                 </c:if>
+                
             </section>
             <section class="follow2">
-                <div id="top">${loginMember.memberName}</div>
+                <div id="top">${loginMember.memberName} 
+                    <span><button type="button" class="memberUpdate" onclick="location.href = '${contextPath}/member/myPage/profile'">내 정보 수정<i class="fa-solid fa-pen"></i></button></span>
+                </div>
+                
                 <div class="bottom">
                     <span><a href="#">팔로워 ${followers.size()}</a></span>
                     <span><a href="#">팔로잉 ${followings.size()}</a></span>
@@ -52,38 +57,44 @@
            <p><a href="${contextPath}/board/followList?type=1">팔로우</a></p>
            <p><a href="${contextPath}/myPage/bookMark">북마크</a></p>  
            <p>
-           <p id="alarm"><a href="#">글쓰기 <i class="fa-solid fa-pen-to-square"></i></a></p>  
+           <p id="alarm"><a href="${contextPath}/board/boardWrite?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기 <i class="fa-solid fa-pen-to-square"></i></a></p>  
         </section> 
 
         <c:choose>
             <c:when test="${empty boardList}">
-                <tr>
-                    <th>게시글이 존재하지 않습니다.</th>
-                </tr>
+                
+                <span class="center">게시글이 존재하지 않습니다.</span>
+                
             </c:when>
 
                 <c:otherwise>
 
 					<c:forEach var="board" items="${boardList}">
 						<section class="fir">
-							<div class="left">
-								<div class="board">
-									<a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
-                                    <h3><input type="checkbox" name="feed" value="${board.boardNo}" id="check">${board.boardTitle}</h3>
-								</div>
-								<div>${board.boardContent}</div>
-								<div class="nameDateCount">
-									<span>${board.memberName}</span> <span>${board.boardDate}</span> <span>조회수 : ${board.readCount}</span>
-								</div>
-							</div>
-							<div class="img">
-								<c:if test = "empty${board.thumbnail}">
-									<img src="${contextPath}/resources/images/heart.svg">
-								</c:if>
-								<img src="${contextPath}${board.thumbnail}">
-							</div>
-						    </a>
-						</section>
+                            <a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
+                            <div class="left">
+                                <div class="img">
+                                    <c:if test="${!empty board.thumbnail}">
+                                        <img src="${contextPath}${board.thumbnail}">
+                                    </c:if>
+                                    <div class="titleContent">
+                                        <div class="board">
+                                            <h3>${board.boardTitle}</h3>
+                                        </div>
+                                        <span class="memberName">${board.memberName}</span>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="nameDateCount">
+                                    <span class="boardDate">${board.boardDate}</span>
+                                    <span class="read">조회수 : ${board.readCount}</span>
+                                    <span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>
+                                </div>
+                                </a>
+                            </div>
+                            
+                        </section>
 
 					</c:forEach>
 
@@ -151,6 +162,8 @@
 
 
     <script src="${contextPath}/resources/js/LoginMyPage.js"></script>
+
+    <script src="${contextPath}/resources/js/main.js"></script>
     
     
 </body>

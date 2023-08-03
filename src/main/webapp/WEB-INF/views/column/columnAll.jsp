@@ -24,11 +24,11 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <c:if test="${!empty param.title}">
-        <c:set var="sURL" value="&title=${param.title}&query=${param.query}"/>
+        <c:set var="sURL" value="&title=${param.title}&columnquery=${param.columnquery}"/>
     </c:if>
 
     <!-- 전체 브라우저 container -->
-<div class="container">
+    <div class="container">
 
     <!-- 컨텐츠 감싸는 container -->
     <div class="secon-container">
@@ -58,7 +58,7 @@
                     <option value="TC">제목 + 내용</option>
                 </select>
                 <!-- 검색 input -->
-                <input type="text" name="query" id="search" placeholder="원하는 정보를 입력하세요!">
+                <input type="text" name="columnquery" id="search" placeholder="원하는 정보를 입력하세요!">
                 <!-- 검색 버튼 -->
                 <button id="searchBtn">검색</button>
             </div>
@@ -69,7 +69,7 @@
             <ul class="list-content">
 
                 <c:if test="${!empty param.title}">
-                    <h3>"${param.query}" 검색결과</h3>
+                    <h3>"${param.columnquery}" 검색결과</h3>
                 </c:if>
                 
                 <div>
@@ -135,11 +135,12 @@
             
     </div>
     
-</div>
+    </div>
 
-<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-<jsp:include page="/WEB-INF/views/common/modal.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
     <script src="${contextPath}/resources/js/columnAll.js"></script>
+    <script src="${contextPath}/resources/js/main.js"></script>
 </body>
 </html>

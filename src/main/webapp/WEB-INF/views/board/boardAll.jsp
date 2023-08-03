@@ -52,33 +52,33 @@
 					</c:when>
 
 					<c:otherwise>
-
+						
 						<c:forEach var="board" items="${boardList}">
+							
 							<section class="fir">
+								<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
 								<div class="left">
-									
-										
-										<div class="img">
-											<c:if test="${!empty board.thumbnail}">
-												<img src="${contextPath}${board.thumbnail}">
-											</c:if>
-										</div>
+									<div class="img">
+										<c:if test="${!empty board.thumbnail}">
+											<img src="${contextPath}${board.thumbnail}">
+										</c:if>
 										<div class="titleContent">
 											<div class="board">
-												<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3>${board.boardTitle}</h3>
+												<h3>${board.boardTitle}</h3>
 											</div>
 											<span class="memberName">${board.memberName}</span>
-
-											<div class="boardContent">${board.boardContent}</div>
 										</div>
-
+										
+										
 									</div>
-								<div class="nameDateCount">
-									<span class="like">좋아요는 여기~</span>
-									<span class="read">조회수 : ${board.readCount}</span>
-									<span class="boardDate">${board.boardDate}</span>
+									<div class="nameDateCount">
+										<span class="boardDate">${board.boardDate}</span>
+										<span class="read">조회수 : ${board.readCount}</span>
+										<span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>
+									</div>
+									</a>
 								</div>
-								</a>
+								
 							</section>
 
 						</c:forEach>
@@ -125,9 +125,19 @@
 						<li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
 					</ul>
 				</div>
+
+				
+				
 			</main>
+
+			
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 			<jsp:include page="/WEB-INF/views/common/modal.jsp" />
+			
+			
+
+
+
 			<script src="${contextPath}/resources/js/boardAll.js"></script>
 			<script src="${contextPath}/resources/js/board/board.js"></script>
 			<script src="${contextPath}/resources/js/main.js"></script>

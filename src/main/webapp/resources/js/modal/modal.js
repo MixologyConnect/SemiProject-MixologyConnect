@@ -1,4 +1,3 @@
-const modal = $("#modal");
 let currentModal;
 
 function showOverlay(b) {
@@ -8,26 +7,36 @@ function showOverlay(b) {
            "opacity": "0"});
 }
 
-function showModal(m, b) {
-    preventScroll(b);
-    showOverlay(b);
-    const modalContent = $("#modal-" + m);
-    if (b) {
-        currentModal = modalContent;
-        modal.width(modalContent.width());
-        modal.height(modalContent.height());
+function showModal(m) {
+    if (typeof currentModal != "undefined") currentModal.css({"position": "fixed",
+                                                              "pointer-events": "none",
+                                                              "opacity": "0"});
+    if (typeof m != "undefined") {
+        preventScroll(true);
+        showOverlay(true);
+        currentModal = $("#modal-" + m);
+        refreshModal(m);
         currentModal.css({"position": "relative",
                           "pointer-events": "auto",
                           "opacity": "100%"});
-    } else {
+        return;
+    }
+    currentModal.css({"position": "fixed",
+                      "pointer-events": "none",
+                      "opacity": "0"});
+    preventScroll(false);
+    showOverlay(false);
+    //switch (m + ":" + b) {}
+}
+
+function refreshModal(m) {
+    const modal = $("#modal");
+    if (typeof m == "undefined") {
         modal.width(300);
         modal.height(400);
-        currentModal.css({"position": "fixed",
-                          "pointer-events": "none",
-                          "opacity": "0"});
+        return;
     }
-    switch (m + ":" + b) {
-        case "login:true" : $(".account-text").css("color", "rgb(0, 220, 244)"); break;
-        case "login:false" : $(".account-text").css("color", ""); break;
-    }
+    const modalContent = $("#modal-" + m);
+    modal.width(modalContent.width());
+    modal.height(modalContent.height());
 }

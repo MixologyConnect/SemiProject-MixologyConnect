@@ -38,6 +38,7 @@ font-weight: bold;
 margin: auto;
 margin-top: 30px;
 border-bottom: 1px solid #ddd;
+padding: 10px 0;
 }
 
 
@@ -48,7 +49,7 @@ border-bottom: 1px solid #ddd;
   cursor: pointer;
   font-weight: bold;
   margin-top: 25px;
-  background-color: white;
+  background-color: rgba( 255, 255, 255, 0 );
 }
 
 #all a {
@@ -57,7 +58,7 @@ border-bottom: 1px solid #ddd;
   cursor: pointer;
   font-weight: bold;
   margin-top: 25px;
-  background-color: white;
+  background-color: rgba( 255, 255, 255, 0 );
 }
 
 
@@ -65,7 +66,7 @@ border-bottom: 1px solid #ddd;
 cursor: pointer;
 font-weight: bold;
 color:rgb(0, 220, 244);
-background-color: white;
+background-color: rgba( 255, 255, 255, 0 );
 font-size: 24px;
 }
 
@@ -82,7 +83,7 @@ display: block;
   font-size: 24px;
   font-weight: bold;
   margin-top: 25px;
-  background-color: white;
+  background-color:rgba( 255, 255, 255, 0 );
 }
 
 #top a:hover {
@@ -92,7 +93,7 @@ font-size: 24px;
 font-weight: bold;
 margin-top: 25px;
 color:rgb(0, 220, 244);
-background-color: white;
+background-color: rgba( 255, 255, 255, 0 );
 }
 
 .right a {
@@ -107,17 +108,17 @@ text-decoration: none;
   font-size: 24px;
   font-weight: bold;
   margin-top: 25px;
-  background-color: white;
+  background-color: rgba( 255, 255, 255, 0 );
 }
 
 #new > a:hover {
 border: none;
 cursor: pointer;
-font-size: 24px;
 font-weight: bold;
+font-size: 24px;
 margin-top: 25px;
 color:rgb(0, 220, 244);
-background-color: white;
+background-color: rgba( 255, 255, 255, 0 );
 }
 
 
@@ -129,7 +130,7 @@ background-color: white;
   font-size: 24px;
   font-weight: bold;
   margin-top: 25px;
-  background-color: white;
+  background-color: rgba( 255, 255, 255, 0 );
 }
 
 #Following:hover {
@@ -139,7 +140,7 @@ font-size: 24px;
 font-weight: bold;
 margin-top: 25px;
 color:rgb(0, 220, 244);
-background-color: white;
+background-color: rgba( 255, 255, 255, 0 );
 }
 
 
@@ -151,29 +152,33 @@ text-decoration: none;
   width: 200px;
   height: 200px;
   display: flex;
+  padding: 0;
 }
 
 
 .img img {
-width: 200px; 
-height: 200px;
+width: 240px; 
+height: 250px;
 }
 
 .titleContent {
   padding: 15px;
-  margin: 15px 0;
+  margin: 8px 0;
 }
 
 .nameDateCount{
-  float: right;
-  margin-top: -10px;
+  width: 300px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  justify-content: right;
 }
 
 
 /* 첫번째 게시물 사진 */
 .fir img{
-margin: 10px 0;
 border-radius: 10px;
+margin-top: -10px;
 }
 
 
@@ -182,27 +187,29 @@ margin-left: 550px;
 } */
 
 
-main > section:nth-child(3){
+/* main > section:nth-child(3){
 display: flex;
-}
+} */
 
 .fir{
-display: flex;
+  display: flex;
 margin-left: 20px;
 border-radius: 30px;
 border-bottom: 3px solid #ddd;
 width: 960px;
-height: 244px;
+height: 230px;
 border: 2px solid #ddd;
 margin: 10px 0;
-padding: 0 20px;
+padding-right: 10px;
 flex-direction: column;
+justify-content: space-between;
+overflow: hidden;
 }
 
 .fir:hover{
-border: 2px solid rgb(0, 220, 244);;
+border: 2px solid rgb(0, 220, 244);
+transition: all 0.9s ease;
 }
-
 
 .fir > div:nth-child(1){
 display: flex;
@@ -354,7 +361,7 @@ cursor: pointer;
 }
 
 #insertBtn:hover {
-background-color: white;
+background-color: rgba( 255, 255, 255, 0 );
 border: 2px solid rgb(0, 220, 244);
 color: rgb(0, 220, 244);
 }
@@ -369,7 +376,7 @@ text-decoration: none;
 }
 
 .board h3{
-  font-size: 30px;
+  font-size: 26px;
 }
 
 .boardContent{
@@ -378,6 +385,36 @@ text-decoration: none;
 
 
 .read{
-  display: inline-block;
-  padding: 0 10px;
+  display: block;
+  padding: 0 11px;
+}
+
+.boardDate {
+  display: block;
+  padding: 2px 4px;
+}
+
+/* 좋아요버튼 관련css */
+#likeBtn {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: rgba( 255, 255, 255, 0 );
+  cursor: pointer;
+  border: none;
+
+}
+
+/* 좋아요 버튼 이미지 */
+#likeBtn img {
+  width: 30px;
+  height: 38px;
+  margin-top: -6px;
+  filter: invert(15%) sepia(93%) saturate(7473%) hue-rotate(0deg) brightness(109%) contrast(111%);
+}
+/* 좋아요 수 */
+.share > span{
+    font-size: 20px;
+    padding: 5px;
+    color: red;
 }

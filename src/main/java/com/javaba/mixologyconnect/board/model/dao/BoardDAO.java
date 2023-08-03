@@ -142,7 +142,8 @@ public class BoardDAO {
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setThumbnail(rs.getString("IMG_RENAME"));
-
+				board.setThumbnail(rs.getString("IMG_RENAME"));
+				board.setMemberNo(rs.getInt("MEMBER_NO"));
 
 				boardList.add(board);
 

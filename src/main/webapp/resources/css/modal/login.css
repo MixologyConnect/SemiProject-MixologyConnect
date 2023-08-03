@@ -11,12 +11,23 @@
 
 #modal-login > h2 {
     margin-top: 30px;
-    letter-spacing: 1px;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
-#modal-login > a {
+#modal-login span, #modal-login a {
+    font-size: 0.9rem;
+}
+
+#modal-login a {
+    color: rgba(0, 220, 244, 0.9);
+    font-weight: 600;
     cursor: pointer;
+}
+
+#modal-login label {
+    display: block;
+    padding: 20px 0;
 }
 
 #modal-login-logo {
@@ -50,13 +61,24 @@
     background-color: rgba(0, 220, 244, 0.8);
 }
 
-.modal-login-input {
+#modal-login-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-login input[type='text'], #modal-login input[type='password'] {
     width: 300px;
+    padding: 10px 0;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    margin: 5px 0;
     outline: none;
-    margin: 10px 0;
     background-color: transparent;
-    color: white;
-    font-size: 20px;
+    font-size: 1rem;
+}
+
+#modal-login input[type='text']:focus, #modal-login input[type='password']:focus {
+    border-bottom: 1px solid white;
 }

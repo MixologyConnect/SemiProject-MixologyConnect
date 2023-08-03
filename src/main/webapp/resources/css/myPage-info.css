@@ -37,9 +37,9 @@ body{
 }
 .list-group> li > a{
     text-decoration: none;
-    color: black;
+   
     height: 100%;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid #ddd;
 
     display: flex;
     
@@ -47,7 +47,8 @@ body{
     align-items: center;
 }
 .list-group> li :hover{
-    background-color: #f2f2f2;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition-duration: 0.5s;
 }
 
 /* 회원정보 수정 글 */
@@ -63,7 +64,7 @@ article > p{
 
 /* 정보입력 영역 */
 fieldset{
-    border: 3px solid #ddd;
+    border: none;
 }
 form{
     display: flex;
@@ -108,9 +109,10 @@ tr td:nth-child(2) {
 
 /* 첫번째 열 */
 tr td:nth-child(1){
-    background-color: #eee;
+    background-color: #d3d1d1;
     width: 150px;
     font-size: 18px ;
+    color: rgb(83, 83, 83);
     font-weight: bold;
 
     text-align: center;
@@ -122,12 +124,13 @@ tr td{
 /* ***********************입력창 관련************************** */
 table input{
     height: 35px;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 15px;
+    /* font-weight: bold; */
 
     border-radius: 30px;
     border: 2px solid #ddd;
     outline: none;
+    background-color:  rgba( 255, 255, 255, 0 );
 
 }
 input:focus{
@@ -166,7 +169,7 @@ input[type=text]{
 /* 중복검사, 우편번호 찾기 css */
 #btn-id, #postBtn{
     font-size: 15px;
-    background-color: white;
+    background-color:  rgba( 255, 255, 255, 0 );
     border: 1px solid gray;
     border-radius: 25px;
     padding: 0 10px;
@@ -223,6 +226,7 @@ input[type=text]{
 input {
     padding-left: 15px ;
     margin: 5px 0;
+
 }
 
 /* 파란글씨 정렬 */
@@ -272,13 +276,14 @@ article{
 
     /* padding: 5px 10px; */
     border: 1px solid darkgrey;
-    background-color: white;
+    background-color: rgba( 255, 255, 255, 0 );;
     font-size: 14px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    border-radius: 10px;
 }
 
 /* 파일선택버튼 */
@@ -290,8 +295,9 @@ article{
 /* 변경하기 버튼 */
 .profile-btn-area > button{
     background-color:  rgb(0, 220, 244);
-    color:  white;
+
     border: 0;
+    border-radius: 10px;
 }
 
 .myPage-main{
@@ -332,10 +338,11 @@ article{
     display: flex;
     width: 20px;
     height: 20px;
-    /* text-align: center; */
+    text-align: center;
     border-radius: 50%;
     justify-content: center;
-    align-items: center;
+    /* justify-items: center; */
+    /* align-items: center; */
 
     background-color: #ddd;
     cursor: pointer;

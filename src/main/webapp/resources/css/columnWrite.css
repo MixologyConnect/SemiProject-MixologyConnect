@@ -16,29 +16,40 @@
 }
 
 .top {
-    height: 100px;
-    width: 100%;
+    width: 1000px;
     font-size: 35px;
     font-weight: bold;
     margin: auto;
-    margin-top: 30px;
+    padding: 50px 0 20px 0;
     
-  }
+}
+
+
+.top > p:first-of-type {
+	font-size: 2.4rem;
+	font-weight: bold;
+    color: rgb(0, 220, 244);
+}
+
+
+.top > p:last-of-type {
+	font-size: 1.2rem;
+}
 
 /* 가이드 */
 .guide {
+    width: 1000px;
     height: 100px;
-    width: 1300px;
     margin: auto;
-    font-size: 20px;
-    border-radius: 7px;
+    font-size: 19px;
+    border-radius: 10px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid rgb(0, 220, 244);
+    /* border: 2px solid rgb(0, 220, 244); */
     font-weight: bold;
-
+    background-image: linear-gradient(135deg, rgb(0, 220, 244), violet);
 
 }
 
@@ -47,6 +58,7 @@
     text-align: center;
     position: relative;
     width: 90%;
+   
 }
 
 
@@ -102,6 +114,7 @@
     border-radius: 20px;
     border: 3px solid #ddd;
     padding: 0 20px;
+    background-color: transparent;
 }
 
 #boardTitle:hover {
@@ -133,6 +146,7 @@
     margin-top: 20px;
     border: 3px solid #ddd;
     padding:  20px;
+    background-color: transparent;
 }
 
 #detail:hover {

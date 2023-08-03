@@ -115,8 +115,8 @@
 
             <!-- 작성완료 버튼 -->
             <div class="btn">
-                <button id="goToBtn" type="button">작성 취소</button>
                 <button type="submit" id="btn">작성 완료</button>
+                <button id="goToBtn" type="button" onclick="location.href = '${contextPath}/board/boardDetail?type=${param.type}&cp=${param.cp}&no=${param.no}'">작성 취소</button>
             </div>
 
             
@@ -125,16 +125,18 @@
             <input type="hidden" name = "no" value = "${param.no}">
             <input type="hidden" name = "cp" value = "${param.cp}">
     
-            <input type="hidden" id="dlelteList" name = "deleteList" value = "">
+            <input type="hidden" id="deleteList" name = "deleteList" value = "">
         </form>
 
         </div>
 
 
        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+       <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
     </div>
     <script src="${contextPath}/resources/js/boardWrite.js"></script>
+    <script src="${contextPath}/resources/js/main.js"></script>
     
 </body>
 </html>
