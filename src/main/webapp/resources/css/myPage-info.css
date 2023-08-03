@@ -37,7 +37,7 @@ body{
 }
 .list-group> li > a{
     text-decoration: none;
-    color: black;
+   
     height: 100%;
     border-bottom: 1px solid #ddd;
 
@@ -226,7 +226,7 @@ input[type=text]{
 input {
     padding-left: 15px ;
     margin: 5px 0;
-    color: #ddd
+
 }
 
 /* 파란글씨 정렬 */
@@ -295,7 +295,7 @@ article{
 /* 변경하기 버튼 */
 .profile-btn-area > button{
     background-color:  rgb(0, 220, 244);
-    color:  white;
+
     border: 0;
     border-radius: 10px;
 }
