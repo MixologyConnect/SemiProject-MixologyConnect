@@ -269,5 +269,24 @@
 
 	</entry>
 
+	<entry key="insertNotice">
+		INSERT INTO BOARD VALUES(?, ?, ?,
+		SYSDATE, NULL, 0,
+		'Y',
+		?, ?)
+	</entry>
+
+	<entry key="selectNotice">
+		SELECT BOARD_TITLE, BOARD_CONTENT
+		FROM BOARD
+		WHERE BOARD_CD = 2
+		AND BOARD_NO = 10
+	</entry>
+
+	<entry key="noticeImage">
+		SELECT IMG_RENAME, IMG_ORIGINAL, BOARD_NO
+		FROM BOARD_IMG
+		WHERE BOARD_NO = 10
+	</entry>
 
 </properties>

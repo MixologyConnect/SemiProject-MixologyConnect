@@ -19,10 +19,29 @@ import com.javaba.mixologyconnect.common.MyRenamePolicy;
 import com.javaba.mixologyconnect.manager.service.ManagerService;
 import com.javaba.mixologyconnect.manager.vo.NoticeDetail;
 import com.javaba.mixologyconnect.manager.vo.NoticeImage;
+import com.javaba.mixologyconnect.member.model.vo.Member;
 import com.oreilly.servlet.MultipartRequest;
 
 @WebServlet("/manager/noticeWrite")
 public class noticeWriteServlet extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		try {
+			
+			String mode = req.getParameter("mode");
+			
+			String path = "/WEB-INF/views/manager/notice.jsp";
+			
+			req.getRequestDispatcher(path).forward(req, resp);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -62,26 +81,36 @@ public class noticeWriteServlet extends HttpServlet {
 			}
 			String noticeName = mpReq.getParameter("noticeTitle");
 			String noticeContent = mpReq.getParameter("content");
-			int boardCode = Integer.parseInt(mpReq.getParameter("type"));
+			int boardType = Integer.parseInt(mpReq.getParameter("type"));
+			
+			Member loginMember = (Member)session.getAttribute("loginMember");
+			int memberNo = loginMember.getMemberNo();
 
 			BoardDetail detail = new BoardDetail();
 			
 			detail.setBoardTitle(noticeName);
 			detail.setBoardContent(noticeContent);
+			detail.setMemberNo(memberNo);
 			
 			String mode = mpReq.getParameter("mode");
 			
 			BoardService service = new BoardService();
 			
-			if(mode.equals("insert")) {
+			
 				
-				int boardNo = service.insertNotice(detail,imageList, boardCode);
-				
-				String path = null;
-				
-				
+			int boardNo = service.insertNotice(detail,imageList, boardType);
+			
+			String path = null;
+			
+			if(boardNo > 0) {
+				path = "notice?no="+ boardNo +"&type=" + boardType;
+				session.setAttribute("message", "게시글이 등록되었습니다!");
+			}else {
+				path = "notice?type=" + boardType;
+				session.setAttribute("message", "게시글 등록을 실패하였습니다..");
 			}
 			
+			resp.sendRedirect(path);
 
 
 		} catch (Exception e) {

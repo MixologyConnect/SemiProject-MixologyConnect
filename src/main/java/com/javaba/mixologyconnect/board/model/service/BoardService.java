@@ -418,13 +418,73 @@ public class BoardService {
 	 * @param boardCode
 	 * @return
 	 */
-	public int insertNotice(BoardDetail detail, List<BoardImage> imageList, int boardCode) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertNotice(BoardDetail detail, List<BoardImage> imageList, int boardType) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int boardNo = dao.boardNo(conn);
+
+		detail.setBoardNo(boardNo);
+
+		detail.setBoardTitle(Util.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Util.XSSHandling(detail.getBoardContent()));
+
+		detail.setBoardContent(Util.newLineHandling(detail.getBoardContent()));
+
+		int result = dao.insertNotice(conn, detail, boardType);
+
+
+		if (result > 0) { 
+			for (BoardImage image : imageList) { 
+				image.setBoardNo(boardNo); 
+
+
+				result = dao.insertBoardImage(conn, image);
+
+				if (result == 0) { 
+					break;
+				}
+			} 
+
+		} 
+
+		if (result > 0) {
+			commit(conn);
+		} else { 
+			rollback(conn);
+			boardNo = 0; 
+		}
+		close(conn);
+
+		return boardNo;
+
+
+
 	}
 
+	/** noticeModal
+	 * @return
+	 */
+	public BoardDetail searchNotice() throws Exception {
+		
+		Connection conn = getConnection();
+
+		BoardDetail detail = dao.selectNoticeDetail(conn);
+
+		if (detail != null) { 
+
+			List<BoardImage> imageList = dao.selectImageList(conn);
 
 
+			detail.setImageList(imageList);
+
+			close(conn);
+
+
+		}
+		return detail;
+		
+	}
 
 
 
