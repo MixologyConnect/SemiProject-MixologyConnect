@@ -24,7 +24,7 @@
 html {
     --bg-color-1: rgb(255, 255, 255);
     --bg-color-2: rgb(255, 255, 255);
-    --text-color-1: rgb(30, 30, 30);
+    --text-color-1: rgb(50, 50, 50);
 }
 
 html.dark {
@@ -104,6 +104,10 @@ html.dark header { background-color: rgba(40, 40, 40, 0.9); }
     filter: saturate(1) opacity(1)
 }
 
+#account-cbox:checked + label > p {
+    color: rgb(0, 220, 244)
+}
+
 #account {
     position: fixed;
     top: 0;
@@ -134,7 +138,7 @@ html.dark header { background-color: rgba(40, 40, 40, 0.9); }
 .account-text {
 	margin-top: 2px;
     color: rgba(150, 150, 150, 0.8);
-    font-weight: bold;
+    font-weight: 600;
     letter-spacing: 1px;
     cursor: pointer;
     transition-duration: 0.8s;
