@@ -71,7 +71,7 @@
 
 					<c:forEach var="board" items="${boardList}">
 						<section class="fir">
-                            <a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
+                            <a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=1">
                             <div class="left">
                                 <div class="img">
                                     <c:if test="${!empty board.thumbnail}">
@@ -79,7 +79,7 @@
                                     </c:if>
                                     <div class="titleContent">
                                         <div class="board">
-                                            <h3>${board.boardTitle}</h3>
+                                            <h3><input type="checkbox" name="feed" value="${board.boardNo}">${board.boardTitle}</h3>
                                         </div>
                                         <span class="memberName">${board.memberName}</span>
                                     </div>
@@ -108,7 +108,7 @@
 
         <section class="number">
             <div>
-                <span><input type="checkbox" id="all" onclick="deleteAll()">전체선택</span>
+                <span><input type="checkbox" id="all">전체선택</span>
 
             </div>
 

@@ -60,7 +60,7 @@
                                         <td>${bk.boardNo}</td>
                                         <td><a href="${contextPath}/board/boardDetail?no=${bk.boardNo}&cp=${pagination.currentPage}&type=1">${bk.boardTitle}</a></td>
                                         <td>${bk.memberName}</td>
-                                        <td>${bk.createDate}</td>
+                                        <td>${bk.boardDate}</td>
                                         <td>${bk.readCount}</td>
                                     </tr>
                 

@@ -173,6 +173,7 @@ input[type=range] {
     align-items: center;
     margin-left: 135px;
     width: 555px;
+    color: black;
   }
 
 
@@ -314,6 +315,7 @@ input[type=range] {
 .cocktail > div:nth-child(2){
     font-size: 20px;
     font-weight: bold;
+    color: black;
     padding: 10px 0;
 }
 
@@ -321,7 +323,7 @@ input[type=range] {
 .cocktail img{
     border-radius: 10px;
     width: 300px; 
-    height: 350px;
+    height: 330px;
 
 }
 .cocktail > div:nth-child(3){
@@ -347,7 +349,7 @@ input[type=range] {
 
 
 .content{
-    color: darkgray;
+    color: rgb(70, 69, 69);
 }
 
 .reset{

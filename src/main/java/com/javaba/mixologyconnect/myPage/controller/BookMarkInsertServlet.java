@@ -31,7 +31,7 @@ public class BookMarkInsertServlet extends HttpServlet {
 			System.out.println("북마크 보드넘버 : " + boardNo);
 			
 			// 북마크 게시글 정보 얻어오기
-			BookMark bk = service.selectInfo(boardNo);
+//			BookMark bk = service.selectInfo(boardNo);
 			Board board = service.selectInfoB(boardNo);
 			
 			
