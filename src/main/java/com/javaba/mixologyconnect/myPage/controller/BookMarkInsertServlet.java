@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
+import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 import com.javaba.mixologyconnect.myPage.model.service.MypageService;
 import com.javaba.mixologyconnect.myPage.model.vo.BookMark;
@@ -30,11 +31,13 @@ public class BookMarkInsertServlet extends HttpServlet {
 			System.out.println("북마크 보드넘버 : " + boardNo);
 			
 			// 북마크 게시글 정보 얻어오기
-			BookMark bk = service.selectInfo(boardNo);
+//			BookMark bk = service.selectInfo(boardNo);
+			Board board = service.selectInfoB(boardNo);
 			
 			
 			
-			int result = service.bookMarkInsert(bk , loginMember);
+//			int result = service.bookMarkInsert(bk , loginMember);
+			int result = service.bookMarkInsertB(boardNo , loginMember);
 			
 			resp.getWriter().print(result);
 			//new Gson().toJson(result , resp.getWriter());

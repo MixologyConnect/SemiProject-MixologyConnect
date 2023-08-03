@@ -78,7 +78,7 @@
 							${detail.boardContent}
 						</div>
 
-						<form>
+						
 							<!-- 좋아요, 북마크 -->
 							<div class="share">
 								
@@ -131,18 +131,21 @@
 
 							</div>
 							<jsp:include page="/WEB-INF/views/board/reply.jsp"/>
-						</form>
+						</div>
 					</div>
+
 				</div>
 				<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 				<jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 				<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+
 					integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
 					crossorigin="anonymous"></script>
-
-				<script src="${contextPath}/resources/js/board/board.js"></script>
-				<script src="${contextPath}/resources/js/boardDatail.js"></script>
-
+					
+					<script src="${contextPath}/resources/js/board/board.js"></script>
+					<script src="${contextPath}/resources/js/boardDatail.js"></script>
+					
+					<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 				<script>
 					const contextPath = "${contextPath}";
 					const boardNo = "${detail.boardNo}";
