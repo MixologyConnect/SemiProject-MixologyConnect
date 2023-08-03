@@ -47,6 +47,7 @@ main {
 	margin-bottom: 10px;
 	filter: invert(0.7);
 	cursor: pointer;
+	transition-duration: 1.2s;
 } html.dark #search img {
 	filter: invert(0.5);
 }
@@ -61,8 +62,9 @@ main {
 	background-color: transparent;
 	font-size: 1.2rem;
 	text-align: center;
+	transition-duration: 1.2s;
 } html.dark #search input {
-	border: 10px solid rgb(120, 120, 120);
+	border: 8px solid rgb(120, 120, 120);
 }
 
 #search-button {
