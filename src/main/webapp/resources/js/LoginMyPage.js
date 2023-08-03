@@ -2,22 +2,12 @@
 const all = document.getElementById("all")
 const feedList = document.getElementsByName("feed")
 
-var arr = []
-
-// 전체 선택 클릭 함수
-function deleteAll(){
 
 
-
-
-}
-
-
-
+// 전체 선택 함수
 all.addEventListener("click", function(){
     for(let i=0; i<feedList.length; i++){
         feedList[i].checked = all.checked;
-        
 
             // arr.push(feedList[i].value)
             // console.log(arr)
@@ -54,9 +44,17 @@ function deletePost(){
         dataType : "json",
 
         success : function(result){
-            alert("삭제가 완료되었습니다.")
+            if(result > 0){
+                if(confirm("삭제하시겠습니까?")){
+
+                    alert("삭제 완료~!")
+                    location.reload();
+                }
+            }else{
+                alert("삭제 실패...")
+            }
         },
-        error : function(){
+        error : function(result){
             console.log("에러")
         }
 
@@ -108,37 +106,33 @@ this.addEventListener("click", function(e){
 
 
 
-function folderDeleteClick(){
-    var checkBoxArr = []; 
-    $("input:checkbox[name='folderCheckname']:checked").each(function() {
-    checkBoxArr.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
-    console.log(checkBoxArr);
-  })
+// function folderDeleteClick(){
+//     var checkBoxArr = []; 
+//     $("input:checkbox[name='folderCheckname']:checked").each(function() {
+//     checkBoxArr.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
+//     console.log(checkBoxArr);
+//   })
   
-    $.ajax({
-        type  : "POST",
-        url    : "<c:url value='/folderDelete.do'/>",
-        data: {
-        checkBoxArr : checkBoxArr        // folder seq 값을 가지고 있음.
-        },
-        success: function(result){
-            console.log(result);
-        },
-        error: function(xhr, status, error) {
-            alert(error);
-        }  
-     });
-  }
+//     $.ajax({
+//         type  : "POST",
+//         url    : "<c:url value='/folderDelete.do'/>",
+//         data: {
+//         checkBoxArr : checkBoxArr        // folder seq 값을 가지고 있음.
+//         },
+//         success: function(result){
+//             console.log(result);
+//         },
+//         error: function(xhr, status, error) {
+//             alert(error);
+//         }  
+//      });
+//   }
 
 
 
 
 
 
-const checkbox = document.getElementById("checkbox")
-
-var postCheck = document.getElementsByName("feed")
-var boardNum = ""
 
 
 

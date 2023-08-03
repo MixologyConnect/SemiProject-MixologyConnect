@@ -436,6 +436,35 @@ public class MypageDAO {
 		
 		return result;
 	}
+
+
+	/** 마이페이지 게시글 삭제 DAO
+	 * @param conn
+	 * @param arr
+	 * @param condition
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deletePost(Connection conn, String[] arr, String condition) throws Exception{
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("deleteMypage") + condition;
+			
+			stmt = conn.createStatement();
+			
+			result = stmt.executeUpdate(sql);
+			
+			
+			
+		}finally {
+			close(stmt);
+		}
+		
+		
+		return result;
+	}
 	
 	
 	
