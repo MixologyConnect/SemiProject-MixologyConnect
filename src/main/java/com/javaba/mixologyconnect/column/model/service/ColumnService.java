@@ -57,11 +57,11 @@ public class ColumnService {
 	 * @param type
 	 * @param cp
 	 * @param title
-	 * @param query
+	 * @param columnquery
 	 * @return map
 	 * @throws Exception
 	 */
-	public Map<String, Object> selectColumnAll(int type, int cp, String title, String query) throws Exception{
+	public Map<String, Object> selectColumnAll(int type, int cp, String title, String columnquery) throws Exception{
 		
 		Connection conn = getConnection();
 		
@@ -72,9 +72,9 @@ public class ColumnService {
 		String condition = null; // 조건
 		
 		switch(title) {
-		case "title" :condition = "AND BOARD_TITLE LIKE '%" + query + "%' "; break;
-		case "content" :condition = "AND BOARD_CONTENT LIKE '%" + query + "%' "; break;
-		case "TC" :condition = "AND (BOARD_TITLE LIKE '%" + query + "%' OR BOARD_CONTENT LIKE '%" + query +"%') "; break;
+		case "title" :condition = "AND BOARD_TITLE LIKE '%" + columnquery + "%' "; break;
+		case "content" :condition = "AND BOARD_CONTENT LIKE '%" + columnquery + "%' "; break;
+		case "TC" :condition = "AND (BOARD_TITLE LIKE '%" + columnquery + "%' OR BOARD_CONTENT LIKE '%" + columnquery +"%') "; break;
 		
 		}
 		

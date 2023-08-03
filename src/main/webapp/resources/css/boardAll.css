@@ -38,6 +38,7 @@ font-weight: bold;
 margin: auto;
 margin-top: 30px;
 border-bottom: 1px solid #ddd;
+padding: 10px 0;
 }
 
 
@@ -165,8 +166,9 @@ height: 200px;
 }
 
 .nameDateCount{
-  float: right;
-  margin-top: -10px;
+  display: flex;
+  margin-top: -20px;
+  flex-direction: row-reverse
 }
 
 
@@ -369,7 +371,7 @@ text-decoration: none;
 }
 
 .board h3{
-  font-size: 30px;
+  font-size: 26px;
 }
 
 .boardContent{
@@ -380,4 +382,30 @@ text-decoration: none;
 .read{
   display: inline-block;
   padding: 0 10px;
+  margin-top: -1px;
+}
+
+/* 좋아요버튼 관련css */
+#likeBtn {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: rgba( 255, 255, 255, 0 );
+  cursor: pointer;
+  border: none;
+
+}
+
+/* 좋아요 버튼 이미지 */
+#likeBtn img {
+  width: 30px;
+  height: 38px;
+  margin-top: -6px;
+  filter: invert(15%) sepia(93%) saturate(7473%) hue-rotate(0deg) brightness(109%) contrast(111%);
+}
+/* 좋아요 수 */
+.share > span{
+    font-size: 20px;
+    padding: 5px;
+    color: red;
 }
