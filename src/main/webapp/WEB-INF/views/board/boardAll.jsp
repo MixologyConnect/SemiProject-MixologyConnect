@@ -79,7 +79,6 @@
 									<!-- 지영이가 수정 중!!! -->
 									
 									<span id="likeResult">좋아요 수: ${board.boardLikeCount} </span>
-									${board.boardLikeCount}
 									<span class="boardDate">${board.boardDate}</span>
 									<span class="read">조회수 : ${board.readCount}</span>
 								</div>
