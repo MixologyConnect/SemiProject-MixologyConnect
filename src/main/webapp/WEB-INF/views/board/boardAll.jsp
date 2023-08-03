@@ -74,6 +74,10 @@
 									</a>
 								</div>
 								<div class="nameDateCount">
+
+		
+
+
 									<span class="boardDate">${board.boardDate}</span>
 									<span class="read">조회수 : ${board.readCount}</span>
 									<span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>

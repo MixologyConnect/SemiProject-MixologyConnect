@@ -49,9 +49,7 @@ main {
 #search > img {
 	width: 50px;
 	filter: invert(0.3);
-}
-
-html.dark #search > img {
+} html.dark #search > img {
 	filter: invert(1);
 }
 

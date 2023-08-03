@@ -18,7 +18,7 @@ public class VerifyEmail extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		try {
-			resp.getWriter().print(EmailService.sendEmail((String)req.getParameter("email"), (String)req.getParameter("serv")));
+			resp.getWriter().print(EmailService.sendEmail(req.getParameter("email"), req.getParameter("serv")));
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

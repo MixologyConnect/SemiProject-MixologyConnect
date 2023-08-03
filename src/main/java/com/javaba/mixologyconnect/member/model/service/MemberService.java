@@ -198,7 +198,7 @@ public class MemberService {
 	public Member selectMember(String memberId) throws Exception {
 		Connection conn = getConnection();
 
-		Member member = dao.selectMember(conn, memberId);
+		Member member = dao.selectMember(conn, "MEMBER_ID", memberId).get(0);
 
 		close(conn);
 
@@ -318,6 +318,34 @@ public class MemberService {
 		return followingNo;
 	}
 
+	public boolean findID(String name, String email) throws Exception {
+		Member member = null;
 
+		Connection conn = getConnection();
+
+		List<Member> members = dao.selectMember(conn, "MEMBER_NM", name);
+		List<Member> members2 = dao.selectMember(conn, "MEMBER_EMAIL", email);
+
+		if (members.size() > 0) member = members2.get(0);
+
+		close(conn);
+
+		return members.toString().contains(member.toString());
+	}
+
+	public boolean findPW(String id, String email) throws Exception {
+		Member member = null;
+
+		Connection conn = getConnection();
+
+		List<Member> members = dao.selectMember(conn, "MEMBER_ID", id);
+		List<Member> members2 = dao.selectMember(conn, "MEMBER_EMAIL", email);
+
+		if (members.size() > 0) member = members2.get(0);
+
+		close(conn);
+
+		return members.toString().contains(member.toString());
+	}
 
 }
