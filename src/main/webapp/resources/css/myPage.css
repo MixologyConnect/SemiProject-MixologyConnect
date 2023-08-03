@@ -494,3 +494,8 @@ main > section:nth-child(6){
 .memberUpdate:hover{
     background-color:  rgba( 255, 255, 255, 0 );
 }
+
+/* 게시글이 존재하기 않습니다. */
+.center{
+    text-align:center;
+}
