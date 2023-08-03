@@ -183,6 +183,60 @@ public class MypageService {
 
 
 
+
+
+
+
+
+
+
+		/** 마이페이지 게시글 삭제 Service
+		 * @param arr
+		 * @return result
+		 * @throws Exception
+		 */
+		public int deletePost(String[] arr) throws Exception{
+			
+			Connection conn = getConnection();
+			
+			String condition = null;	// 조건
+			
+			
+			System.out.println("service 배열 길이 : " + arr.length);
+			
+			for(int i=0; i<arr.length; i++) {
+				
+				switch(arr.length) {
+				case 1 : condition = "(" +  arr[0] +  ")"; break;
+				case 2 : condition = "(" +  arr[0] + "," + arr[1]  +  ")"; break;
+				case 3 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] +  ")"; break;
+				case 4 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] +  ")"; break;
+				case 5 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + ")"; break;
+				case 6 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + "," + arr[5] +  ")"; break;
+				case 7 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + "," + arr[5] + "," + arr[6] +  ")"; break;
+				case 8 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + "," + arr[5] + "," + arr[6] + "," + arr[7] +  ")"; break;
+				case 9 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + "," + arr[5] + "," + arr[6] + "," + arr[7] + "," + arr[8] +  ")"; break;
+				case 10 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + "," + arr[5] + "," + arr[6] + "," + arr[7] + "," + arr[8] + "," + arr[9] +  ")"; break;
+				}
+			}
+			
+			
+			int result = dao.deletePost(conn, arr, condition);
+			
+			if(result > 0) {conn.commit();}
+			else					{conn.rollback();}
+			
+			close(conn);
+			
+			
+			
+			return result;
+		}
+
+
+
+
+
 	
 		
 		
