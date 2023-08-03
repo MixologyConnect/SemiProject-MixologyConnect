@@ -27,7 +27,7 @@
 			<main>
 				<div class="top">
 					<p>${boardName}</p>
-					<p>현재 가장 인기 많은 글을 모아보세요</p>
+					<p>현재 가장 인기 많은 글들을 확인해보세요</p>
 				</div>
 
 				<!-- 전체, 팔로잉, 공지 -->
@@ -55,30 +55,29 @@
 
 						<c:forEach var="board" items="${boardList}">
 							<section class="fir">
+								<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
 								<div class="left">
-									
-										
-										<div class="img">
-											<c:if test="${!empty board.thumbnail}">
-												<img src="${contextPath}${board.thumbnail}">
-											</c:if>
-										</div>
+									<div class="img">
+										<c:if test="${!empty board.thumbnail}">
+											<img src="${contextPath}${board.thumbnail}">
+										</c:if>
 										<div class="titleContent">
 											<div class="board">
-												<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3>${board.boardTitle}</h3>
+												<h3>${board.boardTitle}</h3>
 											</div>
 											<span class="memberName">${board.memberName}</span>
-
-											<div class="boardContent">${board.boardContent}</div>
 										</div>
 
+
 									</div>
-								<div class="nameDateCount">
-									<span class="like">좋아요는 여기~</span>
-									<span class="read">조회수 : ${board.readCount}</span>
-									<span class="boardDate">${board.boardDate}</span>
+									</a>
 								</div>
-								</a>
+								<div class="nameDateCount">
+									<span class="boardDate">${board.boardDate}</span>
+									<span class="read">조회수 : ${board.readCount}</span>
+									<span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>
+								</div>
+								
 							</section>
 
 						</c:forEach>
