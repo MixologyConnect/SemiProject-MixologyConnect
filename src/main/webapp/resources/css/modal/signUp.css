@@ -61,6 +61,13 @@
     background-color: rgba(0, 220, 244, 0.8);
 }
 
+#modal-signup small {
+    display: block;
+    height: 0;
+    font-size: 0.7rem;
+    line-height: 7px;
+}
+
 #modal-signup input[type="text"], #modal-signup input[type="password"] {
     width: 260px;
     margin: 5px 0;

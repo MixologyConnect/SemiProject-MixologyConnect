@@ -1,18 +1,15 @@
 import static com.javaba.mixologyconnect.common.JDBCTemplate.close;
 import static com.javaba.mixologyconnect.common.JDBCTemplate.getConnection;
 
-import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
 import com.javaba.mixologyconnect.cocktail.model.vo.Ingredient;
 import com.javaba.mixologyconnect.cocktail.model.vo.IngredientType;
-import com.javaba.mixologyconnect.member.controller.VerifyEmail;
 
 public class start extends HttpServlet {
 
@@ -22,8 +19,6 @@ public class start extends HttpServlet {
 		Connection conn = getConnection();
 		Statement stmt;
 		ResultSet rs;
-
-		//VerifyEmail.sendEmail("");
 
 		try {
 			stmt = conn.createStatement();

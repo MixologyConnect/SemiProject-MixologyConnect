@@ -32,19 +32,23 @@ public class EmailService {
 		String subject = null;
 		String content = null;
 
+		for (int i = 0; i < 6; i++) {
+			int random = 48 + (int)Math.floor(Math.random() * 36);
+			if (random > 57) random += 7;
+			vrfCode += (char)random;
+		}
 		switch (serv) {
 		case "signUp":
-			for (int i = 0; i < 6; i++) {
-				int random = 48 + (int)Math.floor(Math.random() * 36);
-				if (random > 57) random += 7;
-				vrfCode += (char)random;
-			}
 			subject = "Mixology Connect - 회원가입 이메일 인증";
+			content = "<h2 style='color:blue'>안녕하세요</h2><p>인증 코드입니다: " + vrfCode + "</p>";
+			break;
+		case "findID":
+			subject = "Mixology Connect - 아이디 찾기 이메일 인증";
 			content = "<h2 style='color:blue'>안녕하세요</h2><p>인증 코드입니다: " + vrfCode + "</p>";
 			break;
 		case "findPW":
 			subject = "Mixology Connect - 비밀번호 찾기 이메일 인증";
-			content = "<h2 style='color:blue'>안녕하세요</h2>";
+			content = "<h2 style='color:blue'>안녕하세요</h2><p>인증 코드입니다: " + vrfCode + "</p>";
 		}
 
 		Message message = new MimeMessage(session);
