@@ -123,7 +123,7 @@ public class MypageService {
 
 			// 3) 게시글 목록 조회
 //			List<BookMark> bookMarkList = dao.bookMarkList( conn, pagination, loginMember);
-			List<BookMark> bookMarkList = dao.bookMarkListB( conn, pagination, loginMember);
+			List<Board> bookMarkList = dao.bookMarkList( conn, pagination, loginMember);
 
 			// 4) Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장 
 			Map<String, Object> map = new HashMap<String, Object>();

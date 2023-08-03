@@ -1,7 +1,10 @@
 
 // 북마크 버튼 이미지
 const imgPlus = document.getElementById("bookBtnPlus");
+// 비어있는거
 const imgMinus = document.getElementById("bookBtnMinus");
+// 채워져있는거
+
 
 let count = 1;
 
@@ -99,7 +102,7 @@ function bookMarkImage(){
     const params = new URL(location.href).searchParams;
     const boardNo = params.get("no")
 
-    // console.log(boardNo)
+    console.log(boardNo)
 
 
     $.ajax({
@@ -113,9 +116,10 @@ function bookMarkImage(){
             if(result > 0){
                 console.log("성공")
                 imgPlus.style.display = 'none';
+                imgMinus.style.display = 'block';
             }else{
+                imgPlus.style.display = 'block';
                 imgMinus.style.display = 'none';
-              
             }
         },
 

@@ -291,7 +291,7 @@ public class MypageDAO {
 		
 		try {
 			
-			String sql = prop.getProperty("listCount");
+			String sql = prop.getProperty("listCountB");
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -314,69 +314,14 @@ public class MypageDAO {
 		return listCount;
 	}
 
-
-	
-	/** 북마크 게시글 목록 조회 DAO
-	 * @param conn
-	 * @param pagination
-	 * @return
-	 */
-	public List<BookMark> bookMarkList(Connection conn, Pagination pagination, Member loginMember)throws Exception {
-		List<BookMark> bookMarkList = new ArrayList<>();
-		
-		try {
-			
-			String sql = prop.getProperty("selectBookmark");
-			
-			// BETWEEN 구문에 들어갈 범위 계산
-			int start = (pagination.getCurrentPage() - 1 ) * pagination.getLimit() + 1;
-
-			int end = start + pagination.getLimit() - 1;
-			
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, loginMember.getMemberNo());
-			pstmt.setInt(2, start);
-			pstmt.setInt(3, end);
-			
-			rs = pstmt.executeQuery();
-			
-			
-			
-			while(rs.next()) {
-				
-				BookMark bk = new BookMark();
-				
-				bk.setBoardNo(rs.getInt("BOARD_NO"));
-				bk.setBoardTitle(rs.getString("BOARD_TITLE"));
-				bk.setMemberName(rs.getString("MEMBER_NICK"));
-				bk.setCreateDate(rs.getString("CREATE_DT"));
-				bk.setReadCount(rs.getInt("READ_COUNT"));
-				
-				bookMarkList.add(bk);
-				
-				
-			}
-			
-			
-			
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		
-		return bookMarkList;
-	}
-	
 	
 	/** 북마크 게시글 목록 조회 DAO Board 버전
 	 * @param conn
 	 * @param pagination
 	 * @return
 	 */
-	public List<BookMark> bookMarkListB(Connection conn, Pagination pagination, Member loginMember)throws Exception {
-		List<BookMark> bookMarkList = new ArrayList<>();
+	public List<Board> bookMarkList(Connection conn, Pagination pagination, Member loginMember)throws Exception {
+		List<Board> bookMarkList = new ArrayList<>();
 		
 		try {
 			
@@ -399,12 +344,12 @@ public class MypageDAO {
 			
 			while(rs.next()) {
 				
-				BookMark bk = new BookMark();
+				Board bk = new Board();
 				
 				bk.setBoardNo(rs.getInt("BOARD_NO"));
 				bk.setBoardTitle(rs.getString("BOARD_TITLE"));
-				bk.setMemberName(rs.getString("MEMBER_NICK"));
-				bk.setCreateDate(rs.getString("CREATE_DT"));
+				bk.setMemberName(rs.getString("MEMBER_NM"));
+				bk.setBoardDate(rs.getString("BOARD_DT"));
 				bk.setReadCount(rs.getInt("READ_COUNT"));
 				
 				bookMarkList.add(bk);
@@ -422,6 +367,8 @@ public class MypageDAO {
 		
 		return bookMarkList;
 	}
+
+
 
 
 	/** 북마크 삽입 DAO
@@ -469,7 +416,7 @@ public class MypageDAO {
 		
 		try {
 			
-			String sql = prop.getProperty("btnImage");
+			String sql = prop.getProperty("btnImageB");
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -630,6 +577,7 @@ public class MypageDAO {
 		
 		return result;
 	}
+
 
 
 
