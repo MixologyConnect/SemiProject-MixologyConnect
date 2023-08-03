@@ -111,7 +111,7 @@
 
     </div>
     <script src="${contextPath}/resources/js/columnWrite.js"></script>
-
+	<script src="${contextPath}/resources/js/main.js"></script>
     
 </body>
 </html>

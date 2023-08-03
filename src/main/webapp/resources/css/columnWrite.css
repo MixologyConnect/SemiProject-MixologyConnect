@@ -102,6 +102,7 @@
     border-radius: 20px;
     border: 3px solid #ddd;
     padding: 0 20px;
+    background-color: transparent;
 }
 
 #boardTitle:hover {
@@ -133,6 +134,7 @@
     margin-top: 20px;
     border: 3px solid #ddd;
     padding:  20px;
+    background-color: transparent;
 }
 
 #detail:hover {
