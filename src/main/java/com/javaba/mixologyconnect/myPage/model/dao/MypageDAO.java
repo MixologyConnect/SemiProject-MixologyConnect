@@ -117,7 +117,6 @@ public class MypageDAO {
 				board.setBoardNo(rs.getInt("BOARD_NO"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setMemberName(rs.getString("MEMBER_NM"));
-				System.out.println("이름 : " + rs.getString("MEMBER_NM"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 
@@ -281,6 +280,39 @@ public class MypageDAO {
 		
 		return listCount;
 	}
+	
+	/** 북마크 테이블 게시글 수 조회 DAO Board 버전
+	 * @param conn
+	 * @return listCount
+	 * @throws Exception
+	 */
+	public int bookMarkListCountB(Connection conn, Member loginMember)throws Exception {
+		int listCount = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("listCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			
+			rs = pstmt.executeQuery();
+			
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+				
+			}
+			System.out.println("북마크게시글 수 : " + listCount);
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
 
 
 	
@@ -299,6 +331,60 @@ public class MypageDAO {
 			// BETWEEN 구문에 들어갈 범위 계산
 			int start = (pagination.getCurrentPage() - 1 ) * pagination.getLimit() + 1;
 
+			int end = start + pagination.getLimit() - 1;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			rs = pstmt.executeQuery();
+			
+			
+			
+			while(rs.next()) {
+				
+				BookMark bk = new BookMark();
+				
+				bk.setBoardNo(rs.getInt("BOARD_NO"));
+				bk.setBoardTitle(rs.getString("BOARD_TITLE"));
+				bk.setMemberName(rs.getString("MEMBER_NICK"));
+				bk.setCreateDate(rs.getString("CREATE_DT"));
+				bk.setReadCount(rs.getInt("READ_COUNT"));
+				
+				bookMarkList.add(bk);
+				
+				
+			}
+			
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return bookMarkList;
+	}
+	
+	
+	/** 북마크 게시글 목록 조회 DAO Board 버전
+	 * @param conn
+	 * @param pagination
+	 * @return
+	 */
+	public List<BookMark> bookMarkListB(Connection conn, Pagination pagination, Member loginMember)throws Exception {
+		List<BookMark> bookMarkList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("selectBookmarkB");
+			
+			// BETWEEN 구문에 들어갈 범위 계산
+			int start = (pagination.getCurrentPage() - 1 ) * pagination.getLimit() + 1;
+			
 			int end = start + pagination.getLimit() - 1;
 			
 			pstmt = conn.prepareStatement(sql);
@@ -455,6 +541,7 @@ public class MypageDAO {
 			stmt = conn.createStatement();
 			
 			result = stmt.executeUpdate(sql);
+			System.out.println("다오 다오");
 			
 			
 			
@@ -465,7 +552,87 @@ public class MypageDAO {
 		
 		return result;
 	}
-	
+
+
+	/** 북마크 게시글 정보 얻어오기 DAO Board 버전
+	 * @param conn
+	 * @param boardNo
+	 * @return board
+	 * @throws Exception
+	 */
+	public Board selectInfoB(Connection conn, int boardNo) throws Exception{
+		Board board = new Board();
+		try {
+
+			String sql = prop.getProperty("selectInfoB");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, boardNo);
+			System.out.println("북마크 게시글번호 : "  + boardNo);
+
+			rs = pstmt.executeQuery();
+
+			if(rs.next()) {
+
+				board.setBoardNo(rs.getInt(1));
+				board.setBoardTitle(rs.getString(2));
+				board.setMemberName(rs.getString(3));
+				board.setBoardDate(rs.getString(4));
+				board.setReadCount(rs.getInt(5));
+
+
+
+				System.out.println(board);
+			}
+
+
+
+
+		}finally {
+			close(rs);
+			close(pstmt);
+
+		}
+
+		return board;
+	}
+
+
+	/**
+	 * @param conn
+	 * @param boardNo
+	 * @param loginMember
+	 * @return result
+	 * @throws Exception
+	 */
+	public int bookMarkInsertB(Connection conn, int boardNo, Member loginMember) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("insertB");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			pstmt.setInt(2, boardNo);
+			
+			result = pstmt.executeUpdate();
+			
+			
+			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+
 	
 	
 	

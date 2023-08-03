@@ -29,7 +29,6 @@ public class deletePostServlet extends HttpServlet {
 			String[] arr = req.getParameterValues("result");
 			System.out.println("배열값 : " +  arr.length);
 			
-			StringBuilder result1 = new StringBuilder("");
 			for(int i=0; i<arr.length; i++) {
 				System.out.print(arr[i] + ",");
 				
