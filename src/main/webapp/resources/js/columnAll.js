@@ -1,9 +1,9 @@
 function searchValidate(){
-    const query = document.getElementById("search");
+    const columnquery = document.getElementById("search");
 
-    if(query.value.trim().length == 0){
-        query.value="";
-        query.focus();
+    if(columnquery.value.trim().length == 0){
+        columnquery.value="";
+        columnquery.focus();
         alert("검색어를 입력해주세요");
 
         return false;
