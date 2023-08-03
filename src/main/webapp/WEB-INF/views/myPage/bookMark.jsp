@@ -82,7 +82,7 @@
 
 
         <div class="pagination-area">
-            <c:set var="url" value="myPage?&cp="/>
+            <c:set var="url" value="bookMark?&cp="/>
 
             <ul class="pagination">
                 <!-- 첫 페이지로 이동 -->
@@ -130,11 +130,13 @@
     </section>
 
      <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
      <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
      <script>
         const contextPath = "${contextPath}"
+        const loginMemberNo = "${loginMember.memberNo}";
      </script>
 
     <script src="${contextPath}/resources/js/bookMark.js"></script>

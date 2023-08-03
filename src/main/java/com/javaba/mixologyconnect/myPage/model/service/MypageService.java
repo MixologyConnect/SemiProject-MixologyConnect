@@ -114,14 +114,16 @@ public class MypageService {
 			Connection conn = getConnection();
 			
 			// 2-1) 특정 게시판 전체 게시글 수 조회 DAO 호출
-			int listCount = dao.bookMarkListCount(conn, loginMember);
+//			int listCount = dao.bookMarkListCount(conn, loginMember);
+			int listCount = dao.bookMarkListCountB(conn, loginMember);
 
 			// 2-2) 전체 게시글 수 + 현재 페이지(cp)를 이용해 페이지네이션 객체 생성
 			Pagination pagination = new Pagination(cp, listCount);
 
 
 			// 3) 게시글 목록 조회
-			List<BookMark> bookMarkList = dao.bookMarkList( conn, pagination, loginMember);
+//			List<BookMark> bookMarkList = dao.bookMarkList( conn, pagination, loginMember);
+			List<BookMark> bookMarkList = dao.bookMarkListB( conn, pagination, loginMember);
 
 			// 4) Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장 
 			Map<String, Object> map = new HashMap<String, Object>();
@@ -177,6 +179,111 @@ public class MypageService {
 			close(conn);
 			
 			return result;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+		/** 마이페이지 게시글 삭제 Service
+		 * @param arr
+		 * @return result
+		 * @throws Exception
+		 */
+		public int deletePost(String[] arr) throws Exception{
+			
+			Connection conn = getConnection();
+			
+			String condition = null;	// 조건
+		
+			
+			System.out.println("service 배열 길이 : " + arr.length);
+			
+			for(int i=0; i<arr.length; i++) {
+				
+				switch(arr.length) {
+				case 1 : condition = "(" +  arr[0] +  ")"; break;
+				case 2 : condition = "(" +  arr[0] + "," + arr[1]  +  ")"; break;
+				case 3 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] +  ")"; break;
+				case 4 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] +  ")"; break;
+				case 5 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + ")"; break;
+				case 6 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + "," + arr[5] +  ")"; break;
+				case 7 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + "," + arr[5] + "," + arr[6] +  ")"; break;
+				case 8 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + "," + arr[5] + "," + arr[6] + "," + arr[7] +  ")"; break;
+				case 9 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + "," + arr[5] + "," + arr[6] + "," + arr[7] + "," + arr[8] +  ")"; break;
+				case 10 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4]  + "," + arr[5] + "," + arr[6] + "," + arr[7] + "," + arr[8] + "," + arr[9] +  ")"; break;
+				}
+			}
+			
+			
+			int result = dao.deletePost(conn, arr, condition);
+			System.out.println(result);
+			
+			if(result > 0) {conn.commit();}
+			else					{conn.rollback();}
+			
+			close(conn);
+			
+			
+			
+			return result;
+		}
+
+
+
+
+
+
+		/** 북마크 게시글 정보 얻어오기 Service Board 버전
+		 * @param boardNo
+		 * @return board
+		 * @throws Exception
+		 */
+		public Board selectInfoB(int boardNo) throws Exception{
+			
+			Connection conn = getConnection();
+			
+			Board board = dao.selectInfoB(conn, boardNo);
+			
+			close(conn);
+			
+			return board;
+		}
+
+
+
+
+
+
+
+
+
+		/** 북마크 삽입 Service Board버전
+		 * @param board
+		 * @param loginMember
+		 * @return result
+		 * @throws Exception
+		 */
+		public int bookMarkInsertB(int boardNo, Member loginMember)throws Exception {
+			Connection conn = getConnection();
+			
+			int result = dao.bookMarkInsertB(conn, boardNo, loginMember);
+			
+			if(result>0) {conn.commit();}
+			else				{conn.rollback();}
+			
+			close(conn);
+			
+			return result;
+			
+			
 		}
 
 

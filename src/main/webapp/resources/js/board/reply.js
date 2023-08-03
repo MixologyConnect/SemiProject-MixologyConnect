@@ -1,5 +1,11 @@
 
 
+function reload(){  
+    location.reload();
+}
+
+
+
 function selectReplyList() {
     $.ajax({
 
@@ -62,7 +68,10 @@ function selectReplyList() {
                 }
 
                 replyList.append(replyRow);
+                
+                
             }
+            reload();
         },
         error: function () {
             console.log("에러 발생");
@@ -112,6 +121,7 @@ addBtn.addEventListener("click", function () {
             if (result > 0) {
                 alert("댓글이 등록되었습니다.")
                 selectReplyList();
+                replyContent.value = "";
             } else {
                 alert("댓글 등록을 실패하였습니다.")
 
@@ -225,13 +235,13 @@ function updateReply(replyNo, btn){
                 "replyContent" : replyContent},
         type : "post",
         success : function(result){
-            if(result > 0){
-                alert("댓글이 수정되었습니다.");
-                selectReplyList();
-
-            }else{
-                alert("댓글 수정을 실패하였습니다.");
-            }
+                if(result > 0){
+                    alert("댓글이 수정되었습니다.");
+                    selectReplyList();
+                    
+                }else{
+                    alert("댓글 수정을 실패하였습니다.");
+                }
         },
 
         error : function(req, status, error){

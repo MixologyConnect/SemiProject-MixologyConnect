@@ -127,5 +127,6 @@
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>	<!-- 다음 우편번호 api -->
     
     <script src="${contextPath}/resources/js/myPage-info.js"></script>
+    <script src="${contextPath}/resources/js/main.js"></script>
 </body>
 </html>

@@ -57,6 +57,7 @@
     width: 80px;
     margin-right: 10px;
     border-radius: 5px;
+    background-color: transparent;
 }
 /* 검색 input 설정 */
 #search{
@@ -64,6 +65,7 @@
     width: 300px;
     margin-right: 10px;
     border-radius: 5px;
+    background-color: transparent;
 }
 /* 검색 버튼 */
 #searchBtn{
@@ -72,6 +74,7 @@
     background-color: white;
     font-weight: bold;
     border-radius: 5px;
+    background-color: transparent;
 }
 
 /* 칵쓸신잡 배너 사진 */

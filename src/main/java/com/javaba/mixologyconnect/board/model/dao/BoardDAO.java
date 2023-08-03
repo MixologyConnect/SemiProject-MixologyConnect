@@ -142,7 +142,8 @@ public class BoardDAO {
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setThumbnail(rs.getString("IMG_RENAME"));
-
+				board.setThumbnail(rs.getString("IMG_RENAME"));
+				board.setMemberNo(rs.getInt("MEMBER_NO"));
 
 				boardList.add(board);
 
@@ -826,7 +827,6 @@ public class BoardDAO {
 				board.setMemberName(rs.getString("MEMBER_NM"));
 				board.setBoardDate(rs.getString("BOARD_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
-				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setThumbnail(rs.getString("IMG_RENAME"));
 
 
@@ -843,4 +843,91 @@ public class BoardDAO {
 		return boardList;
 	}
 
+	/** 공지사항 작성
+	 * @param conn
+	 * @param detail
+	 * @param boardType
+	 * @return result
+	 */
+	public int insertNotice(Connection conn, BoardDetail detail, int boardType) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("insertNotice");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, detail.getBoardNo());
+			pstmt.setString(2, detail.getBoardTitle());
+			pstmt.setString(3, detail.getBoardContent());
+			pstmt.setInt(4, boardType);
+			pstmt.setInt(5, detail.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
+	public BoardDetail selectNoticeDetail(Connection conn) throws Exception {
+		
+		BoardDetail detail = new BoardDetail();
+		
+		try {
+			String sql = prop.getProperty("selectNotice");
+			stmt = conn.createStatement();
+
+			rs = stmt.executeQuery(sql);
+
+			if (rs.next()) {
+				
+				detail.setBoardTitle(rs.getString("BOARD_TITLE"));
+				detail.setBoardContent(rs.getString("BOARD_CONTENT"));
+				 
+			}
+
+		} finally {
+			close(rs);
+			close(stmt);
+		}
+		
+		return detail;
+	}
+
+	public List<BoardImage> selectImageList(Connection conn) throws Exception {
+		
+		List<BoardImage> imageList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("noticeImage");
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				
+				BoardImage image = new BoardImage();
+				
+				image.setImageRename(rs.getString("IMG_RENAME"));
+				image.setImageOriginal(rs.getString("IMG_ORIGINAL"));
+				image.setBoardNo(rs.getInt("BOARD_NO"));
+				
+				imageList.add(image);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return imageList;
+	}
+
+	
 }

@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시글 작성</title>
+    <title>${loginMember.memberName}님이 게시글 작성 중입니다.</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/boardWrite.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
@@ -23,7 +23,9 @@
         <!-- 게시글 입력 바디 -->
         <div class="content">
             <form action="boardWrite" method="post" enctype="multipart/form-data" onsubmit="writeValidate()">
-            <div class="top"><p>게시글 입력</p></div>
+            <div class="top"><p>게시글 작성하기</p>
+            <p>${loginMember.memberName}님, 오늘의 멋진 이야기는 무엇인가요?</p>
+            </div>
 
             <!-- 커뮤니티 정책 가이드 -->
             <div class="guide">
@@ -71,7 +73,7 @@
                 </label>
 
                 <input type="file" multiple class="inputImage" id="img0" name = "0" accept="image/*">
-                <span class="delete-image">&times;</span>
+                <span class="delete-image"><img src = "${contextPath}/resources/images/trash3.svg"></span>
             </div>
 
 
@@ -81,7 +83,7 @@
                 </label>
 
                 <input type="file" multiple class="inputImage" id="img1" name = "1" accept="image/*">
-                <span class="delete-image">&times;</span>
+                        <span class="delete-image"><img src = "${contextPath}/resources/images/trash3.svg"></span>
             </div>
 
             <div class="boardImg">
@@ -90,7 +92,7 @@
                 </label>
 
                 <input type="file" multiple class="inputImage" id="img2" name = "2" accept="image/*">
-                <span class="delete-image">&times;</span>
+                <span class="delete-image"><img src = "${contextPath}/resources/images/trash3.svg"></span>
             </div>
 
             <div class="boardImg">
@@ -99,7 +101,7 @@
                 </label>
 
                 <input type="file" multiple class="inputImage" id="img3" name = "3" accept="image/*">
-                <span class="delete-image">&times;</span>
+                <span class="delete-image"><img src = "${contextPath}/resources/images/trash3.svg"></span>
             </div>
         </div>
 
@@ -114,6 +116,7 @@
             <!-- 작성완료 버튼 -->
             <div class="btn">
                 <button type="submit" id="btn">작성 완료</button>
+                <button id="goToBtn" type="button" onclick="location.href = '${contextPath}/board/boardDetail?type=${param.type}&cp=${param.cp}&no=${param.no}'">작성 취소</button>
             </div>
 
             
@@ -122,16 +125,18 @@
             <input type="hidden" name = "no" value = "${param.no}">
             <input type="hidden" name = "cp" value = "${param.cp}">
     
-            <input type="hidden" id="dlelteList" name = "deleteList" value = "">
+            <input type="hidden" id="deleteList" name = "deleteList" value = "">
         </form>
 
         </div>
 
 
        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+       <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
     </div>
     <script src="${contextPath}/resources/js/boardWrite.js"></script>
+    <script src="${contextPath}/resources/js/main.js"></script>
     
 </body>
 </html>

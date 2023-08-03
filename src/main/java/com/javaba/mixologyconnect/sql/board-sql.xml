@@ -35,6 +35,7 @@
 				,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
 				,		a.READ_COUNT
 				,		c.IMG_RENAME
+				,		b.member_no
 		FROM row_check a
 		left join member b
 			on	b.member_no		=	a.member_no
@@ -217,9 +218,9 @@
 		SELECT
 						a.BOARD_NO
 				,		a.BOARD_TITLE
-	           			,    		a.BOARD_CONTENT
+	           	,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
 				,		b.MEMBER_NM
-				,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
+				,		a.BOARD_DT
 				,		a.READ_COUNT
 				,		c.IMG_RENAME
 				
@@ -242,13 +243,16 @@
    	     	    with row_check as
 	        (
 	            select 
+	            
 	                        row_number() over(order by a.board_no desc) as rn    
 	                ,       a.*
 	            from board a
 	            order by board_no desc
 	        )
 
-     SELECT a.*, b.member_nm, c.img_rename
+     SELECT 
+       TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT,
+     a.*, b.member_nm, c.img_rename
                             FROM row_check a
                             LEFT JOIN (
                             SELECT board_no, COUNT(*) as likes_count
@@ -266,5 +270,24 @@
 
 	</entry>
 
+	<entry key="insertNotice">
+		INSERT INTO BOARD VALUES(?, ?, ?,
+		SYSDATE, NULL, 0,
+		'Y',
+		?, ?)
+	</entry>
+
+	<entry key="selectNotice">
+		SELECT BOARD_TITLE, BOARD_CONTENT
+		FROM BOARD
+		WHERE BOARD_CD = 2
+		AND BOARD_NO = 10
+	</entry>
+
+	<entry key="noticeImage">
+		SELECT IMG_RENAME, IMG_ORIGINAL, BOARD_NO
+		FROM BOARD_IMG
+		WHERE BOARD_NO = 10
+	</entry>
 
 </properties>

@@ -2,22 +2,72 @@
 const all = document.getElementById("all")
 const feedList = document.getElementsByName("feed")
 
+
+
+// 전체 선택 함수
 all.addEventListener("click", function(){
     for(let i=0; i<feedList.length; i++){
         feedList[i].checked = all.checked;
+
+            // arr.push(feedList[i].value)
+            // console.log(arr)
+        
     }
-    allcheck();
+    // arr = [];
+
 })
 
 
-const value = ""
-for(let i=0; i<feedList.length; i++){
-    if(feedList[i].checked){
 
-        value = feedList[i].checked.value
-        console.log(value)
-    }
+
+
+// 삭제 버튼 클릭 함수
+function deletePost(){
+
+    const query = 'input[name="feed"]:checked';
+    const selectedEls = document.querySelectorAll(query);
+
+    // 선택된 목록에서 value 찾기
+    var result = []
+    selectedEls.forEach((el) => {
+        result.push($(el).val());
+    });
+
+    console.log(result)
+
+    $.ajax({
+
+        url : contextPath + "/myPage/deletePost",
+        data : {"result" : result},
+        type : "get",
+        traditional: true,
+        dataType : "json",
+
+        success : function(result){
+            if(result){
+                if(confirm("삭제하시겠습니까?")){
+
+                    alert("삭제 완료~!")
+                    location.reload();
+                }
+            }else{
+                alert("삭제 실패...")
+            }
+        },
+        error : function(result){
+            console.log("에러")
+        }
+
+    })
+
+
 }
+
+
+
+
+
+
 
 
 this.addEventListener("click", function(e){
@@ -44,27 +94,98 @@ this.addEventListener("click", function(e){
     }
 })
 
-const checkbox = document.getElementById("checkbox")
-
-var postCheck = document.getElementsByName("feed")
-var boardNum = ""
-
-function allcheck(){
-
-
-    for(let i=0; i<postCheck.length; i++){
-        if(postCheck[i].checked){
-            console.log(postCheck[i].value)
-        }
-    }
-}
-
-const length = $("input:checkbox[name=feed]").length
-const checked = $("input:checkbox[name=feed]:checked").length
 
 
 
 
+
+
+
+
+
+
+
+
+// function folderDeleteClick(){
+//     var checkBoxArr = []; 
+//     $("input:checkbox[name='folderCheckname']:checked").each(function() {
+//     checkBoxArr.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
+//     console.log(checkBoxArr);
+//   })
+  
+//     $.ajax({
+//         type  : "POST",
+//         url    : "<c:url value='/folderDelete.do'/>",
+//         data: {
+//         checkBoxArr : checkBoxArr        // folder seq 값을 가지고 있음.
+//         },
+//         success: function(result){
+//             console.log(result);
+//         },
+//         error: function(xhr, status, error) {
+//             alert(error);
+//         }  
+//      });
+//   }
+
+
+
+
+
+
+
+
+
+
+
+// // 체크된 값만 배열에 담기
+// var checkArr = []
+// for(let i=0; i<postCheck.length; i++){
+//     postCheck[i].addEventListener("click",function(){
+//         // checkArr = postCheck[i].value.push;
+//         if(postCheck[i].checked == false){
+//             // checkArr.push($(this).val());
+//             // console.log(checkArr)
+
+//             checkArr.prop()
+//         }
+
+//         if(postCheck[i].checked == true){
+//             checkArr.push($(this).val());
+//             console.log(checkArr)
+//         }
+//     })
+        
+// }
+
+
+
+// var checkArr = []
+// for(let i=0; i<postCheck.length; i++){
+
+
+//     if(postCheck.checked == true){
+//         postCheck[i].addEventListener("click", function(){
+
+//             console.log("dd")
+//         })
+//     }
+
+    // postCheck[i].addEventListener("click",function(){
+    //     // checkArr = postCheck[i].value.push;
+    //     if(postCheck[i].checked == false){
+    //         // checkArr.push($(this).val());
+    //         // console.log(checkArr)
+
+    //         checkArr.prop()
+    //     }
+
+    //     if(postCheck[i].checked == true){
+    //         checkArr.push($(this).val());
+    //         console.log(checkArr)
+    //     }
+    // })
+        
 
 
 

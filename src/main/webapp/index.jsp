@@ -6,12 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mixology Connect</title>
+    <link rel="stylesheet" href="${contextPath}/resources/css/noticeModal.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/index.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
         <div id="banner">
             <p>
@@ -23,7 +24,9 @@
         <div id="search">
             <label for="search-button"><img src="${contextPath}/resources/images/magnifier.png"></label>
             <form action="search">
-        	    <input type="text" name="query" placeholder="검색할 칵테일, 게시글">
+
+        	    <input type="text" name="query" placeholder="칵테일, 게시글">
+
                 <button id="search-button">검색</button>
             </form>
         </div>
@@ -32,7 +35,7 @@
             <p>Columns</p>
             <p>최근 칼럼</p>
             <ul class="contents">
-            	<li><a></a></li>
+                <li><a></a></li>
             	<li><a></a></li>
             	<li><a></a></li>
             	<li><a></a></li>
@@ -42,15 +45,19 @@
             <p>Trending</p>
             <p>실시간 인기 게시글</p>
             <ul class="contents">
-            	<li><a></a></li>
+                <li><a></a></li>
             	<li><a></a></li>
             	<li><a></a></li>
             	<li><a></a></li>
             </ul>
         </div>
     </main>
+    <jsp:include page="/WEB-INF/views/manager/noticeModal.jsp"/>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
     <script src="${contextPath}/resources/js/main.js"></script>
+
+    <script src="${contextPath}/resources/js/place.js"></script>
+
 </body>
 </html>

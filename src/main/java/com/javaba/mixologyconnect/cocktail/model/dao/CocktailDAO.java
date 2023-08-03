@@ -32,14 +32,14 @@ public class CocktailDAO {
 
 	public Cocktail selectOne(Connection conn, int no) throws Exception {
 
-		Cocktail cocktail = new Cocktail();
+		Cocktail cocktail = null;
 
 		try {
 			pstmt = conn.prepareStatement(prop.getProperty("selectOne"));
 			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
-
 			if (rs.next()) {
+				cocktail = new Cocktail();
 				cocktail.setCocktailNo(no);
 				cocktail.setCocktailName(rs.getString("CKTL_NM"));
 				cocktail.setCocktailContent(rs.getString("CKTL_CONTENT"));

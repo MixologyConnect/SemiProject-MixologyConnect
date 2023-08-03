@@ -20,28 +20,26 @@
     <div class="container">
 
 
-        <!-- 게시글 입력 바디 -->
+         <!-- 게시글 입력 바디 -->
         <div class="content">
-            <form action="columnWrite" method="post" enctype="multipart/form-data" onsubmit="return writeValidate()">
-                <div class="top"><p>게시글 입력</p></div>
+            <form action="boardWrite" method="post" enctype="multipart/form-data" onsubmit="writeValidate()">
+            <div class="top"><p>컬럼 작성하기</p>
+            <p>${loginMember.memberName}님, 오늘의 멋진 이야기는 무엇인가요?</p>
+            </div>
 
-                <!-- 커뮤니티 정책 가이드 -->
-                <div class="guide">
-                    <div id="pre">
-                        Mixology Connect는 스팸, 부적절한 콘텐츠, 신용사기, 잘못된 정보 등을 
-                        등록하는 것을 절대 허용하지 않습니다. <a href="#">커뮤니티 정책</a>은 허용되거나 
-                        허용되지 않는 활동을 규정하며 스팸이나 부적절하거나 폭력적인 콘텐츠의 신고 가이드를 제공합니다.
-                    </div>
+            <!-- 커뮤니티 정책 가이드 -->
+            <div class="guide">
+                <div id="pre">
+                    Mixology Connect는 스팸, 부적절한 콘텐츠, 신용사기, 잘못된 정보 등을 
+                    등록하는 것을 절대 허용하지 않습니다. <a href="#">커뮤니티 정책</a>은 허용되거나 
+                    허용되지 않는 활동을 규정하며 스팸이나 부적절하거나 폭력적인 콘텐츠의 신고 가이드를 제공합니다.
                 </div>
-
-            
-
-
-                <!-- 게시글 제목란 -->
-                <div class="boardTitle"> 
-                    <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)" value="${detail.boardTitle}" maxlength="20">
-                    
-                </div>
+            </div>
+            <!-- 게시글 제목란 -->
+            <div class="boardTitle">
+                <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)" value="${detail.boardTitle}" maxlength="20">
+                <label for="image">
+            </div>
                 
                 <!-- 이미지 미리보기 영역 -->
 
@@ -111,7 +109,7 @@
 
     </div>
     <script src="${contextPath}/resources/js/columnWrite.js"></script>
-
+	<script src="${contextPath}/resources/js/main.js"></script>
     
 </body>
 </html>

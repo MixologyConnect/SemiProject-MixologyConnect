@@ -9,7 +9,7 @@
 			<head>
 				<meta charset="UTF-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<title>상세 게시글</title>
+				<title>${detail.boardTitle}</title>
 				<link rel="stylesheet" href="${contextPath}/resources/css/boardDatail.css">
 				<link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
 				<link rel="stylesheet" href="${contextPath}/resources/css/reply.css">
@@ -53,7 +53,6 @@
 
 						<!-- 게시글 사진, 내용, 좋아요, 공유버튼 있는 칸 -->
 						
-
 						<c:if test="${empty thumbnail}"> <!-- 썸네일 X -->
 							<c:set var="start" value="0"></c:set>
 						</c:if>
@@ -79,7 +78,7 @@
 							${detail.boardContent}
 						</div>
 
-						<form>
+						
 							<!-- 좋아요, 북마크 -->
 							<div class="share">
 								
@@ -131,35 +130,35 @@
 								</c:if>
 
 							</div>
-
 							<jsp:include page="/WEB-INF/views/board/reply.jsp"/>
+						</div>
+					</div>
 
-							<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+				</div>
+				<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+				<jsp:include page="/WEB-INF/views/common/modal.jsp"/>
+				<script src="https://code.jquery.com/jquery-3.7.0.min.js"
 
-							<script src="https://code.jquery.com/jquery-3.7.0.min.js"
-								integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-								crossorigin="anonymous"></script>
+					integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+					crossorigin="anonymous"></script>
+					
+					<script src="${contextPath}/resources/js/board/board.js"></script>
+					<script src="${contextPath}/resources/js/boardDatail.js"></script>
+					
+					<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+				<script>
+					const contextPath = "${contextPath}";
+					const boardNo = "${detail.boardNo}";
+					const writerNo = "${detail.memberNo}";
+					const loginMemberNo = "${loginMember.memberNo}";
+					const likeMember = "${likeMember}"
+					const followingWriter = "${writerNo}"
+				</script>
 
-							<script src="${contextPath}/resources/js/board/board.js"></script>
-							<script src="${contextPath}/resources/js/boardDatail.js"></script>
-
-							<script>
-								const contextPath = "${contextPath}";
-
-								const boardNo = "${detail.boardNo}";
-								const writerNo = "${detail.memberNo}";
-
-								const loginMemberNo = "${loginMember.memberNo}";
-
-								const likeMember = "${likeMember}"
-								
-								const followingWriter = "${writerNo}"
-
-							</script>
-
-							<script src="${contextPath}/resources/js/board/reply.js"></script>
-							<script src="${contextPath}/resources/js/search/search.js"></script>
-							<script src="${contextPath}/resources/js/bookMark.js"></script>
+				<script src="${contextPath}/resources/js/board/reply.js"></script>
+				<script src="${contextPath}/resources/js/search/search.js"></script>
+				<script src="${contextPath}/resources/js/bookMark.js"></script>
+				<script src="${contextPath}/resources/js/main.js"></script>
 			</body>
 
 			</html>

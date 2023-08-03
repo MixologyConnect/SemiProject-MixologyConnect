@@ -5,17 +5,30 @@
 <link rel="stylesheet" href="${contextPath}/resources/css/modal/login.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/modal/contract.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/modal/signUp.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/modal/findID.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/modal/findPW.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/modal/confirmEmail.css">
 
 <div id="overlay">
+    <div id="announce"></div>
     <div id="modal"></div>
     <form id="modal-login" action="${contextPath}/member/login" method="post">
         <img id="modal-login-logo" src="${contextPath}/resources/images/logo2.svg">
         <p id="modal-login-head">Mixology Connect</p>
         <h2>로그인</h2>
-        <input class="modal-login-input" name="inputId" type="text" placeholder="ID">
-        <input class="modal-login-input" name="inputPw" type="password" placeholder="PW">
-        <!--<span>아이디 저장</span><input type="checkbox">-->
-        <!--<span>아직 회원이 아니신가요?</span>--><a>회원가입</a>
+        <div id="modal-login-input">
+            <input name="inputId" type="text" placeholder="아이디" required>
+            <input name="inputPw" type="password" placeholder="비밀번호" required>
+            <label for="modal-login-saveID">아이디 저장&nbsp;&nbsp;<input id="modal-login-saveID" type="checkbox"></label>
+        </div>
+        <div>
+            <a id="modal-login-findID">아이디 찾기</a>&nbsp;&nbsp;&nbsp;
+            <a id="modal-login-findPW">비밀번호 찾기</a>
+        </div>
+        <div>
+            <span>아직 회원이 아니신가요?</span>&nbsp;&nbsp;&nbsp;
+            <a id="modal-login-singup">회원가입</a>
+        </div>
         <button id="modal-login-button">LOGIN</button>
     </form>
     <div id="modal-contract">
@@ -247,18 +260,18 @@
                 <td><input type="button" id="modal-signup-vrfcode-confirm" class="modal-signup-vrfcode-hide" onclick="confirmVrfCode()" value="인증 확인"></td>
             </tr>
             <tr>
-                <td rowspan="4">주소</td>
+                <td rowspan="4">주소(선택)</td>
                 <td><input type="text" id="sample6_postcode" name="memberAddress" placeholder="우편 번호" readonly></td>
-                <td><input type="button" onclick="sample6_execDaumPostcode()" value="우편 번호 찾기"></td>
+                <td rowspan="4"><input type="button" onclick="sample6_execDaumPostcode()" value="우편 번호 찾기"></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="text" id="sample6_address" name="memberAddress" placeholder="주소" readonly></td>
+                <td><input type="text" id="sample6_address" name="memberAddress" placeholder="주소" readonly></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="text" id="sample6_extraAddress" name="memberAddress" placeholder="추가 주소" readonly></td>
+                <td><input type="text" id="sample6_extraAddress" name="memberAddress" placeholder="추가 주소" readonly></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="text" id="sample6_detailAddress" name="memberAddress" placeholder="상세 주소"></td>
+                <td><input type="text" id="sample6_detailAddress" name="memberAddress" placeholder="상세 주소"></td>
             </tr>
         </table>
         <div class="btn-area">
@@ -266,14 +279,34 @@
             <button type="submit" id="signUp-btn">회원가입</button>
         </div>
     </form>
+    <div id="modal-findID">
+        <img src="${contextPath}/resources/images/id.png">
+        <h2>아이디 찾기</h2>
+        <p id="modal-findID-alert">이름과 이메일을 입력해 주세요.</p>
+        <input id="modal-findID-inputName" type="text" placeholder="이름">
+        <input id="modal-findID-inputEmail" type="text" placeholder="이메일">
+        <button id="modal-findID-button" onclick="verifyEmail2()">찾기</button>
+    </div>
+    <div id="modal-findPW">
+        <img src="${contextPath}/resources/images/password.png">
+        <h2>비밀번호 찾기</h2>
+        <p id="modal-findPW-alert">아이디와 이메일을 입력해 주세요.</p>
+        <input id="modal-findPW-inputID" type="text" placeholder="아이디">
+        <input id="modal-findPW-inputEmail" type="text" placeholder="이메일">
+        <button id="modal-findPW-button" onclick="verifyEmail3()">찾기</button>
+    </div>
+    <div id="modal-confirmEmail">
+        <img src="${contextPath}/resources/images/mail.png">
+        <h2>인증</h2>
+        <p id="modal-confirmEmail-alert">해당 이메일 주소로 인증 번호를 전송했습니다.</p>
+        <input id="modal-confirmEmail-inputVrfcode" type="text" placeholder="인증 번호">
+        <button id="modal-confirmEmail-button" onclick="confirmVrfCode2()">인증 확인</button>
+    </div>
 </div>
 
-<input type="checkbox" id="theme-switch-cbox">
-<label for="theme-switch-cbox">
-    <div id="theme-switch">
-        <img>
-    </div>
-</label>
+<div id="theme-switch">
+    <img>
+</div>
 
 <c:if test="${!empty sessionScope.message}">
 	<script>
@@ -286,4 +319,6 @@
 <script src="${contextPath}/resources/js/modal/login.js"></script>
 <script src="${contextPath}/resources/js/modal/contract.js"></script>
 <script src="${contextPath}/resources/js/modal/signUp.js"></script>
+<script src="${contextPath}/resources/js/modal/findID.js"></script>
+<script src="${contextPath}/resources/js/modal/findPW.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
