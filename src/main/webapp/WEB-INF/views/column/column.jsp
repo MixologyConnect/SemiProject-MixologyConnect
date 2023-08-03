@@ -107,7 +107,8 @@
     
    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
    <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
-
+   
+   <script src="${contextPath}/resources/js/main.js"></script>
    <script src="${contextPath}/resources/js/column.js"></script>
    <script src="${contextPath}/resources/js/search/search.js"></script>
    <script src="${contextPath}/resources/js/main.js"></script>

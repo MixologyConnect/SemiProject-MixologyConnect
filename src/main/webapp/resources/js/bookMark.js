@@ -114,7 +114,6 @@ function bookMarkImage(){
                 console.log("성공")
                 imgPlus.style.display = 'none';
             }else{
-                console.log("에러")
                 imgMinus.style.display = 'none';
               
             }
@@ -161,7 +160,8 @@ function deleteBookMark(){
             success : function(result){
                 if(result>0){
                     alert("북마크 삭제 완료")
-                    location.href = contextPath + "/myPage/bookMark";
+                    imgMinus.style.display = 'none';
+                    imgPlus.style.display = 'block';
                 }else{
                     alert("북마크에 등록되어있지 않습니다.")
                 }
