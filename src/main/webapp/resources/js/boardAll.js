@@ -4,7 +4,7 @@ $(document).ready(function(){
   console.log(writerNo);
   console.log(loginMemberNo);
 
-  if(likeMember==boardNo){
+  if(likeMember==boardNo2){
       const img = document.getElementById("likeBtnImg");
       img.src = contextPath + "/resources/images/heart-fill.svg";
   }
@@ -15,7 +15,7 @@ $(document).ready(function(){
   //내 게시글 팔로우 막기 
  
   //목록으로 돌아가기 후에 내가 팔로우한 사람 은 unfollow 뜨게하기 
-  if(writerNo==followingWriter){
+  if(writerNo2==followingWriter){
       let followCheck = document.getElementById('followCheck');
       const followBtn = document.getElementById('followBtn');
 
