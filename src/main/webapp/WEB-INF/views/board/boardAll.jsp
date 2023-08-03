@@ -72,9 +72,8 @@
 
 										<div class="boardContent">${board.boardContent}</div>
 									</div>
-									
+									</a>
 								</div>
-							</a>
 								<div class="nameDateCount">
 									<!-- 지영이가 수정 중!!! -->
 									<span class="like">
@@ -91,12 +90,19 @@
 										</button>
 										<span id="likeResult">${likeCount}</span>
 									</span>
-									<span class="read">조회수 : ${board.readCount}</span>
 									<span class="boardDate">${board.boardDate}</span>
+									<span class="read">조회수 : ${board.readCount}</span>
 								</div>
-							
+								
 							</section>
 							
+							<script>
+								const boardNo2 = "${board.boardNo}";
+								const writerNo2 = "${board.memberNo}";
+							</script>
+
+
+
 						</c:forEach>
 
 					</c:otherwise>
@@ -143,6 +149,7 @@
 				</div>
 
 				
+				
 			</main>
 
 			
@@ -154,6 +161,8 @@
 
 				const loginMemberNo = "${loginMember.memberNo}";
 
+				const likeMember = "${likeMember}"
+				
 			</script>
 
 
