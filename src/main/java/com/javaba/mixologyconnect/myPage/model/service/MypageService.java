@@ -207,7 +207,7 @@ public class MypageService {
 			for(int i=0; i<arr.length; i++) {
 				
 				switch(arr.length) {
-				case 1 : condition = "(" +  arr[i] +  ")"; break;
+				case 1 : condition = "(" +  arr[0] +  ")"; break;
 				case 2 : condition = "(" +  arr[0] + "," + arr[1]  +  ")"; break;
 				case 3 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] +  ")"; break;
 				case 4 : condition = "(" +  arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] +  ")"; break;

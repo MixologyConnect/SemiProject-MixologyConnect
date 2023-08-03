@@ -8,7 +8,6 @@ const feedList = document.getElementsByName("feed")
 all.addEventListener("click", function(){
     for(let i=0; i<feedList.length; i++){
         feedList[i].checked = all.checked;
-        
 
             // arr.push(feedList[i].value)
             // console.log(arr)
@@ -46,7 +45,11 @@ function deletePost(){
 
         success : function(result){
             if(result > 0){
-                alert("삭제 완료~!")
+                if(confirm("삭제하시겠습니까?")){
+
+                    alert("삭제 완료~!")
+                    location.reload();
+                }
             }else{
                 alert("삭제 실패...")
             }

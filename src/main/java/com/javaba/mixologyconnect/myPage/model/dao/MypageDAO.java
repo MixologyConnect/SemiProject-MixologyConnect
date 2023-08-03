@@ -458,9 +458,6 @@ public class MypageDAO {
 			
 			
 			
-			
-			
-			
 		}finally {
 			close(stmt);
 		}
