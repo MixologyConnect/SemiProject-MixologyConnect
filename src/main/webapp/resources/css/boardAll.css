@@ -168,7 +168,12 @@ height: 200px;
 .nameDateCount{
   display: flex;
   margin-top: -20px;
-  flex-direction: row-reverse
+  flex-direction: row-reverse;
+}
+
+.nameDateCount span{
+  display: block;
+  
 }
 
 
@@ -382,7 +387,12 @@ text-decoration: none;
 .read{
   display: inline-block;
   padding: 0 10px;
-  margin-top: -1px;
+}
+
+.boardDate {
+  display: inline-block;
+  padding: 2px 4px;
+  margin-bottom: -2px;
 }
 
 /* 좋아요버튼 관련css */
