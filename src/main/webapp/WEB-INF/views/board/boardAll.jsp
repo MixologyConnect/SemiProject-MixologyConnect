@@ -54,25 +54,27 @@
 					<c:otherwise>
 
 						<c:forEach var="board" items="${boardList}">
+							<input type="hidden" name="boardNo" value="${board.boardNo}">
 							<section class="fir">
 								<div class="left">
 									
 										
-										<div class="img">
-											<c:if test="${!empty board.thumbnail}">
-												<img src="${contextPath}${board.thumbnail}">
-											</c:if>
-										</div>
-										<div class="titleContent">
-											<div class="board">
-												<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3>${board.boardTitle}</h3>
-											</div>
-											<span class="memberName">${board.memberName}</span>
-
-											<div class="boardContent">${board.boardContent}</div>
-										</div>
-
+									<div class="img">
+										<c:if test="${!empty board.thumbnail}">
+											<img src="${contextPath}${board.thumbnail}">
+										</c:if>
 									</div>
+									<div class="titleContent">
+										<div class="board">
+											<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3>${board.boardTitle}</h3>
+										</div>
+										<span class="memberName">${board.memberName}</span>
+
+										<div class="boardContent">${board.boardContent}</div>
+									</div>
+									
+								</div>
+							</a>
 								<div class="nameDateCount">
 									<!-- 지영이가 수정 중!!! -->
 									<span class="like">
@@ -92,9 +94,9 @@
 									<span class="read">조회수 : ${board.readCount}</span>
 									<span class="boardDate">${board.boardDate}</span>
 								</div>
-								</a>
+							
 							</section>
-
+							
 						</c:forEach>
 
 					</c:otherwise>
@@ -139,9 +141,23 @@
 						<li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
 					</ul>
 				</div>
+
+				
 			</main>
+
+			
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 			<jsp:include page="/WEB-INF/views/common/modal.jsp" />
+			
+			<script>
+				const contextPath = "${contextPath}";
+
+				const loginMemberNo = "${loginMember.memberNo}";
+
+			</script>
+
+
+
 			<script src="${contextPath}/resources/js/boardAll.js"></script>
 			<script src="${contextPath}/resources/js/board/board.js"></script>
 			<script src="${contextPath}/resources/js/main.js"></script>

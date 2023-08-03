@@ -403,3 +403,9 @@ text-decoration: none;
   margin-top: -6px;
   filter: invert(15%) sepia(93%) saturate(7473%) hue-rotate(0deg) brightness(109%) contrast(111%);
 }
+/* 좋아요 수 */
+.share > span{
+    font-size: 20px;
+    padding: 5px;
+    color: red;
+}

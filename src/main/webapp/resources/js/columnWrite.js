@@ -127,9 +127,9 @@ function writeValidate(){
 
             if(params.get("title") != null){
                 const title = "&title=" + params.get("title");
-                const query = "&query=" + params.get("query");
+                const columnquery = "&columnquery=" + params.get("columnquery");
 
-                url += key + query;
+                url += key + columnquery;
             }
 
             location.href = url;
