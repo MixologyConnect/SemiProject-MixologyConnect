@@ -64,6 +64,7 @@
 					READ_COUNT
 						FROM BOOKMARK_TB
                         WHERE MEMBER_NO = ?
+                        AND BOARD_ST = 'Y'
 						ORDER BY BOARD_NO DESC
 				)A
 			)
@@ -82,7 +83,7 @@
 	
 	<!-- 북마크 해제 -->
 	<entry key="delete">
-		DELETE FROM BOOKMARK_TB
+		UPDATE BOOKMARK_TB SET BOARD_ST = 'N'
 		WHERE BOARD_NO = ?
 		AND MEMBER_NO = ?
 	</entry>
