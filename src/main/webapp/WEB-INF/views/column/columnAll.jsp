@@ -28,7 +28,7 @@
     </c:if>
 
     <!-- 전체 브라우저 container -->
-<div class="container">
+    <div class="container">
 
     <!-- 컨텐츠 감싸는 container -->
     <div class="secon-container">
@@ -135,17 +135,12 @@
             
     </div>
     
-</div>
+    </div>
 
-<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-<jsp:include page="/WEB-INF/views/common/modal.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
-<<<<<<< HEAD
     <script src="${contextPath}/resources/js/columnAll.js"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
-=======
-<script src="${contextPath}/resources/js/columnAll.js"></script>
-<script src="${contextPath}/resources/js/main.js"></script>
->>>>>>> e000f44396a9672c94f9eb7d348c48a9b7bff99a
 </body>
 </html>

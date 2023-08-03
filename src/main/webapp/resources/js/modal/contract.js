@@ -3,4 +3,4 @@ $("#modal-contract-button").click(function() {
         showModal("contract", false);
         showModal("signup", true);
     }
-})
+});

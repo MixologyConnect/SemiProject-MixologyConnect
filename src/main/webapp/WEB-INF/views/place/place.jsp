@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/place.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=cz1labzu75"></script>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=cz1labzu75"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -22,7 +22,7 @@
 			<img id="place-search" src="${contextPath}/resources/images/magnifier.png">
 			<input id="place-input" type="text" placeholder="지역">
 		</div>
-        <div id="map"></div>
+        <div id="map" style="margin-top: 50px; height: 400px; width: 960px; border-radius: 30px;"></div>
         <ul id="place-content">
         </ul>
     </main>
@@ -30,5 +30,14 @@
     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
     <script src="${contextPath}/resources/js/main.js"></script>
     <script src="${contextPath}/resources/js/place.js"></script>
+    <script>
+        var map = null;
+        function initMap() {
+            let map = new naver.maps.Map("map", {center: new naver.maps.LatLng(37, 127), zoom: 15})
+        }
+        (() => {
+            initMap()
+        })();
+    </script>
 </body>
 </html>
