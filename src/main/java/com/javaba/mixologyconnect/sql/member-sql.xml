@@ -68,9 +68,9 @@
 	
 	<!-- 관리 회원 정보 검색 -->
 	<entry key="selectMember">
-		SELECT MEMBER_NO, MEMBER_ID, MEMBER_TEL, MEMBER_NM, MEMBER_ADDR, SECESSION_FL
+		SELECT *
 		FROM MEMBER
-		WHERE MEMBER_ID = ?
+		WHERE
 	</entry>
 
 	<entry key="selectFollowers">

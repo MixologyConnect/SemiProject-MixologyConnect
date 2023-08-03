@@ -157,6 +157,7 @@
 
 
     <script src="${contextPath}/resources/js/LoginMyPage.js"></script>
+</body>
     <script src="${contextPath}/resources/js/main.js"></script>
     
     
