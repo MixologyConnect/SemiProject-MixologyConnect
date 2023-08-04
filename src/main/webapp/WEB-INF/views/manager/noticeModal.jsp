@@ -26,7 +26,7 @@
     </div>-->   
     <script>
         const contextPath = "${contextPath}";
-        </script>
+    </script>
     
     <script src="${contextPath}/resources/js/noticeModal.js"></script>
     
