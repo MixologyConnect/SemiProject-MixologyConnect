@@ -152,6 +152,7 @@ text-decoration: none;
   display: flex;
   padding: 0;
   margin-top: 20px;
+  height: 200px;
 }
 
 
@@ -165,7 +166,8 @@ height: 250px;
 .titleContent {
   padding: 15px;
   margin: 8px 0;
-  width: 600px;
+  width: 350px;
+  height: 180px;
 }
 
 
@@ -175,6 +177,7 @@ height: 250px;
   flex-direction: row-reverse;
   align-items: flex-end;
   justify-content: right;
+  margin: 20px;
 }
 
 
@@ -201,7 +204,7 @@ margin-left: 20px;
 border-radius: 30px;
 border-bottom: 3px solid #ddd;
 width: 960px;
-height: 230px;
+height: 210px;
 border: 2px solid #ddd;
 margin: 10px 0;
 padding-right: 10px;
