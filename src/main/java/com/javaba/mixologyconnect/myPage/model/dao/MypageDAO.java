@@ -119,6 +119,8 @@ public class MypageDAO {
 				board.setMemberName(rs.getString("MEMBER_NM"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setBoardDate(rs.getString("BOARD_DT"));
+				board.setThumbnail(rs.getString("IMG_RENAME"));
 
 				boardList.add(board);
 

@@ -290,6 +290,28 @@ public class MypageService {
 
 
 
+
+
+
+
+
+
+
+		/** 북마크 체크박스 삭제 Service
+		 * @param result
+		 * @return result
+		 * @throws Exception
+		 */
+		public int deleteBookmark(int result) throws Exception{
+			
+			
+			return 0;
+		}
+
+
+
+
+
 	
 		
 		
