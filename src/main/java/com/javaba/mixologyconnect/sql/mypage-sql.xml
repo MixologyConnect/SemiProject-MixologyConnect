@@ -90,7 +90,7 @@
 	
 	<!-- 북마크 해제 -->
 	<entry key="delete">
-		UPDATE BOOKMARK SET BOOKMARK_ST = 'N'
+		DELETE FROM BOOKMARK
 		WHERE BOARD_NO = ?
 		AND MEMBER_NO = ?
 	</entry>

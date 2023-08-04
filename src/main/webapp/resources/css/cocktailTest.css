@@ -74,9 +74,8 @@ main{
     height: 60px;
     margin-left: 65px;
     border-radius: 10px;
-    background-color: orange;
-    border-color: orange;
-    font-size: 25px;
+    background-color: rgb(163, 135, 197);
+    font-size: 23px;
     font-weight: bold;
     color: white;
     cursor: pointer;
