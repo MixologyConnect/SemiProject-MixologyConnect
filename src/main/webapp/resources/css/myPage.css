@@ -189,22 +189,30 @@ main > section:nth-child(2){
     list-style-type: none;
 }
 
-/* .sub-wrap{
-    border: 1px solid beige;
-    width: 500px;
+/* 팔로우 리스트  */
+.follow-wrap1{
+    border: 3px solid #ddd;
+    width: 400px;
     height: 400px;
-    display: none;
-    position: absolute;;
-    background-color: beige;
+    display: none; 
+    position: absolute;
+    background-color: rgb(203, 223, 225);
     border-radius: 10px;
+    overflow: auto;
+    bottom: -50px;
+
 }
 
-.sub-wrap > div{
-    margin: 10px 10px;
-    font-weight: lighter;
+.followList{
+    margin: auto;
+    font-weight: bold;
+    padding: 15px 15px;
+    position: absolute;
+    font-size: 20px;
+    color: #fff;
 }
 
-.sub-wrap button{
+.follow-wrap1 button{
     background-color: rgb(159, 232, 235);
     border: 1px solid rgb(159, 232, 235);
     border-radius: 3px;
@@ -212,10 +220,70 @@ main > section:nth-child(2){
 
 }
 
-.sub-wrap a{
+.follow-wrap1 a{
     text-decoration: none;
    
 }
+/* 팔로우 리스트  */
+.follow-wrap1{
+    border: 3px solid #ddd;
+    width: 400px;
+    height: 400px;
+    display: none; 
+    position: absolute;
+    background-color: rgb(203, 223, 225);
+    border-radius: 10px;
+    overflow: auto;
+    bottom: -50px;
+
+}
+
+.list-title{
+    margin: auto;
+    font-weight: bold;
+    padding: 15px 15px;
+    position: absolute;
+    font-size: 20px;
+    color: #fff;
+}
+
+
+/* 팔로잉 리스트  */
+.folloing-wrap2{
+    border: 3px solid #ddd;
+    width: 400px;
+    height: 400px;
+    display: none; 
+    position: absolute;
+    background-color: rgb(203, 223, 225);
+    border-radius: 10px;
+    overflow: auto;
+    bottom: -50px;
+    /* left: 450px; */
+
+}
+.margin{height: 60px;}
+.follow-area{
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+}
+.follow-area > img{
+    width: 50px;
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 #alarm{
     margin-right: 70px;
@@ -252,7 +320,7 @@ main > section:nth-child(3){
   flex-basis: 80%;
   font-size: 20px;
   
-  } */
+  } 
 
 /* .fir input{
     margin-right: 15px; 
