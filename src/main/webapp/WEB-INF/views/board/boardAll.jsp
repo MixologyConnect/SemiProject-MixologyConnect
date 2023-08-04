@@ -64,6 +64,7 @@
 												<img src="${contextPath}${board.thumbnail}">
 											</c:when>
 											<c:otherwise>
+												<img src = "${contextPath}/resources/images/user.png"> 
 											</c:otherwise>
 										</c:choose>
 										
