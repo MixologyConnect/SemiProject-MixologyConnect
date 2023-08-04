@@ -77,14 +77,14 @@
 
 
 /* 삭제버튼 div */
-.deleteBtn-area{
+.deleteBtn1-area{
     display: flex;
     justify-content: end;
     margin: 20px 0;
 }
 
 /* 삭제하기 버튼 */
-#deleteBtn{
+#deleteBtn1{
     background-color:rgb(0, 220, 244);
 
     font-weight: bold;

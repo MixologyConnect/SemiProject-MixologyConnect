@@ -82,9 +82,9 @@
 
                 
             </table>
-            <div class="deleteBtn-area">
+            <div class="deleteBtn1-area">
 
-                <button id="deleteBtn" onclick="deleteClick()">삭제하기</button>
+                <button id="deleteBtn1" onclick="deleteClick()">삭제하기</button>
             </div>
         </div>
 
