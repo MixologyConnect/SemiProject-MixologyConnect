@@ -7,8 +7,6 @@
         dataType : "JSON",
         success : function(notice){
 
-            console.log(notice);
-
             const div1 = document.createElement("div");
             div1.setAttribute("id","overlayy");
             
@@ -23,11 +21,8 @@
             const img = document.createElement("img");
             img.setAttribute("id","test");
 
-            const imageRename="";
-            if(no in notice.imageList ){
-                imageRename = no.imageRename;
-            }
-            img.setAttribute("src",contextPath+imageRename);
+       
+            img.setAttribute("src",contextPath+notice.imageList[0].imageRename);
             div3.append(img);
 
             const h3 = document.createElement("h3");
@@ -47,6 +42,7 @@
 
             const button2 = document.createElement("button");
             button2.setAttribute("id","close");
+            button2.setAttribute("onclick","true")
             button2.innerText = "닫기";
             div3.append(button2);
 
@@ -58,8 +54,8 @@
         },
 
         error : function(request,status,error){
-            console.log("에러 발생");
 
+            console.log("에러 발생");
             console.log("상태코드 : " + request.status);
 
             console.log(request.responseText);
@@ -67,7 +63,17 @@
             console.log(error);
         }
 
-
+        
     })
-
+    
 })();
+
+window.onload = function(){
+
+    document.getElementById("close").addEventListener("click",function(){
+        
+        alert("HIIIII!!");
+        document.getElementById("overlayy").style.display = "none";
+        
+    })
+} 
