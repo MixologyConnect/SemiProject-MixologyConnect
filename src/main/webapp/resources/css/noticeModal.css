@@ -48,22 +48,40 @@
     transform: translate(-50%,-50%);
     color: white;
 }
-#today{
+/* #today{
     position: absolute;
     bottom: -1%;
     left: 10%;
     transform: translate(-50%,-50%);
     background-color: transparent;
-    color: white;
+    color: black;
+    cursor: pointer;
+} */
+#today{
+    position: absolute;
+    bottom: 1%;
+    left: 5%;
+    transform: translate(-50%,-50%);
+    background-color: transparent;
+    color: black;
     cursor: pointer;
 }
+#todayLabel {
+    position: absolute;
+    bottom: 0%;
+    left: 15%;
+    transform: translate(-50%,-50%);
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+}
+
 #close{
     position: absolute;
     bottom: -1%;
     right: 10%;
     transform: translate(-50%,-50%);
     background-color: transparent;
-    color: white;
-    cursor: pointer;
+    color: black
 }
 
