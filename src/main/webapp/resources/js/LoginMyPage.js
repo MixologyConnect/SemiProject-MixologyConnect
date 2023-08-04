@@ -98,6 +98,41 @@ this.addEventListener("click", function(e){
 
 
 
+/* 팔로우 리스트 */
+
+const followerVeiw = document.getElementById("followerView");
+const followWrap1 = document.querySelector(".follow-wrap1");
+const folloingView = document.getElementById("folloingView");
+const folloingwrap = document.querySelector(".folloing-wrap2");
+
+followerVeiw.addEventListener("click", function () {
+    
+    if (followWrap1.style.display === "block") {
+        $(followWrap1).stop().slideUp(200);
+        
+    } else {
+        $(followWrap1).stop().slideDown(200);
+    }
+});
+
+/* 팔로잉 리스트 */
+folloingView.addEventListener("click", function () {
+   
+    if (folloingwrap.style.display === "block") {
+        $(folloingwrap).stop().slideUp(200);
+    } else {
+        $(folloingwrap).stop().slideDown(200);
+    }
+});
+    
+
+
+
+
+
+
+
+
 
 
 

@@ -43,8 +43,33 @@
                 </div>
                 
                 <div class="bottom">
-                    <span><a href="#">팔로워 ${followers.size()}</a></span>
-                    <span><a href="#">팔로잉 ${followings.size()}</a></span>
+                    <span id="followerView">팔로워 ${followers.size()}</span>
+                    <div class="follow-wrap1">
+                        <span class="list-title">FOLLOW LIST </span>
+                        <div class="margin"></div>
+                        <div class="follow-area">
+                            <img src="${contextPath}/resources/images/user.png">
+                            <span>유저아이디</span>
+                        </div>
+                       
+                       
+                    </div>
+                    
+                    
+                    
+                    <span id="folloingView">팔로잉 ${followings.size()}</span>
+                    <div class="folloing-wrap2">
+                        <span class="list-title">FOLLOING LIST </span>
+                        <div class="margin"></div>
+                        <div class="follow-area">
+                            <img src="${contextPath}/resources/images/user.png">
+                            <span>유저아이디</span>
+                        </div>
+                        
+                    </div>
+                
+                
+                
                 </div>
             </section>
         </section>
