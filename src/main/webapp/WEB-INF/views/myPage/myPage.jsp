@@ -74,42 +74,49 @@
                             <a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=1">
                             <div class="left">
                                 <div class="img">
-                                    <c:if test="${!empty board.thumbnail}">
-                                        <img src="${contextPath}${board.thumbnail}">
-                                    </c:if>
+                                    <c:choose>
+                                        <c:when test="${!empty board.thumbnail}">
+                                            <img src="${contextPath}${board.thumbnail}">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img src = "${contextPath}/resources/images/user.png"> 
+                                        </c:otherwise>
+                                    </c:choose>
+                                    
+
                                     <div class="titleContent">
                                         <div class="board">
-                                            <h3><input type="checkbox" name="feed" value="${board.boardNo}">${board.boardTitle}</h3>
+                                            <h3>${board.boardTitle}<input type="checkbox" name="feed" value="${board.boardNo}"></h3>
                                         </div>
+                                        
                                         <span class="memberName">${board.memberName}</span>
+                                    </div>
+                                    <div class="nameDateCount">
+                                    <span class="boardDate">${board.boardDate}</span>
+                                        <span class="read">조회수 : ${board.readCount}</span>
+                                        <span id="likeResult">좋아요 수 : ${board.boardLikeCount}</span>
                                     </div>
                                     
                                     
-                                </div>
-                                <div class="nameDateCount">
-                                    <span class="boardDate">${board.boardDate}</span>
-                                    <span class="read">조회수 : ${board.readCount}</span>
-                                    <span id="likeResult">좋아요 수 : ${board.boardLikeCount} </span>
                                 </div>
                                 </a>
                             </div>
                             
                         </section>
-
-					</c:forEach>
-
-                </c:otherwise>
-
+                    
+                </c:forEach>
+                
+            </c:otherwise>
+            
         </c:choose>
-
-
-
         
-
+        
+        
+        
+        
         <section class="number">
             <div>
-                <span><input type="checkbox" id="all">전체선택</span>
-
+                <span>전체선택<input type="checkbox" id="all"></span>
             </div>
 
             <div class="pagination-area">
