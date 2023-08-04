@@ -83,16 +83,16 @@
 })();
 
 
-function setCookie( name, value, exDay ) {
+/* function setCookie( name, value, exDay ) {
     var todayDate = new Date();
     todayDate.setDate( todayDate.getDate() + exDay ); 
     document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
-} 
+}  */
 
 
-/* 
 
-window.onload = function(){
+
+/* window.onload = function(){
 
     document.getElementById("close").addEventListener("click",function(){
         
@@ -100,32 +100,116 @@ window.onload = function(){
         
     })
 
-    document.getElementById("today").addEventListener("click",function(){
+    /* document.getElementById("today").addEventListener("click",function(){
 
         setCookie( "popup", "done" , 1 );
         document.getElementById("overlayy").style.display = "none";
-    })
-}  */
+    }) */
 
-window.onload = function closePop(){
-    
-    //function closePop(){
-        
-        const close = document.getElementById("close");
-        
-        close.addEventListener("click",function(){
 
-            if(cookiedata.indexOf("popup=done") < 0 ){
-                document.getElementById("overlayy").style.visibility = "visible";
-            }else{
+//window.onload 
+/* document.addEventListener("DOMContentLoaded",function(){
+
+    function closePop(){
+        
+        //function closePop(){
+            
+            const close = document.getElementById("close");
+            
+            close.addEventListener("click",function(){
+                
+                if(cookiedata.indexOf("popup=done") < 0 ){
+                    document.getElementById("overlayy").style.visibility = "visible";
+                }else{
+                    document.getElementById("overlayy").style.visibility = "hidden";
+                }
+                if(document.getElementById("today").checked){
+                    setCookie("popup","done",1);
+                }
                 document.getElementById("overlayy").style.visibility = "hidden";
-            }
-            if(document.getElementById("today").checked){
-                setCookie("popup","done",1);
-            }
-            document.getElementById("overlayy").style.visibility = "hidden";
-        })
-    //}
-    cookiedata = document.cookie;
+            })
+            //}
+            cookiedata = document.cookie;
+            
+        }
+        
+    } ) */
+
+//window.onload = 
+/* (function(){
+    // 'today' 체크박스 요소를 가져옵니다.
+    const checkboxToday = document.getElementById('today');
+
+    // '닫기' 버튼 요소를 가져옵니다.
+    const closeButton = document.getElementById('close');
+
+    // div3를 숨기는 함수
+    function hideDiv3() {
+        document.getElementById("overlayy").style.display = 'none';
+
+        // 하루 후에 다시 보이도록 쿠키를 설정합니다.
+        const oneDay = 24 * 60 * 60 * 1000; // 하루를 밀리초로 나타냅니다.
+        const hideDivExpiration = new Date(Date.now() + oneDay).toGMTString();
+        document.cookie = 'hideDiv3=true; expires=' + hideDivExpiration + '; path=/';
+    }
+
+    // 'today' 체크박스의 상태 변화를 감지하는 이벤트 핸들러를 등록합니다.
+    checkboxToday.addEventListener('change', function() {
+    if (checkboxToday.checked) {
+        hideDiv3();
+    }
+    });
+
+    // '닫기' 버튼을 클릭할 때 div3를 숨기는 함수를 호출합니다.
+    closeButton.addEventListener('click', hideDiv3);
+
+    // 팝업이 열렸을 때 쿠키를 체크하여 div3의 초기 가시성을 설정합니다.
+    const hideDivCookie = document.cookie.match('(^|;)\\s*hideDiv3\\s*=\\s*([^;]+)');
+    const shouldHideDiv = hideDivCookie && hideDivCookie[2] === 'true';
+    document.getElementById("overlayy").style.display = shouldHideDiv ? 'none' : 'block';
+})(); */
+
+// '닫기' 버튼 요소를 가져옵니다.
+/* window.onload = function(){
+
+    const closeButton = document.getElementById('close');
     
+    // div3를 숨기는 함수
+    function hideDiv3() {
+        document.getElementById("overlayy").style.display = 'none';
+        
+        // 하루 후에 다시 보이도록 쿠키를 설정합니다.
+        const oneDay = 24 * 60 * 60 * 1000; // 하루를 밀리초로 나타냅니다.
+        const hideDivExpiration = new Date(Date.now() + oneDay).toUTCString();
+        document.cookie = 'hideDiv3=true; expires=' + hideDivExpiration + '; path=/';
+    }
+    
+    // '닫기' 버튼을 클릭할 때 div3를 숨기는 함수를 호출합니다.
+    closeButton.addEventListener('click', hideDiv3);
+    
+    // 팝업이 열렸을 때 쿠키를 체크하여 div3의 초기 가시성을 설정합니다.
+    const hideDivCookie = document.cookie.match('(^|;)\\s*hideDiv3\\s*=\\s*([^;]+)');
+    const shouldHideDiv = hideDivCookie && hideDivCookie[2] === 'true';
+    document.getElementById("overlayy").style.display = shouldHideDiv ? 'none' : 'block';
+} */
+
+window.onload = function(){
+
+    const closeButton = document.getElementById('close');
+    
+    
+    // '닫기' 버튼을 클릭할 때 div3를 숨기는 함수를 호출합니다.
+    closeButton.addEventListener('click', function(){
+        document.getElementById("overlayy").style.display = 'none';
+        
+        // 하루 후에 다시 보이도록 쿠키를 설정합니다.
+        const oneDay = 24 * 60 * 60 * 1000; // 하루를 밀리초로 나타냅니다.
+        const hideDivExpiration = new Date(Date.now() + oneDay).toUTCString();
+        document.cookie = 'hideDiv3=true; expires=' + hideDivExpiration + '; path=/';
+    });
+    
+    // 팝업이 열렸을 때 쿠키를 체크하여 div3의 초기 가시성을 설정합니다.
+    const hideDivCookie = document.cookie.match('(^|;)\\s*hideDiv3\\s*=\\s*([^;]+)');
+    const shouldHideDiv = hideDivCookie && hideDivCookie[2] === 'true';
+    document.getElementById("overlayy").style.display = shouldHideDiv ? 'none' : 'block';
 }

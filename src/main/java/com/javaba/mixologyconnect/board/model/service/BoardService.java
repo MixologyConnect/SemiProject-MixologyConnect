@@ -488,6 +488,29 @@ public class BoardService {
 		return detail;
 		
 	}
+	
+	/** 공지사항 얻어오기
+	 * @return
+	 */
+	public BoardDetail selectNoticeDetail() throws Exception {
+		
+		Connection conn = getConnection();
+		
+		BoardDetail detail = dao.selectNoticeDetail(conn);
+		
+		if (detail != null) { 
+
+			List<BoardImage> imageList = dao.selectImageList(conn);
+
+
+			detail.setImageList(imageList);
+
+			close(conn);
+
+		}
+		return detail;
+		
+	}
 
 
 
