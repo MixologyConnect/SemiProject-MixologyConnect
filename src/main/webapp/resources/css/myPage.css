@@ -29,6 +29,7 @@ main > section{
 main > section:nth-child(1){
     display: flex;
     flex-basis: 30%;
+    justify-content: left;
 }
 
 .follow{
@@ -44,7 +45,10 @@ main > section:nth-child(1){
 .follow > section:nth-child(1){
     display: flex;
     flex-basis: 30%;
+    flex-direction: row-reverse;
 }
+
+
 
 .img1 img{
     display: flex;
@@ -77,8 +81,8 @@ main > section:nth-child(1){
 
 /* 계정 사진  */
  .img  img{
-    width: 130px;
-    height: 130px;
+    width: 240px;
+    height: 240px;
     margin-bottom: 10px;
     border-radius: 50%;
     border-radius: 50%;
@@ -446,26 +450,24 @@ main > section:nth-child(6){
     display: flex;
     flex-basis: 5%;
 }
+*/
 
-.number{
+.number {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 80px;
     justify-content: space-between;
+}
 
-} */
 
-/* #all{
+ #all{
     margin: 0px 10px 0 20px;
     font-size: 20px;
 
 }
 
-.number > span{
-    margin-right: 60px;
-} */
 
 /* 페이지네이션(Pagination) */
 .pagination{
@@ -559,3 +561,12 @@ main > section:nth-child(6){
 .center{
     text-align:center;
 }
+
+
+.board input {
+    margin: 0px 10px;
+    width: 20px;
+    height: 20px;
+}
+
+
