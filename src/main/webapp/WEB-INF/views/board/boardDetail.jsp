@@ -145,7 +145,6 @@
 					<script src="${contextPath}/resources/js/board/board.js"></script>
 					<script src="${contextPath}/resources/js/boardDatail.js"></script>
 					
-					<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 				<script>
 					const contextPath = "${contextPath}";
 					const boardNo = "${detail.boardNo}";

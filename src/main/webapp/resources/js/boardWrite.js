@@ -50,8 +50,30 @@ const deleteList = document.getElementById("deleteList");
 const deleteSet = new Set(); // 순서 X, 중복 허용 X (여러번 클릭 시 중복 값 저장 방지)
 
 
-
 for(let i = 0; i<inputImage.length; i++){
+    
+    
+    
+    inputImage[i].addEventListener("input", function(){
+        console.log(inputImage);
+
+        if(inputImage[i].value.trim() !== ""){
+            deleteImage[i].style.display = "block";
+        }else {
+            deleteImage[i].style.display = "none";
+        }
+        
+        deleteImage[i].addEventListener("click", function(){
+    
+            if(inputImage[i].value.trim() === ""){
+                deleteImage[i].style.display = "none";
+            }
+    
+        });
+    });
+    
+
+
 
     // 파일이 선택 되었을 때
     inputImage[i].addEventListener("change", function(){
@@ -77,6 +99,8 @@ for(let i = 0; i<inputImage.length; i++){
             preview[i].removeAttribute("src"); // src 속성 제거
         }
     });
+
+ 
 
     // 미리보기 삭제 버튼(X)이 클릭 되었을 때의 동작
     deleteImage[i].addEventListener("click", function(){
@@ -122,9 +146,13 @@ for(let i = 0; i<inputImage.length; i++){
         
         return true;
     }
+
+
+    
             
-        
-        
+
+
+
     
 
 
