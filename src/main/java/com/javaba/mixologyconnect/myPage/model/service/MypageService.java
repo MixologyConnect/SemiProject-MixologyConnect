@@ -291,21 +291,42 @@ public class MypageService {
 
 
 
-
-
-
-
-
-
 		/** 북마크 체크박스 삭제 Service
 		 * @param result
 		 * @return result
 		 * @throws Exception
 		 */
-		public int deleteBookmark(int result) throws Exception{
+		public int deleteBookmark(String[] checkArr, Member loginMember)throws Exception {
+			Connection conn = getConnection();
+			
+			String condition = null;
 			
 			
-			return 0;
+			for(int i=0; i<checkArr.length; i++) {
+				
+				switch(checkArr.length) {
+				case 1 : condition = "(" +  checkArr[0] +  ")"; break;
+				case 2 : condition = "(" +  checkArr[0] + "," + checkArr[1]  +  ")"; break;
+				case 3 : condition = "(" +  checkArr[0] + "," + checkArr[1]  + "," + checkArr[2] +  ")"; break;
+				case 4 : condition ="(" +  checkArr[0] + "," + checkArr[1]  + "," + checkArr[2] + "," + checkArr[3] + ")"; break;
+				case 5 : condition = "(" +  checkArr[0] + "," + checkArr[1]  + "," + checkArr[2] + "," + checkArr[3] +"," + checkArr[4] + ")"; break;
+				case 6 : condition ="(" +  checkArr[0] + "," + checkArr[1]  + "," + checkArr[2] + "," + checkArr[3] +"," + checkArr[4] + "," + checkArr[5] + ")"; break;
+				case 7 : condition = "(" +  checkArr[0] + "," + checkArr[1]  + "," + checkArr[2] + "," + checkArr[3] +"," + checkArr[4] + "," + checkArr[5] + "," + checkArr[6] + ")"; break;
+				case 8 : condition =  "(" +  checkArr[0] + "," + checkArr[1]  + "," + checkArr[2] + "," + checkArr[3] +"," + checkArr[4] + "," + checkArr[5] + "," + checkArr[6] + "," + checkArr[7] + ")"; break;
+				case 9 : condition = "(" +  checkArr[0] + "," + checkArr[1]  + "," + checkArr[2] + "," + checkArr[3] +"," + checkArr[4] + "," + checkArr[5] + "," + checkArr[6] + "," + checkArr[7] + "," + checkArr[8] + ")"; break;
+				case 10 : condition ="(" +  checkArr[0] + "," + checkArr[1]  + "," + checkArr[2] + "," + checkArr[3] +"," + checkArr[4] + "," + checkArr[5] + "," + checkArr[6] + "," + checkArr[7] + "," + checkArr[8] + "," + checkArr[9] + ")"; break;
+				}
+			}
+			
+			int result = dao.deleteBookmark(conn, checkArr, loginMember, condition);
+			
+			if(result > 0) {conn.commit();}
+			else 					{conn.rollback();}
+			
+			close(conn);
+			
+			
+			return result;
 		}
 
 

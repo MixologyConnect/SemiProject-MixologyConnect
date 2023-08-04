@@ -1,3 +1,20 @@
+// 즉시실행 함수(북마크 이미지 채워지는지 확인)
+(function(){
+
+    bookMarkImage();
+    // bordDetail 화면 띄우자마자
+    // 북마크 해 놓은 페이지에 들어오면 북마크 표시되는 함수 호출
+    // bookMarkImage();
+
+
+
+    
+    console.log(loginMemberNo)
+
+
+})();
+
+
 
 // 북마크 버튼 이미지
 const imgPlus = document.getElementById("bookBtnPlus");
@@ -25,7 +42,7 @@ all.addEventListener("click", function(){
 
 })
 
-// 삭제 버튼 클릭 함수
+// 체크박스 삭제 버튼 클릭 함수
 function deleteClick(){
 
     const query = 'input[name="deleteBox"]:checked';
@@ -45,10 +62,11 @@ function deleteClick(){
         url : contextPath + "/myPage/deleteBookmark",
         data : {"result" : result},
         type : "get",
+        traditional : true,
         dataType : "json",
 
         success : function(result){
-            if(result){
+            if(result>0){
                 if(confirm("삭제하시겠습니까?")){
 
                     alert("삭제 완료~!")
@@ -80,21 +98,7 @@ function deleteClick(){
 
 let count = 1;
 
-// 즉시실행 함수(북마크 이미지 채워지는지 확인)
-(function(){
 
-    bookMarkImage();
-    // bordDetail 화면 띄우자마자
-    // 북마크 해 놓은 페이지에 들어오면 북마크 표시되는 함수 호출
-    // bookMarkImage();
-
-
-
-    
-    console.log(loginMemberNo)
-
-
-})();
 
 // 북마크 등록 
 function bookBtnClickMinus(){

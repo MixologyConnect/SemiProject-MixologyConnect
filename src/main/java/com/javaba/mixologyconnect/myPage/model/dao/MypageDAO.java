@@ -582,6 +582,37 @@ public class MypageDAO {
 
 
 
+	/** 북마크 체크박스 삭제 DAO
+	 * @param conn
+	 * @param checkArr
+	 * @param loginMember
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deleteBookmark(Connection conn, String[] checkArr, Member loginMember, String condition)throws Exception {
+		int result = 0;
+		try {
+			
+			String sql = prop.getProperty("deleteBookmark") + condition ;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+
+
+
 
 	
 	
