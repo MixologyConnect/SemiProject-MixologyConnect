@@ -35,6 +35,7 @@
             <table class="list-table">
                 <thead>
                     <tr>
+                        <th><input type="checkbox" class="allCheck"></th>
                         <th>글번호</th>
                         <th>제목</th>
                         <th>작성자</th>
@@ -57,6 +58,7 @@
                 
                                 <c:forEach var="bk" items="${bookMarkList}">
                                     <tr>
+                                        <td><input type="checkbox" name="deleteBox" class="delete" value="${bk.boardNo}"></td>
                                         <td>${bk.boardNo}</td>
                                         <td><a href="${contextPath}/board/boardDetail?no=${bk.boardNo}&cp=${pagination.currentPage}&type=1">${bk.boardTitle}</a></td>
                                         <td>${bk.memberName}</td>
@@ -73,11 +75,17 @@
                    
                 </tbody>
 
+        
+
 
 
 
                 
             </table>
+            <div class="deleteBtn-area">
+
+                <button id="deleteBtn" onclick="deleteClick()">삭제하기</button>
+            </div>
         </div>
 
 
@@ -112,19 +120,6 @@
             </ul>
         </div>
 
-        <form action="#" method="get" id="boardSearch">
-
-            <select name="key">
-                <option value="t">제목</option>
-                <option value="c">내용</option>
-                <option value="tc">제목+내용</option>
-                <option value="w">작성자</option>
-            </select>
-
-            <input type="text" name="query" placeholder="검색어를 입력해주세요.">
-
-            <button>검색</button>
-        </form>
         
 
     </section>
@@ -140,6 +135,7 @@
      </script>
 
     <script src="${contextPath}/resources/js/bookMark.js"></script>
+    <script src="${contextPath}/resources/js/main.js"></script>
     
 </body>
 </html>

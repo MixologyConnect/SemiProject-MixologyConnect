@@ -74,15 +74,11 @@ main{
     height: 60px;
     margin-left: 65px;
     border-radius: 10px;
-    background-color: rgb(163, 135, 197);
+    background-color: rgb(161, 115, 218);
     font-size: 23px;
     font-weight: bold;
     color: white;
     cursor: pointer;
-}
-
-.text > button:hover{
-    border: 5px solid rgb(61, 166, 214); ;
 }
 
 /* 화면 가리기 */

@@ -115,7 +115,7 @@
         
         
         <section class="number">
-            <div>
+            <div class="allcheckBox">
                 <span>전체선택<input type="checkbox" id="all"></span>
             </div>
 
@@ -150,10 +150,10 @@
                 </ul>
             </div>
 
+            
             <div id="delete">
                 <span><button onclick="deletePost()">삭제하기</button></span>
             </div>
-
         </section>
        
 
