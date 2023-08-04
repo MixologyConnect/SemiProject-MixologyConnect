@@ -35,14 +35,28 @@
             p.innerText = notice.boardContent;
             div3.append(p);
 
-            const button1 = document.createElement("button");
+       /*      const button1 = document.createElement("button");
             button1.setAttribute("id","today");
             button1.innerText = "오늘 하루 보지 않기";
+            button1.setAttribute("onclick","true")
             div3.append(button1);
+
+        */  
+       
+            const input1 = document.createElement("input");
+            input1.setAttribute("id","today");
+            input1.setAttribute("type","checkbox")
+            div3.append(input1);
+
+            const label1 = document.createElement("label");
+            label1.setAttribute("for","today");
+            label1.setAttribute("id","todayLabel")
+            label1.innerText = "오늘 하루동안 보지 않기";
+            div3.append(label1)
 
             const button2 = document.createElement("button");
             button2.setAttribute("id","close");
-            button2.setAttribute("onclick","true")
+            button2.setAttribute("onclick","closePop()")
             button2.innerText = "닫기";
             div3.append(button2);
 
@@ -68,12 +82,50 @@
     
 })();
 
+
+function setCookie( name, value, exDay ) {
+    var todayDate = new Date();
+    todayDate.setDate( todayDate.getDate() + exDay ); 
+    document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+} 
+
+
+/* 
+
 window.onload = function(){
 
     document.getElementById("close").addEventListener("click",function(){
         
-        alert("HIIIII!!");
         document.getElementById("overlayy").style.display = "none";
         
     })
-} 
+
+    document.getElementById("today").addEventListener("click",function(){
+
+        setCookie( "popup", "done" , 1 );
+        document.getElementById("overlayy").style.display = "none";
+    })
+}  */
+
+window.onload = function closePop(){
+    
+    //function closePop(){
+        
+        const close = document.getElementById("close");
+        
+        close.addEventListener("click",function(){
+
+            if(cookiedata.indexOf("popup=done") < 0 ){
+                document.getElementById("overlayy").style.visibility = "visible";
+            }else{
+                document.getElementById("overlayy").style.visibility = "hidden";
+            }
+            if(document.getElementById("today").checked){
+                setCookie("popup","done",1);
+            }
+            document.getElementById("overlayy").style.visibility = "hidden";
+        })
+    //}
+    cookiedata = document.cookie;
+    
+}
