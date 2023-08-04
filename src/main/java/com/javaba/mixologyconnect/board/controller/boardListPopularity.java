@@ -21,7 +21,6 @@ public class boardListPopularity extends HttpServlet {
 
 		try {
 			int type = Integer.parseInt(req.getParameter("type"));
-			
 			int cp = 1;
 			
 			if(req.getParameter("cp") != null) {
