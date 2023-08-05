@@ -130,24 +130,24 @@ folloingView.addEventListener("click", function () {
     const followerVeiw = document.getElementById("followerView");
 
 
-    if(followerVeiw.length > 0){ // 목록에 썸네일 이미지가 있을 경우에만 이벤트 추가
+    
      
         const followModal = document.querySelector('.follow-modal');
         const followWrap = document.querySelector(".follow-wrap1");
         const modalClose = document.getElementById("modal-close");
 
 
-        for(let th of thumbnail){
-            th.addEventListener("click", function(){
-                modalImage.setAttribute("src", th.getAttribute("src") );
-               
-                /* on/off 스위치 */
-                // classList.toggle("클래스명") : 클래스가 없으면 추가(add)
-                //                                클래스가 있으면 제거(remove)
-               
-                modal.classList.toggle('show'); // add
-            });
-        }
+        
+        followerVeiw.addEventListener("click", function () {
+            modalImage.setAttribute("src", th.getAttribute("src") );
+            
+            /* on/off 스위치 */
+            // classList.toggle("클래스명") : 클래스가 없으면 추가(add)
+            //                                클래스가 있으면 제거(remove)
+            
+            modal.classList.toggle('show'); // add
+        });
+        
 
 
         // X버튼
@@ -167,7 +167,7 @@ folloingView.addEventListener("click", function () {
 
 
 
-    }
+    
 
 
 })();
