@@ -40,7 +40,7 @@
 		AND BOARD_ST ='Y'
 	</entry>
 	
-	<!-- 게시글 검색 목록 조 -->
+	<!-- 게시글 검색 목록 조회 -->
 	<entry key="searchColumnList1">
 		SELECT * FROM(
 		    SELECT ROWNUM RNUM, A. * FROM(
