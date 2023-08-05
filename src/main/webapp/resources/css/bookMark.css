@@ -179,3 +179,33 @@
     border: 0;
 
 }
+
+/* 검색 영역 공통 스타일 */
+#boardSearch *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+#boardSearch select{
+    width: 100px;
+
+}
+
+#boardSearch input{
+    margin: 0 10px;
+    flex-grow: 1;
+    padding-left: 10px;
+
+}
+
+#boardSearch button{
+    width: 100px;
+    background-color: rgb(0, 220, 244);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: 0;
+
+}

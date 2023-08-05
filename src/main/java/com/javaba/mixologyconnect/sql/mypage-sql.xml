@@ -14,23 +14,33 @@
 
 	<!-- 마이페이지 나의 게시글 목록조회 -->
 	<entry key="MyPageBoardCount">
-		SELECT * FROM(
-			SELECT ROWNUM RNUM, A. * FROM(
-					SELECT BOARD_NO, BOARD_TITLE,BOARD_CONTENT,
-					MEMBER_NM,
-					TO_CHAR(BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT,
-					READ_COUNT, IMG_RENAME
-						FROM BOARD
-						JOIN MEMBER USING(MEMBER_NO)
-						JOIN BOARD_IMG USING(BOARD_NO)
-							WHERE BOARD_CD = 1
-							AND BOARD_ST = 'Y'
-							AND MEMBER_NO = ?
-							AND IMG_LEVEL = 0
-						ORDER BY BOARD_NO DESC
-				)A
-			)
-		WHERE RNUM BETWEEN ? AND ?
+		with row_check as
+	        (
+	            select 
+	                        row_number() over(order by a.board_no desc) as rn    
+	                ,       a.*
+	            from board a
+	            order by board_no desc
+	        )
+		SELECT
+						a.BOARD_NO
+				,		a.BOARD_TITLE
+	            ,       a.BOARD_CONTENT
+				,		b.MEMBER_NM
+				,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
+				,		a.READ_COUNT
+				,		c.IMG_RENAME
+				,		b.member_no
+		FROM row_check a
+		left join member b
+			on	b.member_no		=	a.member_no
+		left join board_img c
+			on	c.board_no		=	a.board_no
+			and	c.img_level		=	'0'
+		WHERE 	a.rn BETWEEN ? AND ?
+		AND		BOARD_CD	=	1
+		AND		BOARD_ST	=	'Y'
+        AND A.MEMBER_NO = ?
 	</entry>
 
 
@@ -56,9 +66,18 @@
 	
 	<!-- 북마크 테이블 게시글 수 조회 Board 버전 -->
 	<entry key="listCountB">
-		SELECT COUNT(*) FROM BOOKMARK
-		WHERE MEMBER_NO = ?
-		AND BOOKMARK_ST = 'Y'
+		SELECT COUNT(*) FROM BOOKMARK M
+        JOIN BOARD USING(BOARD_NO)
+		WHERE M.MEMBER_NO = ?
+		AND BOARD_ST = 'Y'
+	</entry>
+	
+	<!-- 북마크 테이블 검색기능 게시글 수 조회 -->
+	<entry key="searchListCount">
+		SELECT COUNT(*) FROM BOOKMARK M
+        JOIN BOARD USING(BOARD_NO)
+		WHERE M.MEMBER_NO = ?
+		AND BOARD_ST = 'Y'
 	</entry>
 	
 	
@@ -77,6 +96,30 @@
 			)
 		WHERE RNUM BETWEEN ? AND ?
 	</entry>
+	
+	
+	<!-- 북마크 표시 게시글 목록 조회 검색기능1 -->
+	<entry key="searchBookmark1">
+		SELECT * FROM(
+			SELECT ROWNUM RNUM, M. *FROM(
+				SELECT a.BOARD_NO, B.BOARD_TITLE, MEMBER_NM, B.BOARD_DT, B.READ_COUNT
+					FROM BOOKMARK A
+					JOIN BOARD B on a.BOARD_NO = b.board_no
+                    JOIN MEMBER M ON b.MEMBER_NO=M.MEMBER_NO
+				WHERE A.MEMBER_NO = ?
+				AND BOARD_ST = 'Y'
+				AND BOOKMARK_ST = 'Y'
+	</entry>
+	
+	<!-- 북마크 표시 게시글 목록 조회 검색기능2 -->
+	<entry key="searchBookmark2">
+		)M
+			)
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	
+	
 	
 	
 	
