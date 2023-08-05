@@ -333,6 +333,53 @@ public class MypageService {
 
 
 
+		/** 북마크 검색 리스트 Service
+		 * @param cp
+		 * @param key
+		 * @param query
+		 * @return map
+		 * @throws Exception
+		 */
+		public Map<String, Object> searchBoardList(Member loginMember, int cp, String key, String query) throws Exception{
+			Connection conn = getConnection();
+			
+			// sql조건절에 추가될 구문(key, query 사용)
+			String condition = null;
+			
+			switch(key) {
+			case "t" : condition = " AND BOARD_TITLE LIKE '%"+query +"%' "; break;
+			case "c" : condition = " AND BOARD_CONTENT LIKE '%"+query +"%' "; break;
+			case "tc" : condition = " AND (BOARD_TITLE LIKE '%"+query +"%' OR BOARD_CONTENT LIKE '%" + query + "%') "; break;
+			case "w" : condition = " AND MEMBER_NM LIKE '%"+query +"%' "; break;
+			}
+			
+			// 특정 게시판에서 조건을 만족하는 게시글 수 조회
+			int listCount = dao.searchListCount(conn, loginMember, condition);
+			
+			//  listCount + 현재 페이지(cp)를 이용해 페이지네이션 객체 생성
+			Pagination pagination = new Pagination(cp, listCount);
+			
+			// 특정 게시판에서 조건을 만족하는 게시글 목록 조회
+			List<Board> bookMarkList = dao.searchList(conn, loginMember, pagination, condition);
+			
+			// 결과값을 하나의 Map에 모아서 반환
+			Map<String, Object> map = new HashMap<String, Object>();
+			
+			map.put("pagination", pagination);
+			map.put("bookMarkList", bookMarkList);
+			
+			close(conn);
+			
+			
+			
+			
+			return map;
+		}
+
+
+
+
+
 	
 		
 		
