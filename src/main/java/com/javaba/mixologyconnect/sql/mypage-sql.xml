@@ -19,12 +19,14 @@
 					SELECT BOARD_NO, BOARD_TITLE,BOARD_CONTENT,
 					MEMBER_NM,
 					TO_CHAR(BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT,
-					READ_COUNT
+					READ_COUNT, IMG_RENAME
 						FROM BOARD
 						JOIN MEMBER USING(MEMBER_NO)
+						JOIN BOARD_IMG USING(BOARD_NO)
 							WHERE BOARD_CD = 1
 							AND BOARD_ST = 'Y'
 							AND MEMBER_NO = ?
+							AND IMG_LEVEL = 0
 						ORDER BY BOARD_NO DESC
 				)A
 			)
@@ -32,8 +34,10 @@
 	</entry>
 
 
+	
+	
 	<!-- 북마크 조회 -->
-	<entry key="selectInfo">
+	<entry key="selectInfoB">
 		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NM,TO_CHAR(BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT, READ_COUNT
 		FROM BOARD
 		JOIN MEMBER USING(MEMBER_NO)
@@ -41,48 +45,54 @@
 		
 	</entry>
 	
-	<!-- 북마크 삽입 -->
-	<entry key="insert">
-		INSERT INTO BOOKMARK_TB
-		VALUES(?, ?, ?, ?, DEFAULT, ?,DEFAULT)
+	
+	<!-- 북마크 삽입 Board버전 -->
+	<entry key="insertB">
+		INSERT INTO BOOKMARK
+		VALUES(?, ?,DEFAULT)
 	</entry>
 	
 	
-	<!-- 북마크 테이블 게시글 수 조회 -->
-	<entry key="listCount">
-		SELECT COUNT(*) FROM BOOKMARK_TB
+	
+	<!-- 북마크 테이블 게시글 수 조회 Board 버전 -->
+	<entry key="listCountB">
+		SELECT COUNT(*) FROM BOOKMARK
 		WHERE MEMBER_NO = ?
+		AND BOOKMARK_ST = 'Y'
 	</entry>
 	
 	
-	<!-- 북마크 표시 게시글 목록 조회 -->
-	<entry key="selectBookmark">
+	
+	<!-- 북마크 표시 게시글 목록 조회 Board 버전 -->
+	<entry key="selectBookmarkB">
 		SELECT * FROM(
-			SELECT ROWNUM RNUM, A. * FROM(
-					SELECT BOARD_NO, BOARD_TITLE,MEMBER_NICK,
-					TO_CHAR(CREATE_DT, 'YYYY-MM-DD') AS CREATE_DT,
-					READ_COUNT
-						FROM BOOKMARK_TB
-                        WHERE MEMBER_NO = ?
-						ORDER BY BOARD_NO DESC
-				)A
+			SELECT ROWNUM RNUM, M. *FROM(
+				SELECT a.BOARD_NO, B.BOARD_TITLE, MEMBER_NM, B.BOARD_DT, B.READ_COUNT
+					FROM BOOKMARK A
+					JOIN BOARD B on a.BOARD_NO = b.board_no
+                    JOIN MEMBER M ON b.MEMBER_NO=M.MEMBER_NO
+				WHERE A.MEMBER_NO = ?
+				AND BOARD_ST = 'Y'
+				AND BOOKMARK_ST = 'Y')M
 			)
 		WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
 	
-	<!-- 북마크 버튼 이미지 -->
-	<entry key="btnImage">
-		SELECT BOARD_NO FROM BOOKMARK_TB
+	
+	<!-- 북마크 버튼 이미지 Board 버전 -->
+	<entry key="btnImageB">
+		SELECT BOARD_NO FROM BOOKMARK
 		WHERE BOARD_NO = ?
 		AND MEMBER_NO = ?
+		AND BOOKMARK_ST = 'Y'
 	</entry>
 	
 	
 	
 	<!-- 북마크 해제 -->
 	<entry key="delete">
-		DELETE FROM BOOKMARK_TB
+		DELETE FROM BOOKMARK
 		WHERE BOARD_NO = ?
 		AND MEMBER_NO = ?
 	</entry>
@@ -93,6 +103,13 @@
 	<entry key="deleteMypage">
 		UPDATE BOARD SET BOARD_ST = 'N'
 		WHERE BOARD_NO IN
+	</entry>
+	
+	<!-- 북마크 체크박스 삭제 -->
+	<entry key="deleteBookmark">
+		DELETE FROM BOOKMARK
+		WHERE MEMBER_NO = ?
+		AND BOARD_NO IN
 	</entry>
 
 

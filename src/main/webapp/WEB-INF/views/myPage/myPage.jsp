@@ -12,7 +12,8 @@
         <title>다른사용자 게시글 모아보기</title>
         
         <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
-        <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css">
+        <link rel="stylesheet" href="${contextPath}/resources/css/boardAll.css">
+         <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css"> 
         <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
     	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -25,7 +26,7 @@
     <main>
 
         <section class="follow">
-            <section class="img">
+            <section class="img1">
                 <c:if test="${empty loginMember.profileImage}">
 
                     <div><img src="${contextPath}/resources/images/user.png"  ></div>
@@ -42,8 +43,33 @@
                 </div>
                 
                 <div class="bottom">
-                    <span><a href="#">팔로워 ${followers.size()}</a></span>
-                    <span><a href="#">팔로잉 ${followings.size()}</a></span>
+                    <span id="followerView">팔로워 ${followers.size()}</span>
+                    <div class="follow-wrap1">
+                        <span class="list-title">FOLLOW LIST </span>
+                        <div class="margin"></div>
+                        <div class="follow-area">
+                            <img src="${contextPath}/resources/images/user.png">
+                            <span>유저아이디</span>
+                        </div>
+                       
+                       
+                    </div>
+                    
+                    
+                    
+                    <span id="folloingView">팔로잉 ${followings.size()}</span>
+                    <div class="folloing-wrap2">
+                        <span class="list-title">FOLLOING LIST </span>
+                        <div class="margin"></div>
+                        <div class="follow-area">
+                            <img src="${contextPath}/resources/images/user.png">
+                            <span>유저아이디</span>
+                        </div>
+                        
+                    </div>
+                
+                
+                
                 </div>
             </section>
         </section>
@@ -61,50 +87,61 @@
 
         <c:choose>
             <c:when test="${empty boardList}">
-                <tr>
-                    <th>게시글이 존재하지 않습니다.</th>
-                </tr>
+                
+                <span class="center">게시글이 존재하지 않습니다.</span>
+                
             </c:when>
 
                 <c:otherwise>
 
 					<c:forEach var="board" items="${boardList}">
 						<section class="fir">
-							<div class="left">
-								<div class="board">
-									<a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
-                                    <h3><input type="checkbox" name="feed" value="${board.boardNo}" id="check">${board.boardTitle}</h3>
-								</div>
-								<div>${board.boardContent}</div>
-								<div class="nameDateCount">
-									<span>${board.memberName}</span> <span>${board.boardDate}</span> <span>조회수 : ${board.readCount}</span>
-								</div>
-							</div>
-							<div class="img">
-								<c:if test = "${empty board.thumbnail}">
-									<img src="${contextPath}/resources/images/heart.svg">
-								</c:if>
-                                <c:if test="${!empty board.thumbnail}">
-                                    <img src="${contextPath}${board.thumbnail}">
-                                </c:if>
-							</div>
-						    </a>
-						</section>
+                            <a href="${contextPath}/board/boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=1">
+                            <div class="left">
+                                <div class="img">
+                                    <c:choose>
+                                        <c:when test="${!empty board.thumbnail}">
+                                            <img src="${contextPath}${board.thumbnail}">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img src = "${contextPath}/resources/images/user.png"> 
+                                        </c:otherwise>
+                                    </c:choose>
+                                    
 
-					</c:forEach>
-
-                </c:otherwise>
-
+                                    <div class="titleContent">
+                                        <div class="board">
+                                            <h3>${board.boardTitle}<input type="checkbox" name="feed" value="${board.boardNo}"></h3>
+                                        </div>
+                                        
+                                        <span class="memberName">${board.memberName}</span>
+                                    </div>
+                                    <div class="nameDateCount">
+                                    <span class="boardDate">${board.boardDate}</span>
+                                        <span class="read">조회수 : ${board.readCount}</span>
+                                        <span id="likeResult">좋아요 수 : ${board.boardLikeCount}</span>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                </a>
+                            </div>
+                            
+                        </section>
+                    
+                </c:forEach>
+                
+            </c:otherwise>
+            
         </c:choose>
-
-
-
         
-
+        
+        
+        
+        
         <section class="number">
-            <div>
-                <span><input type="checkbox" id="all" onclick="deleteAll()">전체선택</span>
-
+            <div class="allcheckBox">
+                <span>전체선택<input type="checkbox" id="all"></span>
             </div>
 
             <div class="pagination-area">
@@ -138,10 +175,10 @@
                 </ul>
             </div>
 
+            
             <div id="delete">
                 <span><button onclick="deletePost()">삭제하기</button></span>
             </div>
-
         </section>
        
 
@@ -157,7 +194,7 @@
 
 
     <script src="${contextPath}/resources/js/LoginMyPage.js"></script>
-</body>
+
     <script src="${contextPath}/resources/js/main.js"></script>
     
     

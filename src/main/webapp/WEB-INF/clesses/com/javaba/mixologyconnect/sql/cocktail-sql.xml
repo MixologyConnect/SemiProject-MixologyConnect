@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>cocktail</comment>
+	<entry key="selectAll">
+		SELECT *
+		  FROM COCKTAIL
+	</entry>
+	<entry key="selectOne">
+		SELECT *
+		  FROM COCKTAIL
+		  JOIN COCKTAIL_IMG ON IMG_NO = CKTL_IMG_NO
+		 WHERE CKTL_NO = ?
+	</entry>
+	<entry key="selectIngredients">
+		SELECT INGR_CODE, INGR_AMOUNT
+		  FROM COCKTAIL
+		  JOIN COCKTAIL_AMOUNT USING("CKTL_NO")
+		 WHERE CKTL_NO = ?
+		 ORDER BY 1
+	</entry>
+</properties>

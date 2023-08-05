@@ -114,8 +114,8 @@ text-decoration: none;
 #new > a:hover {
 border: none;
 cursor: pointer;
-font-size: 24px;
 font-weight: bold;
+font-size: 24px;
 margin-top: 25px;
 color:rgb(0, 220, 244);
 background-color: rgba( 255, 255, 255, 0 );
@@ -149,44 +149,46 @@ text-decoration: none;
 }
 
 .img{
-  width: 200px;
-  height: 200px;
   display: flex;
+  padding: 0;
+  height: 200px;
 }
 
 
 .img img {
-width: 200px; 
-height: 200px;
+width: 230px; 
+height: 230px;
+
+
 }
 
 .titleContent {
   padding: 15px;
-  margin: 15px 0;
+  margin: 8px 0;
+  width: 350px;
+  height: 180px;
 }
 
+
 .nameDateCount{
+  width: 300px;
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-end;
+  justify-content: right;
+  margin: 20px;
 }
 
 
 /* 첫번째 게시물 사진 */
 .fir img{
-margin: 12px 0;
-border-radius: 10px;
+  border-radius: 10px;
+  margin-top: -7px;
+  height: 210px;
 }
 
 
-/* #alarm{
-margin-left: 550px;
-} */
 
-
-/* main > section:nth-child(3){
-display: flex;
-} */
 
 .fir{
   display: flex;
@@ -194,12 +196,16 @@ margin-left: 20px;
 border-radius: 30px;
 border-bottom: 3px solid #ddd;
 width: 960px;
-height: 230px;
+height: 210px;
 border: 2px solid #ddd;
 margin: 10px 0;
-padding: 0 20px;
+padding-right: 10px;
 flex-direction: column;
-justify-content: space-between
+justify-content: space-between;
+overflow: hidden;
+
+
+
 }
 
 .fir:hover{
@@ -211,12 +217,13 @@ transition: all 0.9s ease;
 display: flex;
 flex-basis: 80%;
 font-size: 20px;
-
 }
 
 .left{
 display: block;
 flex-direction: row;
+
+
 }
 
  .left > div{

@@ -49,24 +49,36 @@
 
 					<c:forEach var="board" items="${boardList}">
 						<section class="fir">
+							<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
 							<div class="left">
-								<div class="board">
-									<a href="boardDetail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}"><h3>${board.boardTitle}</h3>
-								</div>
-								<div class="boardContent">${board.boardContent}</div>
-								<div class="nameDateCount">
-									<span class="memberName">${board.memberName}</span> 
-									<span class="read">조회수 : ${board.readCount}</span>
-									<span class="boardDate">${board.boardDate}</span> 
-								</div>
-							</div>
-							<div class="img">
-								<c:if test = "${!empty board.thumbnail}">
-									<img src="${contextPath}${board.thumbnail}">
-								</c:if>
+								<div class="img">
+									<c:choose>
+										<c:when test="${!empty board.thumbnail}">
+											<img src="${contextPath}${board.thumbnail}">
+										</c:when>
+										<c:otherwise>
+											<img src = "${contextPath}/resources/images/user.png"> 
+										</c:otherwise>
+									</c:choose>
+									
 
+									<div class="titleContent">
+										<div class="board">
+											<h3>${board.boardTitle}</h3>
+										</div>
+										<span class="memberName">${board.memberName}</span>
+									</div>
+									<div class="nameDateCount">
+									<span class="boardDate">${board.boardDate}</span>
+										<span class="read">조회수 : ${board.readCount}</span>
+										<span id="likeResult">좋아요 수 : ${board.boardLikeCount}</span>
+									</div>
+									
+									
+								</div>
+								</a>
 							</div>
-						</a>
+							
 						</section>
 
 					</c:forEach>

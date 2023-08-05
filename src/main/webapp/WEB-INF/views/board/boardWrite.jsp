@@ -116,7 +116,7 @@
             <!-- 작성완료 버튼 -->
             <div class="btn">
                 <button type="submit" id="btn">작성 완료</button>
-                <button id="goToBtn" type="button" onclick="location.href = '${contextPath}/board/boardDetail?type=${param.type}&cp=${param.cp}&no=${param.no}'">작성 취소</button>
+                <button id="goToBtn" type="button" onclick="location.href ='${contextPath}/board/boardDetail?type=${param.type}&cp=${param.cp}&no=${param.no}'">작성 취소</button>
             </div>
 
             
@@ -132,9 +132,11 @@
 
 
        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+       <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
     </div>
     <script src="${contextPath}/resources/js/boardWrite.js"></script>
+    <script src="${contextPath}/resources/js/main.js"></script>
     
 </body>
 </html>

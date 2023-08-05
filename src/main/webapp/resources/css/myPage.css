@@ -3,12 +3,13 @@
 
 
 main{
-    width: 75%;
-    margin: auto;
     display: flex;
+    width: 960px;
+    margin: auto;
     flex-direction: column;
-} 
-
+      align-items: center;
+    }
+    
 /* main {
 	display: flex;
 	width: calc(100vw - 100px);
@@ -28,30 +29,44 @@ main > section{
 main > section:nth-child(1){
     display: flex;
     flex-basis: 30%;
+    justify-content: left;
 }
 
 .follow{
     display: flex;
+    width: 960px;
     align-items: start;
     margin-top: 50px;
     margin-bottom: 20px;
-
 }
 
-.follow > section{
-}
+
 
 .follow > section:nth-child(1){
     display: flex;
     flex-basis: 30%;
+    flex-direction: row-reverse;
 }
 
-.img{
+
+
+.img1 img{
+    display: flex;
+    width: 150px;
+    height: 150px;
+    padding: 0;
+    border-radius: 50%;
+    
+}
+
+ /* .img{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+
 
 .img > div:nth-child(1){
     display: flex;
@@ -61,14 +76,16 @@ main > section:nth-child(1){
 .img > div:nth-child(2){
     display: flex;
     flex-basis: 20%;
-}
+}  */
 
 
-/* 계정 사진 */
-.img  img{
-    width: 130px;
-    height: 130px;
+/* 게시글 사진  */
+ .img  img{
+    width: 240px;
+    height: 240px;
     margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 15%;
 }
 
 .img button{
@@ -104,6 +121,7 @@ label{
 .follow2 > div:nth-child(1){
     display: flex;
     flex-basis: 50%;
+    
 }
 
 #top{
@@ -126,7 +144,7 @@ label{
 
 .bottom  a{
     text-decoration: none;
-    color: black;
+   
 }
 
 main > section:nth-child(2){
@@ -136,18 +154,21 @@ main > section:nth-child(2){
 
 #list{
     display: flex;
+    width: 960px;
     align-items: center;
-    margin: 30px 0px 30px 20px;
-    padding: 10px 0;
+    margin: 30px 20px;
+    padding: 10px 20px;
     font-size: 20px;
     font-weight: bold;
-    border-bottom: 3px solid #ddd;
-    border-top: 3px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    border-top: 2px solid #ddd;
     justify-content: space-between;
     
 }
 
-
+.board h3{
+    font-size: 26px;
+  }
 
 #list a:hover{
     color: rgb(0, 220, 244);
@@ -157,7 +178,7 @@ main > section:nth-child(2){
 
 #list a{
     text-decoration: none;
-    color: black;
+   
 }
 
 .thead{
@@ -168,22 +189,30 @@ main > section:nth-child(2){
     list-style-type: none;
 }
 
-.sub-wrap{
-    border: 1px solid beige;
-    width: 500px;
+/* 팔로우 리스트  */
+.follow-wrap1{
+    border: 3px solid #ddd;
+    width: 400px;
     height: 400px;
-    display: none;
-    position: absolute;;
-    background-color: beige;
+    display: none; 
+    position: absolute;
+    background-color: rgb(203, 223, 225);
     border-radius: 10px;
+    overflow: auto;
+    bottom: -50px;
+
 }
 
-.sub-wrap > div{
-    margin: 10px 10px;
-    font-weight: lighter;
+.followList{
+    margin: auto;
+    font-weight: bold;
+    padding: 15px 15px;
+    position: absolute;
+    font-size: 20px;
+    color: #fff;
 }
 
-.sub-wrap button{
+.follow-wrap1 button{
     background-color: rgb(159, 232, 235);
     border: 1px solid rgb(159, 232, 235);
     border-radius: 3px;
@@ -191,10 +220,70 @@ main > section:nth-child(2){
 
 }
 
-.sub-wrap a{
+.follow-wrap1 a{
     text-decoration: none;
-    color: black;
+   
 }
+/* 팔로우 리스트  */
+.follow-wrap1{
+    border: 3px solid #ddd;
+    width: 400px;
+    height: 400px;
+    display: none; 
+    position: absolute;
+    background-color: rgb(203, 223, 225);
+    border-radius: 10px;
+    overflow: auto;
+    bottom: -50px;
+
+}
+
+.list-title{
+    margin: auto;
+    font-weight: bold;
+    padding: 15px 15px;
+    position: absolute;
+    font-size: 20px;
+    color: #fff;
+}
+
+
+/* 팔로잉 리스트  */
+.folloing-wrap2{
+    border: 3px solid #ddd;
+    width: 400px;
+    height: 400px;
+    display: none; 
+    position: absolute;
+    background-color: rgb(203, 223, 225);
+    border-radius: 10px;
+    overflow: auto;
+    bottom: -50px;
+    /* left: 450px; */
+
+}
+.margin{height: 60px;}
+.follow-area{
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+}
+.follow-area > img{
+    width: 50px;
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 #alarm{
     margin-right: 70px;
@@ -208,12 +297,32 @@ main > section:nth-child(3){
 
 .fir{
     display: flex;
-    margin-left: 20px;
-    border: 3px solid white;
-    border-bottom: 3px solid #ddd;
-}
+  margin-left: 20px;
+  border-radius: 30px;
+  border-bottom: 3px solid #ddd;
+  width: 960px;
+  height: 230px;
+  border: 2px solid #ddd;
+  margin: 10px 0;
+  padding-right: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  }
+  
+  .fir:hover{
+  border: 2px solid rgb(0, 220, 244);
+  transition: all 0.9s ease;
+  }
+  
+  .fir > div:nth-child(1){
+  display: flex;
+  flex-basis: 80%;
+  font-size: 20px;
+  
+  } 
 
-.fir input{
+/* .fir input{
     margin-right: 15px; 
     height: 15px; 
     width: 15px;
@@ -231,9 +340,9 @@ main > section:nth-child(3){
     flex-basis: 80%;
     font-size: 20px;
     
-}
+} */
 
-.left{
+/* .left{
     display: flex;
     flex-direction: column;
     
@@ -252,7 +361,7 @@ main > section:nth-child(3){
 
 .left a{
     text-decoration: none;
-    color: black;
+    
 }
 
 .left >div:nth-child(2){
@@ -267,7 +376,7 @@ main > section:nth-child(3){
 
 .title > a{
     text-decoration: none;
-    color: black;
+   
     font-size: 30px;
 }
 
@@ -277,7 +386,7 @@ main > section:nth-child(3){
 }
 
 /* 첫번째 게시물 사진 */
-.fir img{
+/*.fir img{
     margin: 10px 20px;
     border-radius: 10px;
     
@@ -331,8 +440,6 @@ main > section:nth-child(4){
     margin-left: 20px;
 }
 
-.sec > div{
-}
 
 .sec > div:nth-child(1){
     display: flex;
@@ -376,8 +483,6 @@ main > section:nth-child(5){
     margin-left: 20px;
 }
 
-.third > div{
-}
 
 .third > div:nth-child(1){
     display: flex;
@@ -413,26 +518,32 @@ main > section:nth-child(6){
     display: flex;
     flex-basis: 5%;
 }
+*/
 
-.number{
+.number {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 80px;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin: 20px 50px 80px 50px;
 
 }
 
-#all{
-    margin: 0px 10px 0 20px;
+.allcheckBox{
+    width: 150px;
     font-size: 20px;
+}
+
+.pagination-area{
+    margin: 0 280px;
+}
+
+
+
+ #all{
+    margin: 0px 10px 0 20px;
+    width: 20px; height: 20px;
 
 }
 
-.number > span{
-    margin-right: 60px;
-}
 
 /* 페이지네이션(Pagination) */
 .pagination{
@@ -455,7 +566,7 @@ main > section:nth-child(6){
     height: 100%;
     display: block;
     letter-spacing: -2px;
-    color: black;
+
     text-decoration: none;
 
 }
@@ -463,11 +574,33 @@ main > section:nth-child(6){
 /* 현재 페이지 번호 */
 .pagination .current{
     background-color: rgb(0, 220, 244);
-    color: white;
+
     font-weight: bold;
     border-radius: 50%;
 }
-
+.memberName{
+    font-size: 15px;
+    
+  }
+  
+  .board h3{
+    font-size: 26px;
+  }
+  
+  .boardContent{
+    font-size:14px; 
+  }
+  
+  
+  .read{
+    display: block;
+    padding: 0 11px;
+  }
+  
+  .boardDate {
+    display: block;
+    padding: 2px 4px;
+  }
 
 .number button{
     cursor: pointer;
@@ -475,7 +608,7 @@ main > section:nth-child(6){
 
 #delete button{
     background-color: rgb(0, 220, 244);
-    color: white;
+
     font-weight: bold;
     font-size: 15px;
     width: 80px;
@@ -493,9 +626,23 @@ main > section:nth-child(6){
     border: 2px solid #ddd;
     border-radius: 10px;
     margin-left: 30px;
-    color: darkgray
+  
 }
 
 .memberUpdate:hover{
     background-color:  rgba( 255, 255, 255, 0 );
 }
+
+/* 게시글이 존재하기 않습니다. */
+.center{
+    text-align:center;
+}
+
+
+.board input {
+    margin: 0px 10px;
+    width: 20px;
+    height: 20px;
+}
+
+

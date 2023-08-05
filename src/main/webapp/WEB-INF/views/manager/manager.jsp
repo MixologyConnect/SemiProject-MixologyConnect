@@ -23,9 +23,9 @@
             <span><b>관리자페이지</b></span>
             
             <ul  class="list-group">
-                <li> <a href="#">회원 및 게시글 관리 </a></li>
-                <li> <a href="#">공지사항 관리</a></li>
+                <li> <a href="${contextPath}/manager/manager?type=2">회원 및 게시글 관리 </a></li>
                 
+                <li> <a href="${contextPath}/manager/notice?mode=update&type=2">공지사항 관리</a></li>
             </ul>
             
         </section>
@@ -49,7 +49,7 @@
                 <button type="submit" id="member-btn" class="fa-solid fa-magnifying-glass"></button>
             </div>
             
-            <form action="#" method="" name="manager-member">
+            <form action="manager" method="post" name="manager-member">
                 <table>
                 
                     <tr>
