@@ -19,4 +19,12 @@
 		 WHERE CKTL_NO = ?
 		 ORDER BY 1
 	</entry>
+	<entry key="selectThumbnails">
+		SELECT CKTL_NO
+		     , CKTL_NM
+		     , IMG_PATH
+		  FROM COCKTAIL
+		  JOIN COCKTAIL_IMG ON(IMG_NO = CKTL_IMG_NO)
+		 WHERE CKTL_NO BETWEEN ? AND ?
+	</entry>
 </properties>
