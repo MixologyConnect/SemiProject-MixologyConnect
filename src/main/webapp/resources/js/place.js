@@ -1,6 +1,8 @@
-function initMap() {
-    let map = new naver.maps.Map("map", {center: new naver.maps.LatLng(37, 127), zoom: 15})
-}
+var map = null;
+
+$.getScript("https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=cz1labzu75&submodules=geocoder", function() {
+    map = new naver.maps.Map("map", {center: new naver.maps.LatLng(37, 127), zoom: 15})
+});
 
 function searchPlace(place) {
     let e = $("#place-content");
@@ -13,7 +15,6 @@ function searchPlace(place) {
         success: function(result) {
             result = JSON.parse(result);
             for (let i of result.items) {
-                console.log(i.mapy);
                 let li = document.createElement("li");
                 li.innerHTML = `<img>
                                 <h2 class='title'>` + i.title + `</h2>
@@ -21,6 +22,8 @@ function searchPlace(place) {
                                 <p>`+ i.address + `</p>
                                 <a href='` + i.link + `'>` + i.link + `</a>`;
                 e.append(li);
+                latLng = naver.maps.TransCoord.fromTM128ToLatLng(new naver.maps.Point(i.mapx, i.mapy));
+                map.setCenter(latLng);
             }
         },
         error: function() {
@@ -32,8 +35,3 @@ function searchPlace(place) {
 $("#place-search").click(function() {
     searchPlace($("#place-input").val());
 });
-
-(() => {
-    initMap()
-    searchPlace("강남 ");
-})();

@@ -32,6 +32,17 @@ public class noticeWriteServlet extends HttpServlet {
 			
 			String mode = req.getParameter("mode");
 			
+			
+			if(mode.equals("update")) {
+				
+
+				BoardDetail detail = new BoardService().selectNoticeDetail();
+				
+				detail.setBoardContent(detail.getBoardContent().replaceAll("<br>", "\n"));
+				
+				req.setAttribute("detail", detail);
+			}
+			
 			String path = "/WEB-INF/views/manager/notice.jsp";
 			
 			req.getRequestDispatcher(path).forward(req, resp);
@@ -39,8 +50,6 @@ public class noticeWriteServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 	}
 
 	@Override

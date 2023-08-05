@@ -135,6 +135,12 @@
 					</div>
 
 				</div>
+
+				<div class="modal">
+					<span id="modal-close">&times;</span>
+					<img id="modal-image" src="${contextPath}/resources/images/user.png">
+				</div>
+
 				<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 				<jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 				<script src="https://code.jquery.com/jquery-3.7.0.min.js"
@@ -145,7 +151,6 @@
 					<script src="${contextPath}/resources/js/board/board.js"></script>
 					<script src="${contextPath}/resources/js/boardDatail.js"></script>
 					
-					<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 				<script>
 					const contextPath = "${contextPath}";
 					const boardNo = "${detail.boardNo}";

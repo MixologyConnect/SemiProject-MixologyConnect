@@ -96,6 +96,87 @@ this.addEventListener("click", function(e){
 
 
 
+/*
+팔로우 리스트 
+const followerVeiw = document.getElementById("followerView");
+const followWrap1 = document.querySelector(".follow-wrap1");
+const folloingView = document.getElementById("folloingView");
+const folloingwrap = document.querySelector(".folloing-wrap2");
+
+followerVeiw.addEventListener("click", function () {
+    
+    if (followWrap1.style.display === "block") {
+        $(followWrap1).stop().slideUp(200);
+        
+    } else {
+        $(followWrap1).stop().slideDown(200);
+    }
+});
+
+ 팔로잉 리스트 
+folloingView.addEventListener("click", function () {
+   
+    if (folloingwrap.style.display === "block") {
+        $(folloingwrap).stop().slideUp(200);
+    } else {
+        $(folloingwrap).stop().slideDown(200);
+    }
+});
+
+*/
+
+// 즉시 실행 함수
+(function(){
+    const followerVeiw = document.getElementById("followerView");
+
+
+    
+     
+        const followModal = document.querySelector('.follow-modal');
+        const followWrap = document.querySelector(".follow-wrap1");
+        const modalClose = document.getElementById("modal-close");
+
+
+        
+        followerVeiw.addEventListener("click", function () {
+            modalImage.setAttribute("src", th.getAttribute("src") );
+            
+            /* on/off 스위치 */
+            // classList.toggle("클래스명") : 클래스가 없으면 추가(add)
+            //                                클래스가 있으면 제거(remove)
+            
+            modal.classList.toggle('show'); // add
+        });
+        
+
+
+        // X버튼
+        modalClose.addEventListener("click", function(){
+           
+            modal.classList.toggle('hide'); // hide 클래스 추가
+
+
+            setTimeout(function(){ // 0.45초 후 동작
+                modal.classList.toggle('hide'); // hide 클래스 제거
+
+
+                modal.classList.toggle('show'); // remove
+            }, 450);
+        });
+
+
+
+
+    
+
+
+})();
+
+
+
+
+
+
 
 
 

@@ -151,14 +151,13 @@ text-decoration: none;
 .img{
   display: flex;
   padding: 0;
-  margin-top: 20px;
   height: 200px;
 }
 
 
 .img img {
-width: 250px; 
-height: 250px;
+width: 230px; 
+height: 230px;
 
 
 }
@@ -183,20 +182,13 @@ height: 250px;
 
 /* 첫번째 게시물 사진 */
 .fir img{
-border-radius: 10px;
-margin-top: -30px;
-max-width: 100%;
+  border-radius: 10px;
+  margin-top: -7px;
+  height: 210px;
 }
 
 
-/* #alarm{
-margin-left: 550px;
-} */
 
-
-/* main > section:nth-child(3){
-display: flex;
-} */
 
 .fir{
   display: flex;
@@ -211,6 +203,9 @@ padding-right: 10px;
 flex-direction: column;
 justify-content: space-between;
 overflow: hidden;
+
+
+
 }
 
 .fir:hover{
@@ -222,12 +217,13 @@ transition: all 0.9s ease;
 display: flex;
 flex-basis: 80%;
 font-size: 20px;
-
 }
 
 .left{
 display: block;
 flex-direction: row;
+
+
 }
 
  .left > div{
