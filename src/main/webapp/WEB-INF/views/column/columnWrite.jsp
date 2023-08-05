@@ -22,7 +22,7 @@
 
          <!-- 게시글 입력 바디 -->
         <div class="content">
-            <form action="boardWrite" method="post" enctype="multipart/form-data" onsubmit="writeValidate()">
+            <form action="columnWrite" method="post" enctype="multipart/form-data" onsubmit="writeValidate()">
             <div class="top"><p>컬럼 작성하기</p>
             <p>${loginMember.memberName}님, 오늘의 멋진 이야기는 무엇인가요?</p>
             </div>

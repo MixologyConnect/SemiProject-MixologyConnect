@@ -19,7 +19,12 @@
 
             <ul  class="list-group">
                 <li><a href="${contextPath}/manager/manager?type=2">회원 및 게시글 관리</a></li>
-                <li> <a href="${contextPath}/manager/notice?type=2">공지사항 관리</a></li>
+                <c:if test="${!empty detail.boardNo}">
+                    <li> <a href="${contextPath}/manager/notice?mode=updatet&type=2">공지사항 관리</a></li>
+                </c:if>
+                <c:if test="${empty detail.boardNo}">
+                    <li> <a href="${contextPath}/manager/notice?mode=insert&type=2">공지사항 작성</a></li>
+                </c:if>
             </ul>
 
         </section>
@@ -37,7 +42,7 @@
                         <!-- 칵테일 칼럼 제목 input창 -->
                         <label>
                             <b>공지사항 제목</b>
-                            <input name="noticeTitle" id="noticeTitle" placeholder="공지사항 제목" maxlength="50" required>
+                            <input name="noticeTitle" id="noticeTitle" placeholder="공지사항 제목" maxlength="50" value="${detail.boardTitle}" required>
                         </label>
                         <br>
                         
@@ -46,20 +51,23 @@
                     <div id="in_content">
 
                         
-                        <textarea name="content" id="content" placeholder="내용" style="resize: none;" maxlength="100" required></textarea>
+                        <textarea name="content" id="content" placeholder="내용" style="resize: none;" maxlength="100" required>
+                        ${detail.boardContent}
+                        </textarea>
                     </div>
                     
                     <!-- 공지사항 이미지 -->
                     <div class="img-box">
                         <div class="boardImg thumbnail">
                             <label for="img0">
-                                <img class="preview">
+                                <img class="preview" src="${contextPath}${detail.imageList[0].imageRename}">
                             </label>
                             <input type="file" class="inputImage" id="img0" name="0" accept="image/*">
                             <span class="delete-image">&times;</span>
-                            <!-- &times; : x 모양의 문자 -->
                         </div>
                     </div>
+
+                    <button type="button" onclick = "location.href = 'notice?mode=update&type=${param.type}&cp=${param.cp}&no=155'">수정 및 저장</button>
 
                     <button type="submit">등록</button>
 
@@ -67,6 +75,8 @@
                     <input type="hidden" name = "type" value = "${param.type}">
                     <input type="hidden" name = "no" value = "${param.no}">
                     <input type="hidden" name = "cp" value = "${param.cp}">
+
+                    <input type="hidden" id="deleteList" name="deleteList" value="">
                 </form>
                 </div>
                 

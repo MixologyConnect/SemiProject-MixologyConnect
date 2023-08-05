@@ -119,6 +119,8 @@ public class MypageDAO {
 				board.setMemberName(rs.getString("MEMBER_NM"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setBoardDate(rs.getString("BOARD_DT"));
+				board.setThumbnail(rs.getString("IMG_RENAME"));
 
 				boardList.add(board);
 
@@ -577,6 +579,37 @@ public class MypageDAO {
 		
 		return result;
 	}
+
+
+
+	/** 북마크 체크박스 삭제 DAO
+	 * @param conn
+	 * @param checkArr
+	 * @param loginMember
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deleteBookmark(Connection conn, String[] checkArr, Member loginMember, String condition)throws Exception {
+		int result = 0;
+		try {
+			
+			String sql = prop.getProperty("deleteBookmark") + condition ;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
 
 
 

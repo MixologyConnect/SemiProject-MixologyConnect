@@ -1,13 +1,3 @@
-
-// 북마크 버튼 이미지
-const imgPlus = document.getElementById("bookBtnPlus");
-// 비어있는거
-const imgMinus = document.getElementById("bookBtnMinus");
-// 채워져있는거
-
-
-let count = 1;
-
 // 즉시실행 함수(북마크 이미지 채워지는지 확인)
 (function(){
 
@@ -23,6 +13,92 @@ let count = 1;
 
 
 })();
+
+
+
+// 북마크 버튼 이미지
+const imgPlus = document.getElementById("bookBtnPlus");
+// 비어있는거
+const imgMinus = document.getElementById("bookBtnMinus");
+// 채워져있는거
+
+
+// 전체 선택 
+const all = document.getElementsByClassName("allCheck")[0]
+const deleteBox = document.getElementsByName("deleteBox")
+
+
+
+// 전체 선택 함수
+all.addEventListener("click", function(){
+    for(let i=0; i<deleteBox.length; i++){
+        deleteBox[i].checked = all.checked;
+
+            // arr.push(feedList[i].value)
+            // console.log(arr)
+        
+    }
+    // arr = [];
+
+})
+
+// 체크박스 삭제 버튼 클릭 함수
+function deleteClick(){
+
+    const query = 'input[name="deleteBox"]:checked';
+    const deleteEls = document.querySelectorAll(query);
+
+    // 선택된 목록에서 value 찾기
+    var result = []
+    deleteEls.forEach((el) => {
+        result.push($(el).val());
+    });
+
+    console.log(result);
+
+
+    $.ajax({
+
+        url : contextPath + "/myPage/deleteBookmark",
+        data : {"result" : result},
+        type : "get",
+        traditional : true,
+        dataType : "json",
+
+        success : function(result){
+            if(result>0){
+                if(confirm("삭제하시겠습니까?")){
+
+                    alert("삭제 완료~!")
+                    location.reload();
+                }
+            }else{
+                alert("삭제 실패...")
+            }
+        },
+
+        error : function(){
+            console.log("에러")
+        }
+
+
+
+    })
+
+}
+
+
+
+
+
+
+
+
+
+
+let count = 1;
+
+
 
 // 북마크 등록 
 function bookBtnClickMinus(){
