@@ -56,11 +56,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
     <script src="${contextPath}/resources/js/main.js"></script>
-<<<<<<< HEAD
-=======
-
     <script src="${contextPath}/resources/js/place.js"></script>
-
->>>>>>> 45d7c3de64e05f873d6e968ea6763a387513b64c
 </body>
 </html>
