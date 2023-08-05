@@ -67,7 +67,7 @@
                         </div>
                     </div>
 
-                    <button type="button" onclick = "location.href = 'notice?mode=update&type=${param.type}&cp=${param.cp}&no=155'">수정 및 저장</button>
+                    <button type="button" onclick = "location.href = 'noticeWrite?mode=update&type=${param.type}&cp=${param.cp}'">수정 및 저장</button>
 
                     <button type="submit">등록</button>
 
