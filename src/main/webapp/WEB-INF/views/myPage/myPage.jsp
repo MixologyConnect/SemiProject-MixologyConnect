@@ -184,6 +184,17 @@
 
     </main>
 
+    <div class="follow-modal">
+        <span id="modal-close">&times;</span>
+        
+    </div>
+    <div class="folloing-modal">
+        <span id="modal-close">&times;</span>
+        
+    </div>
+
+
+
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
