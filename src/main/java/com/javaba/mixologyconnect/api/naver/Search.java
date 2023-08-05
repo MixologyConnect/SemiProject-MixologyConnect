@@ -28,6 +28,8 @@ public class Search {
 
     public static String searchMap(String keyword){
 
+    	String responseBody = null;
+
         try {
         	keyword = URLEncoder.encode(keyword, "UTF-8");
             String apiURL = "https://openapi.naver.com/v1/search/local.json?query="+keyword+"&display=10&start=1&sort=comment";
