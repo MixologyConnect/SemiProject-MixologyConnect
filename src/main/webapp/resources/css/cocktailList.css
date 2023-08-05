@@ -66,7 +66,7 @@ main {
 	border-bottom: solid 0.5px rgb(180, 180, 180);
 }
 
-.contents {
+#contents {
 	display: flex;
 	box-sizing: border-box;
 	width: 960px;
@@ -76,30 +76,57 @@ main {
 	justify-content: space-between;
 }
 
-.contents > li {
+#contents > li {
 	list-style: none;
-	width: 225px;
-	height: 225px;
-	border-radius: 10px;
-	margin: 10px 0;
-	box-shadow: inset 0 0 30px rgba(120, 120, 120, 0.3);
+	width: 215px;
+	height: 215px;
+	border-radius: 20px;
+	margin: 16px 0;
 	cursor: pointer;
+	overflow: hidden;
 	transition-duration: 0.5s;
 }
 
-.contents > li:hover {
-	box-shadow: inset 0 0 30px rgba(0, 220, 244, 0.3);
+#contents > li:hover {
+	transform: scale(104%);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.contents > li > a {
+#contents > li > a {
 	display: flex;
 	width: 100%;
 	height: 100%;
+	flex-direction: column;
 }
 
-.contents > li > a > p {
-	margin: 0 0 10px 10px;
-	font-size: 1.5rem;
+#contents > li > a > div:first-of-type {
+	display: flex;
+	flex-basis: 80%;
+}
+
+#contents > li > a > div:last-of-type {
+	display: flex;
+	flex-basis: 20%;
+	background-color: rgba(255, 255, 255, 0.7);
+	transition-duration: 1s;
+} html.dark #contents > li > a > div:last-of-type {
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+#contents > li img {
+	position: absolute;
+	width: 215px;
+	height: 215px;
+	border-radius: 20px;
+	z-index: -1;
+}
+
+#contents > li p {
+	position: absolute;
+	margin: 0 0 8px 8px;
+	font-size: 1.4rem;
 	font-weight: bold;
 	align-self: flex-end;
+	transition-duration: 1s;
+	opacity: 90%;
 }

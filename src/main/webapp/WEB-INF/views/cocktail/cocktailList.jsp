@@ -27,43 +27,12 @@
 			</div>
 		</div>
 		<div id="ad"></div>
-		<ul class="contents">
-           	<li><a>
-           		<p>마르티네스</p>
-           	</a></li>
-           	<li><a>
-           		<p>화이트 레이디</p>
-           	</a></li>
-           	<li><a>
-           		<p>플랜터스 펀치</p>
-           	</a></li>
-           	<li><a>
-           		<p>B-52</p>
-           	</a></li>
-          	<li><a>
-           		<p>뉴욕 사워</p>
-           	</a></li>
-           	<li><a>
-           		<p>카미카제</p>
-           	</a></li>
-           	<li><a>
-           		<p>다크 앤 스토미</p>
-           	</a></li>
-           	<li><a>
-           		<p>프렌치 커넥션</p>
-           	</a></li>
-           	<li><a></a></li>
-           	<li><a></a></li>
-           	<li><a></a></li>
-           	<li><a></a></li>
-           	<li><a></a></li>
-           	<li><a></a></li>
-           	<li><a></a></li>
-           	<li><a></a></li>
+		<ul id="contents">
 		</ul>
 	</main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<jsp:include page="/WEB-INF/views/common/modal.jsp"/>
     <script src="${contextPath}/resources/js/main.js"></script>
+    <script src="${contextPath}/resources/js/cocktail/cocktailList.js"></script>
 </body>
 </html>
