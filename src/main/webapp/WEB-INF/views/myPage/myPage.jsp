@@ -184,12 +184,33 @@
 
     </main>
 
-    <div class="follow-modal">
+   
+   
+
+
+    <div class="folloing-modal">
         <span id="modal-close">&times;</span>
+        <div class="follow-wrap1">
+            <span class="list-title">FOLLOW LIST </span>
+            <div class="margin"></div>
+            <div class="follow-area">
+                <img src="${contextPath}/resources/images/user.png">
+                <span>유저아이디</span>
+            </div>
+        </div>
         
     </div>
     <div class="folloing-modal">
         <span id="modal-close">&times;</span>
+        <div class="folloing-wrap2">
+            <span class="list-title">FOLLOING LIST </span>
+            <div class="margin"></div>
+            <div class="follow-area">
+                <img src="${contextPath}/resources/images/user.png">
+                <span>유저아이디</span>
+            </div>
+            
+        </div>
         
     </div>
 
@@ -201,7 +222,7 @@
 
     <script>
         const contextPath = "${contextPath}"
-     </script>
+    </script>
 
 
     <script src="${contextPath}/resources/js/LoginMyPage.js"></script>

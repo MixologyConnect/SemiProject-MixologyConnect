@@ -19,13 +19,12 @@
 
             <ul  class="list-group">
                 <li><a href="${contextPath}/manager/manager?type=2">회원 및 게시글 관리</a></li>
-                <c:if test="${!empty detail.boardNo}">
-                    <li> <a href="${contextPath}/manager/notice?mode=updatet&type=2">공지사항 관리</a></li>
-                </c:if>
-                <c:if test="${empty detail.boardNo}">
-                    <li> <a href="${contextPath}/manager/notice?mode=insert&type=2">공지사항 작성</a></li>
-                </c:if>
+
+                <li><a onclick = "location.href = 'noticeWrite?mode=update&type=${param.type}&cp=${param.cp}'">공지사항 수정</a></li>
+                <!-- <li> <a href="${contextPath}/manager/noticeWrite?mode=updatet&type=2">공지사항 관리</a></li> -->
+                <li> <a href="${contextPath}/manager/noticeWrite?mode=insert&type=2">공지사항 작성</a></li>
             </ul>
+
 
         </section>
         
@@ -67,7 +66,7 @@
                         </div>
                     </div>
 
-                    <button type="button" onclick = "location.href = 'notice?mode=update&type=${param.type}&cp=${param.cp}&no=155'">수정 및 저장</button>
+                    <button type="button" onclick = "location.href = 'noticeWrite?mode=update&type=${param.type}&cp=${param.cp}'">수정 및 저장</button>
 
                     <button type="submit">등록</button>
 
