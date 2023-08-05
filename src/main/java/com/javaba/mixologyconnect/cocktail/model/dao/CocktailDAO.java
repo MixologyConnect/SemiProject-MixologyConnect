@@ -5,9 +5,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import com.javaba.mixologyconnect.cocktail.model.vo.Cocktail;
+import com.javaba.mixologyconnect.cocktail.model.vo.CocktailThumbnail;
 import com.javaba.mixologyconnect.cocktail.model.vo.Ingredient;
 import com.javaba.mixologyconnect.search.model.dao.SearchDAO;
 
@@ -53,12 +56,29 @@ public class CocktailDAO {
 			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
 			while (rs.next()) cocktail.getRecipe().put(Ingredient.maps.get(rs.getInt("INGR_CODE") + ""),
-										 			   rs.getString("INGR_AMOUNT"));
+										 			   					   rs.getString("INGR_AMOUNT"));
 		} finally {
 			close(pstmt);
 			close(rs);
 		}
 		return cocktail;
+	}
+
+	public List<CocktailThumbnail> selectThumbnails(Connection conn, int no) throws Exception {
+		List<CocktailThumbnail> thumbnails = new ArrayList<CocktailThumbnail>();
+
+		try {
+			pstmt = conn.prepareStatement(prop.getProperty("selectThumbnails"));
+			pstmt.setInt(1, no * 16 - 15);
+			pstmt.setInt(2, no * 16);
+			rs = pstmt.executeQuery();
+			while (rs.next()) thumbnails.add(new CocktailThumbnail(rs.getInt("CKTL_NO"), rs.getString("CKTL_NM"), rs.getString("IMG_PATH")));
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+
+		return thumbnails;
 	}
 
 }

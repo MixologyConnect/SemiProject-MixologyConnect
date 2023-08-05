@@ -60,9 +60,6 @@
                 </c:forEach>
             </ul>
         </div>
-        <div id="cocktail-page">
-            <p>다음 칵테일  이전 칵테일  목록으로</p>
-        </div>
     </main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<jsp:include page="/WEB-INF/views/common/modal.jsp"/>
