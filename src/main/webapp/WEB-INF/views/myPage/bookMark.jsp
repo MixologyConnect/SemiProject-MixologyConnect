@@ -124,6 +124,20 @@
 
     </section>
 
+    <form action="bookMark" method="get" id="boardSearch" onsubmit="return searchValidate()">
+        
+        <select name="key" id="search-key">
+            <option value="t">제목</option>
+            <option value="c">내용</option>
+            <option value="tc">제목+내용</option>
+            <option value="w">작성자</option>
+        </select>
+
+        <input type="text" name="query" id="search-query"  placeholder="검색어를 입력해주세요.">
+
+        <button>검색</button>
+    </form>
+
      <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
      <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 

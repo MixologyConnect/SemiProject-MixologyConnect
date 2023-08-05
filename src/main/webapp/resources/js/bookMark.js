@@ -257,48 +257,17 @@ function deleteBookMark(){
 
 }
 
+// 검색 유효성 검사(검색어를 입력했는지 확인)
+function searchValidate(){
 
-// if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
-//     console.log("안졸려")
-//     deleteBookMark();
-//     // 북마크 삽입 함수
-//     img.src = contextPath + "/resources/images/bookmark.svg"
-    
-//     if(img.src = contextPath + "/resources/images/bookmark.svg"){
+    const input = document.getElementById("search-query")
 
-//         bookMarkInsert();
-//         img.src = contextPath + "/resources/images/bookmark-fill.svg"
-//     }
-// } 
+    if(input.value.trim().length == 0){
+        input.value = ""
+        input.focus();
+        return false;
+    }
 
-
-
-
-
-
-
-// // 북마크가 체크 안되어있으면 실행하는 함수
-// if(img.src = contextPath + "/resources/images/bookmark.svg"){
-
-    
-// }
-
-
-// // 북마크 체크 되어있으면 실행하는 함수
-// if(img.src = contextPath + "/resources/images/bookmark-fill.svg"){
-
-//     function bookBtnClick() {
-     
-          
-//         // 북마크 삭제 함수
-//         deleteBookMark()
-
-      
-    
-//     }
-
-
-// }
-
+}
 
 

@@ -35,7 +35,20 @@ public class BookMarkServlet extends HttpServlet {
 				int cp = 1;
 				if(req.getParameter("cp") != null) cp = Integer.parseInt(req.getParameter("cp"));
 				
-				Map<String, Object> map =service.selectbookMarkList(cp, loginMember);
+				
+				Map<String, Object> map = null;
+				
+				if(req.getParameter("key") == null ) {
+					// 일반 목록 조회
+					map =service.selectbookMarkList(cp, loginMember);
+				} else {
+					// 검색 목록 조회
+					String key = req.getParameter("key");
+					String query = req.getParameter("query");
+					
+					map = service.searchBoardList(loginMember, cp,  key, query);
+				}
+				
 				
 				req.setAttribute("map", map);
 				

@@ -104,9 +104,9 @@ public class MypageDAO {
 
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, loginMember.getMemberNo());
-			pstmt.setInt(2, start);
-			pstmt.setInt(3, end);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			pstmt.setInt(3, loginMember.getMemberNo());
 
 			rs = pstmt.executeQuery();
 
@@ -369,6 +369,59 @@ public class MypageDAO {
 		
 		return bookMarkList;
 	}
+	
+	
+	/** 검색기능 북마크 리스트 DAO
+	 * @param conn
+	 * @param loginMember
+	 * @param pagination
+	 * @param condition
+	 * @return bookMarkList
+	 * @throws Exception
+	 */
+	public List<Board> searchList(Connection conn, Member loginMember, Pagination pagination, String condition) throws Exception{
+		
+		List<Board> bookMarkList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("searchBookmark1")
+					 					+ condition
+					 					+ prop.getProperty("searchBookmark2");
+			
+			int start = (pagination.getCurrentPage() - 1 ) * pagination.getLimit() + 1;
+			
+			int end = start + pagination.getLimit() - 1;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				Board bk = new Board();
+				
+				bk.setBoardNo(rs.getInt("BOARD_NO"));
+				bk.setBoardTitle(rs.getString("BOARD_TITLE"));
+				bk.setMemberName(rs.getString("MEMBER_NM"));
+				bk.setBoardDate(rs.getString("BOARD_DT"));
+				bk.setReadCount(rs.getInt("READ_COUNT"));
+				
+				bookMarkList.add(bk);
+				
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return bookMarkList;
+	}
 
 
 
@@ -608,6 +661,45 @@ public class MypageDAO {
 		
 		return result;
 	}
+
+
+
+	/** 검색기능 게시글 수 조회 DAO
+	 * @param conn
+	 * @param condition
+	 * @return listCount
+	 * @throws Exception
+	 */
+	public int searchListCount(Connection conn, Member loginMember, String condition)throws Exception {
+		int listCount = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("searchListCount") + condition;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+			
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return listCount;
+	}
+
+
+	
 
 
 
