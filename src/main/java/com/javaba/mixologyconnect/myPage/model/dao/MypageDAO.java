@@ -465,38 +465,35 @@ public class MypageDAO {
 	 * @return result
 	 * @throws Exception
 	 */
-//	public int existNo(Connection conn, int boardNo, Member loginMember) throws Exception{
+	public int existNo(Connection conn, int boardNo, Member loginMember) throws Exception{
 		
-//		int result = 0;
+		int result = 0;
 		
-//		try {
-//			
-//			String sql = prop.getProperty("btnImageB");
-//			
-//			pstmt = conn.prepareStatement(sql);
-//			
-////			pstmt.setInt(1, boardNo);
-////			pstmt.setInt(2, loginMember.getMemberNo());
-//			
-//			rs = pstmt.executeQuery();
-//			
-//			if(rs.next()) {
-//				
-//				result = rs.getInt(1);
-//				System.out.println("북마크에 있? : " + result);
-//				
-//			}
-//			
-//			
-//			
-//			
-//		}finally {
-//			close(rs);
-//			close(pstmt);
-//		}
-//		
-//		return result;
-//	}
+		try {
+			
+			String sql = prop.getProperty("btnImageB");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, loginMember.getMemberNo());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				result = rs.getInt(1);
+				System.out.println("북마크에 있? : " + result);
+				
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 
 	/** 북마크 해제 DAO
@@ -751,7 +748,6 @@ public class MypageDAO {
 		List<Board> boardList = new ArrayList<Board>();
 		
 		try {
-
 			String sql = prop.getProperty("userPageBoardCount");
 
 			// BETWEEN 구문에 들어갈 범위 계산
@@ -781,17 +777,12 @@ public class MypageDAO {
 
 				boardList.add(board);
 			}
-
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-
-
 		return boardList;
-		
 	}
-
 
 	/** 유저 정보 찾기
 	 * @param conn
@@ -804,7 +795,6 @@ public class MypageDAO {
 		Member member = new Member();
 		
 		try {
-			
 			String sql = prop.getProperty("selectMember");
 			pstmt = conn.prepareStatement(sql);
 			
@@ -812,25 +802,17 @@ public class MypageDAO {
 			
 			rs = pstmt.executeQuery();
 			
-			
 			if(rs.next()) {
 				member.setMemberName(rs.getString("MEMBER_NM"));
 				member.setProfileImage(rs.getString("MEMBER_PROFILE"));
 				member.setMemberNo(rs.getInt("MEMBER_NO"));
 			}
-			
-			
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-		
 		return member;
 	}
-
-
-
-
 }
 
 
