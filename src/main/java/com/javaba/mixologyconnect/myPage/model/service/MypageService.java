@@ -7,11 +7,14 @@ import java.util.Map;
 
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
+import com.javaba.mixologyconnect.board.model.dao.BoardDAO;
 import com.javaba.mixologyconnect.board.model.vo.Board;
 import com.javaba.mixologyconnect.board.model.vo.Pagination;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 import com.javaba.mixologyconnect.myPage.model.dao.MypageDAO;
 import com.javaba.mixologyconnect.myPage.model.vo.BookMark;
+
+
 
 public class MypageService {
 	
@@ -39,7 +42,13 @@ public class MypageService {
 
 			// 3) 게시글 목록 조회
 			List<Board> boardList = dao.MyPageBoardCount( conn, pagination, loginMember);
-
+			
+			BoardDAO dao = new BoardDAO();
+			
+			for(Board b : boardList) {
+				int likeCount= dao.selectLike(conn,b.getBoardNo());
+				b.setBoardLikeCount(likeCount); 
+			}
 			// 4) Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장 
 			Map<String, Object> map = new HashMap<String, Object>();
 
