@@ -31,10 +31,12 @@ function preventScroll(b) {
     if (b) {
         scrollY = getScrollY()
         $("body").css({"position": "fixed",
+                       "width": "100%",
                        "top": "-" + scrollY + "px"});
         return;
     }
     $("body").css({"position": "",
+                   "width": "",
                    "top": ""});
     window.scrollTo(0, scrollY);
     scrollY = null;
