@@ -37,7 +37,6 @@
                             <td>${cocktail.difficulty}</td>
                         </tr>
                     </table>
-                    <p> </p>
                 </div>
                 <div id="cocktail-description">
                     <h2>설명</h2>

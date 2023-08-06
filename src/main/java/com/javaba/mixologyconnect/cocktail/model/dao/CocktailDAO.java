@@ -81,4 +81,20 @@ public class CocktailDAO {
 		return thumbnails;
 	}
 
+	public List<CocktailThumbnail> filterThumbnails(Connection conn, String ingredients, String alcohol,
+			String sugar) throws Exception {
+		List<CocktailThumbnail> thumbnails = new ArrayList<CocktailThumbnail>();
+
+		try {
+			pstmt = conn.prepareStatement(prop.getProperty("filterThumbnails") + "WHERE INGR_CODE IN(" + ingredients + ")" + (alcohol != null ? " AND ACL_LEVEL = '" + alcohol + "'" : "") + (sugar != null ? " AND SGR_LEVEL = '" + sugar + "'" : ""));
+			rs = pstmt.executeQuery();
+			while (rs.next()) thumbnails.add(new CocktailThumbnail(rs.getInt("CKTL_NO"), rs.getString("CKTL_NM"), rs.getString("IMG_PATH")));
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+
+		return thumbnails;
+	}
+
 }

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<input%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,9 +22,44 @@
 			<input type="text" placeholder="어떤 칵테일을 찾고 계신가요?">
 		</div>
 		<div id="filter">
-			<div>
-				<p>베이스</p>
-			</div>
+			<table>
+				<tr>
+					<td>베이스</td>
+					<td>
+						<input type="checkbox" class="radio-ingredient" value="67,70">브랜디</input>
+						<input type="checkbox" class="radio-ingredient" value="25,31,37,49">럼</input>
+						<input type="checkbox" class="radio-ingredient" value="3,18,27,32,34,35,39,46,48,51,57,68,69">리큐르</input>
+						<input type="checkbox" class="radio-ingredient" value="15,45,58,65">위스키</input>
+						<input type="checkbox" class="radio-ingredient" value="1,13">진</input>
+						<input type="checkbox" class="radio-ingredient" value="2,47">베르무트</input>
+					</td>
+				</tr>
+				<tr>
+					<td>부가 재료</td>
+					<td>
+						<input type="checkbox" class="radio-ingredient" value="5,17,20,28,30,50">과일 주스</input>
+						<input type="checkbox" class="radio-ingredient" value="11,16,21,24">탄산 음료</input>
+						<input type="checkbox" class="radio-ingredient" value="38,56,63,54,63,66,71">우유/크림/달걀</input>
+						<input type="checkbox" class="radio-ingredient" value="7,10,14,26,52">시럽</input>
+					</td>
+				</tr>
+				<tr>
+					<td>도수</td>
+					<td>
+						<input type="radio" name="alcohol" value="상">상</input>
+						<input type="radio" name="alcohol" value="중">중</input>
+						<input type="radio" name="alcohol" value="하">하</input>
+					</td>
+				</tr>
+				<tr>
+					<td>당도</td>
+					<td>
+						<input type="radio" name="sugar" value="상">상</input>
+						<input type="radio" name="sugar" value="중">중</input>
+						<input type="radio" name="sugar" value="하">하</input>
+					</td>
+				</tr>
+			</table>
 		</div>
 		<div id="ad"></div>
 		<ul id="contents">

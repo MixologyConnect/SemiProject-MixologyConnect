@@ -6,6 +6,8 @@ $.getScript("https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=cz1labzu7
 
 function searchPlace(place) {
     let e = $("#place-content");
+    let x;
+    let y;
     e.empty();
     $.ajax({
         url: "place",
@@ -23,6 +25,16 @@ function searchPlace(place) {
                                 <a href='` + i.link + `'>` + i.link + `</a>`;
                 e.append(li);
                 latLng = naver.maps.TransCoord.fromTM128ToLatLng(new naver.maps.Point(i.mapx, i.mapy));
+                let marker = new naver.maps.Marker({
+                    position: new naver.maps.LatLng(latLng),
+                    map: map,
+                    title: i.title,
+                    icon: {
+                        content: `<div style='color: red;'>` + i.title + `</div>`,
+                        size: new naver.maps.Size(38, 58),
+                        anchor: new naver.maps.Point(19, 58)
+                    }
+                });
                 map.setCenter(latLng);
             }
         },
