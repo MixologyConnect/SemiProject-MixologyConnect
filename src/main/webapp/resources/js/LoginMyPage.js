@@ -168,50 +168,60 @@ function followingList(){
         type: "POST",
         dataType:"JSON",
         success:function(followings){
-            console.log(followings);
-            console.log(followings.length);
+            // console.log(followings);
+            // console.log(followings.length);
             
             
 
             const followingList= document.querySelector("#followingList");
             followingList.innerText="";
-
-            for(let following of followings ){
-                console.log(following);
+            if(followings.length==0){
                 const followArea=document.createElement("div")
                 followArea.classList.add("following-area");
 
-                //프로필 사진 
-                const fInfo = document.createElement("div");
-                fInfo.classList.add("f-info");
-                
-                const profileImage = document.createElement("img");
-                profileImage.classList.add("fprofile");
-                
-                if(following.profileImage != null){
-                    profileImage.setAttribute("src",contextPath+following.profileImage);
-                }else{
-                    profileImage.setAttribute("src",contextPath+"/resources/images/user.png");
+                followArea.innerText="팔로잉 목록이 비었었습니다."
+                followingList.append(followArea);
+            }else{
+
+                for(let following of followings ){
+                    // console.log(following);
+                    const followArea=document.createElement("div")
+                    followArea.classList.add("following-area");
+    
+                    //프로필 사진 
+                    const fInfo = document.createElement("div");
+                    fInfo.classList.add("f-info");
+                    
+                    const profileImage = document.createElement("img");
+                    profileImage.classList.add("fprofile");
+                    
+                    if(following.profileImage != null){
+                        profileImage.setAttribute("src",contextPath+following.profileImage);
+                    }else{
+                        profileImage.setAttribute("src",contextPath+"/resources/images/user.png");
+                    }
+                    
+                    //회원 아이디 영역
+                    const span = document.createElement("span");
+                    span.innerHTML= following.memberId;
+                    
+                    //버튼 영역
+                    const btnArea = document.createElement("div");
+                    
+                    const followBtn= document.createElement("button");
+                    followBtn.setAttribute("type", "button");
+                    followBtn.setAttribute("id", "followBtn");
+                    followBtn.setAttribute("onclick", "unfollowBtnClick("+following.memberNo+")");
+                    followBtn.innerHTML="UnFollow";
+                    btnArea.append(followBtn);
+                    
+                    fInfo.append(profileImage, span, btnArea);
+                    followArea.append(fInfo);
+                    followingList.append(followArea)
                 }
-                
-                //회원 아이디 영역
-                const span = document.createElement("span");
-                span.innerHTML= following.memberId;
-                
-                //버튼 영역
-                const btnArea = document.createElement("div");
-                
-                const followBtn= document.createElement("button");
-                followBtn.setAttribute("type", "button");
-                followBtn.setAttribute("id", "followBtn");
-                followBtn.setAttribute("onclick", "unfollowBtnClick("+following.memberNo+")");
-                followBtn.innerHTML="UnFollow";
-                btnArea.append(followBtn);
-                
-                fInfo.append(profileImage, span, btnArea);
-                followArea.append(fInfo);
-                followingList.append(followArea)
             }
+
+            
             const followingCount = document.getElementById("followingCount")
             followingCount.innerText="팔로잉 "+followings.length;
         },
@@ -246,7 +256,7 @@ function unfollowBtnClick(followingNo){
                 if(result > 0){
                     alert("언팔했습니다")
                     followingList();
-                    
+                    folloingModal.classList.toggle('show');
 
                 }else{
                     alert("실패");
@@ -268,57 +278,72 @@ function unfollowBtnClick(followingNo){
 const followerModal = document.querySelector('.follower-modal');
 const followerClose = document.querySelector(".follower-close");
 
+
+
+
+
 function followerList(){
     followerModal.classList.toggle('show');
+
+
+
     $.ajax({
         url:contextPath + "/myPage/followerList",
         data: {},
         type: "POST",
         dataType:"JSON",
         success:function(followers){
-            console.log(followers);
-            console.log(followers.length);
+            // console.log(followers);
+            // console.log(followers.length);
             
-            
-
             const followerList= document.querySelector("#followerList");
             followerList.innerText="";
 
-            for(let follower of followers ){
-                console.log(follower.memberNo);
+
+            if(followers.length==0){
                 const followArea=document.createElement("div")
                 followArea.classList.add("follow-area");
 
-                //프로필 사진 
-                const fInfo = document.createElement("div");
-                fInfo.classList.add("f-info");
-                
-                const profileImage = document.createElement("img");
-                profileImage.classList.add("fprofile");
-                
-                if(follower.profileImage != null){
-                    profileImage.setAttribute("src",contextPath+follower.profileImage);
-                }else{
-                    profileImage.setAttribute("src",contextPath+"/resources/images/user.png");
+                followArea.innerText="팔로워 목록이 비었었습니다."
+                followerList.append(followArea);
+            }else{
+
+                for(let follower of followers ){
+                    // console.log(follower.memberNo);
+                    const followArea=document.createElement("div")
+                    followArea.classList.add("follow-area");
+    
+                    //프로필 사진 
+                    const fInfo = document.createElement("div");
+                    fInfo.classList.add("f-info");
+                    
+                    const profileImage = document.createElement("img");
+                    profileImage.classList.add("fprofile");
+                    
+                    if(follower.profileImage != null){
+                        profileImage.setAttribute("src",contextPath+follower.profileImage);
+                    }else{
+                        profileImage.setAttribute("src",contextPath+"/resources/images/user.png");
+                    }
+                    
+                    //회원 아이디 영역
+                    const span = document.createElement("span");
+                    span.innerHTML= follower.memberId;
+                    
+                    //버튼 영역
+                    const btnArea = document.createElement("div");
+                    
+                    const followBtn= document.createElement("button");
+                    followBtn.setAttribute("type", "button");
+                    followBtn.setAttribute("id", "followBtn");
+                    followBtn.setAttribute("onclick","followCancelBtnClick("+follower.memberNo+")");
+                    followBtn.innerHTML="Cancel";
+                    btnArea.append(followBtn);
+                    
+                    fInfo.append(profileImage, span, btnArea);
+                    followArea.append(fInfo);
+                    followerList.append(followArea)
                 }
-                
-                //회원 아이디 영역
-                const span = document.createElement("span");
-                span.innerHTML= follower.memberId;
-                
-                //버튼 영역
-                const btnArea = document.createElement("div");
-                
-                const followBtn= document.createElement("button");
-                followBtn.setAttribute("type", "button");
-                followBtn.setAttribute("id", "followBtn");
-                followBtn.setAttribute("onclick","followCancelBtnClick("+follower.memberNo+")");
-                followBtn.innerHTML="Cancel";
-                btnArea.append(followBtn);
-                
-                fInfo.append(profileImage, span, btnArea);
-                followArea.append(fInfo);
-                followerList.append(followArea)
             }
             const followerCount = document.getElementById("followerCount")
             followerCount.innerText="팔로워 "+followers.length;
@@ -355,6 +380,7 @@ function followCancelBtnClick(cancelfollowerNo){
                 if(result > 0){
                     alert("취소했습니다")
                     followerList();
+                    followerModal.classList.toggle('show');
 
                 }else{
                     alert("실패");
