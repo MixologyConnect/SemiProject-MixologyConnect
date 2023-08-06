@@ -167,7 +167,7 @@
             <span class="follower-close">&times;</span>
             <span class="list-title">FOLLOW LIST</span>
             <c:choose>
-                <c:when test="${followers.length == 0}">
+                <c:when test="${empty followers}">
                     <div class="follow-area">
                         <span>팔로워가 없습니다.</span>
                     </div>
@@ -175,13 +175,21 @@
                 <c:otherwise>
                     <c:forEach var="follower" items="${followers}">
                         <div class="follow-area">
-                             <c:if test="${empty follower.profileImage}">
-                                <img src="${contextPath}/resources/images/user.png">
-                             </c:if>
-                             <c:if test="${!empty follower.profileImage}">
-                                 <img src="${contextPath}${follower.profileImage}">
-                             </c:if>
-                        <span>${follower.memberId}</span>
+                            <div class="f-info">
+                                <c:if  test="${empty follower.profileImage}">
+                                   <img class="fprofile" src="${contextPath}/resources/images/user.png">
+                                </c:if>
+                                <c:if test="${!empty follower.profileImage}">
+                                    <img class="fprofile" src="${contextPath}${follower.profileImage}">
+                                </c:if>
+                                <span>${follower.memberId}</span>
+                            </div>
+                            <div>
+                                
+								<button type="button" id="followBtn" onclick="followCancelBtnClick()">Cancel</button>
+								<input type="hidden" name="0" id="followCheck">
+
+                            </div>
                         </div>
                     </c:forEach>
                 </c:otherwise>
@@ -194,28 +202,35 @@
     <div class="folloing-modal">
         <div class="folloing-wrap2">
             <span class="folloing-close">&times;</span>
-            <span class="list-title">FOLLOING LIST </span>
-                <c:choose>
-                    <c:when test="${folloings.length == 0}">
+            <span class="list-title">FOLLOWING LIST </span>
+            <c:choose>
+                <c:when test="${empty followings}">
+                    <div class="follow-area">
+                        <span>팔로워가 없습니다.</span>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <c:forEach var="following" items="${followings}">
                         <div class="follow-area">
-                            <span>팔로잉이 없습니다.</span>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <c:forEach var="folloing" items="${followings}">
-                            <div class="follow-area">
-                                 <c:if test="${empty folloing.profileImage}">
-                                    <img src="${contextPath}/resources/images/user.png">
-                                 </c:if>
-                                 <c:if test="${!empty folloing.profileImage}">
-                                     <img src="${contextPath}${folloing.profileImage}">
-                                 </c:if>
-                            <span>${folloing.memberId}</span>
+                            <div class="f-info">
+                                <c:if test="${empty following.profileImage}">
+                                   <img class="fprofile" src="${contextPath}/resources/images/user.png">
+                                </c:if>
+                                <c:if test="${!empty following.profileImage}">
+                                    <img class="fprofile" src="${contextPath}${following.profileImage}">
+                                </c:if>
+                                <span>${following.memberId}</span>
                             </div>
-                        </c:forEach>
-                    </c:otherwise>
-                </c:choose>
-                
+                            <div>
+								<button type="button" id="followBtn" onclick="unfollowBtnClick()">UnFollow</button>
+								<input type="hidden" name="0" id="followCheck">
+                            </div>
+
+
+                        </div>
+                    </c:forEach>
+                </c:otherwise>
+            </c:choose>    
             
                 
                 
