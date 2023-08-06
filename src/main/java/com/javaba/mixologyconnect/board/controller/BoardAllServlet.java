@@ -44,8 +44,6 @@ public class BoardAllServlet extends HttpServlet {
 
 			req.setAttribute("map", map);
 
-			System.out.println("map : " + map);
-
 
 			String path = "/WEB-INF/views/board/boardAll.jsp";
 

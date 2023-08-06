@@ -289,13 +289,7 @@
     font-size: 30px;
 }
 
-.delete-image{
-    /* display: none; */
-    /* position: relative; */
-    /* top: 290px; */
-    /* right: 110px; */
-    
-}
+
 
 .delete-image:hover{
     cursor: pointer;
