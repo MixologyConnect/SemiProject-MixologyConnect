@@ -37,7 +37,6 @@
                             <td>${cocktail.difficulty}</td>
                         </tr>
                     </table>
-                    <p> </p>
                 </div>
                 <div id="cocktail-description">
                     <h2>설명</h2>
@@ -59,9 +58,6 @@
                     </li>
                 </c:forEach>
             </ul>
-        </div>
-        <div id="cocktail-page">
-            <p>다음 칵테일  이전 칵테일  목록으로</p>
         </div>
     </main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

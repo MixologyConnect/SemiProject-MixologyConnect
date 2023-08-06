@@ -96,10 +96,8 @@ this.addEventListener("click", function(e){
 
 
 
-
-
-/* 팔로우 리스트 */
-
+/*
+팔로우 리스트 
 const followerVeiw = document.getElementById("followerView");
 const followWrap1 = document.querySelector(".follow-wrap1");
 const folloingView = document.getElementById("folloingView");
@@ -115,7 +113,7 @@ followerVeiw.addEventListener("click", function () {
     }
 });
 
-/* 팔로잉 리스트 */
+ 팔로잉 리스트 
 folloingView.addEventListener("click", function () {
    
     if (folloingwrap.style.display === "block") {
@@ -124,103 +122,278 @@ folloingView.addEventListener("click", function () {
         $(folloingwrap).stop().slideDown(200);
     }
 });
+
+*/
+
+
+
+
+// 팔로잉 팔로워 목록 리스트 
+
+// const folloingmodal = document.querySelector('.folloing-modal');
+
+// (function() {
+//     const followerView = document.getElementById("followerView");
+//     const followerModal = document.querySelector('.follower-modal');
+//     const followerClose = document.querySelector(".follower-close");
+
+//     followerView.addEventListener("click", function() {
+//         followerModal.classList.toggle('show');
+//     });
+
+//     followerClose.addEventListener("click", function() {
+//         followerModal.classList.toggle('hide'); // 'hide' 클래스 추가
+
+//         setTimeout(function() {
+//             followerModal.classList.remove('show'); // 'show' 클래스 제거
+//             followerModal.classList.remove('hide'); // 'hide' 클래스 제거
+//         }, 450);
+//     });
+// })();
+
+
+
+
+
+//팔로잉 목록 리스트
+const folloingView = document.getElementById("folloingView");
+const folloingModal = document.querySelector('.folloing-modal');
+const folloingClose = document.querySelector(".folloing-close");
+
+function followingList(){
+    folloingModal.classList.toggle('show');
+    $.ajax({
+        url:contextPath + "/myPage/followingList",
+        data: {},
+        type: "POST",
+        dataType:"JSON",
+        success:function(followings){
+            // console.log(followings);
+            // console.log(followings.length);
+            
+            
+
+            const followingList= document.querySelector("#followingList");
+            followingList.innerText="";
+            if(followings.length==0){
+                const followArea=document.createElement("div")
+                followArea.classList.add("following-area");
+
+                followArea.innerText="팔로잉 목록이 비었었습니다."
+                followingList.append(followArea);
+            }else{
+
+                for(let following of followings ){
+                    // console.log(following);
+                    const followArea=document.createElement("div")
+                    followArea.classList.add("following-area");
     
+                    //프로필 사진 
+                    const fInfo = document.createElement("div");
+                    fInfo.classList.add("f-info");
+                    
+                    const profileImage = document.createElement("img");
+                    profileImage.classList.add("fprofile");
+                    
+                    if(following.profileImage != null){
+                        profileImage.setAttribute("src",contextPath+following.profileImage);
+                    }else{
+                        profileImage.setAttribute("src",contextPath+"/resources/images/user.png");
+                    }
+                    
+                    //회원 아이디 영역
+                    const span = document.createElement("span");
+                    span.innerHTML= following.memberId;
+                    
+                    //버튼 영역
+                    const btnArea = document.createElement("div");
+                    
+                    const followBtn= document.createElement("button");
+                    followBtn.setAttribute("type", "button");
+                    followBtn.setAttribute("id", "followBtn");
+                    followBtn.setAttribute("onclick", "unfollowBtnClick("+following.memberNo+")");
+                    followBtn.innerHTML="UnFollow";
+                    btnArea.append(followBtn);
+                    
+                    fInfo.append(profileImage, span, btnArea);
+                    followArea.append(fInfo);
+                    followingList.append(followArea)
+                }
+            }
+
+            
+            const followingCount = document.getElementById("followingCount")
+            followingCount.innerText="팔로잉 "+followings.length;
+        },
+        error:function(){
+            console.log("에러발생")
+        }
+    
+    })
+
+   
+};
+
+folloingClose.addEventListener("click", function() {
+    folloingModal.classList.toggle('hide'); // 'hide' 클래스 추가
+
+    setTimeout(function() {
+        folloingModal.classList.remove('show'); // 'show' 클래스 제거
+        folloingModal.classList.remove('hide'); // 'hide' 클래스 제거
+    }, 450);
+});
+
+
+function unfollowBtnClick(followingNo){
+    if( confirm("정말로 팔로우 취소하시겠습니까?" )){
+        $.ajax({
+            url:contextPath+"/myPage/unfollow",
+            type: "post",
+            dataType: "JSON",
+            data:{'loginMemberNo': loginMemberNo,
+                'unfollowerNo': followingNo  },
+            success : function(result){
+                if(result > 0){
+                    alert("언팔했습니다")
+                    followingList();
+                    folloingModal.classList.toggle('show');
+
+                }else{
+                    alert("실패");
+                }
+            },
+            error: function(result){
+                console.log("오류발생");
+            }
+                
+                
+            })
+    }
+}
+
+
+
+//팔로워 목록 리스트
+
+const followerModal = document.querySelector('.follower-modal');
+const followerClose = document.querySelector(".follower-close");
 
 
 
 
 
+function followerList(){
+    followerModal.classList.toggle('show');
 
 
 
+    $.ajax({
+        url:contextPath + "/myPage/followerList",
+        data: {},
+        type: "POST",
+        dataType:"JSON",
+        success:function(followers){
+            // console.log(followers);
+            // console.log(followers.length);
+            
+            const followerList= document.querySelector("#followerList");
+            followerList.innerText="";
+
+
+            if(followers.length==0){
+                const followArea=document.createElement("div")
+                followArea.classList.add("follow-area");
+
+                followArea.innerText="팔로워 목록이 비었었습니다."
+                followerList.append(followArea);
+            }else{
+
+                for(let follower of followers ){
+                    // console.log(follower.memberNo);
+                    const followArea=document.createElement("div")
+                    followArea.classList.add("follow-area");
+    
+                    //프로필 사진 
+                    const fInfo = document.createElement("div");
+                    fInfo.classList.add("f-info");
+                    
+                    const profileImage = document.createElement("img");
+                    profileImage.classList.add("fprofile");
+                    
+                    if(follower.profileImage != null){
+                        profileImage.setAttribute("src",contextPath+follower.profileImage);
+                    }else{
+                        profileImage.setAttribute("src",contextPath+"/resources/images/user.png");
+                    }
+                    
+                    //회원 아이디 영역
+                    const span = document.createElement("span");
+                    span.innerHTML= follower.memberId;
+                    
+                    //버튼 영역
+                    const btnArea = document.createElement("div");
+                    
+                    const followBtn= document.createElement("button");
+                    followBtn.setAttribute("type", "button");
+                    followBtn.setAttribute("id", "followBtn");
+                    followBtn.setAttribute("onclick","followCancelBtnClick("+follower.memberNo+")");
+                    followBtn.innerHTML="Cancel";
+                    btnArea.append(followBtn);
+                    
+                    fInfo.append(profileImage, span, btnArea);
+                    followArea.append(fInfo);
+                    followerList.append(followArea)
+                }
+            }
+            const followerCount = document.getElementById("followerCount")
+            followerCount.innerText="팔로워 "+followers.length;
+        },
+        error:function(){
+            console.log("에러발생")
+        }
+    
+    })
+
+   
+};
+
+followerClose.addEventListener("click", function() {
+    followerModal.classList.toggle('hide'); // 'hide' 클래스 추가
+
+    setTimeout(function() {
+        followerModal.classList.remove('show'); // 'show' 클래스 제거
+        followerModal.classList.remove('hide'); // 'hide' 클래스 제거
+    }, 450);
+});
 
 
 
+function followCancelBtnClick(cancelfollowerNo){
+    if( confirm("정말 취소하시겠습니까?" )){
+        $.ajax({
+            url:contextPath+"/myPage/cancleFollower",
+            type: "post",
+            dataType: "JSON",
+            data:{'loginMemberNo': loginMemberNo,
+                'cancleFollower': cancelfollowerNo  },
+            success : function(result){
+                if(result > 0){
+                    alert("취소했습니다")
+                    followerList();
+                    followerModal.classList.toggle('show');
 
-
-
-
-
-// function folderDeleteClick(){
-//     var checkBoxArr = []; 
-//     $("input:checkbox[name='folderCheckname']:checked").each(function() {
-//     checkBoxArr.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
-//     console.log(checkBoxArr);
-//   })
-  
-//     $.ajax({
-//         type  : "POST",
-//         url    : "<c:url value='/folderDelete.do'/>",
-//         data: {
-//         checkBoxArr : checkBoxArr        // folder seq 값을 가지고 있음.
-//         },
-//         success: function(result){
-//             console.log(result);
-//         },
-//         error: function(xhr, status, error) {
-//             alert(error);
-//         }  
-//      });
-//   }
-
-
-
-
-
-
-
-
-
-
-
-// // 체크된 값만 배열에 담기
-// var checkArr = []
-// for(let i=0; i<postCheck.length; i++){
-//     postCheck[i].addEventListener("click",function(){
-//         // checkArr = postCheck[i].value.push;
-//         if(postCheck[i].checked == false){
-//             // checkArr.push($(this).val());
-//             // console.log(checkArr)
-
-//             checkArr.prop()
-//         }
-
-//         if(postCheck[i].checked == true){
-//             checkArr.push($(this).val());
-//             console.log(checkArr)
-//         }
-//     })
-        
-// }
-
-
-
-// var checkArr = []
-// for(let i=0; i<postCheck.length; i++){
-
-
-//     if(postCheck.checked == true){
-//         postCheck[i].addEventListener("click", function(){
-
-//             console.log("dd")
-//         })
-//     }
-
-    // postCheck[i].addEventListener("click",function(){
-    //     // checkArr = postCheck[i].value.push;
-    //     if(postCheck[i].checked == false){
-    //         // checkArr.push($(this).val());
-    //         // console.log(checkArr)
-
-    //         checkArr.prop()
-    //     }
-
-    //     if(postCheck[i].checked == true){
-    //         checkArr.push($(this).val());
-    //         console.log(checkArr)
-    //     }
-    // })
-        
+                }else{
+                    alert("실패");
+                }
+            },
+            error: function(result){
+                console.log("오류발생");
+            }
+                
+                
+            })
+    }
+}
 
 
 

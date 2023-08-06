@@ -36,9 +36,9 @@
         <a href="${contextPath}/cocktail/list">칵테일</a>
         <a href="${contextPath}/cocktailTest/cocktailTest">칵테일 테스트</a>
         <a href="${contextPath}/place">플레이스</a>
-        <c:if test="${loginMember.managerCode == 'Y'}">
-            <a href="${contextPath}/manager/manager?type=2">관리자 모드</a>
-        </c:if>
+        <!-- <c:if test="${loginMember.managerCode == 'Y'}">
+        </c:if> -->
+        <a href="${contextPath}/manager/manager?type=2">관리자 모드</a>
     </div>
 </header>
 <nav>
@@ -47,8 +47,8 @@
     <a href="${contextPath}/cocktail/list">칵테일</a>
     <a href="${contextPath}/cocktailTest/cocktailTest">칵테일 테스트</a>
     <a href="${contextPath}/place">플레이스</a>
-    <c:if test="${loginMember.managerCode == 'Y'}">
-        <a href="${contextPath}/manager/manager?type=2">관리자 모드</a>
-    </c:if>
+    <!-- <c:if test="${loginMember.managerCode == 'Y'}">
+    </c:if> -->
+    <a href="${contextPath}/manager/manager?type=2">관리자 모드</a>
   
 </nav>
