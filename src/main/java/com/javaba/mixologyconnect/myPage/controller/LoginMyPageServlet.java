@@ -38,6 +38,7 @@ public class LoginMyPageServlet extends HttpServlet {
 			int memberNo = loginMember.getMemberNo();
 			req.setAttribute("followers", memberService.selectFollowers(memberNo));
 			req.setAttribute("followings", memberService.selectFollowings(memberNo));
+			req.setAttribute("loginMemberNo", loginMember.getMemberNo());
 
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/myPage/myPage.jsp");
 			dispatcher.forward(req, resp);
