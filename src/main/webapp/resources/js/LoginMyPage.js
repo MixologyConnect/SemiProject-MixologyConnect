@@ -125,51 +125,49 @@ folloingView.addEventListener("click", function () {
 
 */
 
-// 즉시 실행 함수
-(function(){
-    const followerVeiw = document.getElementById("followerView");
-
-
-    
-     
-        const followModal = document.querySelector('.follow-modal');
-        const followWrap = document.querySelector(".follow-wrap1");
-        const modalClose = document.getElementById("modal-close");
-
-
-        
-        followerVeiw.addEventListener("click", function () {
-            modalImage.setAttribute("src", th.getAttribute("src") );
-            
-            /* on/off 스위치 */
-            // classList.toggle("클래스명") : 클래스가 없으면 추가(add)
-            //                                클래스가 있으면 제거(remove)
-            
-            modal.classList.toggle('show'); // add
-        });
-        
-
-
-        // X버튼
-        modalClose.addEventListener("click", function(){
-           
-            modal.classList.toggle('hide'); // hide 클래스 추가
-
-
-            setTimeout(function(){ // 0.45초 후 동작
-                modal.classList.toggle('hide'); // hide 클래스 제거
-
-
-                modal.classList.toggle('show'); // remove
-            }, 450);
-        });
 
 
 
 
-    
 
+const folloingmodal = document.querySelector('.folloing-modal');
 
+(function() {
+    const followerView = document.getElementById("followerView");
+    const followerModal = document.querySelector('.follower-modal');
+    const followerClose = document.querySelector(".follower-close");
+
+    followerView.addEventListener("click", function() {
+        followerModal.classList.toggle('show');
+    });
+
+    followerClose.addEventListener("click", function() {
+        followerModal.classList.toggle('hide'); // 'hide' 클래스 추가
+
+        setTimeout(function() {
+            followerModal.classList.remove('show'); // 'show' 클래스 제거
+            followerModal.classList.remove('hide'); // 'hide' 클래스 제거
+        }, 450);
+    });
+})();
+
+(function() {
+    const folloingView = document.getElementById("folloingView");
+    const folloingModal = document.querySelector('.folloing-modal');
+    const folloingClose = document.querySelector(".folloing-close");
+
+    folloingView.addEventListener("click", function() {
+        folloingModal.classList.toggle('show');
+    });
+
+    folloingClose.addEventListener("click", function() {
+        folloingModal.classList.toggle('hide'); // 'hide' 클래스 추가
+
+        setTimeout(function() {
+            folloingModal.classList.remove('show'); // 'show' 클래스 제거
+            folloingModal.classList.remove('hide'); // 'hide' 클래스 제거
+        }, 450);
+    });
 })();
 
 
@@ -177,96 +175,6 @@ folloingView.addEventListener("click", function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-// function folderDeleteClick(){
-//     var checkBoxArr = []; 
-//     $("input:checkbox[name='folderCheckname']:checked").each(function() {
-//     checkBoxArr.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
-//     console.log(checkBoxArr);
-//   })
-  
-//     $.ajax({
-//         type  : "POST",
-//         url    : "<c:url value='/folderDelete.do'/>",
-//         data: {
-//         checkBoxArr : checkBoxArr        // folder seq 값을 가지고 있음.
-//         },
-//         success: function(result){
-//             console.log(result);
-//         },
-//         error: function(xhr, status, error) {
-//             alert(error);
-//         }  
-//      });
-//   }
-
-
-
-
-
-
-
-
-
-
-
-// // 체크된 값만 배열에 담기
-// var checkArr = []
-// for(let i=0; i<postCheck.length; i++){
-//     postCheck[i].addEventListener("click",function(){
-//         // checkArr = postCheck[i].value.push;
-//         if(postCheck[i].checked == false){
-//             // checkArr.push($(this).val());
-//             // console.log(checkArr)
-
-//             checkArr.prop()
-//         }
-
-//         if(postCheck[i].checked == true){
-//             checkArr.push($(this).val());
-//             console.log(checkArr)
-//         }
-//     })
-        
-// }
-
-
-
-// var checkArr = []
-// for(let i=0; i<postCheck.length; i++){
-
-
-//     if(postCheck.checked == true){
-//         postCheck[i].addEventListener("click", function(){
-
-//             console.log("dd")
-//         })
-//     }
-
-    // postCheck[i].addEventListener("click",function(){
-    //     // checkArr = postCheck[i].value.push;
-    //     if(postCheck[i].checked == false){
-    //         // checkArr.push($(this).val());
-    //         // console.log(checkArr)
-
-    //         checkArr.prop()
-    //     }
-
-    //     if(postCheck[i].checked == true){
-    //         checkArr.push($(this).val());
-    //         console.log(checkArr)
-    //     }
-    // })
-        
 
 
 
