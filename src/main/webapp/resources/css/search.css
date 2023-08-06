@@ -38,6 +38,7 @@
     font-size: 20px;
     border: none;
     outline: none;
+    color: black;
 }
 .search_icon{
     position: absolute;
@@ -98,7 +99,7 @@ a{text-decoration: none; color: inherit;}
     float: left;
     font-size: 16px;
     font-weight: 400;
-    color: black;
+    /* color: black; */
     padding-left:20px;
     line-height: 1;
 }
@@ -152,7 +153,6 @@ a{text-decoration: none; color: inherit;}
 /* 칵테일 이름 */
 .list_prd ul li .txt_box .name{
     font-size: 18px;
-    color: black;
     font-weight: 500;
 }
 .list_prd ul li .txt_box .exple_bow{
