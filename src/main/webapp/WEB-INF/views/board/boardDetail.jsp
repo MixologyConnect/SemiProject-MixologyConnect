@@ -65,9 +65,8 @@
 							<div class="img-box">
 								<c:forEach var="i" begin="${start}" end="${fn:length(detail.imageList) -1}">
 									<div class="boardImg">
-										<img src="${contextPath}${detail.imageList[i].imageRename}" class="boardImg1">
-										<a href="${contextPath}${detail.imageList[i].imageRename}"
-											download="${detail.imageList[i].imageOriginal}" id="boardImg1"></a>
+										<img class = "list-thumbnail"src="${contextPath}${detail.imageList[i].imageRename}" class="boardImg1">
+										
 									</div>
 								</c:forEach>
 
@@ -139,6 +138,8 @@
 				<div class="modal">
 					<span id="modal-close">&times;</span>
 					<img id="modal-image" src="${contextPath}/resources/images/user.png">
+					<a href="${contextPath}${detail.imageList[i].imageRename}"
+					download="${contextPath}${detail.imageList[i].imageOriginal}" id="boardImg1"><img id="download" src = "${contextPath}/resources/images/download.svg"></a>
 				</div>
 
 				<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

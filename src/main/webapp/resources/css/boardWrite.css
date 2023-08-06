@@ -138,7 +138,7 @@
 .boardImg {
       width: 240px;
     height: 280px;
-    display: flex;
+    display: inline-block;
     text-align: center;
     border-radius: 10px;
 
@@ -290,12 +290,18 @@
 }
 
 .delete-image{
-    display: none;
-    position: relative;
+    /* display: none; */
+    /* position: relative; */
+    /* top: 290px; */
+    /* right: 110px; */
     
 }
-
 
 .delete-image:hover{
     cursor: pointer;
 }
+
+html.dark .delete-image img{
+    filter: invert(95%) sepia(24%) saturate(1255%) hue-rotate(179deg) brightness(110%) contrast(88%);
+}
+
