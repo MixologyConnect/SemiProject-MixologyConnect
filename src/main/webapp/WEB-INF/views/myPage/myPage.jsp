@@ -44,33 +44,7 @@
                 
                 <div class="bottom">
                     <span id="followerView">팔로워 ${followers.size()}</span>
-                    <div class="follow-wrap1">
-                        <span class="list-title">FOLLOW LIST </span>
-                        <div class="margin"></div>
-                        <div class="follow-area">
-                            <img src="${contextPath}/resources/images/user.png">
-                            <span>유저아이디</span>
-                        </div>
-                       
-                       
-                    </div>
-                    
-                    
-                    
                     <span id="folloingView">팔로잉 ${followings.size()}</span>
-                    <div class="folloing-wrap2">
-                        <span class="list-title">FOLLOING LIST </span>
-                        <div class="margin"></div>
-                        <div class="follow-area">
-                            <img src="${contextPath}/resources/images/user.png">
-                            <span>유저아이디</span>
-                        </div>
-                        
-                    </div>
-                
-                
-                
-                </div>
             </section>
         </section>
         <section id="list">
@@ -188,23 +162,35 @@
    
 
 
-    <div class="folloing-modal">
-        <span id="modal-close">&times;</span>
+    <div class="follower-modal">
         <div class="follow-wrap1">
-            <span class="list-title">FOLLOW LIST </span>
-            <div class="margin"></div>
+            <span class="follower-close">&times;</span>
+            <span class="list-title">FOLLOW LIST</span>
+            <c:if test="${follower.length==0}">
             <div class="follow-area">
-                <img src="${contextPath}/resources/images/user.png">
-                <span>유저아이디</span>
+                <span>팔로우가 없습니다.</span>
             </div>
+            </c:if>
+          
+               <c:forEach var="follower" items="${followers}">
+                   <div class="follow-area">
+                       <c:if test="${empty follower.profileImage}">
+                           <img src="${contextPath}/resources/images/user.png">
+                       </c:if>
+                       <c:if test="${!empty follower.profileImage}">
+                           <img src="${contextPath}${follower.profileImage}">
+                       </c:if>
+                       <span>${follower.memberId}</span>
+                   </div>
+               </c:forEach>
+           
+            
         </div>
-        
     </div>
     <div class="folloing-modal">
-        <span id="modal-close">&times;</span>
         <div class="folloing-wrap2">
+            <span class="folloing-close">&times;</span>
             <span class="list-title">FOLLOING LIST </span>
-            <div class="margin"></div>
             <div class="follow-area">
                 <img src="${contextPath}/resources/images/user.png">
                 <span>유저아이디</span>
