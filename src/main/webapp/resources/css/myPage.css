@@ -649,3 +649,7 @@ main > section:nth-child(6){
     width: 50px;
     border-radius: 50%;
 }
+
+.follow-area span{
+    padding: 20px;
+}
