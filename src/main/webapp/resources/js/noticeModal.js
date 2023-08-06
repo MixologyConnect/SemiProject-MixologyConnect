@@ -194,9 +194,13 @@
     document.getElementById("overlayy").style.display = shouldHideDiv ? 'none' : 'block';
 } */
 
+<<<<<<< HEAD
+/* window.onload = function(){
+=======
 // window.onload = function(){
 
  $(document).on("click","#close",function(){
+>>>>>>> cfd6293ff6e9fd1ebb8b50c80516559de4ad2bd7
 
     const closeButton = document.getElementById('close');
     
@@ -215,5 +219,9 @@
     const hideDivCookie = document.cookie.match('(^|;)\\s*hideDiv3\\s*=\\s*([^;]+)');
     const shouldHideDiv = hideDivCookie && hideDivCookie[2] === 'true';
     document.getElementById("overlayy").style.display = shouldHideDiv ? 'none' : 'block';
+<<<<<<< HEAD
+} */
+=======
 }) 
 // } 
+>>>>>>> cfd6293ff6e9fd1ebb8b50c80516559de4ad2bd7
