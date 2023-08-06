@@ -281,13 +281,33 @@
 		SELECT BOARD_TITLE, BOARD_CONTENT
 		FROM BOARD
 		WHERE BOARD_CD = 2
-		AND BOARD_NO = 10
+		AND BOARD_NO = 1
 	</entry>
 
 	<entry key="noticeImage">
 		SELECT IMG_RENAME, IMG_ORIGINAL, BOARD_NO
 		FROM BOARD_IMG
-		WHERE BOARD_NO = 10
+		WHERE BOARD_NO = 1
+	</entry>
+
+	<entry key="noticeUpdate">
+		UPDATE BOARD SET BOARD_CONTENT = ?,
+		BOARD_TITLE = ?,
+		MODIFY_DT = DEFAULT
+		WHERE BOARD_NO = 1
+	</entry>
+
+	<entry key="noticeImageUpdate">
+		UPDATE BOARD_IMG SET IMG_RENAME = ?,
+		IMG_ORIGINAL = ?
+		WHERE BOARD_NO = 1 AND
+		IMG_LEVEL = ?
+	</entry>
+
+	<entry key="selectBoardCode">
+		select board_cd
+		from board
+		where board_cd = 2
 	</entry>
 
 </properties>

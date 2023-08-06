@@ -637,7 +637,9 @@ main > section:nth-child(6){
 .f-info{
     display: flex;
     align-items: center;
-    width: 250px;
+    width: 400px;
+    justify-content: space-between;
+
 }
 
 
@@ -645,8 +647,8 @@ main > section:nth-child(6){
 /* 팔로잉 리스트  */
 
 .margin{height: 60px;}
-.follow-area{
-    display: flex;
+.follow-area,.following-area{
+    display: block;
     align-items: center;
     padding: 5px 20px;
 }
@@ -656,8 +658,9 @@ main > section:nth-child(6){
     border-radius: 50%;
 }
 
-.follow-area span{
+.f-info sapn{
     padding: 20px;
+    width: 180px;
 }
 
 /* 언팔 버튼 */

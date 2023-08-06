@@ -21,7 +21,7 @@
 			<img id="place-search" src="${contextPath}/resources/images/magnifier.png">
 			<input id="place-input" type="text" placeholder="지역">
 		</div>
-        <div id="map" style="margin-top: 50px; height: 400px; width: 960px; border-radius: 30px;"></div>
+        <div id="map" style="margin-top: 50px; height: 480px; width: 960px;"></div>
         <ul id="place-content">
         </ul>
     </main>

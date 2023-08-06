@@ -23,6 +23,7 @@ public class BoardDetail {
 	private String profileImage;
 	private int memberNo;
 	private String boardName;
+	private int boardCode;
 	
 	private List<BoardImage> imageList;
 	

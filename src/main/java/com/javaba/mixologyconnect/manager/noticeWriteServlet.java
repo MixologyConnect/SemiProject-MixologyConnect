@@ -106,20 +106,43 @@ public class noticeWriteServlet extends HttpServlet {
 			BoardService service = new BoardService();
 			
 			
-				
-			int boardNo = service.insertNotice(detail,imageList, boardType);
-			
-			String path = null;
-			
-			if(boardNo > 0) {
-				path = "notice?no="+ boardNo +"&type=" + boardType;
-				session.setAttribute("message", "게시글이 등록되었습니다!");
-			}else {
-				path = "notice?type=" + boardType;
-				session.setAttribute("message", "게시글 등록을 실패하였습니다..");
+			if(mode.equals("insert")) {
+
+				int boardNo = service.insertNotice(detail,imageList, boardType);
+
+				String path = null;
+
+				if(boardNo > 0) {
+					path = "manager?" +"type=" + boardType;
+					session.setAttribute("message", "게시글이 등록되었습니다!");
+				}else {
+					path = "noticeWrite?type=" + boardType;
+					session.setAttribute("message", "게시글 등록을 실패하였습니다..");
+				}
+
+				resp.sendRedirect(path);
 			}
-			
-			resp.sendRedirect(path);
+			if(mode.equals("update")) {
+
+				String deleteList = mpReq.getParameter("deleteList");
+
+				int result = service.noticeUpdate(detail, imageList, deleteList );
+
+				String path = null;
+				String message = null;
+
+				if(result > 0) {
+					path = "noticeWrite?mode=" + mode + "&type=" + boardType;
+					message = "게시글이 수정되었습니다.";
+
+				}else {
+					path = req.getHeader("referer");
+					message = "게시글 수정을 실패하였습니다.";
+				}
+
+				session.setAttribute("message", message);
+				resp.sendRedirect(path);
+			}
 
 
 		} catch (Exception e) {

@@ -24,7 +24,6 @@ public class noticeModalServlet extends HttpServlet {
 			
 			BoardDetail detail =  service.searchNotice();
 
-			System.out.println(detail);
 			new Gson().toJson(detail, resp.getWriter());
 			
 		} catch (Exception e) {

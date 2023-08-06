@@ -1,6 +1,27 @@
 const result = document.getElementById("memberResult"); // 회원 input
 const result2 = document.getElementById("boardResult") // 게시글 input
 
+(function(){
+    $.ajax({
+        url : "manager",
+        data : {},
+        success : function(){
+
+        },
+        error : function(request,staus,error){
+            console.log("에러 발생");
+
+            console.log("상태코드 : " + request.status);
+
+            console.log(request.responseText);
+
+            console.log(error);
+
+        }
+    })
+
+})()
+
 
 /* ajax */
 document.getElementById("member-btn").addEventListener("click", function() {
