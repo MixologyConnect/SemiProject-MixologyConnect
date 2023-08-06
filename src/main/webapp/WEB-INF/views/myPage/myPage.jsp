@@ -166,23 +166,27 @@
         <div class="follow-wrap1">
             <span class="follower-close">&times;</span>
             <span class="list-title">FOLLOW LIST</span>
-            <c:if test="${follower.length==0}">
-            <div class="follow-area">
-                <span>팔로우가 없습니다.</span>
-            </div>
-            </c:if>
-          
-               <c:forEach var="follower" items="${followers}">
-                   <div class="follow-area">
-                       <c:if test="${empty follower.profileImage}">
-                           <img src="${contextPath}/resources/images/user.png">
-                       </c:if>
-                       <c:if test="${!empty follower.profileImage}">
-                           <img src="${contextPath}${follower.profileImage}">
-                       </c:if>
-                       <span>${follower.memberId}</span>
-                   </div>
-               </c:forEach>
+            <c:choose>
+                <c:when test="${followers.length == 0}">
+                    <div class="follow-area">
+                        <span>팔로워가 없습니다.</span>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <c:forEach var="follower" items="${followers}">
+                        <div class="follow-area">
+                             <c:if test="${empty follower.profileImage}">
+                                <img src="${contextPath}/resources/images/user.png">
+                             </c:if>
+                             <c:if test="${!empty follower.profileImage}">
+                                 <img src="${contextPath}${follower.profileImage}">
+                             </c:if>
+                        <span>${follower.memberId}</span>
+                        </div>
+                    </c:forEach>
+                </c:otherwise>
+            </c:choose>
+            
            
             
         </div>
@@ -191,10 +195,31 @@
         <div class="folloing-wrap2">
             <span class="folloing-close">&times;</span>
             <span class="list-title">FOLLOING LIST </span>
-            <div class="follow-area">
-                <img src="${contextPath}/resources/images/user.png">
-                <span>유저아이디</span>
-            </div>
+                <c:choose>
+                    <c:when test="${folloings.length == 0}">
+                        <div class="follow-area">
+                            <span>팔로잉이 없습니다.</span>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <c:forEach var="folloing" items="${followings}">
+                            <div class="follow-area">
+                                 <c:if test="${empty folloing.profileImage}">
+                                    <img src="${contextPath}/resources/images/user.png">
+                                 </c:if>
+                                 <c:if test="${!empty folloing.profileImage}">
+                                     <img src="${contextPath}${folloing.profileImage}">
+                                 </c:if>
+                            <span>${folloing.memberId}</span>
+                            </div>
+                        </c:forEach>
+                    </c:otherwise>
+                </c:choose>
+                
+            
+                
+                
+                
             
         </div>
         
