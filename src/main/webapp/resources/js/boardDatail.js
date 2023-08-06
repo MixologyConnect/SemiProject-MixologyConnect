@@ -1,9 +1,10 @@
 
   $(document).ready(function(){
-    console.log(likeMember);
-    console.log(writerNo);
-    console.log(loginMemberNo);
-   
+
+    // console.log(likeMember);
+    // console.log(writerNo);
+    // console.log(loginMemberNo);
+
 
     if(likeMember==boardNo){
         const img = document.getElementById("likeBtnImg");

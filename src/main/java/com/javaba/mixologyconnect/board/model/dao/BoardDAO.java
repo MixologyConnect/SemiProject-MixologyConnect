@@ -928,5 +928,70 @@ public class BoardDAO {
 		return imageList;
 	}
 
+	public int noticeUpdate(Connection conn, BoardDetail detail) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("noticeUpdate");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, detail.getBoardContent());
+			pstmt.setString(2, detail.getBoardTitle());
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	public int noticeUpdate(Connection conn, BoardImage img) throws Exception {
+		int result = 0;
+
+		try {
+			String sql = prop.getProperty("noticeImageUpdate");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, img.getImageRename());
+			pstmt.setString(2, img.getImageOriginal());
+			pstmt.setInt(3, img.getImageLevel());
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+
+	}
+
+	public BoardDetail selectBoardCode(Connection conn) throws Exception {
+
+		BoardDetail detail = new BoardDetail();
+
+		try {
+			String sql = prop.getProperty("selectBoardCode");
+			stmt = conn.createStatement();
+
+			rs = stmt.executeQuery(sql);
+
+			if (rs.next()) {
+
+				detail.setBoardCode(rs.getInt("BOARD_CD"));
+
+			}
+
+		} finally {
+			close(rs);
+			close(stmt);
+		}
+
+		return detail;
+	}
+
 	
 }
