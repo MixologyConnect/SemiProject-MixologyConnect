@@ -1,142 +1,150 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${loginMember.memberName}님이 게시글 작성 중입니다.</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardWrite.css">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <!DOCTYPE html>
+        <html lang="en">
 
-    
-</head>
-<body style="overflow-x: hidden">
-   <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-    <div class="container">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>${loginMember.memberName}님이 게시글 작성 중입니다.</title>
+            <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+            <link rel="stylesheet" href="${contextPath}/resources/css/boardWrite.css">
+            <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+                integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
 
-        <!-- 게시글 입력 바디 -->
-        <div class="content">
-            <form action="boardWrite" method="post" enctype="multipart/form-data" onsubmit="writeValidate()">
-            <div class="top"><p>게시글 작성하기</p>
-            <p>${loginMember.memberName}님, 오늘의 멋진 이야기는 무엇인가요?</p>
-            </div>
+        </head>
 
-            <!-- 커뮤니티 정책 가이드 -->
-            <div class="guide">
-                <div id="pre">
-                    Mixology Connect는 스팸, 부적절한 콘텐츠, 신용사기, 잘못된 정보 등을 
-                    등록하는 것을 절대 허용하지 않습니다. <a href="#">커뮤니티 정책</a>은 허용되거나 
-                    허용되지 않는 활동을 규정하며 스팸이나 부적절하거나 폭력적인 콘텐츠의 신고 가이드를 제공합니다.
+        <body style="overflow-x: hidden">
+            <jsp:include page="/WEB-INF/views/common/header.jsp" />
+            <div class="container">
+
+
+                <!-- 게시글 입력 바디 -->
+                <div class="content">
+                    <form action="boardWrite" method="post" enctype="multipart/form-data" onsubmit="writeValidate()">
+                        <div class="top">
+                            <p>게시글 작성하기</p>
+                            <p>${loginMember.memberName}님, 오늘의 멋진 이야기는 무엇인가요?</p>
+                        </div>
+
+                        <!-- 커뮤니티 정책 가이드 -->
+                        <div class="guide">
+                            <div id="pre">
+                                Mixology Connect는 스팸, 부적절한 콘텐츠, 신용사기, 잘못된 정보 등을
+                                등록하는 것을 절대 허용하지 않습니다. <a href="#">커뮤니티 정책</a>은 허용되거나
+                                허용되지 않는 활동을 규정하며 스팸이나 부적절하거나 폭력적인 콘텐츠의 신고 가이드를 제공합니다.
+                            </div>
+                        </div>
+                        <!-- 게시글 제목란 -->
+                        <div class="boardTitle">
+                            <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)"
+                                value="${detail.boardTitle}" maxlength="20">
+                            <label for="image">
+                        </div>
+
+
+                        <c:forEach items="${detail.imageList}" var="boardImage">
+
+                            <c:choose>
+
+                                <c:when test="${boardImage.imageLevel == 0}">
+                                    <c:set var="img0" value="${contextPath}${boardImage.imageRename}"></c:set>
+                                </c:when>
+
+                                <c:when test="${boardImage.imageLevel == 1}">
+                                    <c:set var="img1" value="${contextPath}${boardImage.imageRename}"></c:set>
+                                </c:when>
+
+                                <c:when test="${boardImage.imageLevel == 2}">
+                                    <c:set var="img2" value="${contextPath}${boardImage.imageRename}"></c:set>
+                                </c:when>
+
+                                <c:when test="${boardImage.imageLevel == 3}">
+                                    <c:set var="img3" value="${contextPath}${boardImage.imageRename}"></c:set>
+                                </c:when>
+
+                            </c:choose>
+                        </c:forEach>
+
+                        <div class="img-box">
+
+                            <div class="boardImg">
+                                <label for="img0">
+                                    <img class="preview" src="${img0}">
+                                </label>
+
+                                <input type="file" multiple class="inputImage" id="img0" name="0" accept="image/*">
+                                <span class="delete-image"><img src="${contextPath}/resources/images/trash3.svg"></span>
+                            </div>
+
+
+                            <div class="boardImg">
+                                <label for="img1">
+                                    <img class="preview" src="${img1}">
+                                </label>
+
+                                <input type="file" multiple class="inputImage" id="img1" name="1" accept="image/*">
+                                <span class="delete-image"><img src="${contextPath}/resources/images/trash3.svg"></span>
+                            </div>
+
+                            <div class="boardImg">
+                                <label for="img2">
+                                    <img class="preview" src="${img2}">
+                                </label>
+
+                                <input type="file" multiple class="inputImage" id="img2" name="2" accept="image/*">
+                                <span class="delete-image"><img src="${contextPath}/resources/images/trash3.svg"></span>
+                            </div>
+
+                            <div class="boardImg">
+                                <label for="img3">
+                                    <img class="preview" src="${img3}">
+                                </label>
+
+                                <input type="file" multiple class="inputImage" id="img3" name="3" accept="image/*">
+                                <span class="delete-image"><img src="${contextPath}/resources/images/trash3.svg"></span>
+                            </div>
+                        </div>
+
+
+
+                        <!-- 게시글 작성란 -->
+                        <div class="detail">
+                            <textarea name="boardContent" id="boardContent" style="resize: none;"
+                                maxlength="500">${detail.boardContent}</textarea>
+                            <p> <span id="counter">0</span>/500</p>
+                        </div>
+
+                        <!-- 작성완료 버튼 -->
+                        <div class="btn">
+                            <button type="submit" id="btn">작성 완료</button>
+                            <button id="goToBtn" type="button"
+                                onclick="location.href ='${contextPath}/board/boardDetail?type=${param.type}&cp=${param.cp}&no=${param.no}'">작성
+                                취소</button>
+                        </div>
+
+
+                        <input type="hidden" name="mode" value="${param.mode}">
+                        <input type="hidden" name="type" value="${param.type}">
+                        <input type="hidden" name="no" value="${param.no}">
+                        <input type="hidden" name="cp" value="${param.cp}">
+
+                        <input type="hidden" id="deleteList" name="deleteList" value="">
+                    </form>
+
                 </div>
+
+                <script src="${contextPath}/resources/js/boardWrite.js"></script>
+
+                <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+                <jsp:include page="/WEB-INF/views/common/modal.jsp" />
+
             </div>
-            <!-- 게시글 제목란 -->
-            <div class="boardTitle">
-                <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요(20자 이하)" value="${detail.boardTitle}" maxlength="20">
-                <label for="image">
-            </div>
-            
-           
-            <c:forEach items ="${detail.imageList}" var = "boardImage">
+            <script src="${contextPath}/resources/js/main.js"></script>
 
-            <c:choose>
+        </body>
 
-            <c:when test = "${boardImage.imageLevel == 0}">
-            <c:set var ="img0" value = "${contextPath}${boardImage.imageRename}"></c:set>
-            </c:when>
-
-            <c:when test = "${boardImage.imageLevel == 1}">
-            <c:set var ="img1" value = "${contextPath}${boardImage.imageRename}"></c:set>
-            </c:when>
-
-            <c:when test = "${boardImage.imageLevel == 2}">
-            <c:set var ="img2" value = "${contextPath}${boardImage.imageRename}"></c:set>
-            </c:when>
-
-            <c:when test = "${boardImage.imageLevel == 3}">
-            <c:set var ="img3" value = "${contextPath}${boardImage.imageRename}"></c:set>
-            </c:when>
-
-            </c:choose>
-            </c:forEach>
-
-            <div class="img-box">
-
-                <div class="boardImg">
-                <label for = "img0">
-                    <img class="preview" src="${img0}">
-                </label>
-
-                <input type="file" multiple class="inputImage" id="img0" name = "0" accept="image/*">
-                <span class="delete-image"><img src = "${contextPath}/resources/images/trash3.svg"></span>
-            </div>
-
-
-            <div class="boardImg">
-                <label for = "img1">
-                    <img class="preview" src="${img1}">
-                </label>
-
-                <input type="file" multiple class="inputImage" id="img1" name = "1" accept="image/*">
-                        <span class="delete-image"><img src = "${contextPath}/resources/images/trash3.svg"></span>
-            </div>
-
-            <div class="boardImg">
-                <label for = "img2" >
-                    <img class="preview" src="${img2}">
-                </label>
-
-                <input type="file" multiple class="inputImage" id="img2" name = "2" accept="image/*">
-                <span class="delete-image"><img src = "${contextPath}/resources/images/trash3.svg"></span>
-            </div>
-
-            <div class="boardImg">
-                <label for = "img3">
-                    <img class="preview" src="${img3}">
-                </label>
-
-                <input type="file" multiple class="inputImage" id="img3" name = "3" accept="image/*">
-                <span class="delete-image"><img src = "${contextPath}/resources/images/trash3.svg"></span>
-            </div>
-        </div>
-
-       
-
-            <!-- 게시글 작성란 -->
-            <div class="detail">
-                <textarea name="boardContent" id="boardContent" style="resize: none;" maxlength="500">${detail.boardContent}</textarea>
-                <p> <span id="counter">0</span>/500</p>
-            </div>
-
-            <!-- 작성완료 버튼 -->
-            <div class="btn">
-                <button type="submit" id="btn">작성 완료</button>
-                <button id="goToBtn" type="button" onclick="location.href ='${contextPath}/board/boardDetail?type=${param.type}&cp=${param.cp}&no=${param.no}'">작성 취소</button>
-            </div>
-
-            
-            <input type="hidden" name = "mode" value = "${param.mode}">
-            <input type="hidden" name = "type" value = "${param.type}">
-            <input type="hidden" name = "no" value = "${param.no}">
-            <input type="hidden" name = "cp" value = "${param.cp}">
-    
-            <input type="hidden" id="deleteList" name = "deleteList" value = "">
-        </form>
-
-        </div>
-
-
-       <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-       <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
-
-    </div>
-    <script src="${contextPath}/resources/js/boardWrite.js"></script>
-    <script src="${contextPath}/resources/js/main.js"></script>
-    
-</body>
-</html>
+        </html>
