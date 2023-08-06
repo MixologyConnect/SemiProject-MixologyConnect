@@ -372,17 +372,21 @@ text-decoration: none;
 }
 
 .memberName{
-  font-size: 15px;
+  font-size: 13px;
   
 }
 
 .board h3{
-  font-size: 26px;
+  font-size: 28px;
+  margin-top: -12px;
 }
 
 .boardContent{
-  font-size:14px; 
+  font-size:13px; 
+  height: 80px;
+    width: 650px;
 }
+
 
 
 .read{

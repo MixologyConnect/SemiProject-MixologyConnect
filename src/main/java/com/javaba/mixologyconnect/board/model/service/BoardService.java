@@ -368,6 +368,11 @@ public class BoardService {
 
 		List<Board> boardList = dao.selectBoardPopularity(conn, pagination, type);
 
+		for(Board b : boardList) {
+			int likeCount= dao.selectLike(conn,b.getBoardNo());
+			b.setBoardLikeCount(likeCount); 
+		}
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		map.put("boardName", boardTitle);

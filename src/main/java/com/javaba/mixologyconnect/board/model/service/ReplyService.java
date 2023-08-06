@@ -7,6 +7,8 @@ import java.util.List;
 
 import com.javaba.mixologyconnect.board.model.dao.ReplyDAO;
 import com.javaba.mixologyconnect.board.model.vo.Reply;
+import com.javaba.mixologyconnect.common.Util;
+
 
 public class ReplyService {
 	
@@ -35,6 +37,9 @@ public class ReplyService {
 	public int insertReply(Reply reply) throws Exception {
 		
 		Connection conn = getConnection();
+		
+		reply.setReplyContent(Util.XSSHandling(reply.getReplyContent()));
+		reply.setReplyContent(Util.newLineHandling(reply.getReplyContent()));
 		
 		int result = dao.insertReply(conn, reply);
 		
