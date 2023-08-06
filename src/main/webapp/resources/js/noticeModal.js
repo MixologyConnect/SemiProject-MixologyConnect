@@ -193,7 +193,7 @@
     document.getElementById("overlayy").style.display = shouldHideDiv ? 'none' : 'block';
 } */
 
-window.onload = function(){
+/* window.onload = function(){
 
     const closeButton = document.getElementById('close');
     
@@ -212,4 +212,4 @@ window.onload = function(){
     const hideDivCookie = document.cookie.match('(^|;)\\s*hideDiv3\\s*=\\s*([^;]+)');
     const shouldHideDiv = hideDivCookie && hideDivCookie[2] === 'true';
     document.getElementById("overlayy").style.display = shouldHideDiv ? 'none' : 'block';
-}
+} */
