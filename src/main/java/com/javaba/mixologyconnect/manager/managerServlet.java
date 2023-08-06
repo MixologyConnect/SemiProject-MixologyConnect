@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import com.javaba.mixologyconnect.board.model.service.BoardService;
+import com.javaba.mixologyconnect.board.model.vo.BoardDetail;
 import com.javaba.mixologyconnect.member.model.service.MemberService;
 import com.javaba.mixologyconnect.member.model.vo.Member;
 
@@ -21,9 +23,19 @@ public class managerServlet extends HttpServlet {
 		try {
 			
 			String path = "/WEB-INF/views/manager/manager.jsp";
+			BoardDetail detail = new BoardDetail(); 
+			BoardService service = new BoardService();
+			
+			detail = service.selectBoardCode();
+			
+			detail.setBoardCode(detail.getBoardCode());
+			
+			req.setAttribute("detail", detail);
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
 			dispatcher.forward(req, resp);
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

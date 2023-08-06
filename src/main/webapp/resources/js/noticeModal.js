@@ -18,6 +18,7 @@
             div3.setAttribute("class","main_imagen");
             div2.append(div3);
 
+
             const img = document.createElement("img");
             img.setAttribute("id","test");
 
@@ -56,7 +57,7 @@
 
             const button2 = document.createElement("button");
             button2.setAttribute("id","close");
-            button2.setAttribute("onclick","closePop()")
+            //button2.setAttribute("onclick","closePop()")
             button2.innerText = "닫기";
             div3.append(button2);
 
@@ -83,16 +84,16 @@
 })();
 
 
-/* function setCookie( name, value, exDay ) {
+ /* function setCookie( name, value, exDay ) {
     var todayDate = new Date();
     todayDate.setDate( todayDate.getDate() + exDay ); 
     document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
-}  */
+}   */
 
 
 
 
-/* window.onload = function(){
+/* $(document).on("click","#close",function(){
 
     document.getElementById("close").addEventListener("click",function(){
         
@@ -108,7 +109,7 @@
 
 
 //window.onload 
-/* document.addEventListener("DOMContentLoaded",function(){
+ /* $(document).on("click","#close",function(){
 
     function closePop(){
         
@@ -133,8 +134,8 @@
             
         }
         
-    } ) */
-
+    } ) 
+ */
 //window.onload = 
 /* (function(){
     // 'today' 체크박스 요소를 가져옵니다.
@@ -193,7 +194,9 @@
     document.getElementById("overlayy").style.display = shouldHideDiv ? 'none' : 'block';
 } */
 
-window.onload = function(){
+// window.onload = function(){
+
+ $(document).on("click","#close",function(){
 
     const closeButton = document.getElementById('close');
     
@@ -212,4 +215,5 @@ window.onload = function(){
     const hideDivCookie = document.cookie.match('(^|;)\\s*hideDiv3\\s*=\\s*([^;]+)');
     const shouldHideDiv = hideDivCookie && hideDivCookie[2] === 'true';
     document.getElementById("overlayy").style.display = shouldHideDiv ? 'none' : 'block';
-}
+}) 
+// } 

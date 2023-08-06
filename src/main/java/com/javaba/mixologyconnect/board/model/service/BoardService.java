@@ -512,7 +512,61 @@ public class BoardService {
 		
 	}
 
+	public int noticeUpdate(BoardDetail detail, List<BoardImage> imageList, String deleteList) throws Exception {
 
+		Connection conn = getConnection();
+
+		detail.setBoardTitle(Util.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Util.XSSHandling(detail.getBoardContent()));
+		detail.setBoardContent(Util.newLineHandling(detail.getBoardContent()));
+
+		int result = dao.noticeUpdate(conn,detail);
+		if (result > 0) {
+
+			for (BoardImage img : imageList) {
+
+				// img.setBoardNo(detail.getBoardNo()); 
+
+				result = dao.noticeUpdate(conn, img);
+
+
+				if (result == 0) {
+					result = dao.insertBoardImage(conn, img);
+				}
+			} 
+
+			if (!deleteList.equals("")) { 
+				result = dao.deleteBoardImage(conn, deleteList, detail.getBoardNo());
+
+			}
+
+		} 
+
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
+
+		close(conn);
+
+		return result;
+
+	}
+
+	public BoardDetail selectBoardCode() throws Exception {
+		
+		Connection conn = getConnection();
+		
+		BoardDetail detail = new BoardDetail();
+		
+		detail = dao.selectBoardCode(conn);
+		
+		close(conn);
+		
+		return detail;
+	}
+
+	
 
 
 }
