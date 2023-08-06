@@ -6,7 +6,9 @@ body{
 #main{
     display: flex;
     width: 1300px;
+    height: 1000px;
     margin:  50px auto;
+    margin-top: 100px;
 }
 
 
