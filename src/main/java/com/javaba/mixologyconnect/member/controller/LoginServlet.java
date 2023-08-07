@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,9 +22,18 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = req.getSession(); 
 
 		try {
-			Member loginMember = service.login(req.getParameter("inputId"), req.getParameter("inputPw"));
+			String inputId = req.getParameter("inputId");
+			Member loginMember = service.login(inputId, req.getParameter("inputPw"));
 
-			if(loginMember != null) session.setAttribute("loginMember", loginMember);
+			if(loginMember != null) {
+				session.setAttribute("loginMember", loginMember);
+				session.setMaxInactiveInterval(3600);
+				Cookie c = new Cookie("saveId", inputId); 
+				if(req.getParameter("inputSaveId") != null) c.setMaxAge(60 * 60 * 24 * 30);
+				else c.setMaxAge(0);
+				c.setPath( req.getContextPath() );
+				resp.addCookie(c);
+			}
 			else session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 			session.setMaxInactiveInterval(3600);
 

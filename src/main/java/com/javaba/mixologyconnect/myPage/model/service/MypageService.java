@@ -410,6 +410,13 @@ public class MypageService {
 			List<Board> boardList = dao.userPageBoardCount(conn, pagination, memberNo);
 			
 			Member member = dao.selectMember(conn, memberNo);
+			
+			BoardDAO dao = new BoardDAO();
+			
+			for(Board b : boardList) {
+				int likeCount= dao.selectLike(conn,b.getBoardNo());
+				b.setBoardLikeCount(likeCount); 
+			}
 
 			// 4) Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장
 			Map<String, Object> map = new HashMap<String, Object>();

@@ -2,10 +2,9 @@
 const all = document.getElementById("all")
 const feedList = document.getElementsByName("feed")
 
-
-
-// 전체 선택 함수
-all.addEventListener("click", function(){
+if(all != null){
+    // 전체 선택 함수
+    all.addEventListener("click", function(){
     for(let i=0; i<feedList.length; i++){
         feedList[i].checked = all.checked;
 
@@ -16,6 +15,9 @@ all.addEventListener("click", function(){
     // arr = [];
 
 })
+
+}
+
 
 
 
@@ -35,30 +37,38 @@ function deletePost(){
 
     console.log(result)
 
-    $.ajax({
+    if(selectedEls.length>0){
 
-        url : contextPath + "/myPage/deletePost",
-        data : {"result" : result},
-        type : "get",
-        traditional: true,
-        dataType : "json",
-
-        success : function(result){
-            if(result){
-                if(confirm("삭제하시겠습니까?")){
-
-                    alert("삭제 완료~!")
-                    location.reload();
+        if(confirm("정말 삭제하시겠습니까?")){
+    
+    
+            $.ajax({
+        
+                url : contextPath + "/myPage/deletePost",
+                data : {"result" : result},
+                type : "get",
+                traditional: true,
+                dataType : "json",
+        
+                success : function(result){
+                    if(result>0){
+                            alert("삭제 완료~!")
+                            location.reload();
+                    }else{
+                        alert("삭제 실패...")
+                    }
+                },
+                error : function(result){
+                    console.log("에러")
                 }
-            }else{
-                alert("삭제 실패...")
-            }
-        },
-        error : function(result){
-            console.log("에러")
+        
+            })
+    
         }
 
-    })
+    }
+
+
 
 
 }
@@ -156,15 +166,15 @@ folloingView.addEventListener("click", function () {
 
 
 //팔로잉 목록 리스트
-const folloingView = document.getElementById("folloingView");
-const folloingModal = document.querySelector('.folloing-modal');
-const folloingClose = document.querySelector(".folloing-close");
+var folloingView = document.getElementById("folloingView");
+var folloingModal = document.querySelector('.folloing-modal');
+var folloingClose = document.querySelector(".folloing-close");
 
 function followingList(){
     folloingModal.classList.toggle('show');
     $.ajax({
         url:contextPath + "/myPage/followingList",
-        data: {},
+        data: {"boardMemberNo": loginMemberNo},
         type: "POST",
         dataType:"JSON",
         success:function(followings){
@@ -275,8 +285,8 @@ function unfollowBtnClick(followingNo){
 
 //팔로워 목록 리스트
 
-const followerModal = document.querySelector('.follower-modal');
-const followerClose = document.querySelector(".follower-close");
+var followerModal = document.querySelector('.follower-modal');
+var followerClose = document.querySelector(".follower-close");
 
 
 
@@ -289,7 +299,7 @@ function followerList(){
 
     $.ajax({
         url:contextPath + "/myPage/followerList",
-        data: {},
+        data: {"boardMemberNo":loginMemberNo},
         type: "POST",
         dataType:"JSON",
         success:function(followers){
