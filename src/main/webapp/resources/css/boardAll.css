@@ -248,6 +248,9 @@ overflow: hidden;
 text-overflow: ellipsis;  	
 display: flex;
 padding: 7px 0;
+font-size:13px; 
+height: 65px;
+  width: 650px;
 
 }
 
@@ -380,13 +383,6 @@ text-decoration: none;
   font-size: 28px;
   margin-top: -12px;
 }
-
-.boardContent{
-  font-size:13px; 
-  height: 80px;
-    width: 650px;
-}
-
 
 
 .read{
