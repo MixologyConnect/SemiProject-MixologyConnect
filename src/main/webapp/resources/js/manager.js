@@ -1,26 +1,7 @@
 const result = document.getElementById("memberResult"); // 회원 input
 const result2 = document.getElementById("boardResult") // 게시글 input
 
-(function(){
-    $.ajax({
-        url : "manager",
-        data : {},
-        success : function(){
 
-        },
-        error : function(request,staus,error){
-            console.log("에러 발생");
-
-            console.log("상태코드 : " + request.status);
-
-            console.log(request.responseText);
-
-            console.log(error);
-
-        }
-    })
-
-})()
 
 
 /* ajax */
@@ -108,7 +89,7 @@ document.getElementById("member-btn").addEventListener("click", function() {
 
             }
         },
-        error : function(request,staus,error){
+       /*  error : function(request,staus,error){
             console.log("에러 발생");
 
             console.log("상태코드 : " + request.status);
@@ -117,8 +98,23 @@ document.getElementById("member-btn").addEventListener("click", function() {
 
             console.log(error);
 
-        }
+        } */
 
+        error : function(member){
+            $('#resultMember > *').remove();
+                
+            const tr = document.createElement("tr");
+            
+            const td1 = document.createElement("td");
+            td1.setAttribute("colspan","7");
+            const div1 = document.createElement("div")
+            div1.innerText= "일치하는 회원이 없습니다.";
+            td1.append(div1);
+
+            tr.append(td1);
+            table.append(tr);
+
+        }
 
     })
 
@@ -249,7 +245,7 @@ document.getElementById("board-btn").addEventListener("click",function(){
             }
 
         },
-        error : function(request,staus,error){
+       /*  error : function(request,staus,error){
             console.log("에러 발생");
 
             console.log("상태코드 : " + request.status);
@@ -257,6 +253,22 @@ document.getElementById("board-btn").addEventListener("click",function(){
             console.log(request.responseText);
 
             console.log(error);
+
+        } */
+
+        error : function(board){
+            $('#resultBoard > *').remove();
+
+            const tr = document.createElement("tr");
+            
+            const td1 = document.createElement("td");
+            td1.setAttribute("colspan","6");
+            const div1 = document.createElement("div")
+            div1.innerText= "조회된 게시글이 없습니다.";
+            td1.append(div1);
+
+            tr.append(td1);
+            result.append(tr);
 
         }
     })

@@ -24,10 +24,11 @@
             
             <ul  class="list-group">
                 <li> <a href="${contextPath}/manager/manager?type=2">회원 및 게시글 관리 </a></li>
-                <c:if test="${!empty detail.boardCode}">
+                console.log("${detail.boardCode}")asd
+                <c:if test="${detail.boardCode == 2}" >
                     <li><a onclick = "location.href = 'noticeWrite?mode=update&type=${param.type}'">공지사항 수정</a></li>
                 </c:if>
-                <c:if test="${empty detail.boardNo}">
+                <c:if test="${detail.boardCode != 2}">
                     <li> <a href="${contextPath}/manager/noticeWrite?mode=insert&type=2">공지사항 작성</a></li>
                 </c:if>
             </ul>
@@ -71,7 +72,10 @@
                 </table>
                 <!-- typw="submit" id="borderbtn" -->
                 <input type="hidden" id="memberResult">
-                <button type="button" onclick="banMember()" id="memberban" >회원 탈퇴</button>
+                <div class="memberBan">
+                    <button type="button" onclick="banMember()" id="memberban" >회원 탈퇴</button>
+
+                </div>
             </form>
         </section>
 
@@ -108,7 +112,10 @@
             
             <!-- typw="submit" id="borderbtn" -->
             <input type="hidden" id="boardResult">
-            <button type="button" onclick="deleteBoard()" id="deleteBoard" >게시글 삭제</button>
+            <div class="deleteBoard">
+                <button type="button" onclick="deleteBoard()" id="deleteBoard" >게시글 삭제</button>
+
+            </div>
 
         </section>
 
