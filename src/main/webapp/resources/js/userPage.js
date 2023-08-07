@@ -166,7 +166,7 @@ function followingList(){
     folloingModal.classList.toggle('show');
     $.ajax({
         url:contextPath + "/myPage/followingList",
-        data: {"boardMemberNo": loginMemberNo},
+        data: { "boardMemberNo": boardMemberNo},
         type: "POST",
         dataType:"JSON",
         success:function(followings){
@@ -213,11 +213,9 @@ function followingList(){
                     const followBtn= document.createElement("button");
                     followBtn.setAttribute("type", "button");
                     followBtn.setAttribute("id", "followBtn");
-                    followBtn.setAttribute("onclick", "unfollowBtnClick("+following.memberNo+")");
-                    followBtn.innerHTML="UnFollow";
-                    btnArea.append(followBtn);
+                   
                     
-                    fInfo.append(profileImage, span, btnArea);
+                    fInfo.append(profileImage, span);
                     followArea.append(fInfo);
                     followingList.append(followArea)
                 }
@@ -246,32 +244,7 @@ folloingClose.addEventListener("click", function() {
 });
 
 
-function unfollowBtnClick(followingNo){
-    if( confirm("정말로 팔로우 취소하시겠습니까?" )){
-        $.ajax({
-            url:contextPath+"/myPage/unfollow",
-            type: "post",
-            dataType: "JSON",
-            data:{'loginMemberNo': loginMemberNo,
-                'unfollowerNo': followingNo  },
-            success : function(result){
-                if(result > 0){
-                    alert("언팔했습니다")
-                    followingList();
-                    folloingModal.classList.toggle('show');
 
-                }else{
-                    alert("실패");
-                }
-            },
-            error: function(result){
-                console.log("오류발생");
-            }
-                
-                
-            })
-    }
-}
 
 
 
@@ -291,7 +264,7 @@ function followerList(){
 
     $.ajax({
         url:contextPath + "/myPage/followerList",
-        data: {"boardMemberNo":loginMemberNo},
+        data: { "boardMemberNo": boardMemberNo},
         type: "POST",
         dataType:"JSON",
         success:function(followers){
@@ -338,11 +311,9 @@ function followerList(){
                     const followBtn= document.createElement("button");
                     followBtn.setAttribute("type", "button");
                     followBtn.setAttribute("id", "followBtn");
-                    followBtn.setAttribute("onclick","followCancelBtnClick("+follower.memberNo+")");
-                    followBtn.innerHTML="Cancel";
-                    btnArea.append(followBtn);
                     
-                    fInfo.append(profileImage, span, btnArea);
+                    
+                    fInfo.append(profileImage, span);
                     followArea.append(fInfo);
                     followerList.append(followArea)
                 }
@@ -376,7 +347,7 @@ function followCancelBtnClick(cancelfollowerNo){
             url:contextPath+"/myPage/cancleFollower",
             type: "post",
             dataType: "JSON",
-            data:{'loginMemberNo': loginMemberNo,
+            data:{'loginMemberNo': boardMemberNo,
                 'cancleFollower': cancelfollowerNo  },
             success : function(result){
                 if(result > 0){
