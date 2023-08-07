@@ -23,6 +23,8 @@ public class noticeModalServlet extends HttpServlet {
 			BoardService service = new BoardService();
 			
 			BoardDetail detail =  service.searchNotice();
+			
+			detail.setBoardContent(detail.getBoardContent().replaceAll("<br>", "\n"));
 
 			new Gson().toJson(detail, resp.getWriter());
 			
