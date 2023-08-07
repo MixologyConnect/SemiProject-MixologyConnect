@@ -114,7 +114,8 @@ let count = 1;
 function bookBtnClickMinus(){
     if(loginMemberNo == 0){
         alert("로그인 후 이용해주세요.")
-        location.href = contextPath;
+        // location.href = contextPath;
+        showModal("login", true);
     }else{
 
         if (confirm("북마크에 등록하시겠습니까?")) {
