@@ -19,7 +19,13 @@
         <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
     	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
-</head>
+        <style>
+            .f-info{width: 300px;}
+        </style>
+
+
+
+    </head>
 <body>
     
     
@@ -186,10 +192,11 @@
     <script>
         const contextPath = "${contextPath}"
         const loginMemberNo = "${loginMemberNo}"
+        const boardMemberNo = "${member.memberNo}"
     </script>
 
     <!-- <script src="${contextPath}/resources/js/boardDatail.js"></script> -->
-    <script src="${contextPath}/resources/js/LoginMyPage.js"></script>
+    <script src="${contextPath}/resources/js/userPage.js"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
     
     
