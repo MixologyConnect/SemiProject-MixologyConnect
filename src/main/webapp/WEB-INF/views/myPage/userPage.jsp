@@ -49,7 +49,7 @@
             </section>
             <section class="follow2">
                 <div id="top">${member.memberName}</div>
-                <span class="boardContent">${board.boardContent}</span>
+               
 
                 
                 <div class="bottom">
@@ -95,6 +95,7 @@
                                         </div>
                                         
                                         <span class="memberName">${board.memberName}</span>
+                                        <span class="boardContent">${board.boardContent}</span>
                                     </div>
                                     <div class="nameDateCount">
                                     <span class="boardDate">${board.boardDate}</span>
