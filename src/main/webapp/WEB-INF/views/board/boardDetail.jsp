@@ -36,7 +36,7 @@
 
 								<c:if test="${!empty detail.profileImage}">
 									<!-- 프로필 이미지가 있는 경우 -->
-									<img src="${contextPath}${detail.profileImage}" onclick="userPage()">
+									<img src="${contextPath}${detail.profileImage}"  onclick="submit()">
 								</c:if>
 								<input type="hidden" name="memberNo" value="${detail.memberNo}">
 								${detail.memberName}
