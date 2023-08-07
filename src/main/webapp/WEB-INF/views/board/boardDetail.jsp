@@ -39,7 +39,7 @@
 									<img src="${contextPath}${detail.profileImage}"  onclick="submit()">
 								</c:if>
 								<input type="hidden" name="memberNo" value="${detail.memberNo}">
-								${detail.memberName}
+									${detail.memberName}
 							</form>
 							<!-- 팔로우 버튼 -->
 							<c:if test="${loginMember.memberNo != detail.memberNo}">
@@ -136,6 +136,7 @@
 								<button id="goToBtn" type="button">목록으로</button>
 							</c:if>
 
+							
 						</div>
 						<jsp:include page="/WEB-INF/views/board/reply.jsp" />
 					</div>

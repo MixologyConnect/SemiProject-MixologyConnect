@@ -14,7 +14,7 @@
         
         <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/boardAll.css">
-         <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css"> 
+        <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css"> 
         <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
     	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -45,8 +45,8 @@
                 <div id="top">${member.memberName}</div>
                 
                 <div class="bottom">
-                    <span id="followerView">팔로워 ${followers.size()}</span>
-                    <span id="folloingView">팔로잉 ${followings.size()}</span>
+                    <span id="followerView"><a onclick="followerList()" id="followerCount">팔로워  ${followers.size()}</a></span>
+                    <span id="folloingView"><a onclick="followingList()" id="followingCount">팔로잉 ${followings.size()}</a></span>
             </section>
         </section>
         <section id="list">
@@ -157,79 +157,27 @@
         <div class="follow-wrap1">
             <span class="follower-close">&times;</span>
             <span class="list-title">FOLLOW LIST</span>
-            <c:choose>
-                <c:when test="${empty followers}">
-                    <div class="follow-area">
-                        <span>팔로워가 없습니다.</span>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <c:forEach var="follower" items="${followers}">
-                        <div class="follow-area">
-                            <div class="f-info">
-                                <c:if  test="${empty follower.profileImage}">
-                                   <img class="fprofile" src="${contextPath}/resources/images/user.png">
-                                </c:if>
-                                <c:if test="${!empty follower.profileImage}">
-                                    <img class="fprofile" src="${contextPath}${follower.profileImage}">
-                                </c:if>
-                                <span>${follower.memberId}</span>
-                            </div>
-                            <div>
-                                
-								<button type="button" id="followBtn" onclick="followCancelBtnClick()">Cancel</button>
-								<input type="hidden" name="0" id="followCheck">
+            <div id="followerList">
+                <div class="follow-area">
+                    
+                </div>
 
-                            </div>
-                        </div>
-                    </c:forEach>
-                </c:otherwise>
-            </c:choose>
-            
-           
-            
+            </div>
         </div>
     </div>
     <div class="folloing-modal">
         <div class="folloing-wrap2">
             <span class="folloing-close">&times;</span>
             <span class="list-title">FOLLOWING LIST </span>
-            <c:choose>
-                <c:when test="${empty followings}">
-                    <div class="follow-area">
-                        <span>팔로워가 없습니다.</span>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <c:forEach var="following" items="${followings}">
-                        <div class="follow-area">
-                            <div class="f-info">
-                                <c:if test="${empty following.profileImage}">
-                                   <img class="fprofile" src="${contextPath}/resources/images/user.png">
-                                </c:if>
-                                <c:if test="${!empty following.profileImage}">
-                                    <img class="fprofile" src="${contextPath}${following.profileImage}">
-                                </c:if>
-                                <span>${following.memberId}</span>
-                            </div>
-                            <div>
-								<button type="button" id="followBtn" onclick="unfollowBtnClick()">UnFollow</button>
-								<input type="hidden" name="0" id="followCheck">
-                            </div>
+            <div id="followingList">
+                <div class="following-area">
+                    
+                </div>
 
-
-                        </div>
-                    </c:forEach>
-                </c:otherwise>
-            </c:choose>    
-            
-                
-                
-                
-            
+            </div>
         </div>
-        
     </div>
+
 
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
@@ -237,10 +185,11 @@
            
     <script>
         const contextPath = "${contextPath}"
+        const loginMemberNo = "${loginMemberNo}"
     </script>
 
+    <!-- <script src="${contextPath}/resources/js/boardDatail.js"></script> -->
     <script src="${contextPath}/resources/js/LoginMyPage.js"></script>
-    <script src="${contextPath}/resources/js/boardDatail.js"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
     
     
