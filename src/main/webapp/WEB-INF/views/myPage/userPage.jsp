@@ -34,7 +34,6 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     
     <main>
-        ${loginMember.memberName} 
 
         <section class="follow">
             <section class="img1">
@@ -54,7 +53,6 @@
             </section>
             <section class="follow2">
                 <div id="top">${member.memberName}
-                    <button type="submit" class="follower">팔로우</button>
                 </div>
                
                 
@@ -200,7 +198,7 @@
            
     <script>
         const contextPath = "${contextPath}"
-        const loginMemberNo = "${loginMemberNo}"
+        const loginMemberNo = "${loginMember.memberNo}"
         const boardMemberNo = "${member.memberNo}"
     </script>
 
