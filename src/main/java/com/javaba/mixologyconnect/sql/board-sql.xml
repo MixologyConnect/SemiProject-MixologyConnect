@@ -271,7 +271,7 @@
 	</entry>
 
 	<entry key="insertNotice">
-		INSERT INTO BOARD VALUES(?, ?, ?,
+		INSERT INTO BOARD VALUES(155, ?, ?,
 		SYSDATE, NULL, 0,
 		'Y',
 		?, ?)
@@ -281,26 +281,26 @@
 		SELECT BOARD_TITLE, BOARD_CONTENT
 		FROM BOARD
 		WHERE BOARD_CD = 2
-		AND BOARD_NO = 1
+		AND BOARD_NO = 155
 	</entry>
 
 	<entry key="noticeImage">
 		SELECT IMG_RENAME, IMG_ORIGINAL, BOARD_NO
 		FROM BOARD_IMG
-		WHERE BOARD_NO = 1
+		WHERE BOARD_NO = 155
 	</entry>
 
 	<entry key="noticeUpdate">
 		UPDATE BOARD SET BOARD_CONTENT = ?,
 		BOARD_TITLE = ?,
 		MODIFY_DT = DEFAULT
-		WHERE BOARD_NO = 1
+		WHERE BOARD_NO = 155
 	</entry>
 
 	<entry key="noticeImageUpdate">
 		UPDATE BOARD_IMG SET IMG_RENAME = ?,
 		IMG_ORIGINAL = ?
-		WHERE BOARD_NO = 1 AND
+		WHERE BOARD_NO = 155 AND
 		IMG_LEVEL = ?
 	</entry>
 
@@ -308,6 +308,11 @@
 		select board_cd
 		from board
 		where board_cd = 2
+	</entry>
+
+	<entry key="noticeInsert">
+		INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL, ?, ?,
+		?, 155)
 	</entry>
 
 </properties>
