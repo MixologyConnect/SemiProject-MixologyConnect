@@ -32,20 +32,6 @@
 })();
 
 
-(function(){
-    const Btn = document.getElementById("goToBtn");
-    Btn.addEventListener("click", function(){
-
-        var referrer = document.referrer;
-
-        console.log(document.referrer);
-            if(document.referrer == "http://localhost:10005/SemiProfect_3/myPage/userPage"){
-                location.href = "http://localhost:10005/SemiProfect_3/myPage/userPage";
-            }
-    })
-
-})();
-
 
 /* 삭제 버튼 실행 */
 (function(){

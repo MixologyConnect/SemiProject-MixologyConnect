@@ -1,5 +1,5 @@
 /* 칵테일추천 배너 */
-.banner{
+.banner > div{
     width: 100%;
     height: 25vh;
     background-image: linear-gradient(0deg, rgb(236, 29, 236), rgb(0, 220, 244));
@@ -10,12 +10,12 @@
     
 }
 /* 배너 사진 */
-.banner > img{
+.banner  img{
     height: 15vh;
     margin-right: 50px;
 }
 /* 배너 문구 */
-.banner > p{
+.banner  p{
     font-size: 100px;
     margin-left: 50px;
     margin-right: 70px;
@@ -74,7 +74,8 @@ main{
     height: 60px;
     margin-left: 65px;
     border-radius: 10px;
-    background-color: rgb(18, 18, 19);
+    background-color: rgb(42, 135, 241);
+    border: 0;
     font-size: 23px;
     font-weight: bold;
     color: white;
@@ -97,11 +98,10 @@ main{
     height: 35px;
     margin-right: 10px;
     margin-left: 20px;
-    background-color: white;
     border-radius: 10px;
-    border-color: orange;
+    border: 0;
     cursor: pointer;
-    
+    color: orange;
 }
 /* 돌아가기 버튼 */
 .back-re{
@@ -109,10 +109,10 @@ main{
     height: 35px;
     margin-right: 10px;
     margin-left: 20px;
-    background-color: white;
     border-radius: 10px;
-    border-color: orange;
+    border: 0;
     cursor: pointer;
+    color: orange;
 }
 /* 3번째 돌아가기 버튼 */
 .back-3{
@@ -120,10 +120,10 @@ main{
     height: 35px;
     margin-right: 10px;
     margin-left: 20px;
-    background-color: white;
     border-radius: 10px;
-    border-color: orange;
+    border: 0;
     cursor: pointer;
+    color: orange;
 }
 
 /* 2번째질문 돌아가기 버튼 */
@@ -132,10 +132,10 @@ main{
     height: 35px;
     margin-right: 10px;
     margin-left: 20px;
-    background-color: white;
     border-radius: 10px;
-    border-color: orange;
+    border: 0;
     cursor: pointer;
+    color: orange;
 }
 
 .range{
@@ -169,7 +169,6 @@ input[type=range] {
     align-items: center;
     margin-left: 135px;
     width: 555px;
-    color: black;
   }
 
 
@@ -331,11 +330,11 @@ input[type=range] {
 
 /* 다시하기 버튼 */
 .reset button{
-    width: 300px;
-    height: 70px;
+    width: 450px;
+    height: 60px;
     border-radius: 10px;
-    background-color: orange;
-    border-color: orange;
+    background-color: rgb(42, 135, 241);
+    border: 0;
     font-size: 20px;
     font-weight: bold;
     color: white;

@@ -21,7 +21,10 @@
 
 
     <section class="banner">
-        <img src="${contextPath}/resources/images/칵테일.png" alt=""><p>칵테일취향 테스트</p> <img src="${contextPath}/resources/images/칵테일2.png">
+        <div>
+
+            <img src="${contextPath}/resources/images/칵테일.png" alt=""><p>칵테일취향 테스트</p> <img src="${contextPath}/resources/images/칵테일2.png">
+        </div>
     </section>
     
     <main>
@@ -53,7 +56,7 @@
                 <input type="range" min="0" max="30" step="10" value="10" class="range">
             </div>
             <div class="btn">
-                <button class="back-re"><i class="fa-solid fa-play fa-rotate-180"></i></button> <span class="num">1/3</span>
+                <button class="back-re">◀</button> <span class="num">1/3</span>
             </div> 
             <div class="content">
                 <div class="question">Q.1</div>
@@ -76,7 +79,7 @@
                     <input type="range" min="0" max="30" step="10" value="20" class="range">
                 </div>
                 <div class="btn">
-                    <button class="back"><i class="fa-solid fa-play fa-rotate-180"></i></button> <span class="num">2/3</span>
+                    <button class="back">◀</button> <span class="num">2/3</span>
                 </div> 
                 <div class="content">
                     <div class="question">Q.2</div>
@@ -95,7 +98,7 @@
                     <input type="range" min="0" max="30" step="10" value="30" class="range">
                 </div>
                 <div class="btn">
-                    <button class="back-3"><i class="fa-solid fa-play fa-rotate-180"></i></button> <span class="num">3/3</span>
+                    <button class="back-3">◀</button> <span class="num">3/3</span>
                 </div> 
                 <div class="content">
                     <div class="question">Q.3</div>
@@ -123,7 +126,7 @@
                     <input type="range" min="0" max="30" step="10" value="20" class="range">
                 </div>
                 <div class="btn">
-                    <button class="back-beer"><i class="fa-solid fa-play fa-rotate-180"></i></button> <span class="num">2/3</span>
+                    <button class="back-beer">◀</button> <span class="num">2/3</span>
                 </div> 
                 <div class="content">
                     <div class="question">Q.2</div>
@@ -142,7 +145,7 @@
                     <input type="range" min="0" max="30" step="10" value="30" class="range">
                 </div>
                 <div class="btn">
-                    <button class="back-3"><i class="fa-solid fa-play fa-rotate-180"></i></button> <span class="num">3/3</span>
+                    <button class="back-3">◀</button> <span class="num">3/3</span>
                 </div> 
                 <div class="content">
                     <div class="question">Q.3</div>
@@ -169,7 +172,7 @@
                     <input type="range" min="0" max="30" step="10" value="20" class="range">
                 </div>
                 <div class="btn">
-                    <button class="back-beer"><i class="fa-solid fa-play fa-rotate-180"></i></button> <span class="num">2/3</span>
+                    <button class="back-beer">◀</button> <span class="num">2/3</span>
                 </div> 
                 <div class="content">
                     <div class="question">Q.2</div>
@@ -188,7 +191,7 @@
                     <input type="range" min="0" max="30" step="10" value="30" class="range">
                 </div>
                 <div class="btn">
-                    <button class="back-3"><i class="fa-solid fa-play fa-rotate-180"></i></button> <span class="num">3/3</span>
+                    <button class="back-3">◀</button> <span class="num">3/3</span>
                 </div> 
                 <div class="content">
                     <div class="question">Q.3</div>
