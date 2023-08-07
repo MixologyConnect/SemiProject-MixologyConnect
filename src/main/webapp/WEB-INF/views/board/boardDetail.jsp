@@ -31,15 +31,31 @@
 						<div class="name">
 							<c:if test="${empty detail.profileImage}">
 								<!-- 프로필 이미지가 없는 경우 -->
+								
+								
+								<c:if test = "${loginMember.memberNo == detail.memberNo}">
+									<img src="${contextPath}/resources/images/user.png" onclick="location.href ='${contextPath}/myPage/myPage'">
+								</c:if>
+								<!-- 로그인 멤버와 상세게시글 멤버의 no가 같지않다면 유저페이지로 이동 -->
+								<c:if test = "${loginMember.memberNo != detail.memberNo}">
 									<img src="${contextPath}/resources/images/user.png" onclick="submit()">
 								</c:if>
 
+								</c:if>
+
+
+
 								<c:if test="${!empty detail.profileImage}">
+									<c:if test = "${loginMember.memberNo == detail.memberNo}">
+										<img src="${contextPath}${detail.profileImage}"  onclick="location.href ='${contextPath}/myPage/myPage'">
+								</c:if>
 									<!-- 프로필 이미지가 있는 경우 -->
-									<img src="${contextPath}${detail.profileImage}" onclick="userPage()">
+									<c:if test = "${loginMember.memberNo != detail.memberNo}">
+									<img src="${contextPath}${detail.profileImage}" onclick="submit()">
+								</c:if>
 								</c:if>
 								<input type="hidden" name="memberNo" value="${detail.memberNo}">
-								${detail.memberName}
+									${detail.memberName}
 							</form>
 							<!-- 팔로우 버튼 -->
 							<c:if test="${loginMember.memberNo != detail.memberNo}">
@@ -132,9 +148,22 @@
 							<c:if test="${!empty param.query}">
 								<button id="selectListBtn" type="button">목록으로</button>
 							</c:if>
-							<c:if test="${empty param.query}">
-								<button id="goToBtn" type="button">목록으로</button>
-							</c:if>
+
+								<c:set var = "referUrl" value = "${header.referer}"></c:set>
+								<c:set var = "userPage" value = "http://localhost:10005/SemiProfect_3/myPage/userPage"></c:set>
+								
+								<c:if test = "${referUrl==userPage}">
+									<form action="../myPage/userPage" method="post">
+										<button id="backBtn" type="button" onclick="submit()">이전으로</button>
+												<input type="hidden" name="memberNo" value="${detail.memberNo}">
+											</form>
+								</c:if>
+
+								<c:if test="${empty param.query}">
+									<button id="goToBtn" type="button">목록으로</button>
+								</c:if>
+
+
 
 						</div>
 						<jsp:include page="/WEB-INF/views/board/reply.jsp" />
