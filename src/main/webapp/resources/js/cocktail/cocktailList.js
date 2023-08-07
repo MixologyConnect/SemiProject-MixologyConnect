@@ -15,7 +15,7 @@ function thumbnails() {
                     const e = $("#contents");
                     for (let i of result) {
                         let li = document.createElement("li");
-                        li.innerHTML = `<a href='detail?no= + i.cocktailNo + `'>
+                        li.innerHTML = `<a href='detail?no=` + i.cocktailNo + `'>
                                         <img src='..` + i.imagePath + `'>
                                         <div></div>
                                         <div><p>` + i.cocktailName + `</p></div>
