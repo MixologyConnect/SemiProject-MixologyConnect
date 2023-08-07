@@ -450,7 +450,7 @@ public class BoardService {
 				image.setBoardNo(boardNo); 
 
 
-				result = dao.insertBoardImage(conn, image);
+				result = dao.insertNoticeImage(conn, image);
 
 				if (result == 0) { 
 					break;

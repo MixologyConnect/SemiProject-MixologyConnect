@@ -49,6 +49,8 @@
             </section>
             <section class="follow2">
                 <div id="top">${member.memberName}</div>
+                <span class="boardContent">${board.boardContent}</span>
+
                 
                 <div class="bottom">
                     <span id="followerView"><a onclick="followerList()" id="followerCount">팔로워  ${followers.size()}</a></span>
@@ -92,7 +94,7 @@
                                             <h3>${board.boardTitle}</h3>
                                         </div>
                                         
-                                        <span class="memberName">${board.memberName}</span>${board.memberNo}
+                                        <span class="memberName">${board.memberName}</span>
                                     </div>
                                     <div class="nameDateCount">
                                     <span class="boardDate">${board.boardDate}</span>
