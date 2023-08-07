@@ -136,6 +136,7 @@
 								<button id="goToBtn" type="button">목록으로</button>
 							</c:if>
 
+							
 						</div>
 						<jsp:include page="/WEB-INF/views/board/reply.jsp" />
 					</div>
