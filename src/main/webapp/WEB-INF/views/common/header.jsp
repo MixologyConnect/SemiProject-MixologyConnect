@@ -62,36 +62,21 @@
     <img>
 </div>
 
-<div id="community-switch">
-    <img src="${contextPath}/resources/images/chat.png">
-</div>
-
+<input id="community-checkbox" type="checkbox">
+<label for="community-checkbox">
+    <div id="community-switch">
+        <img src="${contextPath}/resources/images/chat.png">
+    </div>
+</label>
 <div id="community">
     <div id="community-header">
         <h3>전체 채팅</h3>
     </div>
-    <div id="community-message">
-        <div class="message message-others">
-            <span>안녕</span>
-        </div>
-        <div class="message message-me">
-            <span>ㅎㅇ</span>
-        </div>
-        <div class="message message-others">
-            <span>밥먹음?</span>
-        </div>
-        <div class="message message-others">
-            <span>밥먹었냐고</span>
-        </div>
-        <div class="message message-others">
-            <span>밥먹자</span>
-        </div>
-        <div class="message message-me">
-            <span>ㄴㄴ</span>
-        </div>
-    </div>
+    <div id="community-message"></div>
     <div id="community-input">
         <input type="text">&nbsp;
-        <button onclick="sendMessage()">전송</button>
+        <button onclick="sendMessage('${loginMember.memberNo}')">전송</button>
     </div>
 </div>
+
+<input type="hidden" id="loginMemberNo" value="${loginMember.memberNo}">
