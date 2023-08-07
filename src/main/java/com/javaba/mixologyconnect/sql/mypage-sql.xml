@@ -75,7 +75,8 @@
 	<!-- 북마크 테이블 검색기능 게시글 수 조회 -->
 	<entry key="searchListCount">
 		SELECT COUNT(*) FROM BOOKMARK M
-        JOIN BOARD USING(BOARD_NO)
+        JOIN BOARD B USING(BOARD_NO)
+        JOIN MEMBER R ON(B.MEMBER_NO = R.MEMBER_NO)
 		WHERE M.MEMBER_NO = ?
 		AND BOARD_ST = 'Y'
 	</entry>
