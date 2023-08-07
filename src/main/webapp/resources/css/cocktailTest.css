@@ -318,7 +318,7 @@ input[type=range] {
 .cocktail img{
     border-radius: 10px;
     width: 300px; 
-    height: 330px;
+    height: 300px;
 
 }
 .cocktail > div:nth-child(3){

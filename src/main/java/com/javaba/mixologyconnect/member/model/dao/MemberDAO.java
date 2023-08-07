@@ -613,4 +613,22 @@ public class MemberDAO {
 		return result;
 	}
 
+	public int memberUpgrade(Connection conn, String memberId) throws Exception {
+		
+		int result = 0;
+		try {
+
+			String sql = prop.getProperty("memberUpgrade"); 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId); 
+
+			result = pstmt.executeUpdate();
+
+		} finally { 
+			close(pstmt);
+		}
+
+		return result;
+	}
+
 }

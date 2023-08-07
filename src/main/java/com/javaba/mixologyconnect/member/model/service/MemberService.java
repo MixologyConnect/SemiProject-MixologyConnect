@@ -405,4 +405,23 @@ public class MemberService {
 		return result;
 	}
 
+	public int memberUpgrade(String memberId) throws Exception {
+			
+		Connection conn = getConnection();
+		
+		int result = dao.memberUpgrade(conn, memberId);
+		
+		System.out.println(result);
+
+		if (result > 0)
+			conn.commit();
+		else
+			conn.rollback();
+
+		close(conn);
+
+		return result;
+
+	}
+
 }
