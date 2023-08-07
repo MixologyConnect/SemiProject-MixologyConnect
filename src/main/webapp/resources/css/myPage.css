@@ -42,13 +42,12 @@ main > section:nth-child(1){
 
 
 
-.follow > section:nth-child(1){
+.follow>section:nth-child(1) {
     display: flex;
-    flex-basis: 30%;
+    flex-basis: 53%;
     flex-direction: row-reverse;
-    justify-content: center;
+    justify-content: flex-start;
 }
-
 
 
 .img1 img{
