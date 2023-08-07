@@ -2,10 +2,9 @@
 const all = document.getElementById("all")
 const feedList = document.getElementsByName("feed")
 
-
-
-// 전체 선택 함수
-all.addEventListener("click", function(){
+if(all != null){
+    // 전체 선택 함수
+    all.addEventListener("click", function(){
     for(let i=0; i<feedList.length; i++){
         feedList[i].checked = all.checked;
 
@@ -16,6 +15,9 @@ all.addEventListener("click", function(){
     // arr = [];
 
 })
+
+}
+
 
 
 
@@ -156,9 +158,9 @@ folloingView.addEventListener("click", function () {
 
 
 //팔로잉 목록 리스트
-const folloingView = document.getElementById("folloingView");
-const folloingModal = document.querySelector('.folloing-modal');
-const folloingClose = document.querySelector(".folloing-close");
+var folloingView = document.getElementById("folloingView");
+var folloingModal = document.querySelector('.folloing-modal');
+var folloingClose = document.querySelector(".folloing-close");
 
 function followingList(){
     folloingModal.classList.toggle('show');
@@ -275,8 +277,8 @@ function unfollowBtnClick(followingNo){
 
 //팔로워 목록 리스트
 
-const followerModal = document.querySelector('.follower-modal');
-const followerClose = document.querySelector(".follower-close");
+var followerModal = document.querySelector('.follower-modal');
+var followerClose = document.querySelector(".follower-close");
 
 
 
