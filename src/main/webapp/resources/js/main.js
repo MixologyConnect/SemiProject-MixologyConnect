@@ -17,6 +17,10 @@ function applyTheme() {
         localStorage.setItem("theme", "dark");
         document.documentElement.classList.add("dark");
     }
+    document.body.style.display = "block";
+    setTimeout(() => {
+        document.body.style.transitionDuration = "0.8s";
+    }, 1000);
 }
 
 let scrollY;
@@ -70,7 +74,7 @@ window.addEventListener("scroll", function(e) {
                          "filter": "opacity(0%)"});
         $(".account-image").css({"height": "40px",
                                  "transform": "translate(24px, -14px)"});
-        $("#logout-button").css({"transform": "translateX(45px)"});
+        $("#logout-button").css({"transform": "translateX(25px)"});
         $(".account-text").css({"pointer-events": "none",
                                         "filter": "opacity(0%)"});
     }
