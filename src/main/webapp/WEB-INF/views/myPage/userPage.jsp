@@ -14,7 +14,7 @@
         
         <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/boardAll.css">
-         <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css"> 
+        <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css"> 
         <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
     	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -177,8 +177,7 @@
             </div>
         </div>
     </div>
-        
-    </div>
+
 
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
@@ -186,10 +185,11 @@
            
     <script>
         const contextPath = "${contextPath}"
+        const loginMemberNo = "${loginMemberNo}"
     </script>
 
+    <!-- <script src="${contextPath}/resources/js/boardDatail.js"></script> -->
     <script src="${contextPath}/resources/js/LoginMyPage.js"></script>
-    <script src="${contextPath}/resources/js/boardDatail.js"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
     
     
