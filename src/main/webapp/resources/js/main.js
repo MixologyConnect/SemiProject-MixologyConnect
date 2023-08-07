@@ -55,6 +55,7 @@ window.addEventListener("scroll", function(e) {
                          "filter": "opacity(100%)"});
         $(".account-image").css({"height": "",
                                  "transform": "none"});
+        $("#logout-button").css({"transform": ""});
         $(".account-text").css({"pointer-events": "auto",
                                         "filter": "opacity(100%)"});
     } else {
@@ -69,6 +70,7 @@ window.addEventListener("scroll", function(e) {
                          "filter": "opacity(0%)"});
         $(".account-image").css({"height": "40px",
                                  "transform": "translate(24px, -14px)"});
+        $("#logout-button").css({"transform": "translateX(45px)"});
         $(".account-text").css({"pointer-events": "none",
                                         "filter": "opacity(0%)"});
     }

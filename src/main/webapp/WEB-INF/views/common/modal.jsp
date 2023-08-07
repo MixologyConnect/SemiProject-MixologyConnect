@@ -17,9 +17,14 @@
         <p id="modal-login-head">Mixology Connect</p>
         <h2>로그인</h2>
         <div id="modal-login-input">
-            <input name="inputId" type="text" placeholder="아이디" required>
+            <input name="inputId" type="text" value="${cookie.saveId.value}" placeholder="아이디" required>
             <input name="inputPw" type="password" placeholder="비밀번호" required>
-            <label for="modal-login-saveID">아이디 저장&nbsp;&nbsp;<input id="modal-login-saveID" type="checkbox"></label>
+            <label for="modal-login-saveID">
+                <c:if test="${!empty cookie.saveId.value}">
+                    <c:set var="chk" value="checked"></c:set>
+                </c:if>
+                아이디 저장&nbsp;&nbsp;<input id="modal-login-saveID" name="inputSaveId" type="checkbox" ${chk}>
+            </label>
         </div>
         <div>
             <a id="modal-login-findID">아이디 찾기</a>&nbsp;&nbsp;&nbsp;

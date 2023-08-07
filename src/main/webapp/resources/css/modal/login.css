@@ -20,7 +20,7 @@
 }
 
 #modal-login a {
-    color: rgba(0, 220, 244, 0.9);
+    color: rgb(0, 220, 244);
     font-weight: 600;
     cursor: pointer;
 }

@@ -4,16 +4,22 @@
 <div id="account">
     <c:choose>
         <c:when test="${!empty loginMember}">
+            <a href="${contextPath}/logout">
+                <label id="logout-button" class="account-label" for="account-cbox">
+                    <img class="account-image" src="${contextPath}/resources/images/logout.png">
+                    <p class="account-text">로그아웃</p>
+                </label>
+            </a>
             <a href="${contextPath}/myPage/myPage">
-              <label class="account-label">
-                  <img class="account-image" src="${contextPath}/resources/images/user.png">
-                  <p class="account-text">마이페이지</p>
-              </label>
+                <label id="mypage-button" class="account-label">
+                    <img class="account-image" src="${contextPath}/resources/images/user.png">
+                    <p class="account-text">마이페이지</p>
+                </label>
             </a>
         </c:when>
         <c:otherwise>
             <input id="account-cbox" type="checkbox">
-            <label class="account-label" for="account-cbox">
+            <label id="account-button" class="account-label" for="account-cbox">
                 <img class="account-image" src="${contextPath}/resources/images/key.png">
                 <p class="account-text">계정</p>
             </label>
