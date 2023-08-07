@@ -2,7 +2,11 @@ package com.javaba.mixologyconnect.member.model.service;
 
 import static com.javaba.mixologyconnect.common.JDBCTemplate.*;
 
+import java.nio.charset.Charset;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -318,7 +322,7 @@ public class MemberService {
 		return followingNo;
 	}
 
-	public boolean findID(String name, String email) throws Exception {
+	public Object findID(String name, String email) throws Exception {
 		Member member = null;
 
 		Connection conn = getConnection();
@@ -330,10 +334,11 @@ public class MemberService {
 
 		close(conn);
 
-		return members.toString().contains(member.toString());
+		if (members.toString().contains(member.toString())) return members.get(0).getMemberId();
+		else return false;
 	}
 
-	public boolean findPW(String id, String email) throws Exception {
+	public Object findPW(String id, String email) throws Exception {
 		Member member = null;
 
 		Connection conn = getConnection();
@@ -343,9 +348,29 @@ public class MemberService {
 
 		if (members.size() > 0) member = members2.get(0);
 
-		close(conn);
-
-		return members.toString().contains(member.toString());
+		if (members.toString().contains(member.toString())) {
+			String temp = "";
+			for (int i = 0; i < 10; i++) {
+				int random = 48 + (int)Math.floor(Math.random() * 61);
+				if (random > 83) random += 13;
+				else if (random > 57) random += 7;
+				temp += (char)random;
+			}
+			String encryptPw = null;
+			MessageDigest md = null; 
+			try {
+				
+				md= MessageDigest.getInstance("SHA-512");
+				byte[] bytes= temp.getBytes(Charset.forName("UTF-8"));
+				md.update(bytes);
+				encryptPw =Base64.getEncoder().encodeToString(md.digest());
+			}catch(NoSuchAlgorithmException e) {
+				e.printStackTrace();
+			}
+			changePw(members.get(0).getMemberPw(), encryptPw, members.get(0).getMemberNo());
+			return temp;
+		}
+		else return false;
 	}
 
 	/**

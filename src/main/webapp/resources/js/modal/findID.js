@@ -1,3 +1,5 @@
+let mode;
+
 function verifyEmail2() {
     const a = $("#modal-findID-alert");
     const e1 = $("#modal-findID-inputName");
@@ -20,7 +22,7 @@ function verifyEmail2() {
         data: {"name": v1,
                "email": v2},
         success: function(result) {
-            if (result) {
+            if (result == false ? false : true) {
                 showModal("findID", false);
                 showModal("confirmEmail", true);
                 $.ajax({
@@ -34,6 +36,8 @@ function verifyEmail2() {
                         $("#modal-confirmEmail-alert").text("메일 서버 연결에 실패했습니다. 잠시 후 다시 시도해 주세요.");
                     }
                 });
+                mode = "findID";
+                id = result;
             }
             else a.text("일치하는 이름과 이메일이 없습니다.");
         },
@@ -41,10 +45,4 @@ function verifyEmail2() {
             a.text("아이디 찾기에 실패했습니다. 잠시 후 다시 시도해 주세요.");
         }
     });
-}
-
-function confirmVrfCode2() {
-    const a = $("#modal-confirmEmail-alert");
-    if ($("#modal-confirmEmail-inputVrfcode").val() == vrfCode) a.text("인증에 성공했습니다.");
-    else a.text("인증 번호가 일치하지 않습니다.");
 }
