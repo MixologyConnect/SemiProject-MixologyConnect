@@ -86,7 +86,7 @@
                                             <h3>${board.boardTitle}</h3>
                                         </div>
                                         
-                                        <span class="memberName">${board.memberName}</span>${board.memberNo}
+                                        <span class="memberName">${board.memberName}</span>
                                     </div>
                                     <div class="nameDateCount">
                                     <span class="boardDate">${board.boardDate}</span>
