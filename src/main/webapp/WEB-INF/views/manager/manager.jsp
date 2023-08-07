@@ -17,14 +17,14 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-    <div id="main">
+    <div class="div">
+        <div id="main">
         
         <section class="left-side">
             <span><b>관리자페이지</b></span>
             
             <ul  class="list-group">
                 <li> <a href="${contextPath}/manager/manager?type=2">회원 및 게시글 관리 </a></li>
-                console.log("${detail.boardCode}")asd
                 <c:if test="${detail.boardCode == 2}" >
                     <li><a onclick = "location.href = 'noticeWrite?mode=update&type=${param.type}'">공지사항 수정</a></li>
                 </c:if>
@@ -119,11 +119,54 @@
 
         </section>
 
+        <section class="manager-area1">
+                <br><br>
+                <h3>관리자 등록/삭제</h3>
+
+            <div class="searchArea">
+                
+                <input type="text" id="searchManager" name="search1" 
+                placeholder="회원아이디 검색" autocomplete="off">
+                
+                <button type="submit" id="manager-btn" class="fa-solid fa-magnifying-glass"></button>
+            </div>
+
+            <table>
+            
+                <tr>
+                    <!-- 전체 선택 체크 박스 -->
+                    <th ></th>
+                    <th>회원 번호</th>
+                    <th >회원아이디</th>
+                    <th>이름</th>
+                    <th >전화번호</th>
+                    <th >관리자 코드</th>
+                </tr>
+
+                <tbody id="resultManager">
+
+                </tbody>
+                
+            </table>
+            
+            <!-- typw="submit" id="borderbtn" -->
+            <input type="hidden" id="managerResult">
+            <div class="deleteBoard">
+                <button type="button" onclick="upgradeMember()" id="upgradeMember" >관리자 등록/삭제</button>
+
+            </div>
+
+        </section>
+
         </div>
+    </div>
         
     </div>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
     <script src="${contextPath}/resources/js/manager.js"></script>
-    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <script src="${contextPath}/resources/js/main.js"></script>
+
 </body>
 </html>
