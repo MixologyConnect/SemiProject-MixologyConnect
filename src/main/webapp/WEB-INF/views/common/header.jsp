@@ -13,7 +13,7 @@
             <a href="${contextPath}/myPage/myPage">
                 <label id="mypage-button" class="account-label">
                     <img class="account-image" src="${contextPath}/resources/images/user.png">
-                    <p class="account-text">마이페이지</p>
+                    <p class="account-text">${loginMember.memberName}</p>
                 </label>
             </a>
         </c:when>

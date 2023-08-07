@@ -1,6 +1,6 @@
 const result = document.getElementById("memberResult"); // 회원 input
 const result2 = document.getElementById("boardResult") // 게시글 input
-
+const result3 = document.getElementById("managerResult") // 관리자 input
 
 
 
@@ -321,5 +321,141 @@ function deleteBoard(){
         
 
 
+    }
+}
+
+
+document.getElementById("manager-btn").addEventListener("click",function(){
+
+    const input = document.getElementById("searchManager"); // 회원 아이디 검색
+    const result = document.getElementById("resultManager"); // tbody
+
+    
+    $.ajax({
+        url : "manager/selectManager",
+        data : {"memberId": input.value},
+        type : "POST",
+        dataType : "JSON",
+        success : function(member){
+            
+            console.log(member);
+            
+            if(member.memberNo != 0){
+                $('#resultManager > *').remove();
+                const tr = document.createElement("tr");
+                
+                const input = document.createElement("input")
+                input.setAttribute("type", "checkbox");
+                input.setAttribute("id", "chk3");
+
+                const td1 = document.createElement("td");
+                td1.append(input);
+
+                const td2 = document.createElement("td");
+                const div1 = document.createElement("div")
+                div1.innerText= member.memberNo;
+                td2.append(div1);
+
+                const td3 = document.createElement("td");
+                const div2 = document.createElement("div")
+                div2.innerText= member.memberId;
+                td3.append(div2);
+                
+                
+                const td4 = document.createElement("td");
+                const div3 = document.createElement("div")
+                div3.innerText= member.memberName;
+                td4.append(div3);
+
+                const td5 = document.createElement("td");
+                const div4 = document.createElement("div")
+                div4.innerText= member.memberTel;
+                td5.append(div4);
+
+
+                const td6 = document.createElement("td");
+                const div5 = document.createElement("div")
+                div5.innerText= member.managerCode;
+                td6.append(div5);
+
+
+                tr.append(td1, td2, td3, td4, td5, td6)
+                result.append(tr);
+
+                result.value = member.memberId; // 회원 input에 들어가는 거
+
+                
+            }else{
+
+                $('#resultManager > *').remove();
+                
+                const tr = document.createElement("tr");
+                
+                const td1 = document.createElement("td");
+                td1.setAttribute("colspan","7");
+                const div1 = document.createElement("div")
+                div1.innerText= "일치하는 회원이 없습니다.";
+                td1.append(div1);
+
+                tr.append(td1);
+                table.append(tr);
+
+
+
+            }
+        },
+
+        error : function(member){
+            $('#resultManager > *').remove();
+                
+            const tr = document.createElement("tr");
+            
+            const td1 = document.createElement("td");
+            td1.setAttribute("colspan","7");
+            const div1 = document.createElement("div")
+            div1.innerText= "일치하는 회원이 없습니다.";
+            td1.append(div1);
+
+            tr.append(td1);
+            result.append(tr);
+
+        }
+    })
+
+});
+
+function upgradeMember(){
+    if(confirm("관리자 등록/삭제를 하시겠습니까?")){
+        
+        const member = document.getElementById("searchManager");
+
+        $.ajax({
+            url : "member/upgrade",
+            data : {"memberId" : member.value},
+            type : "POST",
+            success : function(){
+                
+            },
+            error : function(){
+                console.log("에러발생");
+            }
+            
+        })
+        
+        const chk3 = $('input:checkbox[id="chk3"]').is(":checked")
+        
+        if(chk3 == true){
+            
+            const managerStatus = $("#resultManager > tr > td:last-of-type > div")
+            let mangerStd = managerStatus.text();
+            if(mangerStd == 'Y') managerStatus.text("N");
+            else managerStatus.text("Y");
+
+ 
+
+        }else{
+            alert("회원 선택 후 클릭해주세요.")
+        }
+        
     }
 }
