@@ -86,7 +86,7 @@
                                             <h3>${board.boardTitle}</h3>
                                         </div>
                                         
-                                        <span class="memberName">${board.memberName}</span>
+                                        <span class="memberName">${board.memberName}</span>${board.memberNo}
                                     </div>
                                     <div class="nameDateCount">
                                     <span class="boardDate">${board.boardDate}</span>
@@ -186,10 +186,11 @@
     <script>
         const contextPath = "${contextPath}"
         const loginMemberNo = "${loginMemberNo}"
+        const boardMemberNo = "${member.memberNo}"
     </script>
 
     <!-- <script src="${contextPath}/resources/js/boardDatail.js"></script> -->
-    <script src="${contextPath}/resources/js/LoginMyPage.js"></script>
+    <script src="${contextPath}/resources/js/userPage.js"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
     
     

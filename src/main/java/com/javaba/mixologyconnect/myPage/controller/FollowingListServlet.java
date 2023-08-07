@@ -22,14 +22,15 @@ public class FollowingListServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			HttpSession session = req.getSession();
-			
-			Member loginMember = (Member)(session.getAttribute("loginMember") );
+//			HttpSession session = req.getSession();
+//			
+//			Member loginMember = (Member)(session.getAttribute("loginMember") );
 			MemberService service = new MemberService();
+//			
+//			int memberNo = loginMember.getMemberNo();
 			
-			int memberNo = loginMember.getMemberNo();
-			
-			
+			int memberNo = Integer.parseInt(req.getParameter("boardMemberNo"));
+			System.out.println("memberNo"+memberNo);
 			List<Member> followings = service.selectFollowings(memberNo);
 			
 //			System.out.println("MM:"+followings);
