@@ -246,6 +246,26 @@
     color: rgb(0, 220, 244);
 }
 
+#backBtn {
+    height: 37px;
+    background-color:rgb(0, 220, 244);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    width: 80px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 20px ;
+}
+
+#backBtn:hover {
+    background-color: rgba( 255, 255, 255, 0 );
+    border: 2px solid rgb(0, 220, 244);
+    color: rgb(0, 220, 244);
+}
+
+
 /* 검색 목록으로 Btn css */
 #selectListBtn {
     height: 37px;
@@ -403,5 +423,4 @@ html.dark #modal-close:hover {
 html.dark  #download {
     filter: invert(95%) sepia(24%) saturate(1255%) hue-rotate(179deg) brightness(110%) contrast(88%);
 }
-
 

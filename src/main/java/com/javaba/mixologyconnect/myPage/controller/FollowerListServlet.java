@@ -19,13 +19,15 @@ public class FollowerListServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			HttpSession session = req.getSession();
-
-			Member loginMember = (Member)(session.getAttribute("loginMember") );
+//			HttpSession session = req.getSession();
+//
+//			Member loginMember = (Member)(session.getAttribute("loginMember") );
 			MemberService service = new MemberService();
+//
+//			int memberNo = loginMember.getMemberNo();
 
-			int memberNo = loginMember.getMemberNo();
-
+			int memberNo = Integer.parseInt(req.getParameter("boardMemberNo"));
+			
 
 			List<Member> followers = service.selectFollowers(memberNo);
 

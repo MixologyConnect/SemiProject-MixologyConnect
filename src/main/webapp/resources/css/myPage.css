@@ -529,7 +529,7 @@ main > section:nth-child(6){
     cursor: pointer;
 }
 
-#delete button{
+#deleteBtn button{
     background-color: rgb(0, 220, 244);
 
     font-weight: bold;
