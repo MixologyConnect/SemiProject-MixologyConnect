@@ -306,7 +306,7 @@ input[type=range] {
     border-radius: 10px;
 }
 
-/* 칵테일 설명 문구 */
+/* 칵테일 이름 */
 .cocktail > div:nth-child(2){
     font-size: 20px;
     font-weight: bold;
@@ -321,11 +321,17 @@ input[type=range] {
     height: 300px;
 
 }
+/* 칵테일 설명 */
 .cocktail > div:nth-child(3){
     font-size: 17px;
     padding: 10px 20px;
     letter-spacing: 1px;
     border-top: 1px solid #c3c2c2;
+}
+
+.cocktail > div:nth-child(4){
+    margin-right: 385px;
+
 }
 
 /* 다시하기 버튼 */
@@ -345,6 +351,10 @@ input[type=range] {
 
 .content{
     color: rgb(70, 69, 69);
+}
+
+.content button{
+
 }
 
 .reset{
