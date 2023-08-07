@@ -35,30 +35,38 @@ function deletePost(){
 
     console.log(result)
 
-    $.ajax({
+    if(selectedEls.length>0){
 
-        url : contextPath + "/myPage/deletePost",
-        data : {"result" : result},
-        type : "get",
-        traditional: true,
-        dataType : "json",
-
-        success : function(result){
-            if(result){
-                if(confirm("삭제하시겠습니까?")){
-
-                    alert("삭제 완료~!")
-                    location.reload();
+        if(confirm("정말 삭제하시겠습니까?")){
+    
+    
+            $.ajax({
+        
+                url : contextPath + "/myPage/deletePost",
+                data : {"result" : result},
+                type : "get",
+                traditional: true,
+                dataType : "json",
+        
+                success : function(result){
+                    if(result>0){
+                            alert("삭제 완료~!")
+                            location.reload();
+                    }else{
+                        alert("삭제 실패...")
+                    }
+                },
+                error : function(result){
+                    console.log("에러")
                 }
-            }else{
-                alert("삭제 실패...")
-            }
-        },
-        error : function(result){
-            console.log("에러")
+        
+            })
+    
         }
 
-    })
+    }
+
+
 
 
 }

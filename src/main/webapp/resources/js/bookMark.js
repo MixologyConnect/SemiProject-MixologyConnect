@@ -56,34 +56,44 @@ function deleteClick(){
 
     console.log(result);
 
+    if(deleteEls.length>0){
 
-    $.ajax({
-
-        url : contextPath + "/myPage/deleteBookmark",
-        data : {"result" : result},
-        type : "get",
-        traditional : true,
-        dataType : "json",
-
-        success : function(result){
-            if(result>0){
-                if(confirm("삭제하시겠습니까?")){
-
-                    alert("삭제 완료~!")
-                    location.reload();
+        if(confirm("북마크에서 삭제하시겠습니까?")){
+    
+            $.ajax({
+        
+                url : contextPath + "/myPage/deleteBookmark",
+                data : {"result" : result},
+                type : "get",
+                traditional : true,
+                dataType : "json",
+        
+                success : function(result){
+                    if(result>0){
+                            alert("삭제 완료~!")
+                            location.reload();
+                    }else{
+                        alert("삭제 실패...")
+                    }
+                },
+        
+                error : function(){
+                    console.log("에러")
                 }
-            }else{
-                alert("삭제 실패...")
-            }
-        },
-
-        error : function(){
-            console.log("에러")
+        
+        
+        
+            })
+    
+    
         }
 
 
 
-    })
+    }
+
+
+
 
 }
 
