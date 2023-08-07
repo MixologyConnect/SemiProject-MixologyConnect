@@ -74,6 +74,7 @@
 												<h3>${board.boardTitle}</h3>
 											</div>
 											<span class="memberName">${board.memberName}</span>
+											<span class="boardContent">${board.boardContent}</span>
 										</div>
 										<div class="nameDateCount">
 										<span class="boardDate">${board.boardDate}</span>

@@ -104,9 +104,9 @@ public class MypageDAO {
 
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, loginMember.getMemberNo());
-			pstmt.setInt(2, start);
-			pstmt.setInt(3, end);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			pstmt.setInt(3, loginMember.getMemberNo());
 
 			rs = pstmt.executeQuery();
 
@@ -369,6 +369,59 @@ public class MypageDAO {
 		
 		return bookMarkList;
 	}
+	
+	
+	/** 검색기능 북마크 리스트 DAO
+	 * @param conn
+	 * @param loginMember
+	 * @param pagination
+	 * @param condition
+	 * @return bookMarkList
+	 * @throws Exception
+	 */
+	public List<Board> searchList(Connection conn, Member loginMember, Pagination pagination, String condition) throws Exception{
+		
+		List<Board> bookMarkList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("searchBookmark1")
+					 					+ condition
+					 					+ prop.getProperty("searchBookmark2");
+			
+			int start = (pagination.getCurrentPage() - 1 ) * pagination.getLimit() + 1;
+			
+			int end = start + pagination.getLimit() - 1;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				Board bk = new Board();
+				
+				bk.setBoardNo(rs.getInt("BOARD_NO"));
+				bk.setBoardTitle(rs.getString("BOARD_TITLE"));
+				bk.setMemberName(rs.getString("MEMBER_NM"));
+				bk.setBoardDate(rs.getString("BOARD_DT"));
+				bk.setReadCount(rs.getInt("READ_COUNT"));
+				
+				bookMarkList.add(bk);
+				
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return bookMarkList;
+	}
 
 
 
@@ -433,9 +486,6 @@ public class MypageDAO {
 				System.out.println("북마크에 있? : " + result);
 				
 			}
-			
-			
-			
 			
 		}finally {
 			close(rs);
@@ -611,17 +661,171 @@ public class MypageDAO {
 
 
 
+	/** 검색기능 게시글 수 조회 DAO
+	 * @param conn
+	 * @param condition
+	 * @return listCount
+	 * @throws Exception
+	 */
+	public int searchListCount(Connection conn, Member loginMember, String condition)throws Exception {
+		int listCount = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("searchListCount") + condition;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, loginMember.getMemberNo());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+			
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return listCount;
+	}
+	
+
+	
 
 
+	/** 유저 게시글 수 조회
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int userPageListCount(Connection conn, int memberNo) throws Exception {
+		
+		int listCount = 0;
+
+		try {
+
+			String sql = prop.getProperty("userPageListCount");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, memberNo);
+
+			rs = pstmt.executeQuery();
+
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+		
+			}
+			
+			return listCount;
+	}finally {
+		close(rs);
+		close(pstmt);
+		
+	}
+
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+		}
+
+
+	/**유저 게시글 목록 조회
+	 * @param conn
+	 * @param pagination
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Board> userPageBoardCount(Connection conn, Pagination pagination, int memberNo) throws Exception {
+
+		List<Board> boardList = new ArrayList<Board>();
+		
+		try {
+			String sql = prop.getProperty("userPageBoardCount");
+
+			// BETWEEN 구문에 들어갈 범위 계산
+			int start = (pagination.getCurrentPage() - 1 ) * pagination.getLimit() + 1;
+
+			int end = start + pagination.getLimit() - 1;
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			pstmt.setInt(3, memberNo);
+
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+
+				Board board = new Board();
+
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setMemberName(rs.getString("MEMBER_NM"));
+				board.setReadCount(rs.getInt("READ_COUNT"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setBoardDate(rs.getString("BOARD_DT"));
+				board.setThumbnail(rs.getString("IMG_RENAME"));
+
+				boardList.add(board);
+			}
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return boardList;
+	}
+
+	/** 유저 정보 찾기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public Member selectMember(Connection conn, int memberNo) throws Exception {
+		
+		Member member = new Member();
+		
+		try {
+			String sql = prop.getProperty("selectMember");
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member.setMemberName(rs.getString("MEMBER_NM"));
+				member.setProfileImage(rs.getString("MEMBER_PROFILE"));
+				member.setMemberNo(rs.getInt("MEMBER_NO"));
+			}
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return member;
+	}
 }
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+

@@ -348,4 +348,36 @@ public class MemberService {
 		return members.toString().contains(member.toString());
 	}
 
+	/**
+	 * 팔로우 취소 
+	 * @param loginMemberNo
+	 * @param unfollowerNo
+	 * @return
+	 */
+	public int unfollow(int loginMemberNo, int unfollowerNo)throws Exception {
+		Connection conn = getConnection();
+		int result = dao.unfollow(conn, loginMemberNo, unfollowerNo);
+		if (result > 0)
+			conn.commit();
+		else
+			conn.rollback();
+
+		close(conn);
+
+		return result;
+	}
+
+	public int cancleFollower(int loginMemberNo, int cancleFollower)throws Exception {
+		Connection conn = getConnection();
+		int result = dao.cancleFollower(conn, loginMemberNo, cancleFollower);
+		if (result > 0)
+			conn.commit();
+		else
+			conn.rollback();
+
+		close(conn);
+
+		return result;
+	}
+
 }

@@ -43,34 +43,8 @@
                 </div>
                 
                 <div class="bottom">
-                    <span id="followerView">팔로워 ${followers.size()}</span>
-                    <div class="follow-wrap1">
-                        <span class="list-title">FOLLOW LIST </span>
-                        <div class="margin"></div>
-                        <div class="follow-area">
-                            <img src="${contextPath}/resources/images/user.png">
-                            <span>유저아이디</span>
-                        </div>
-                       
-                       
-                    </div>
-                    
-                    
-                    
-                    <span id="folloingView">팔로잉 ${followings.size()}</span>
-                    <div class="folloing-wrap2">
-                        <span class="list-title">FOLLOING LIST </span>
-                        <div class="margin"></div>
-                        <div class="follow-area">
-                            <img src="${contextPath}/resources/images/user.png">
-                            <span>유저아이디</span>
-                        </div>
-                        
-                    </div>
-                
-                
-                
-                </div>
+                    <span id="followerView"><a onclick="followerList()" id="followerCount">팔로워  ${followers.size()}</a></span>
+                    <span id="folloingView"><a onclick="followingList()" id="followingCount">팔로잉 ${followings.size()}</a></span>
             </section>
         </section>
         <section id="list">
@@ -184,13 +158,79 @@
 
     </main>
 
+   
+   
+
+
+    <!-- <div class="follower-modal">
+        <div class="follow-wrap1">
+            <span class="follower-close">&times;</span>
+            <span class="list-title">FOLLOW LIST</span>
+            <c:choose>
+                <c:when test="${empty followers}">
+                    <div class="follow-area">
+                        <span>팔로워가 없습니다.</span>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <c:forEach var="follower" items="${followers}">
+                        <div id="following-area">
+                            <div class="f-info">
+                                <c:if  test="${empty follower.profileImage}">
+                                   <img class="fprofile" src="${contextPath}/resources/images/user.png">
+                                </c:if>
+                                <c:if test="${!empty follower.profileImage}">
+                                    <img class="fprofile" src="${contextPath}${follower.profileImage}">
+                                </c:if>
+                                <span>${follower.memberId}</span>
+                            </div>
+                            <div>
+                                
+								<button type="button" id="followBtn" onclick="followCancelBtnClick()">Cancel</button>
+								<input type="hidden" name="0" id="followCheck">
+
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:otherwise>
+            </c:choose>
+            
+        </div>
+    </div> -->
+
+    <div class="follower-modal">
+        <div class="follow-wrap1">
+            <span class="follower-close">&times;</span>
+            <span class="list-title">FOLLOW LIST</span>
+            <div id="followerList">
+                <div class="follow-area">
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="folloing-modal">
+        <div class="folloing-wrap2">
+            <span class="folloing-close">&times;</span>
+            <span class="list-title">FOLLOWING LIST </span>
+            <div id="followingList">
+                <div class="following-area">
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
     <script>
         const contextPath = "${contextPath}"
-     </script>
+        const loginMemberNo = "${loginMemberNo}"
+    </script>
 
 
     <script src="${contextPath}/resources/js/LoginMyPage.js"></script>

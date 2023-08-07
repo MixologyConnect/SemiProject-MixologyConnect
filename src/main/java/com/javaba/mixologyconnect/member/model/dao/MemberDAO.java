@@ -156,7 +156,7 @@ public class MemberDAO {
 			pstmt.setString(2, mem.getMemberTel() );
 			pstmt.setString(3, mem.getMemberAddress());
 			pstmt.setInt(   4, mem.getMemberNo());
-			
+
 			System.out.println(mem.getMemberName());
 			System.out.println(mem.getMemberTel());
 			System.out.println(mem.getMemberAddress());
@@ -199,7 +199,7 @@ public class MemberDAO {
 
 		return result;	
 	}
-	
+
 	/** 회원 탈퇴 DAO
 	 * @author 임성수
 	 * @param conn
@@ -209,22 +209,22 @@ public class MemberDAO {
 	 * @throws Exception
 	 */
 	public int secession(Connection conn, int memberNo, String memberPw) throws Exception{
-		
+
 		int result = 0;
 		try {
 			String sql = prop.getProperty("secession");
-			
+
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1,memberNo);
 			pstmt.setString(2,memberPw);
 
 			result = pstmt.executeUpdate();
-			
+
 		} finally {
 
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
@@ -242,19 +242,19 @@ public class MemberDAO {
 		try {
 			String sql = prop.getProperty("updateProfileImage");
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setString(   1, profileImage);
 			pstmt.setInt(2, memberNo);
-			
+
 			result = pstmt.executeUpdate();
-			
+
 		}finally {
 			close(pstmt);
 		}
-	
+
 		return result;
 	}
-	
+
 	/** 아이디 찾기
 	 * @author 이미래
 	 * @param conn
@@ -334,9 +334,9 @@ public class MemberDAO {
 	 */
 	public Member searchPw(Connection conn, String memberId, String memberName) throws Exception{
 
-		
-		
-		
+
+
+
 		return null;
 	}
 
@@ -350,25 +350,25 @@ public class MemberDAO {
 		List<Member> members = new ArrayList<Member>();
 
 		try { String sql = prop.getProperty("selectMember"); 
-			pstmt = conn.prepareStatement(sql + " " + column + " " + "= ?");
-			pstmt.setString(1, value);
-			rs = pstmt.executeQuery();
-			while (rs.next()) members.add(new Member(rs.getInt("MEMBER_NO"),
-													 rs.getString("MEMBER_ID"),
-													 rs.getString("MEMBER_PW"),
-													 rs.getString("MEMBER_TEL"),
-													 rs.getString("MEMBER_NM"),
-													 rs.getString("MEMBER_ADDR"),
-													 rs.getString("MEMBER_EMAIL"),
-													 rs.getString("MEMBER_PROFILE"),
-													 rs.getString("MANAGER_CODE"),
-													 rs.getString("SECESSION_FL")
-													 ));
+		pstmt = conn.prepareStatement(sql + " " + column + " " + "= ?");
+		pstmt.setString(1, value);
+		rs = pstmt.executeQuery();
+		while (rs.next()) members.add(new Member(rs.getInt("MEMBER_NO"),
+				rs.getString("MEMBER_ID"),
+				rs.getString("MEMBER_PW"),
+				rs.getString("MEMBER_TEL"),
+				rs.getString("MEMBER_NM"),
+				rs.getString("MEMBER_ADDR"),
+				rs.getString("MEMBER_EMAIL"),
+				rs.getString("MEMBER_PROFILE"),
+				rs.getString("MANAGER_CODE"),
+				rs.getString("SECESSION_FL")
+				));
 		} finally {
 			close(rs); 
 			close(pstmt); 
 		}
-	return members; 
+		return members; 
 	}
 
 	public List<Member> selectFollowers(Connection conn, int memberNo) throws Exception {
@@ -380,17 +380,17 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, memberNo);
 			rs = pstmt.executeQuery();
-			while (rs.next()) followers.add(new Member(rs.getInt("MEMBER_NO"),
-													   rs.getString("MEMBER_ID"),
-													   rs.getString("MEMBER_PW"),
-													   rs.getString("MEMBER_TEL"),
-													   rs.getString("MEMBER_NM"),
-													   rs.getString("MEMBER_ADDR"),
-													   rs.getString("MEMBER_EMAIL"),
-													   rs.getString("MEMBER_PROFILE"),
-													   rs.getString("MANAGER_CODE"),
-													   rs.getString("SECESSION_FL")
-													   ));
+			while (rs.next()) followers.add(new Member(rs.getInt("FOLLOWER_NO"),
+					rs.getString("MEMBER_ID"),
+					rs.getString("MEMBER_PW"),
+					rs.getString("MEMBER_TEL"),
+					rs.getString("MEMBER_NM"),
+					rs.getString("MEMBER_ADDR"),
+					rs.getString("MEMBER_EMAIL"),
+					rs.getString("MEMBER_PROFILE"),
+					rs.getString("MANAGER_CODE"),
+					rs.getString("SECESSION_FL")
+					));
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -408,16 +408,16 @@ public class MemberDAO {
 			pstmt.setInt(1, memberNo);
 			rs = pstmt.executeQuery();
 			while (rs.next()) followings.add(new Member(rs.getInt("MEMBER_NO"),
-														rs.getString("MEMBER_ID"),
-														rs.getString("MEMBER_PW"),
-														rs.getString("MEMBER_TEL"),
-														rs.getString("MEMBER_NM"),
-														rs.getString("MEMBER_ADDR"),
-														rs.getString("MEMBER_EMAIL"),
-														rs.getString("MEMBER_PROFILE"),
-														rs.getString("MANAGER_CODE"),
-														rs.getString("SECESSION_FL")
-														));
+					rs.getString("MEMBER_ID"),
+					rs.getString("MEMBER_PW"),
+					rs.getString("MEMBER_TEL"),
+					rs.getString("MEMBER_NM"),
+					rs.getString("MEMBER_ADDR"),
+					rs.getString("MEMBER_EMAIL"),
+					rs.getString("MEMBER_PROFILE"),
+					rs.getString("MANAGER_CODE"),
+					rs.getString("SECESSION_FL")
+					));
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -426,8 +426,8 @@ public class MemberDAO {
 		return followings;
 	}
 
-	
-	
+
+
 	/**@author ISS
 	 * 관리자 회원 정보 변경 DAO
 	 * @param conn
@@ -444,13 +444,13 @@ public class MemberDAO {
 			pstmt.setString(1, memberId); 
 
 			result = pstmt.executeUpdate();
-			
+
 		} finally { 
 			close(pstmt);
 		}
 
 		return result;
-		}
+	}
 
 	/** 팔로잉 하기 위한 게시글 작성자 회원번호 조회 
 	 * 
@@ -463,13 +463,13 @@ public class MemberDAO {
 		int boardWrite=0;
 		try {
 			String sql =prop.getProperty("selectBoardWrite");
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, boardNo);
-			
+
 			rs= pstmt.executeQuery();
-			
+
 			if(rs.next()) {
 				boardWrite=rs.getInt("MEMBER_NO");
 			}
@@ -477,12 +477,12 @@ public class MemberDAO {
 			close(rs);
 			close(pstmt);
 		}
-		
+
 
 		return boardWrite;
 	}
 
-	
+
 	/** 팔로우하기 
 	 * @author 이지영
 	 * @param conn
@@ -494,24 +494,24 @@ public class MemberDAO {
 	public int insertfollow(Connection conn, int boardWriter, int loginMemberNo)throws Exception {
 
 		int followResult=0;
-		
+
 		try {
 			String sql = prop.getProperty("insertfollow");
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, loginMemberNo);
 			pstmt.setInt(2, boardWriter);
-			
+
 			followResult = pstmt.executeUpdate();
-			
+
 		}finally {
 			close(pstmt);
 		}
 		return followResult;
 	}
 
-	
+
 	/** 팔로우 취소 dao
 	 * 
 	 * @param conn
@@ -520,28 +520,28 @@ public class MemberDAO {
 	 * @return
 	 */
 	public int deletefollow(Connection conn, int boardWriter, int loginMemberNo) throws Exception{
-		
+
 		int dfollowResult=0;
-		
+
 		try {
 			String sql = prop.getProperty("deletefollow");
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, loginMemberNo);
 			pstmt.setInt(2, boardWriter);
-			
+
 			dfollowResult = pstmt.executeUpdate();
-			
+
 		}finally {
 			close(pstmt);
 		}
 		return dfollowResult;
 	}
 
-	
+
 	/**
-	 * 로그인한 회원이 이미 팔로 우한 회원인지 조회하는 Dao
+	 * 로그인한 회원이 이미 팔로우한 회원인지 조회하는 Dao
 	 * @param conn
 	 * @param loginMemberNo
 	 * @return
@@ -568,5 +568,49 @@ public class MemberDAO {
 		}
 		return followingNo;
 	}
-	
+	/**
+	 * 팔로우 취소 dao
+	 * @param conn
+	 * @param loginMemberNo
+	 * @param unfollowerNo
+	 * @return result
+	 */
+	public int unfollow(Connection conn, int loginMemberNo, int unfollowerNo)throws Exception {
+		int result =0; 
+
+		try {
+			String sql = prop.getProperty("deletefollow");
+
+			pstmt =conn.prepareStatement(sql);
+
+			pstmt.setInt(1, loginMemberNo);
+			pstmt.setInt(2, unfollowerNo);
+
+			result = pstmt.executeUpdate();
+
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	public int cancleFollower(Connection conn, int loginMemberNo, int cancleFollower)throws Exception {
+		int result =0; 
+
+		try {
+			String sql = prop.getProperty("deletefollow");
+
+			pstmt =conn.prepareStatement(sql);
+
+			pstmt.setInt(1, cancleFollower);
+			pstmt.setInt(2, loginMemberNo);
+
+			result = pstmt.executeUpdate();
+
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
 }

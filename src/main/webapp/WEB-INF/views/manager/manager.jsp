@@ -24,8 +24,12 @@
             
             <ul  class="list-group">
                 <li> <a href="${contextPath}/manager/manager?type=2">회원 및 게시글 관리 </a></li>
-                
-                <li> <a href="${contextPath}/manager/notice?mode=update&type=2">공지사항 관리</a></li>
+                <c:if test="${!empty detail.boardCode}">
+                    <li><a onclick = "location.href = 'noticeWrite?mode=update&type=${param.type}'">공지사항 수정</a></li>
+                </c:if>
+                <c:if test="${empty detail.boardNo}">
+                    <li> <a href="${contextPath}/manager/noticeWrite?mode=insert&type=2">공지사항 작성</a></li>
+                </c:if>
             </ul>
             
         </section>

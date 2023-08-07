@@ -368,6 +368,11 @@ public class BoardService {
 
 		List<Board> boardList = dao.selectBoardPopularity(conn, pagination, type);
 
+		for(Board b : boardList) {
+			int likeCount= dao.selectLike(conn,b.getBoardNo());
+			b.setBoardLikeCount(likeCount); 
+		}
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		map.put("boardName", boardTitle);
@@ -402,7 +407,10 @@ public class BoardService {
 		// 3. 게시글 목록 조회
 		List<Board> boardList = dao.selectFollowBoardList(conn, pagination, type, loginMemberNo);
 
-
+		for(Board b : boardList) {
+			int likeCount= dao.selectLike(conn,b.getBoardNo());
+			b.setBoardLikeCount(likeCount); 
+		}
 
 		// 4. Map 객체를 생성하여 1,2,3 결과 객체를 모두 저장
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -512,7 +520,61 @@ public class BoardService {
 		
 	}
 
+	public int noticeUpdate(BoardDetail detail, List<BoardImage> imageList, String deleteList) throws Exception {
 
+		Connection conn = getConnection();
+
+		detail.setBoardTitle(Util.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Util.XSSHandling(detail.getBoardContent()));
+		detail.setBoardContent(Util.newLineHandling(detail.getBoardContent()));
+
+		int result = dao.noticeUpdate(conn,detail);
+		if (result > 0) {
+
+			for (BoardImage img : imageList) {
+
+				// img.setBoardNo(detail.getBoardNo()); 
+
+				result = dao.noticeUpdate(conn, img);
+
+
+				if (result == 0) {
+					result = dao.insertBoardImage(conn, img);
+				}
+			} 
+
+			if (!deleteList.equals("")) { 
+				result = dao.deleteBoardImage(conn, deleteList, detail.getBoardNo());
+
+			}
+
+		} 
+
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
+
+		close(conn);
+
+		return result;
+
+	}
+
+	public BoardDetail selectBoardCode() throws Exception {
+		
+		Connection conn = getConnection();
+		
+		BoardDetail detail = new BoardDetail();
+		
+		detail = dao.selectBoardCode(conn);
+		
+		close(conn);
+		
+		return detail;
+	}
+
+	
 
 
 }
