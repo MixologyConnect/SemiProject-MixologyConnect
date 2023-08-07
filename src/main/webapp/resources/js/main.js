@@ -87,3 +87,42 @@ $("nav > a").hover(function() {
     $("header").css("borderColor", "lightgray");
     $("nav").css("borderColor", "lightgray");
 });
+
+$("#sub-nav").hover(function() {
+    $("header").css("borderColor", "rgb(0, 220, 244)");
+}, function () {
+    $("header").css("borderColor", "lightgray");
+});
+
+function receiveMessage() {
+    $.ajax({
+        url: "chat/receive",
+        data: {"" : ""},
+        type: ,
+        dataType: ,
+        success: function(result) {
+
+        }
+    })
+}
+
+function sendMessage() {
+    const e = $("#community-input > input");
+    const message = document.createElement("div");
+    message.className = "message message-me";
+    message.innerHTML = `<span>` + e.val() + `</span>`
+    $("#community-message").append(message);
+    e.val("");
+}
+
+setInterval(() => {
+    $.ajax({
+        url: "",
+        data: {"" : ""},
+        type: ,
+        dataType: ,
+        success: function(result) {
+
+        }
+    })
+}, 1000);

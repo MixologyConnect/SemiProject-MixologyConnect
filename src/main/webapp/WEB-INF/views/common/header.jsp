@@ -57,3 +57,41 @@
         <a href="${contextPath}/manager/manager?type=2">관리자 모드</a>
     </c:if>
 </nav>
+
+<div id="theme-switch">
+    <img>
+</div>
+
+<div id="community-switch">
+    <img src="${contextPath}/resources/images/chat.png">
+</div>
+
+<div id="community">
+    <div id="community-header">
+        <h3>전체 채팅</h3>
+    </div>
+    <div id="community-message">
+        <div class="message message-others">
+            <span>안녕</span>
+        </div>
+        <div class="message message-me">
+            <span>ㅎㅇ</span>
+        </div>
+        <div class="message message-others">
+            <span>밥먹음?</span>
+        </div>
+        <div class="message message-others">
+            <span>밥먹었냐고</span>
+        </div>
+        <div class="message message-others">
+            <span>밥먹자</span>
+        </div>
+        <div class="message message-me">
+            <span>ㄴㄴ</span>
+        </div>
+    </div>
+    <div id="community-input">
+        <input type="text">&nbsp;
+        <button onclick="sendMessage()">전송</button>
+    </div>
+</div>
