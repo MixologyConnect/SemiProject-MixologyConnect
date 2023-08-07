@@ -116,6 +116,12 @@
 	<entry key="selectFollower">
 		SELECT MEMBER_NO FROM FOLLOW WHERE FOLLOWER_NO=? AND MEMBER_NO=?
 	</entry>
-	
+
+	<entry key="memberUpgrade">
+		UPDATE MEMBER SET
+		MANAGER_CODE = DECODE(MANAGER_CODE ,
+		'Y','N','N','Y')
+		WHERE MEMBER_ID = ?
+	</entry>
 	
 </properties>
