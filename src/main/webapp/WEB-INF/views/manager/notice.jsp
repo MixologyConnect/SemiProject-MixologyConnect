@@ -51,11 +51,7 @@
                     </div>
                     
                     <div id="in_content">
-
-                        
-                        <textarea name="content" id="content" placeholder="내용" style="resize: none;" maxlength="100" required>
-                        ${detail.boardContent}
-                        </textarea>
+                        <textarea name="content" id="content" placeholder="내용" style="resize: none;" maxlength="1000" required>${detail.boardContent}</textarea>
                     </div>
                     
                     <!-- 공지사항 이미지 -->
@@ -69,7 +65,7 @@
                         </div>
                     </div>
 
-                    <button type="submit">등록</button>
+                    <button type="submit">저장</button>
 
                     <input type="hidden" name = "mode" value = "${param.mode}">
                     <input type="hidden" name = "type" value = "${param.type}">
