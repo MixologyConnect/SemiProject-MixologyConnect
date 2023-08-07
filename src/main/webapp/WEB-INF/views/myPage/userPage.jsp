@@ -49,6 +49,8 @@
             </section>
             <section class="follow2">
                 <div id="top">${member.memberName}</div>
+                <span class="boardContent">${board.boardContent}</span>
+
                 
                 <div class="bottom">
                     <span id="followerView"><a onclick="followerList()" id="followerCount">팔로워  ${followers.size()}</a></span>
