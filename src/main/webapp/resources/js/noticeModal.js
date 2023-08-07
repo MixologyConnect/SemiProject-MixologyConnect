@@ -90,19 +90,12 @@
 
 
 
-
- $(document).on("click","#close",function(){
-
-
-    const closeButton = document.getElementById('close');
+$(document).on("click", "#close", function() {
+    const overlay = $("#overlayy");
     
+    overlay.fadeOut(500); // 500ms 동안 천천히 사라지도록 설정
     
-        document.getElementById("overlayy").style.display = 'none';
-        
-        const oneDay = 24 * 60 * 60 * 1000; 
-        const hideDivExpiration = new Date(Date.now() + oneDay).toGMTString();
-        document.cookie = 'hideDiv3=true; expires=' + hideDivExpiration + '; path=/';
-    
-    
-
+    const oneDay = 24 * 60 * 60 * 1000; 
+    const hideDivExpiration = new Date(Date.now() + oneDay).toGMTString();
+    document.cookie = 'hideDiv3=true; expires=' + hideDivExpiration + '; path=/';
 });

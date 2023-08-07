@@ -247,6 +247,7 @@ thead> tr> th:nth-child(2){
     right: 7px;
     font-size: 20px;
     cursor: pointer;
+    color: white;
 }
 /* 버튼 영역 */
 #file, button{
