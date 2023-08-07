@@ -164,8 +164,8 @@ html.dark header { background-color: rgba(40, 40, 40, 0.9); }
 .account-text {
 	margin-top: 2px;
     color: rgba(150, 150, 150, 0.8);
+    font-size: 0.9rem;
     font-weight: 600;
-    letter-spacing: 1px;
     cursor: pointer;
     transition-duration: 0.8s;
 }
