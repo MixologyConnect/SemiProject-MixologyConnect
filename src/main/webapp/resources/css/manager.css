@@ -5,7 +5,7 @@ body{
 }
 #main{
     display: flex;
-    width: 1300px;
+    width: 1200px;
     height: 1000px;
     margin:  50px auto;
     margin-top: 100px;
@@ -56,7 +56,7 @@ h3{
 }
 
 .section-d{
-    width: 60%;
+    width: 77%;
 }
 
 /* 콘텐츠 영역 */
@@ -96,10 +96,12 @@ form{
 #searchMember{
     height: 30px;
     width: 150px;
+    border-radius: 7px;
 }
 #searchBoard{
     height: 30px;
     width: 150px;
+    border-radius: 7px;
 }
 #search-btn{
     height: 30px;
@@ -109,12 +111,16 @@ form{
 /* 공지사항 목록 */
 table{
     width: 1000px;
+    border: 1px solid black;
 }
 
 
-/* tr{
-    width: 20%;
-} */
+ tr{
+    border-bottom: 1px solid black;
+} 
+#resultMember{
+    border-top: 1px solid black;
+}
 /* thead> tr> th:nth-child(1){
     width: 15%;
 }
@@ -132,7 +138,7 @@ thead> tr> th:nth-child(2){
 }
 #managerPost{
     width: 800px;
-    height: 600px;
+    height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -188,7 +194,8 @@ thead> tr> th:nth-child(2){
 
 /* 이미지를 감싸는 div */
 .boardImg{
-    width: 230px;
+    width: 606px;
+    margin-left: 17px;
     height: 230px;
     display: inline-block;
     text-align: center;
@@ -214,7 +221,8 @@ thead> tr> th:nth-child(2){
 
 /* 미리보기 이미지 */
 .preview{
-    max-width: 100%;
+    /* max-width: 100%; */
+    width: 606px;
     max-height: 100%;
     /* 지정된 칸 내부에 비율을 변경하지 않고 이미지 배치 */
 }
@@ -281,4 +289,74 @@ fieldset{
 
 #borderbtn{
     margin: 10px 0;
+}
+
+#memberban{
+    width: 100px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 30px;
+}
+
+#memberban:hover{
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border-radius: 30px;
+    color: black;
+}
+#deleteBoard{
+    width: 100px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+}
+#deleteBoard:hover{
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border-radius: 30px;
+    color: black;
+}
+ 
+.deleteBoard{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+.memberBan{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+#member-btn{
+    width: 40px;
+    height: 36px;
+    background-color: #ccc;
+    border-radius: 15px;
+}
+#member-btn:hover{
+    width: 40px;
+    height: 36px;
+    background-color: white;
+    border-radius: 15px;
+    color: black;
+}
+#board-btn{
+    width: 40px;
+    height: 36px;
+    background-color: #ccc;
+    border-radius: 15px;
+}
+#board-btn:hover{
+    width: 40px;
+    height: 36px;
+    background-color: white;
+    border-radius: 15px;
+    color: black;
 }

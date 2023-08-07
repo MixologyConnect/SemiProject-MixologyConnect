@@ -299,3 +299,7 @@ html.dark .delete-image img{
     filter: invert(95%) sepia(24%) saturate(1255%) hue-rotate(179deg) brightness(110%) contrast(88%);
 }
 
+
+.html.dark  #counter{
+    filter: invert(95%) sepia(24%) saturate(1255%) hue-rotate(179deg) brightness(110%) contrast(88%);
+}

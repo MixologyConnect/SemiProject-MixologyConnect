@@ -19,7 +19,13 @@
         <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
     	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
-</head>
+        <style>
+            .f-info{width: 300px;}
+        </style>
+
+
+
+    </head>
 <body>
     
     
@@ -43,6 +49,8 @@
             </section>
             <section class="follow2">
                 <div id="top">${member.memberName}</div>
+                <span class="boardContent">${board.boardContent}</span>
+
                 
                 <div class="bottom">
                     <span id="followerView"><a onclick="followerList()" id="followerCount">팔로워  ${followers.size()}</a></span>
@@ -86,7 +94,7 @@
                                             <h3>${board.boardTitle}</h3>
                                         </div>
                                         
-                                        <span class="memberName">${board.memberName}</span>${board.memberNo}
+                                        <span class="memberName">${board.memberName}</span>
                                     </div>
                                     <div class="nameDateCount">
                                     <span class="boardDate">${board.boardDate}</span>

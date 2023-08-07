@@ -857,11 +857,11 @@ public class BoardDAO {
 			String sql = prop.getProperty("insertNotice");
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, detail.getBoardNo());
-			pstmt.setString(2, detail.getBoardTitle());
-			pstmt.setString(3, detail.getBoardContent());
-			pstmt.setInt(4, boardType);
-			pstmt.setInt(5, detail.getMemberNo());
+			// pstmt.setInt(1, detail.getBoardNo());
+			pstmt.setString(1, detail.getBoardTitle());
+			pstmt.setString(2, detail.getBoardContent());
+			pstmt.setInt(3, boardType);
+			pstmt.setInt(4, detail.getMemberNo());
 			
 			result = pstmt.executeUpdate();
 			
@@ -991,6 +991,28 @@ public class BoardDAO {
 		}
 
 		return detail;
+	}
+
+	public int insertNoticeImage(Connection conn, BoardImage image) throws Exception {
+		int result = 0;
+
+		try {
+
+			String sql = prop.getProperty("noticeInsert");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, image.getImageRename());
+			pstmt.setString(2, image.getImageOriginal());
+			pstmt.setInt(3, image.getImageLevel());
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
 	}
 
 	
