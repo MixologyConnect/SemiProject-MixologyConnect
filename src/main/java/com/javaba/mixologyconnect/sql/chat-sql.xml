@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>chat</comment>
+	<entry key="receiveMessages">
+		SELECT *
+		  FROM MESSAGE
+		 WHERE RECEIVER = ?
+		   AND SENT_TIMESTAMP &gt; ?
+	</entry>
+	<entry key="sendMessage">
+		INSERT
+		  INTO MESSAGE
+		VALUES(?, 0, ?, ?)
+	</entry>
+</properties>

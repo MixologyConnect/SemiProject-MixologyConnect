@@ -94,31 +94,49 @@ $("#sub-nav").hover(function() {
     $("header").css("borderColor", "lightgray");
 });
 
-function receiveMessage() {
+function getContextPath() {
+    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+    return location.href.substring( hostIndex, location.href.indexOf("/", hostIndex + 1) );
+};
+
+function receiveMessage(receiver) {
     $.ajax({
-        url: "chat/receive",
-        dataType: "json",
+        url: getContextPath() + "/chat/receive",
+        type: "post",
+        data: { "receiver" : 0 },
+        dataType: "JSON",
         success: function(result) {
-            
+            if (result == "") return;
+            if (receiver == result[0].sender.memberNo) return;
+            const e = $("#community-input > input");
+            const message = document.createElement("div");
+            message.className = "message message-others";
+            message.innerHTML = `<span>` + result[0].sender.memberName + `</span>
+                                 <span>` + result[0].message + `</span>`
+            $("#community-message").append(message);
         }
     })
 }
 
-function sendMessage() {
+function sendMessage(sender) {
     const e = $("#community-input > input");
-    const message = document.createElement("div");
-    message.className = "message message-me";
-    message.innerHTML = `<span>` + e.val() + `</span>`
-    $("#community-message").append(message);
-    e.val("");
+    $.ajax({
+        url: getContextPath() + "/chat/send",
+        type: "post",
+        data: { "sender" : sender,
+                "message" : e.val() },
+        dataType: "JSON",
+        success: function(result) {
+            const message = document.createElement("div");
+            message.className = "message message-me";
+            message.innerHTML = `<span>` + e.val() + `</span>`
+            $("#community-message").append(message);
+            e.val("");
+        }
+    })
 }
 
 setInterval(() => {
-    $.ajax({
-        url: "",
-        data: {"" : ""},
-        success: function(result) {
-
-        }
-    })
+    receiver = $("#loginMemberNo").val();
+    if (receiver != "") receiveMessage(receiver);
 }, 1000);
