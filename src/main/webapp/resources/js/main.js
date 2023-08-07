@@ -97,11 +97,9 @@ $("#sub-nav").hover(function() {
 function receiveMessage() {
     $.ajax({
         url: "chat/receive",
-        data: {"" : ""},
-        type: ,
-        dataType: ,
+        dataType: "json",
         success: function(result) {
-
+            
         }
     })
 }
@@ -119,8 +117,6 @@ setInterval(() => {
     $.ajax({
         url: "",
         data: {"" : ""},
-        type: ,
-        dataType: ,
         success: function(result) {
 
         }

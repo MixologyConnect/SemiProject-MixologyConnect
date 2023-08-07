@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 import com.javaba.mixologyconnect.chat.model.service.ChatService;
 
-@WebServlet("chat/receive")
+@WebServlet("/chat/receive")
 public class ReceiveChatServlet extends HttpServlet {
 
 	@Override
