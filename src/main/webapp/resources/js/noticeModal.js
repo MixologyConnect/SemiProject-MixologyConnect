@@ -1,4 +1,3 @@
-console.log("v2");
 (function(){
 
     $.ajax({
@@ -45,7 +44,7 @@ console.log("v2");
 
         */  
        
-            const input1 = document.createElement("input");
+            /* const input1 = document.createElement("input");
             input1.setAttribute("id","today");
             input1.setAttribute("type","checkbox")
             div3.append(input1);
@@ -54,12 +53,12 @@ console.log("v2");
             label1.setAttribute("for","today");
             label1.setAttribute("id","todayLabel")
             label1.innerText = "오늘 하루동안 보지 않기";
-            div3.append(label1)
+            div3.append(label1) */
 
             const button2 = document.createElement("button");
             button2.setAttribute("id","close");
             //button2.setAttribute("onclick","closePop()")
-            button2.innerText = "닫기";
+            button2.innerText = "오늘 하루 보지 않기";
             div3.append(button2);
 
             div2.append(div3);

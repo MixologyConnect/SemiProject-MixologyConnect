@@ -82,9 +82,9 @@ element.style{
 #close{
     position: absolute;
     bottom: -1%;
-    right: 10%;
+    right: -3%;
     transform: translate(-50%,-50%);
     background-color: transparent;
-    color: black
+    color: white;
 }
 
