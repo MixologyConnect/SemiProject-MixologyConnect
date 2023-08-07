@@ -631,4 +631,32 @@ public class MemberDAO {
 		return result;
 	}
 
+	/** 상대방 팔로우 하기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 */
+	public int userPageFollower(Connection conn, int memberNo, int loginMemberNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("insertfollow");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(1, loginMemberNo);
+		
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
 }
