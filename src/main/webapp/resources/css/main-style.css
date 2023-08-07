@@ -9,6 +9,7 @@
 
 ::-webkit-scrollbar {
     width: 6px;
+    height: 6px;
     background-color: rgb(0, 220, 244);
 } html.dark ::-webkit-scrollbar {
     background-color: rgba(0, 220, 244, 0.5);
@@ -19,6 +20,12 @@
     background-color: rgba(0, 0, 0, 0.3);
 } html.dark ::-webkit-scrollbar-thumb {
     background-color: rgb(0, 220, 244);
+}
+
+::-webkit-scrollbar-corner {
+    background-color: rgb(0, 220, 244);
+} html.dark ::-webkit-scrollbar-corner {
+    background-color: rgba(0, 220, 244, 0.5);
 }
 
 .visible {
@@ -113,20 +120,35 @@ html.dark header { background-color: rgba(40, 40, 40, 0.9); }
 }
 
 #account {
+    display: flex;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 10;
-    height: 100px;
+    height: 120px;
+    justify-content: center;
+    align-items: center;
 }
 
 .account-label {
     display: flex;
-    width: 120px;
     height: 120px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition-duration: 0.8s;
+}
+
+#account-button {
+    width: 120px;
+}
+
+#mypage-button {
+    margin-right: 25px;
+}
+
+#logout-button {
+    margin-right: 25px;
 }
 
 .account-image {
