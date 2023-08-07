@@ -309,10 +309,6 @@
     </div>
 </div>
 
-<div id="theme-switch">
-    <img>
-</div>
-
 <c:if test="${!empty sessionScope.message}">
 	<script>
 		alert("${message}");
