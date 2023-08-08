@@ -120,7 +120,7 @@
             </div>
 
             <div class="pagination-area">
-                <c:set var="url" value="myPage?type=1&cp="/>
+                <c:set var="url" value="myPage?&cp="/>
 
                 <ul class="pagination">
                     <!-- 첫 페이지로 이동 -->
