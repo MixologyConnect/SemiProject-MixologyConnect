@@ -59,5 +59,6 @@
     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
     <script src="${contextPath}/resources/js/main.js"></script>
     <script src="${contextPath}/resources/js/place.js"></script>
+    <script src="${contextPath}/resources/js/index.js"></script>
 </body>
 </html>
