@@ -62,7 +62,7 @@
     <img>
 </div>
 
-<input id="community-checkbox" type="checkbox">
+<input id="community-checkbox" type="checkbox" checked>
 <label for="community-checkbox">
     <div id="community-switch">
         <img src="${contextPath}/resources/images/chat.png">
