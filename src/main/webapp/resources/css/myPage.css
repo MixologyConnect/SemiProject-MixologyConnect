@@ -663,9 +663,10 @@ main > section:nth-child(6){
     border-radius: 50%;
 }
 
-.f-info sapn{
+.f-info > span{
     padding: 20px;
     width: 180px;
+    color: white;
 }
 
 /* 언팔 버튼 */
@@ -709,4 +710,16 @@ main > section:nth-child(6){
     padding: 0 10px;
 
 
+}
+
+.follow-wrap1{
+    background-color: rgba(255, 255, 255, 0.3);
+} html.dark .follow-wrap1 {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.folloing-wrap2 {
+    background-color: rgba(255, 255, 255, 0.3);
+}html.dark .folloing-wrap2{
+    background-color: rgba(0, 0, 0, 0.4);
 }
