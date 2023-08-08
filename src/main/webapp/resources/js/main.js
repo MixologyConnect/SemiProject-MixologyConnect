@@ -87,3 +87,64 @@ $("nav > a").hover(function() {
     $("header").css("borderColor", "lightgray");
     $("nav").css("borderColor", "lightgray");
 });
+
+$("#sub-nav").hover(function() {
+    $("header").css("borderColor", "rgb(0, 220, 244)");
+}, function () {
+    $("header").css("borderColor", "lightgray");
+});
+
+function getContextPath() {
+    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+    return location.href.substring( hostIndex, location.href.indexOf("/", hostIndex + 1) );
+};
+
+function receiveMessage(receiver) {
+    $.ajax({
+        url: getContextPath() + "/chat/receive",
+        type: "post",
+        data: { "receiver" : 0 },
+        dataType: "JSON",
+        success: function(result) {
+            if (result == "") return;
+            if (receiver == result[0].sender.memberNo) return;
+            const e = $("#community-input > input");
+            const message = document.createElement("div");
+            message.className = "message message-others";
+            message.innerHTML = `<span>` + result[0].sender.memberName + `</span>
+                                 <span>` + result[0].message + `</span>`
+            const box = $("#community-message");
+            box.append(message);
+            box.scrollTop(box[0].scrollHeight);
+        }
+    })
+}
+
+function sendMessage(sender) {
+    const e = $("#community-input > input");
+    $.ajax({
+        url: getContextPath() + "/chat/send",
+        type: "post",
+        data: { "sender" : sender,
+                "message" : e.val() },
+        dataType: "JSON",
+        success: function(result) {
+            const message = document.createElement("div");
+            message.className = "message message-me";
+            message.innerHTML = `<span>` + e.val() + `</span>`
+            e.val("");
+            const box = $("#community-message");
+            box.append(message);
+            box.scrollTop(box[0].scrollHeight);
+        }
+    })
+}
+
+setInterval(() => {
+    receiver = $("#loginMemberNo").val();
+    if (receiver != "") receiveMessage(receiver);
+}, 1000);
+
+$("#community-input > input").on("keyup",function(key){ 
+    if (key.keyCode==13) sendMessage($("#loginMemberNo").val());
+}); 

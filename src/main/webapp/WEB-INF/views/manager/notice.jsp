@@ -58,14 +58,19 @@
                     <div class="img-box">
                         <div class="boardImg thumbnail">
                             <label for="img0">
-                                <img class="preview" src="${contextPath}${detail.imageList[0].imageRename}">
+                                <c:if test="${!empty detail.imageList[0]}">
+                                    <img class="preview" src="${contextPath}${detail.imageList[0].imageRename}">
+                                </c:if>
+                                <c:if test="${empty detail.imageList[0]}">
+                                    <img class="preview" src="">
+                                </c:if>
                             </label>
                             <input type="file" class="inputImage" id="img0" name="0" accept="image/*">
                             <span class="delete-image">&times;</span>
                         </div>
                     </div>
 
-                    <button type="submit">저장</button>
+                    <button type="submit" id="submit">저장</button>
 
                     <input type="hidden" name = "mode" value = "${param.mode}">
                     <input type="hidden" name = "type" value = "${param.type}">
@@ -83,7 +88,9 @@
     </div>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    
+    <!-- <script src="${contextPath}/resources/js/modal/modal.js"></script> -->
+    <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
+    <script src="${contextPath}/resources/js/main.js"></script>
     <script src="${contextPath}/resources/js/notice.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-console.log("v2");
 (function(){
 
     $.ajax({
@@ -37,29 +36,9 @@ console.log("v2");
             p.innerText = notice.boardContent;
             div3.append(p);
 
-       /*      const button1 = document.createElement("button");
-            button1.setAttribute("id","today");
-            button1.innerText = "오늘 하루 보지 않기";
-            button1.setAttribute("onclick","true")
-            div3.append(button1);
-
-        */  
-       
-            const input1 = document.createElement("input");
-            input1.setAttribute("id","today");
-            input1.setAttribute("type","checkbox")
-            div3.append(input1);
-
-            const label1 = document.createElement("label");
-            label1.setAttribute("for","today");
-            label1.setAttribute("id","todayLabel")
-            label1.innerText = "오늘 하루동안 보지 않기";
-            div3.append(label1)
-
             const button2 = document.createElement("button");
             button2.setAttribute("id","close");
-            //button2.setAttribute("onclick","closePop()")
-            button2.innerText = "닫기";
+            button2.innerText = "오늘 하루 보지 않기";
             div3.append(button2);
 
             div2.append(div3);
@@ -91,19 +70,12 @@ console.log("v2");
 
 
 
-
- $(document).on("click","#close",function(){
-
-
-    const closeButton = document.getElementById('close');
+$(document).on("click", "#close", function() {
+    const overlay = $("#overlayy");
     
+    overlay.fadeOut(500);
     
-        document.getElementById("overlayy").style.display = 'none';
-        
-        const oneDay = 24 * 60 * 60 * 1000; 
-        const hideDivExpiration = new Date(Date.now() + oneDay).toGMTString();
-        document.cookie = 'hideDiv3=true; expires=' + hideDivExpiration + '; path=/';
-    
-    
-
+    const oneDay = 24 * 60 * 60 * 1000; 
+    const hideDivExpiration = new Date(Date.now() + oneDay).toGMTString();
+    document.cookie = 'hideDiv3=true; expires=' + hideDivExpiration + '; path=/';
 });

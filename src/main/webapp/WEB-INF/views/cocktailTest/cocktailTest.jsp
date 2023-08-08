@@ -246,7 +246,10 @@
                 <div>진한 위스키와 달콤한 향, 달짝지근한 끝맛을 좋아하는 분들에게 추천! <br><br>
                     약 20-30도
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=41"><button>자세히보기</button></a>
 
+                </div>
 
             </div> <br>
             <div class="reset">
@@ -262,7 +265,10 @@
                 <div class="content">위스키 베이스로, 칵테일의 여왕이라는 별칭을 가지고 있는 칵테일이다. 스위트 베르무트가 들어가 달콤한 맛을 지니고 있다.<br><br>
                     약 30도
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=42"><button>자세히보기</button></a>
 
+                </div>
 
             </div> <br>
             <div class="reset">
@@ -277,6 +283,10 @@
                 <div>롱아일랜드 아이스티</div>
                 <div class="content">쿠바의 전통 음료, 달달함과 동시에 민트 향을 내면서 씁쓸한 뒷맛이 스쳐가니 나름 입체적인 맛이라 할 수 있다.<br><br>
                     약 10-20도
+                </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=19"><button>자세히보기</button></a>
+
                 </div>
 
 
@@ -295,6 +305,10 @@
                 <div class="content"> 실제로 영화 '대부'를 기념하여 만들어진 칵테일이라고 한다. '갓파더'는 강렬한 위스키의 첫맛에 달달하고 향긋한 아마레또의 향으로 마무리된다. 알콜 도수는 30도 중반대로 높은 편이다.  <br><br>
                     약 30-40도
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=22"><button>자세히보기</button></a>
+
+                </div>
 
 
             </div> <br>
@@ -311,6 +325,10 @@
                 <div class="content">미국 역사상 가장 오래된 칵테일로 일컬어지는 사제락(Sazerac). 상큼한 레몬 풍미와 상쾌한 허브, 향긋한 아니스, 부드러운 질감과 은은한 단맛이 환상적인 밸런스를 이룬다.  <br><br>
                     약 40-45도
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=43"><button>자세히보기</button></a>
+
+                </div>
 
 
             </div> <br>
@@ -326,6 +344,10 @@
                 <div>카타르시스</div>
                 <div class="content">카타르시스는 오버루프 럼, 아마레또, 라임 주스를 빌드해서 만드는 칵테일로, 재료도 간단하고 만드는 방법도 간단해서 쉽게 만들어 마실 수 있는 칵테일입니다! 하지만 오버루프럼이 들어가는 만큼 도수도 높다는 점!<br><br>
                     약 50-55도
+                </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=44"><button>자세히보기</button></a>
+
                 </div>
 
 
@@ -344,6 +366,10 @@
                 <div class="content">블랙 벨벳은 발포성 포도주 또는 스타우트(주로 기네스)를 기반으로 하는 맥주 칵테일이다. 샴페인의 고급스러운 청량감과 단맛이 먼저 느껴지고, 이후 스타우트 흑맥주의 쌉싸름한 맛이 뒷맛으로 남는 정말 고급스러운 칵테일!  <br><br>
                     약 10도
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=45"><button>자세히보기</button></a>
+
+                </div>
 
 
             </div> <br>
@@ -360,6 +386,10 @@
                 <div class="content">아일랜드산 흑맥주인 기네스와 벨기에산 맥주인 호가든 이 두가지 맥주를 1:1로 섞어서 층을 만드는 맥주 플로팅 칵테일의 일종이다. 여담으로 각각의 맥주는 호가든 4.9도, 기네스 4.4도로 높진 않지만, 두 잔 정도 더티호로 만들어 먹으면 꽤나 빨리 취기가 올라온다. 이 점 유념하고 마시자. <br><br>
                     약 5도
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=46"><button>자세히보기</button></a>
+
+                </div>
 
 
             </div> <br>
@@ -375,6 +405,10 @@
                 <div>행맨스 블러드</div>
                 <div class="content">브랜디의 맛과 흑맥주의 맛이 강하게 나는 칵테일. 진, 럼, 위스키, 브랜디, 와인, 흑맥주 등 거의 모든 양주를 다 베이스로 하는 칵테일로, 그 기원은 영국이라고 한다. <br><br>
                     약 10-20도
+                </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=47"><button>자세히보기</button></a>
+
                 </div>
 
 
@@ -393,6 +427,10 @@
                 <div class="content">맥주와 토마토 주스를 이용한 칵테일. 토마토 주스 맛이 나지만 맥주를 베이스로 한다. 도수는 3도 정도. 숙취해소용 칵테일이며 여성, 남성 가릴 것 없이 숙취해소용으로 가볍게 마시면 좋다. <br><br>
                     약 3도
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=48"><button>자세히보기</button></a>
+
+                </div>
 
 
             </div> <br>
@@ -408,6 +446,10 @@
                 <div>샌디 개프</div>
                 <div class="content">맥주 베이스로, 맥주와 진저에일을 절반씩 섞어 만드는 칵테일이다. 맛은 진저에일의 생강 향, 약간의 단 맛과 맥주의 씁쓸한 맛이 조화를 이룬다. 이탈리아로부터 역사가 아주 긴 칵테일이라 전해진다.  <br><br>
                     약 5도
+                </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=49"><button>자세히보기</button></a>
+
                 </div>
 
 
@@ -426,7 +468,10 @@
                 <div class="content">소주와 맥주를 섞은 칵테일의 일종. 대한민국 성인이라면 안먹어 본 사람은 있어도 한번만 먹어본 사람은 없다는 우리나라 대표 칵테일! <br><br>
                     약 10-20도
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=50"><button>자세히보기</button></a>
 
+                </div>
 
             </div> <br>
             <div class="reset">
@@ -442,9 +487,12 @@
                 <div><img src="${contextPath}/resources/images/cocktailTest/피치크러쉬.png"></div>
                 <div>피치크러쉬</div>
                 <div class="content">복숭아 향과 맛이 느껴지는 피치 리큐르에 크랜베리 주스를 섞어 만든 칵테일로 복숭아와 크렌베리의 새콤한 향과 맛의 어우러짐을 특징으로 가지고 있는 칵테일! <br><br>
-                    약 5도
+                    약 5도 
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=5"><button>자세히보기</button></a>
 
+                </div>
 
             </div> <br>
             <div class="reset">
@@ -458,9 +506,12 @@
                 <div><img src="${contextPath}/resources/images/cocktailTest/준벅.png"></div>
                 <div>준벅</div>
                 <div class="content">6월의 푸르름을 표현한 칵테일. 향과 맛이 달콤하기로 유명한 리큐르인 말리부가 들어가서 달달한 맛을 보여주는 칵테일!  <br><br>
-                    약 5-10도
+                    약 5-10도 
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=12"><button>자세히보기</button></a>
 
+                </div>
 
             </div> <br>
             <div class="reset">
@@ -476,7 +527,10 @@
                 <div class="content">멜론 리큐르의 한 종류인 미도리를 사용해 만드는 유명한 칵테일이다. 멜론맛인 미도리와 스윗&사워 믹스의 레몬향이 어우러져서 상큼한 색깔과 맛을 연출하는 것이 포인트. <br><br>
                     약 5-10도
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=51"><button>자세히보기</button></a>
 
+                </div>
 
             </div> <br>
             <div class="reset">
@@ -494,7 +548,11 @@
                 <div class="content">럼 베이스 칵테일. 맛은 달달함과 동시에 민트 향을 내면서 씁쓸한 뒷맛이 스쳐가니 나름 입체적인 맛이라 할 수 있다.<br><br>
                     약 10-20도
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=20"><button>자세히보기</button></a>
 
+                </div>
+                
 
             </div> <br>
             <div class="reset">
@@ -509,6 +567,10 @@
                 <div>팔로마</div>
                 <div class="content">데킬라 베이스로 하며, 높은 청량감과 가벼운 알코올 도수 덕분에 더운 여름에 마시기 적합한 음료라고 할 수 있습니다.<br><br>
                     약 10-20도
+                </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=52"><button>자세히보기</button></a>
+
                 </div>
 
 
@@ -526,7 +588,10 @@
                 <div class="content">산토리 하이볼은 일식 이자카야에서도 흔히 찾을 수  있는 유명한 칵테일이죠. 상큼하고 달달한 맛으로 인기를 끌고있는 일본의 산토리 위스키! <br><br>
                     약 20-30도
                 </div>
+                <div>
+                    <a href="${contextPath}/cocktail/detail?no=53"><button>자세히보기</button></a>
 
+                </div>
 
             </div> <br>
             <div class="reset">

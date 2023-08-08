@@ -405,4 +405,43 @@ public class MemberService {
 		return result;
 	}
 
+	public int memberUpgrade(String memberId) throws Exception {
+			
+		Connection conn = getConnection();
+		
+		int result = dao.memberUpgrade(conn, memberId);
+		
+		System.out.println(result);
+
+		if (result > 0)
+			conn.commit();
+		else
+			conn.rollback();
+
+		close(conn);
+
+		return result;
+
+	}
+
+	/** 상대방 팔로우 하기
+	 * @param memberNo
+	 * @return
+	 */
+	public int userPageFollower(int memberNo, int loginMemberNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.userPageFollower(conn, memberNo, loginMemberNo);
+		
+		if (result > 0)
+			conn.commit();
+		else
+			conn.rollback();
+
+		close(conn);
+		
+		return result;
+	}
+
 }
