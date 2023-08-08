@@ -313,7 +313,7 @@ footer {
 #community-switch > img {
 	width: 30px;
     opacity: 90%;
-    filter: saturate(0);
+    filter: saturate(1);
     transition-duration: 0.8s;
 }
 
@@ -347,7 +347,7 @@ footer {
     display: flex;
     width: 90%;
     height: 300px;
-    background-color: rgba(0, 220, 244, 0.3);
+    background-color: rgba(0, 220, 244, 0.1);
     overflow: scroll;
     flex-direction: column;
 }
@@ -370,9 +370,10 @@ footer {
 }
 
 #community-input > button {
+    width: 40px;
     border: none;
     background-color: rgb(0, 220, 244);
-    width: 40px;
+    font-weight: bold;
 }
 
 .message {
@@ -414,7 +415,7 @@ footer {
 }
 
 #community-checkbox:checked + label img {
-    filter: saturate(1);
+    filter: saturate(0);
 }
 
 #community-checkbox:checked ~ #community {
