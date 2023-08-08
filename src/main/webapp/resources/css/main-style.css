@@ -178,7 +178,7 @@ html.dark header { background-color: rgba(40, 40, 40, 0.9); }
     position: relative;
     display: flex;
     top: -70px;
-    width: 50vw;
+    width: 60vw;
     height: 70px;
     padding-left: 20px;
     align-items: center;
@@ -316,6 +316,21 @@ footer {
     opacity: 90%;
     filter: saturate(1);
     transition-duration: 0.8s;
+}
+
+#community-alert {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    font-size: 0.9rem;
+    line-height: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 #community {

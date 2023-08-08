@@ -116,6 +116,11 @@ function receiveMessage(receiver) {
             const box = $("#community-message");
             box.append(message);
             box.scrollTop(box[0].scrollHeight);
+            if ($("#community-checkbox").prop("checked") == true) {
+                const a = $("#community-alert")
+                a.css("display", "flex");
+                a.text(Number(a.text()) + 1);
+            }
         }
     })
 }
@@ -148,3 +153,11 @@ setInterval(() => {
 $("#community-input > input").on("keyup",function(key){ 
     if (key.keyCode==13) sendMessage($("#loginMemberNo").val());
 }); 
+
+$("#community-checkbox").change(function() {
+    if ($("#community-checkbox").prop("checked") == false) {
+        const a = $("#community-alert")
+        a.css("display", "none");
+        a.text("");
+    }
+})

@@ -71,6 +71,7 @@
 <label for="community-checkbox">
     <div id="community-switch">
         <img src="${contextPath}/resources/images/chat.png">
+        <div id="community-alert"></div>
     </div>
 </label>
 <div id="community">
