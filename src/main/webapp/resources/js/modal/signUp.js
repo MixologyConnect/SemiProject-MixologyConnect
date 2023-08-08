@@ -10,7 +10,7 @@ function verifyEmail() {
     }
     s.text("잠시만 기다려 주세요...");
     $.ajax({
-        url: "email/verify",
+        url: getContextPath() + "/email/verify",
         type: "post",
         data: {"serv": "signUp", "email": email},
         success: function(value) {
@@ -68,7 +68,7 @@ $("#modal-signup > table input").on("input", function() {
     case "memberId":
         if (/^(?=.*[A-Za-z]{3})[A-Za-z\d]{5,}$/.test(v)) {
             $.ajax({
-                url: "member/idDupCheck", 
+                url: getContextPath() + "/member/idDupCheck", 
                 type: "get",
                 data: {"memberId": v},
                 success : function(result) {
