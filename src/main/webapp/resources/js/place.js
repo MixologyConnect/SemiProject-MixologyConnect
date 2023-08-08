@@ -1,7 +1,8 @@
 var map = null;
+let markers = [];
 
 $.getScript("https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=cz1labzu75&submodules=geocoder", function() {
-    map = new naver.maps.Map("map", {center: new naver.maps.LatLng(37, 127), zoom: 15})
+    map = new naver.maps.Map("map", {center: new naver.maps.LatLng(37, 127), zoom: 14})
 });
 
 function searchPlace(place) {
@@ -19,6 +20,9 @@ function searchPlace(place) {
             let latLng;
             let mapXSum = 0;
             let mapYSum = 0;
+            for (let m of markers) {
+                m.setMap(null);
+            }
             for (let i of result.items) {
                 let li = document.createElement("li");
                 li.innerHTML = `<img>
@@ -34,11 +38,12 @@ function searchPlace(place) {
                     map: map,
                     title: i.title,
                     icon: {
-                        content: `<div style='color: red;'>` + i.title + `</div>`,
+                        content: `<div class="marker"><img class="marker-image" src="./resources/images/marker.png"><div class="marker-info">` + i.title + `</div></div>`,
                         size: new naver.maps.Size(38, 58),
-                        anchor: new naver.maps.Point(19, 58)
+                        anchor: new naver.maps.Point(30, 0)
                     }
                 });
+                markers.push(marker);
             }
             map.setCenter(naver.maps.TransCoord.fromTM128ToLatLng(new naver.maps.Point(mapXSum/5, mapYSum/5)));
         },

@@ -231,7 +231,7 @@
         </div>
         <button id="modal-contract-button">다음</button>
     </div>
-    <form id="modal-signup" action="member/signUp" method="post" onsubmit="return signValidate()">
+    <form id="modal-signup" action="${contextPath}/member/signUp" method="post" onsubmit="return signValidate()">
         <h2>회원가입</h2>
         <p>가입 후 다른 회원들과 소통할 수 있습니다.</p>
         <table>
