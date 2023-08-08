@@ -5,7 +5,6 @@
     // console.log(writerNo);
     // console.log(loginMemberNo);
 
-
     if(likeMember==boardNo){
         const img = document.getElementById("likeBtnImg");
         img.src = contextPath + "/resources/images/heart-fill.svg";

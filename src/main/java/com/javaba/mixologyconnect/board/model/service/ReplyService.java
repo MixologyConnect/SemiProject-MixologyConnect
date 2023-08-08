@@ -80,6 +80,10 @@ public class ReplyService {
 		Connection conn = getConnection();
 		
 		
+		replyContent = Util.XSSHandling(replyContent);
+		
+		replyContent = Util.newLineHandling(replyContent);
+		
 		int result = dao.updateReply(conn, replyNo, replyContent);
 		
 		if(result > 0) commit(conn);
