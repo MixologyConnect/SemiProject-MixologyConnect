@@ -75,7 +75,8 @@
 	<!-- 북마크 테이블 검색기능 게시글 수 조회 -->
 	<entry key="searchListCount">
 		SELECT COUNT(*) FROM BOOKMARK M
-        JOIN BOARD USING(BOARD_NO)
+        JOIN BOARD B USING(BOARD_NO)
+        JOIN MEMBER R ON(B.MEMBER_NO = R.MEMBER_NO)
 		WHERE M.MEMBER_NO = ?
 		AND BOARD_ST = 'Y'
 	</entry>
@@ -155,6 +156,51 @@
 		AND BOARD_NO IN
 	</entry>
 
+<entry key = "userPageListCount">
+	SELECT COUNT(*) FROM BOARD
+	WHERE MEMBER_NO = ?
+	AND
+	BOARD_CD = 1
+	AND BOARD_ST = 'Y'
 
+</entry>
+
+<entry key = "userPageBoardCount">
+	with row_check as
+	        (
+	            select 
+	                        row_number() over(order by a.board_no desc) as rn    
+	                ,       a.*
+	            from board a
+	            order by board_no desc
+	        )
+		SELECT
+						a.BOARD_NO
+				,		a.BOARD_TITLE
+	            ,       a.BOARD_CONTENT
+				,		b.MEMBER_NM
+				,		TO_CHAR(a.BOARD_DT, 'YYYY-MM-DD') AS BOARD_DT
+				,		a.READ_COUNT
+				,		c.IMG_RENAME
+				,		b.member_no
+		FROM row_check a
+		left join member b
+			on	b.member_no		=	a.member_no
+		left join board_img c
+			on	c.board_no		=	a.board_no
+			and	c.img_level		=	'0'
+		WHERE 	a.rn BETWEEN ? AND ?
+		AND		BOARD_CD	=	1
+		AND		BOARD_ST	=	'Y'
+        AND A.MEMBER_NO = ?
+
+</entry>
+
+
+<entry key = "selectMember">
+	SELECT MEMBER_PROFILE, MEMBER_NM, MEMBER_NO
+	FROM MEMBER
+	WHERE MEMBER_NO = ?
+</entry>
 
 </properties>

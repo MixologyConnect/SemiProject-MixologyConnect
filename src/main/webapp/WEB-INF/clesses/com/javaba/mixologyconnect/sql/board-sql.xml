@@ -271,7 +271,7 @@
 	</entry>
 
 	<entry key="insertNotice">
-		INSERT INTO BOARD VALUES(?, ?, ?,
+		INSERT INTO BOARD VALUES(155, ?, ?,
 		SYSDATE, NULL, 0,
 		'Y',
 		?, ?)
@@ -281,13 +281,68 @@
 		SELECT BOARD_TITLE, BOARD_CONTENT
 		FROM BOARD
 		WHERE BOARD_CD = 2
-		AND BOARD_NO = 10
+		AND BOARD_NO = 155
 	</entry>
 
 	<entry key="noticeImage">
 		SELECT IMG_RENAME, IMG_ORIGINAL, BOARD_NO
 		FROM BOARD_IMG
-		WHERE BOARD_NO = 10
+		WHERE BOARD_NO = 155
+	</entry>
+
+	<entry key="noticeUpdate">
+		UPDATE BOARD SET BOARD_CONTENT = ?,
+		BOARD_TITLE = ?,
+		MODIFY_DT = DEFAULT
+		WHERE BOARD_NO = 155
+	</entry>
+
+	<entry key="noticeImageUpdate">
+		UPDATE BOARD_IMG SET IMG_RENAME = ?,
+		IMG_ORIGINAL = ?
+		WHERE BOARD_NO = 155 AND
+		IMG_LEVEL = ?
+	</entry>
+
+	<entry key="selectBoardCode">
+		select board_cd
+		from board
+		where board_cd = 2
+	</entry>
+
+	<entry key="noticeInsert">
+		INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL, ?, ?,
+		?, 155)
+	</entry>
+	
+	<entry key = "selectTop4">
+	        with row_check as
+            (
+                select 
+                
+                            row_number() over(order by a.board_no desc) as rn    
+                    ,       a.*
+                from board a
+                order by board_no desc
+            )
+
+    SELECT 
+       a.BOARD_TITLE, BOARD_CONTENT, c.img_rename
+                            FROM row_check a
+                            LEFT JOIN (
+                            SELECT board_no, COUNT(*) as likes_count
+                            FROM board_like
+                            GROUP BY board_no 
+                            ) l ON a.board_no = l.board_no
+                             join member b on a.member_no = b.member_no
+                             left join board_img c on a.board_no     =    c.board_no
+                            and    c.img_level        =    '0'
+                            where    a.BOARD_CD    =    1
+                            AND        a.BOARD_ST    =    'Y'
+                              
+                            
+                            ORDER BY COALESCE(likes_count, 0) DESC
+	
 	</entry>
 
 </properties>
