@@ -229,7 +229,6 @@
     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
 
     <script>
-        const contextPath = "${contextPath}"
         const loginMemberNo = "${loginMemberNo}"
     </script>
 

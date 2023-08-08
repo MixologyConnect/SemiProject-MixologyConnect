@@ -60,6 +60,22 @@
 	</entry>
 	
 	
+	<entry key="selectColumnList4">
+		SELECT * FROM(
+		    SELECT ROWNUM RNUM, A. * FROM(
+		        SELECT IMG_RENAME, BOARD_TITLE, BOARD_NO, MEMBER_NM
+		        FROM BOARD
+		        JOIN BOARD_IMG USING(BOARD_NO)
+		        JOIN MEMBER USING(MEMBER_NO)
+		        WHERE BOARD_CD =?
+		        AND BOARD_ST = 'Y'
+		        ORDER BY BOARD_NO DESC
+		    )A
+		    ) 
+		    WHERE RNUM BETWEEN 1 AND 4
+		    
+	</entry>
+	
 	
 	
 </properties>
