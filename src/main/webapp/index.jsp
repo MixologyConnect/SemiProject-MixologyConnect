@@ -24,7 +24,7 @@
             <label for="search-button"><img src="${contextPath}/resources/images/magnifier.png"></label>
             <form action="search">
 
-        	    <input type="text" name="query" placeholder="칵테일, 게시글">
+        	    <input id="search-box" type="text" name="query" placeholder="칵테일, 게시글">
 
                 <button id="search-button">검색</button>
             </form>

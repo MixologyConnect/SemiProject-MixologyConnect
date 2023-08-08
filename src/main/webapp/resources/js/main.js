@@ -88,7 +88,7 @@ $("nav > a").hover(function() {
     $("nav").css("borderColor", "lightgray");
 });
 
-$("#sub-nav").hover(function() {
+$("#sub-nav > a").hover(function() {
     $("header").css("borderColor", "rgb(0, 220, 244)");
 }, function () {
     $("header").css("borderColor", "lightgray");
@@ -127,11 +127,13 @@ function receiveMessage(receiver) {
 
 function sendMessage(sender) {
     const e = $("#community-input > input");
+    const msg = e.val();
+    if (msg == "") return;
     $.ajax({
         url: getContextPath() + "/chat/send",
         type: "post",
         data: { "sender" : sender,
-                "message" : e.val() },
+                "message" : msg },
         dataType: "JSON",
         success: function(result) {
             const message = document.createElement("div");
@@ -142,7 +144,7 @@ function sendMessage(sender) {
             box.append(message);
             box.scrollTop(box[0].scrollHeight);
         }
-    })
+    });
 }
 
 setInterval(() => {
@@ -160,4 +162,18 @@ $("#community-checkbox").change(function() {
         a.css("display", "none");
         a.text("");
     }
-})
+});
+
+$("#search-box").focus(function() {
+    $("#search-box").css({ "width": "600px",
+                           "height": "60px",
+                           "border-color": "rgb(0, 220, 244)",
+                           "filter": "drop-shadow(0 0 10px rgba(0, 220, 244, 0.2))" });
+});
+
+$("#search-box").blur(function() {
+    $("#search-box").css({ "width": "",
+                           "height": "",
+                           "border-color": "",
+                           "filter": "" });
+});
