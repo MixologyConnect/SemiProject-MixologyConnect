@@ -165,19 +165,20 @@ $("#community-checkbox").change(function() {
 });
 
 $("#search-box").focus(function() {
-    $("#search-box").css({ "width": "600px",
-                           "height": "60px",
+    $("#search img").css("filter", "saturate(1) invert(0) drop-shadow(0 0 10px rgba(0, 220, 244, 0.2))");
+    $("#search-box").css({ "width": "550px",
                            "border-color": "rgb(0, 220, 244)",
                            "filter": "drop-shadow(0 0 10px rgba(0, 220, 244, 0.2))" });
 });
 
 $("#search-box").blur(function() {
+    $("#search img").css("filter", "");
     $("#search-box").css({ "width": "",
-                           "height": "",
                            "border-color": "",
                            "filter": "" });
 });
 
+<<<<<<< HEAD
 (function(){
 
     const column = document.querySelector(".columnContents")
@@ -208,3 +209,9 @@ $("#search-box").blur(function() {
 
 })();
 
+=======
+function searchValidate() {
+    if ($("#search-box").val() == "") return false;
+    return true;
+}
+>>>>>>> 3fc881215fb8ee66d00bdf4fe75764ae14b2469b
