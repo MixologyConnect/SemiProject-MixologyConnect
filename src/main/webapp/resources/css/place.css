@@ -69,3 +69,32 @@ main {
 .category {
 
 }
+
+.marker {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1));
+}
+
+.marker-image {
+	height: 30px;
+	transition-duration: 0.5s;
+}
+
+.marker-info {
+	position: relative;
+	z-index: 10;
+	padding: 2px 5px;
+	border-radius: 5px;
+	margin-top: 5px;
+	background-color: rgba(0, 220, 244, 0.9);
+	opacity: 0;
+	transition-duration: 0.5s;
+	font-weight: bold;
+}
+
+.marker-image:hover + .marker-info {
+	opacity: 1;
+}
