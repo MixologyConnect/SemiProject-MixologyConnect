@@ -91,7 +91,7 @@ public class columnAllServlet extends HttpServlet{
 			List<Board> columnList = new ArrayList<>();
 			columnList = service.selectColumnList(3);
 			
-			System.out.println("columnList"+columnList);
+//			System.out.println("columnList"+columnList);
 			
 			
 			new Gson().toJson(columnList, resp.getWriter());
