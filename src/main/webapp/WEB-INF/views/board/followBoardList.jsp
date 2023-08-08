@@ -28,6 +28,7 @@
 				<div class="top">
 					<p>${boardName}</p>
 					<p>${loginMember.memberName}님의 팔로잉 게시글들을 모아보세요</p>
+					=
 				</div>
 
 				<!-- 전체, 팔로잉, 공지 -->
@@ -129,7 +130,7 @@
 			</main>
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 			<jsp:include page="/WEB-INF/views/common/modal.jsp"/>
-			<script src="${contextPath}/resources/js/board/board.js"></script>
+			<!-- <script src="${contextPath}/resources/js/board/board.js"></script> -->
 			<script src="${contextPath}/resources/js/main.js"></script>
 		</body>
 		</html>
