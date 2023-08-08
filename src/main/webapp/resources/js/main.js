@@ -113,7 +113,9 @@ function receiveMessage(receiver) {
             message.className = "message message-others";
             message.innerHTML = `<span>` + result[0].sender.memberName + `</span>
                                  <span>` + result[0].message + `</span>`
-            $("#community-message").append(message);
+            const box = $("#community-message");
+            box.append(message);
+            box.scrollTop(box.scrollHeight);
         }
     })
 }
@@ -130,8 +132,10 @@ function sendMessage(sender) {
             const message = document.createElement("div");
             message.className = "message message-me";
             message.innerHTML = `<span>` + e.val() + `</span>`
-            $("#community-message").append(message);
             e.val("");
+            const box = $("#community-message");
+            box.append(message);
+            box.scrollTop(box[0].scrollHeight);
         }
     })
 }
@@ -140,3 +144,7 @@ setInterval(() => {
     receiver = $("#loginMemberNo").val();
     if (receiver != "") receiveMessage(receiver);
 }, 1000);
+
+$("#community-input > input").on("keyup",function(key){ 
+    if (key.keyCode==13) sendMessage($("#loginMemberNo").val());
+}); 
