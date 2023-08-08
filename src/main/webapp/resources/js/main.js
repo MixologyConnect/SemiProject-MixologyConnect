@@ -184,7 +184,7 @@ $("#search-box").blur(function() {
 
     $.ajax({
         url : contextPath + "/column/columnList",
-    
+        data : {"type":3},
         type : "post",
         dataType : "json",
 
