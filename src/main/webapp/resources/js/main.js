@@ -1,11 +1,12 @@
 let adPage = 0;
+const adImage = ["0.png", "1.png", "2.png"];
 
 (() => {
     applyTheme();
-    $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + 0 + ".png')")
+    $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + adImage[0] + "')")
     setInterval(() => {
         if (adPage == 3) adPage = 0;
-        $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + adPage++ + ".png')")
+        $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + adImage[adPage++] + "')")
     }, 10000);
 })();
 
@@ -172,6 +173,7 @@ $("#community-checkbox").change(function() {
 });
 
 $("#search-box").focus(function() {
+    $("#search-img").css("filter", "saturate(1) invert(0) drop-shadow(0 0 10px rgba(0, 220, 244, 0.1)");
     $("#search-box").css({ "width": "600px",
                            "height": "60px",
                            "border-color": "rgb(0, 220, 244)",
@@ -179,41 +181,12 @@ $("#search-box").focus(function() {
 });
 
 $("#search-box").blur(function() {
+    $("#search-img").css("filter", "");
     $("#search-box").css({ "width": "",
                            "height": "",
                            "border-color": "",
                            "filter": "" });
 });
-
-(function(){
-
-    const column = document.querySelector(".columnContents")
-
-    $.ajax({
-        url : contextPath + "/column/columnList",
-        data : {"type":3},
-        type : "post",
-        dataType : "json",
-
-        success : function(columnList){
-            console.log(columnList);
-
-            for(let column of columnList){
-
-                console.log(column.boardTitle)
-
-            }
-            
-        },
-        error : function(columnList){
-            console.log("에러발생")
-            console.log(columnList)
-        }
-
-    })
-
-
-})();
 
 function searchValidate() {
     if ($("#search-box").val() == "") return false;

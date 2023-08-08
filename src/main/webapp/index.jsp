@@ -35,22 +35,13 @@
         <div id="populars">
             <p>Columns</p>
             <p>최근 칼럼</p>
-            <ul class="columnContents">
-                <li class="column"><a></a></li>
-                <li><a></a></li>
-   
-
-               
+            <ul class="contents-column">
             </ul>
         </div>
         <div id="populars">
             <p>Trending</p>
             <p>실시간 인기 게시글</p>
-            <ul class="contents">
-                <li><a></a></li>
-            	<li><a></a></li>
-            	<li><a></a></li>
-            	<li><a></a></li>
+            <ul class="contents-board">
             </ul>
         </div>
     </main>
@@ -58,7 +49,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
     <script src="${contextPath}/resources/js/main.js"></script>
-    <script src="${contextPath}/resources/js/place.js"></script>
     <script src="${contextPath}/resources/js/index.js"></script>
 </body>
 </html>
