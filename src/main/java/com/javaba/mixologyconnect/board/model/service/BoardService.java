@@ -574,7 +574,15 @@ public class BoardService {
 		return detail;
 	}
 
-	
+
+    public List<Board> selectTop4() throws Exception {
+        Connection conn = getConnection();
+        List<Board> Top4Board = dao.selectTop4(conn);
+        System.out.println(Top4Board);
+        close(conn);
+        return Top4Board;
+    }
+
 
 
 }

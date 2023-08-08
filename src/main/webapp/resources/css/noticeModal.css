@@ -38,14 +38,16 @@ element.style{
 }
 #main_image_text{
     position: absolute;
-    top: 10%;
+    font-family: 'Edu SA Beginner', cursive;
+    font-size: 35px;
+    top: 8%;
     left: 50%;
     transform: translate(-50%,-50%);
     color: white;
 }
 #content{
     position: absolute;
-    top: 15%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%,-50%);
     color: white;
