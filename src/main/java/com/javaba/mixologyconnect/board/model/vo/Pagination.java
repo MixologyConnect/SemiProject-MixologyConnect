@@ -107,52 +107,18 @@ public int getCurrentPage() {
                 + endPage + ", prevPage=" + prevPage + ", nextPage=" + nextPage + "]";
     }
 
-    // 페이징 처리에 필요한 값을 계산하는 메소드
     private void calculatePagination() {
-
-        // 전체 게시글 수 : 500 // 보여지는 게시글 수 : 10개
-        // -> 마지막 페이지 번호는 ? 500 / 10 = 50
-
-        // 전체 게시글 수 : 501 // 보여지는 게시글 수 : 10개
-        // -> 마지막 페이지 번호는 ? 501 / 10 = 51 (50.1 올림 처리)
 
         maxPage = (int) Math.ceil((double) listCount / limit);
 
-        // * startPage : 목록 하단에 노출된 페이지의 시작 번호
-
-        // 현재 페이지가 1~10인 경우 : 1
-        // 현재 페이지가 11~20인 경우 : 11
-        // 현재 페이지가 21~30인 경우 : 21
-
         startPage = (currentPage - 1) / pageSize * pageSize + 1;
-
-        // * endPage : 목록 하단에 노출된 페이지의 끝 번호
-
-        // 현재 페이지가 1~10인 경우 : 10
-        // 현재 페이지가 11~20인 경우 : 20
-        // 현재 페이지가 21~30인 경우 : 30
 
         endPage = startPage + pageSize - 1;
 
-        // 만약 endPage가 maxPage 를 초과하는 경우
         if (endPage > maxPage) {
             endPage = maxPage;
         }
 
-        // * prevPage(<) : 목록 하단에 노출된 번호의 이전 목록 끝 번호
-        // * nextPage(>) : 목록 하단에 노출된 번호의 다음 목록 시작 번호
-
-        // 현재 페이지가 1~10일 경우
-        // < : 1 페이지
-        // > : 11 페이지
-
-        // 현재 페이지가 11~20일 경우
-        // < : 10 페이지
-        // > : 21 페이지
-
-        // 현재 페이지가 41~50일 경우(maxPage가 50)
-        // < : 40
-        // > : 50
 
         if (currentPage <= pageSize) {
             prevPage = 1;
@@ -165,7 +131,6 @@ public int getCurrentPage() {
         } else {
             nextPage = endPage + 1;
         }
-
     }
 
 }
