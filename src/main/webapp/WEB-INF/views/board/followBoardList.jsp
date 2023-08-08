@@ -97,7 +97,7 @@
 
 
 				<div class="pagination-area">
-					<c:set var="url" value="boardAll?type=${param.type}&cp="/>
+					<c:set var="url" value="followList?type=${param.type}&cp="/>
 
 					<ul class="pagination">
 						<!-- 첫 페이지로 이동 -->
