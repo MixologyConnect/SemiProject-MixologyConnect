@@ -94,31 +94,70 @@ $("#sub-nav").hover(function() {
     $("header").css("borderColor", "lightgray");
 });
 
-function receiveMessage() {
+function getContextPath() {
+    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+    return location.href.substring( hostIndex, location.href.indexOf("/", hostIndex + 1) );
+};
+
+function receiveMessage(receiver) {
     $.ajax({
-        url: "chat/receive",
-        dataType: "json",
+        url: getContextPath() + "/chat/receive",
+        type: "post",
+        data: { "receiver" : 0 },
+        dataType: "JSON",
         success: function(result) {
-            
+            if (result == "") return;
+            if (receiver == result[0].sender.memberNo) return;
+            const e = $("#community-input > input");
+            const message = document.createElement("div");
+            message.className = "message message-others";
+            message.innerHTML = `<span>` + result[0].sender.memberName + `</span>
+                                 <span>` + result[0].message + `</span>`
+            const box = $("#community-message");
+            box.append(message);
+            box.scrollTop(box[0].scrollHeight);
+            if ($("#community-checkbox").prop("checked") == true) {
+                const a = $("#community-alert")
+                a.css("display", "flex");
+                a.text(Number(a.text()) + 1);
+            }
         }
     })
 }
 
-function sendMessage() {
+function sendMessage(sender) {
     const e = $("#community-input > input");
-    const message = document.createElement("div");
-    message.className = "message message-me";
-    message.innerHTML = `<span>` + e.val() + `</span>`
-    $("#community-message").append(message);
-    e.val("");
+    $.ajax({
+        url: getContextPath() + "/chat/send",
+        type: "post",
+        data: { "sender" : sender,
+                "message" : e.val() },
+        dataType: "JSON",
+        success: function(result) {
+            const message = document.createElement("div");
+            message.className = "message message-me";
+            message.innerHTML = `<span>` + e.val() + `</span>`
+            e.val("");
+            const box = $("#community-message");
+            box.append(message);
+            box.scrollTop(box[0].scrollHeight);
+        }
+    })
 }
 
 setInterval(() => {
-    $.ajax({
-        url: "",
-        data: {"" : ""},
-        success: function(result) {
-
-        }
-    })
+    receiver = $("#loginMemberNo").val();
+    if (receiver != "") receiveMessage(receiver);
 }, 1000);
+
+$("#community-input > input").on("keyup",function(key){ 
+    if (key.keyCode==13) sendMessage($("#loginMemberNo").val());
+}); 
+
+$("#community-checkbox").change(function() {
+    if ($("#community-checkbox").prop("checked") == false) {
+        const a = $("#community-alert")
+        a.css("display", "none");
+        a.text("");
+    }
+})

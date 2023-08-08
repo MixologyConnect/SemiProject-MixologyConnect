@@ -66,11 +66,21 @@
                             <td>주소</td>
                             <td></td>
                             <td>
-                                <input type="text" id="sample6_postcode" name="memberAddress" value="${addr[0]}" readonly>
-                                <input type="button" id="postBtn" onclick="sample6_execDaumPostcode()" name="btn-fill-s" value="우편번호 찾기"><br>
-                                <input type="text" id="sample6_address" name="memberAddress" value="${addr[1]}" readonly><br>
-                                <input type="text" id="sample6_detailAddress" name="memberAddress" value="${addr[2]}">
-                                <input type="text" id="sample6_extraAddress" name="memberAddress" value="${addr[3]}" readonly>
+                                <c:if test="${addr[0] == 'NULL'}">
+                                    <input type="text" id="sample6_postcode" name="memberAddress" value="" readonly>
+                                    <input type="button" id="postBtn" onclick="sample6_execDaumPostcode()" name="btn-fill-s" value="우편번호 찾기"><br>
+                                    <input type="text" id="sample6_address" name="memberAddress" value="" readonly><br>
+                                    <input type="text" id="sample6_detailAddress" name="memberAddress" value="">
+                                    <input type="text" id="sample6_extraAddress" name="memberAddress" value="" readonly>
+                                </c:if>
+                                <c:if test="${addr[0]!='NULL'}">
+                                    <input type="text" id="sample6_postcode" name="memberAddress" value="${addr[0]}" readonly>
+                                    <input type="button" id="postBtn" onclick="sample6_execDaumPostcode()" name="btn-fill-s" value="우편번호 찾기"><br>
+                                    <input type="text" id="sample6_address" name="memberAddress" value="${addr[1]}" readonly><br>
+                                    <input type="text" id="sample6_detailAddress" name="memberAddress" value="${addr[2]}">
+                                    <input type="text" id="sample6_extraAddress" name="memberAddress" value="${addr[3]}" readonly>
+                                </c:if>
+                                
                                 <!-- <button id="postBtn" class="btn-fill-s" onclick="postNum">우편번호 찾기</button>
                                 <input type="text" name="postNum" class="w-px60" readonly>
                                 <input type="text" name="address" readonly>

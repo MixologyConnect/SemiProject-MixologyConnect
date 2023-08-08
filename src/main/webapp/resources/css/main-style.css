@@ -178,7 +178,7 @@ html.dark header { background-color: rgba(40, 40, 40, 0.9); }
     position: relative;
     display: flex;
     top: -70px;
-    width: 50vw;
+    width: 60vw;
     height: 70px;
     padding-left: 20px;
     align-items: center;
@@ -187,9 +187,10 @@ html.dark header { background-color: rgba(40, 40, 40, 0.9); }
     transition-duration: 0.8s;
 }
 
-#sub-nav > img {
-    width: 60px;
-    padding: 5px;
+#sub-nav img {
+    width: 50px;
+    padding-top: 4px;
+    padding-right: 18px;
 }
 
 #sub-nav > a {
@@ -313,12 +314,29 @@ footer {
 #community-switch > img {
 	width: 30px;
     opacity: 90%;
-    filter: saturate(0);
-    transition-duration: 1.2s;
+    filter: saturate(1);
+    transition-duration: 0.8s;
+}
+
+#community-alert {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    font-size: 0.9rem;
+    line-height: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 #community {
     position: fixed;
+    bottom: 120px;
+    right: 40px;
     display: flex;
     justify-content: center;
     width: 300px;
@@ -331,6 +349,8 @@ footer {
     -webkit-backdrop-filter: blur(10px);
     align-items: center;
     flex-direction: column;
+    pointer-events: auto;
+    transition-duration: 0.8s;
 } html.dark #community {
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -343,7 +363,7 @@ footer {
     display: flex;
     width: 90%;
     height: 300px;
-    background-color: rgba(0, 220, 244, 0.3);
+    background-color: rgba(0, 220, 244, 0.1);
     overflow: scroll;
     flex-direction: column;
 }
@@ -366,19 +386,21 @@ footer {
 }
 
 #community-input > button {
+    width: 40px;
     border: none;
     background-color: rgb(0, 220, 244);
-    width: 40px;
+    font-weight: bold;
 }
 
 .message {
     display: flex;
     margin: 3px auto;
     flex-direction: column;
+    font-size: 0.8rem;
 }
 
 .message > span:first-of-type {
-    font-size: 0.9rem;
+    margin: 0 0 1px 5px;
 }
 
 .message > span:last-of-type {
@@ -402,4 +424,17 @@ footer {
 
 .message-others > span:last-of-type {
     background-color: rgba(255, 255, 255, 0.4);
+}
+
+#community-checkbox {
+    display: none;
+}
+
+#community-checkbox:checked + label img {
+    filter: saturate(0);
+}
+
+#community-checkbox:checked ~ #community {
+    pointer-events: none;
+    opacity: 0;
 }
