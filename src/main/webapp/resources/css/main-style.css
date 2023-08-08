@@ -74,8 +74,8 @@ header {
     height: 120px;
     border-bottom: 0.5px solid rgb(180, 180, 180);
     background-color: rgba(255, 255, 255, 0.7);
-  	backdrop-filter: blur(10px);
-  	-webkit-backdrop-filter: blur(10px);
+  	backdrop-filter: blur(20px);
+  	-webkit-backdrop-filter: blur(20px);
     transition-duration: 0.8s;
 }
 html.dark header { background-color: rgba(40, 40, 40, 0.9); }
@@ -189,7 +189,6 @@ html.dark header { background-color: rgba(40, 40, 40, 0.9); }
 
 #sub-nav img {
     width: 50px;
-    padding-top: 4px;
     padding-right: 18px;
 }
 
@@ -335,6 +334,7 @@ footer {
 
 #community {
     position: fixed;
+    z-index: 20;
     bottom: 120px;
     right: 40px;
     display: flex;
@@ -345,14 +345,18 @@ footer {
     border-radius: 30px;
     background-color: rgba(255, 255, 255, 0.3);
     box-shadow: 0 0 20px 4px rgba(0, 220, 244, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     align-items: center;
     flex-direction: column;
     pointer-events: auto;
     transition-duration: 0.8s;
 } html.dark #community {
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+#community-header {
+    letter-spacing: 1px;
 }
 
 #community > div {
