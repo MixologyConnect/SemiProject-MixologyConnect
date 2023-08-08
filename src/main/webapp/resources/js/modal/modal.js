@@ -54,13 +54,19 @@ function confirmVrfCode2() {
     const a = $("#modal-confirmEmail-alert");
     if (e.val() == vrfCode) {
         e.css("display", "none");
-        $("#modal-confirmEmail-button").text("로그인 창으로");
+        const modalBtn = $("#modal-confirmEmail-button");
+
+        modalBtn.text("로그인 창으로");
+
         switch (mode) {
         case "findID" :
             a.html("인증에 성공했습니다.<br>당신의 아이디는 " + id + " 입니다.");
             break;
         case "findPW" :
             a.html("인증에 성공했습니다.<br>다음 임시 비밀번호로 로그인하여 주세요.<br>" + pw);
+             modalBtn.click(function(){
+                showModal("login");
+            }); 
         }
     }
     else a.text("인증 번호가 일치하지 않습니다.");

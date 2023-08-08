@@ -29,7 +29,12 @@ public class LoginMyPageServlet extends HttpServlet {
 			Member loginMember = (Member)(session.getAttribute("loginMember") );
 
 			int cp = 1;
-			if(req.getParameter("cp") != null) cp = Integer.parseInt(req.getParameter("cp"));
+			
+			if(req.getParameter("cp") != null ) {
+				// 쿼리 스트링에 "cp"가 존재한다면
+				cp = Integer.parseInt(req.getParameter("cp"));
+				 
+			}
 
 			Map<String, Object> map = myPageService.selectMypageList(cp, loginMember);
 
