@@ -11,7 +11,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${member.memberName}님의 페이지입니다.</title>
-        
+       
         <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/boardAll.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/myPage.css"> 
@@ -29,10 +29,10 @@
 <body>
     
     
-
-
+    
+    
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
+    
     <main>
 
         <section class="follow">
@@ -45,12 +45,16 @@
                     <div><img src="${contextPath}${member.profileImage}"></div>
                 </c:if>
                
+                <form action="/myPage/userPageFollower" method="post">
+                    <input type="hidden" name = "memberNo" value=" ${member.memberNo}">
+                    <input type="hidden" name = "memberNo" value=" ${loginMember.memberNo}">
+                </form>
                 
             </section>
             <section class="follow2">
-                <div id="top">${member.memberName}</div>
-                <span class="boardContent">${board.boardContent}</span>
-
+                <div id="top">${member.memberName}
+                </div>
+               
                 
                 <div class="bottom">
                     <span id="followerView"><a onclick="followerList()" id="followerCount">팔로워  ${followers.size()}</a></span>
@@ -95,6 +99,7 @@
                                         </div>
                                         
                                         <span class="memberName">${board.memberName}</span>
+                                        <span class="boardContent">${board.boardContent}</span>
                                     </div>
                                     <div class="nameDateCount">
                                     <span class="boardDate">${board.boardDate}</span>
@@ -193,7 +198,7 @@
            
     <script>
         const contextPath = "${contextPath}"
-        const loginMemberNo = "${loginMemberNo}"
+        const loginMemberNo = "${loginMember.memberNo}"
         const boardMemberNo = "${member.memberNo}"
     </script>
 

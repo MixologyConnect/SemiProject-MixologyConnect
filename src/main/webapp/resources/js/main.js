@@ -1,5 +1,12 @@
+let adPage = 0;
+
 (() => {
     applyTheme();
+    $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + 0 + ".png')")
+    setInterval(() => {
+        if (adPage == 3) adPage = 0;
+        $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + adPage++ + ".png')")
+    }, 10000);
 })();
 
 document.getElementById("theme-switch").addEventListener("click",() => {
@@ -17,6 +24,10 @@ function applyTheme() {
         localStorage.setItem("theme", "dark");
         document.documentElement.classList.add("dark");
     }
+    document.body.style.display = "block";
+    setTimeout(() => {
+        document.body.style.transitionDuration = "0.8s";
+    }, 1000);
 }
 
 let scrollY;
@@ -70,7 +81,7 @@ window.addEventListener("scroll", function(e) {
                          "filter": "opacity(0%)"});
         $(".account-image").css({"height": "40px",
                                  "transform": "translate(24px, -14px)"});
-        $("#logout-button").css({"transform": "translateX(45px)"});
+        $("#logout-button").css({"transform": "translateX(25px)"});
         $(".account-text").css({"pointer-events": "none",
                                         "filter": "opacity(0%)"});
     }
@@ -83,3 +94,128 @@ $("nav > a").hover(function() {
     $("header").css("borderColor", "lightgray");
     $("nav").css("borderColor", "lightgray");
 });
+
+$("#sub-nav > a").hover(function() {
+    $("header").css("borderColor", "rgb(0, 220, 244)");
+}, function () {
+    $("header").css("borderColor", "lightgray");
+});
+
+function getContextPath() {
+    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+    return location.href.substring( hostIndex, location.href.indexOf("/", hostIndex + 1) );
+};
+
+function receiveMessage(receiver) {
+    $.ajax({
+        url: getContextPath() + "/chat/receive",
+        type: "post",
+        data: { "receiver" : 0 },
+        dataType: "JSON",
+        success: function(result) {
+            if (result == "") return;
+            if (receiver == result[0].sender.memberNo) return;
+            const e = $("#community-input > input");
+            const message = document.createElement("div");
+            message.className = "message message-others";
+            message.innerHTML = `<span>` + result[0].sender.memberName + `</span>
+                                 <span>` + result[0].message + `</span>`
+            const box = $("#community-message");
+            box.append(message);
+            box.scrollTop(box[0].scrollHeight);
+            if ($("#community-checkbox").prop("checked") == true) {
+                const a = $("#community-alert")
+                a.css("display", "flex");
+                a.text(Number(a.text()) + 1);
+            }
+        }
+    })
+}
+
+function sendMessage(sender) {
+    const e = $("#community-input > input");
+    const msg = e.val();
+    if (msg == "") return;
+    $.ajax({
+        url: getContextPath() + "/chat/send",
+        type: "post",
+        data: { "sender" : sender,
+                "message" : msg },
+        dataType: "JSON",
+        success: function(result) {
+            const message = document.createElement("div");
+            message.className = "message message-me";
+            message.innerHTML = `<span>` + e.val() + `</span>`
+            e.val("");
+            const box = $("#community-message");
+            box.append(message);
+            box.scrollTop(box[0].scrollHeight);
+        }
+    });
+}
+
+setInterval(() => {
+    receiver = $("#loginMemberNo").val();
+    if (receiver != "") receiveMessage(receiver);
+}, 1000);
+
+$("#community-input > input").on("keyup",function(key){ 
+    if (key.keyCode==13) sendMessage($("#loginMemberNo").val());
+}); 
+
+$("#community-checkbox").change(function() {
+    if ($("#community-checkbox").prop("checked") == false) {
+        const a = $("#community-alert")
+        a.css("display", "none");
+        a.text("");
+    }
+});
+
+$("#search-box").focus(function() {
+    $("#search-box").css({ "width": "600px",
+                           "height": "60px",
+                           "border-color": "rgb(0, 220, 244)",
+                           "filter": "drop-shadow(0 0 10px rgba(0, 220, 244, 0.2))" });
+});
+
+$("#search-box").blur(function() {
+    $("#search-box").css({ "width": "",
+                           "height": "",
+                           "border-color": "",
+                           "filter": "" });
+});
+
+(function(){
+
+    const column = document.querySelector(".columnContents")
+
+    $.ajax({
+        url : contextPath + "/column/columnList",
+        data : {"type":3},
+        type : "post",
+        dataType : "json",
+
+        success : function(columnList){
+            console.log(columnList);
+
+            for(let column of columnList){
+
+                console.log(column.boardTitle)
+
+            }
+            
+        },
+        error : function(columnList){
+            console.log("에러발생")
+            console.log(columnList)
+        }
+
+    })
+
+
+})();
+
+function searchValidate() {
+    if ($("#search-box").val() == "") return false;
+    return true;
+}

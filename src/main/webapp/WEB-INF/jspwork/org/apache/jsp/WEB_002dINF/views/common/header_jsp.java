@@ -3,7 +3,7 @@
  * Version: Apache Tomcat/9.0.76
 
 
- * Generated at: 2023-08-07 02:03:50 UTC
+ * Generated at: 2023-08-08 09:36:28 UTC
 
 
  * Note: The last modified time of this file was set to
@@ -27,6 +27,9 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   static {
     _jspx_dependants = new java.util.HashMap<java.lang.String,java.lang.Long>(2);
+
+    _jspx_dependants.put("jar:file:/C:/SemiProfect_3/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar!/META-INF/c.tld", Long.valueOf(1425946270000L));
+
 
 
   }
@@ -162,6 +165,15 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </a>\r\n");
       out.write("    </div>\r\n");
       out.write("    <div id=\"sub-nav\">\r\n");
+      out.write("        <div>\r\n");
+      out.write("            <a href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
+      out.write("\">\r\n");
+      out.write("                <img src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
+      out.write("/resources/images/logo.svg\">\r\n");
+      out.write("            </a>\r\n");
+      out.write("        </div>\r\n");
       out.write("        <a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
       out.write("/column/columnList?type=3\">매거진</a>\r\n");
@@ -198,12 +210,43 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("/cocktailTest/cocktailTest\">칵테일 테스트</a>\r\n");
       out.write("    <a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
-      out.write("/place\">플레이스</a>\r\n");
+      out.write("/place\">플레이스asd</a>\r\n");
       out.write("    ");
       if (_jspx_meth_c_005fif_005f1(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("</nav>");
+      out.write("</nav>\r\n");
+      out.write("\r\n");
+      out.write("<div id=\"theme-switch\">\r\n");
+      out.write("    <img>\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
+      out.write("<input id=\"community-checkbox\" type=\"checkbox\" checked>\r\n");
+      out.write("<label for=\"community-checkbox\">\r\n");
+      out.write("    <div id=\"community-switch\">\r\n");
+      out.write("        <img src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
+      out.write("/resources/images/chat.png\">\r\n");
+      out.write("        <div id=\"community-alert\"></div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("</label>\r\n");
+      out.write("<div id=\"community\">\r\n");
+      out.write("    <div id=\"community-header\">\r\n");
+      out.write("        <h3>전체 채팅</h3>\r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div id=\"community-message\"></div>\r\n");
+      out.write("    <div id=\"community-input\">\r\n");
+      out.write("        <input type=\"text\">&nbsp;\r\n");
+      out.write("        <button onclick=\"sendMessage('");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${loginMember.memberNo}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
+      out.write("')\">전송</button>\r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
+      out.write("<input type=\"hidden\" id=\"loginMemberNo\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${loginMember.memberNo}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
+      out.write('"');
+      out.write('>');
     } catch (java.lang.Throwable t) {
       if (!(t instanceof javax.servlet.jsp.SkipPageException)){
         out = _jspx_out;
@@ -295,7 +338,9 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                    <img class=\"account-image\" src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
           out.write("/resources/images/user.png\">\r\n");
-          out.write("                    <p class=\"account-text\">마이페이지</p>\r\n");
+          out.write("                    <p class=\"account-text\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${loginMember.memberName}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
+          out.write("</p>\r\n");
           out.write("                </label>\r\n");
           out.write("            </a>\r\n");
           out.write("        ");
@@ -363,9 +408,7 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_c_005fif_005f0.setPageContext(_jspx_page_context);
       _jspx_th_c_005fif_005f0.setParent(null);
-
-      // /WEB-INF/views/common/header.jsp(45,13) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-
+      // /WEB-INF/views/common/header.jsp(50,8) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_c_005fif_005f0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${loginMember.managerCode == 'Y'}", boolean.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null)).booleanValue());
       int _jspx_eval_c_005fif_005f0 = _jspx_th_c_005fif_005f0.doStartTag();
       if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -401,9 +444,7 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_c_005fif_005f1.setPageContext(_jspx_page_context);
       _jspx_th_c_005fif_005f1.setParent(null);
-
-      // /WEB-INF/views/common/header.jsp(56,9) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-
+      // /WEB-INF/views/common/header.jsp(61,4) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_c_005fif_005f1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${loginMember.managerCode == 'Y'}", boolean.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null)).booleanValue());
       int _jspx_eval_c_005fif_005f1 = _jspx_th_c_005fif_005f1.doStartTag();
       if (_jspx_eval_c_005fif_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {

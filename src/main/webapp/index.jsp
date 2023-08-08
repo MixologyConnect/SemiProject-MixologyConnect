@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="boardName" value="${map.boardName}"/>
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="columnList" value="${map.columnList}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +12,6 @@
     <title>Mixology Connect</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/index.css">
-    
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -22,11 +25,9 @@
             </p>
         </div>
         <div id="search">
-            <label for="search-button"><img src="${contextPath}/resources/images/magnifier.png"></label>
-            <form action="search">
-
-        	    <input type="text" name="query" placeholder="칵테일, 게시글">
-
+            <label for="search-button"><img id="search-img" src="${contextPath}/resources/images/magnifier.png"></label>
+            <form action="search" onsubmit="return searchValidate()">
+        	    <input id="search-box" type="text" name="query" placeholder="칵테일, 게시글">
                 <button id="search-button">검색</button>
             </form>
         </div>
@@ -34,11 +35,12 @@
         <div id="populars">
             <p>Columns</p>
             <p>최근 칼럼</p>
-            <ul class="contents">
+            <ul class="columnContents">
+                <li class="column"><a></a></li>
                 <li><a></a></li>
-            	<li><a></a></li>
-            	<li><a></a></li>
-            	<li><a></a></li>
+   
+
+               
             </ul>
         </div>
         <div id="populars">
@@ -57,5 +59,6 @@
     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
     <script src="${contextPath}/resources/js/main.js"></script>
     <script src="${contextPath}/resources/js/place.js"></script>
+    <script src="${contextPath}/resources/js/index.js"></script>
 </body>
 </html>

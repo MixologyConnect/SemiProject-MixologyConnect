@@ -36,17 +36,17 @@ main {
 	align-items: center;
 }
 
-#search img {
+#search-img {
 	width: 80px;
 	margin-bottom: 10px;
-	filter: invert(0.7);
+	filter: saturate(0) invert(0) drop-shadow(0 0 0 transparent);
 	cursor: pointer;
 	transition-duration: 1.2s;
-} html.dark #search img {
-	filter: invert(0.5);
+} html.dark #search-img {
+	filter: saturate(0) invert(0.5) drop-shadow(0 0 0 transparent);
 }
 
-#search input {
+#search-box {
 	width: 500px;
 	height: 50px;
 	border-radius: 50px;
@@ -57,8 +57,12 @@ main {
 	font-size: 1.2rem;
 	text-align: center;
 	transition-duration: 1.2s;
-} html.dark #search input {
+} html.dark #search-box {
 	border: 8px solid rgb(120, 120, 120);
+}
+
+#search-box:focus::-webkit-input-placeholder {
+	color: transparent;
 }
 
 #search-button {
@@ -68,7 +72,7 @@ main {
 #ad {
 	display: flex;
 	width: 960px;
-	height: 80px;
+	height: 100px;
 	border-bottom: 0.5px solid rgb(180, 180, 180);
 	border-radius: 20px;
 	margin-bottom: 50px;

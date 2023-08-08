@@ -3,14 +3,12 @@ body{
     width: 100%;
     height: 100%;
 }
-#main{
+#main {
     display: flex;
-    width: 1200px;
+    width: 70%;
     height: 1000px;
-    margin:  50px auto;
-    margin-top: 100px;
+    margin: auto;
 }
-
 
 /* 왼쪽사이드 */
 .left-side{
@@ -32,7 +30,6 @@ body{
 }
 .list-group> li > a{
     text-decoration: none;
-    color: black;
     height: 100%;
     border-bottom: 2px solid #ddd;
 
@@ -56,7 +53,7 @@ h3{
 }
 
 .section-d{
-    width: 60%;
+    width: 70%;
 }
 
 /* 콘텐츠 영역 */
@@ -88,18 +85,31 @@ form{
 }
 
 /* 회원관리 검색 창 */
-.searchArea{
+
+.searchArea {
     float: right;
-    margin-right: 17px;
     margin-bottom: 20px;
 }
 #searchMember{
     height: 30px;
     width: 150px;
+    border-radius: 7px;
+} html.dark #searchMember {
+    color: black;
 }
 #searchBoard{
     height: 30px;
     width: 150px;
+    border-radius: 7px;
+} html.dark #searchBoard {
+    color: black;
+}
+#searchManager{
+    height: 30px;
+    width: 150px;
+    border-radius: 7px;
+} html.dark #searchManager {
+    color: black;
 }
 #search-btn{
     height: 30px;
@@ -108,13 +118,17 @@ form{
 
 /* 공지사항 목록 */
 table{
-    width: 1000px;
+    width: 100%;
+    border: 1px solid black;
 }
 
 
-/* tr{
-    width: 20%;
-} */
+ tr{
+    border-bottom: 1px solid black;
+} 
+#resultMember{
+    border-top: 1px solid black;
+}
 /* thead> tr> th:nth-child(1){
     width: 15%;
 }
@@ -128,11 +142,12 @@ thead> tr> th:nth-child(2){
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
    
 }
 #managerPost{
     width: 800px;
-    height: 700px;
+    height: 820px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -163,6 +178,8 @@ thead> tr> th:nth-child(2){
     width: 500px;
     height: 30px;
     border-radius: 10px;
+}html.dark #noticeTitle {
+    color: black;
 }
 
 /* 페어링 안주 input */
@@ -176,6 +193,8 @@ thead> tr> th:nth-child(2){
     width: 600px;
     height: 500px;
     font-size: 14px;
+}html.dark #content {
+    color: black;
 }
 #notice-image{
     width: 600px;
@@ -188,7 +207,8 @@ thead> tr> th:nth-child(2){
 
 /* 이미지를 감싸는 div */
 .boardImg{
-    width: 230px;
+    width: 606px;
+    margin-left: 17px;
     height: 230px;
     display: inline-block;
     text-align: center;
@@ -214,7 +234,8 @@ thead> tr> th:nth-child(2){
 
 /* 미리보기 이미지 */
 .preview{
-    max-width: 100%;
+    /* max-width: 100%; */
+    width: 606px;
     max-height: 100%;
     /* 지정된 칸 내부에 비율을 변경하지 않고 이미지 배치 */
 }
@@ -226,6 +247,7 @@ thead> tr> th:nth-child(2){
     right: 7px;
     font-size: 20px;
     cursor: pointer;
+    color: white;
 }
 /* 버튼 영역 */
 #file, button{
@@ -281,4 +303,127 @@ fieldset{
 
 #borderbtn{
     margin: 10px 0;
+}
+
+#memberban{
+    width: 125px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 30px;
+}
+
+#memberban:hover{
+    width: 125px;
+    height: 30px;
+    background-color: white;
+    border-radius: 30px;
+    color: black;
+}
+#deleteBoard{
+    width: 125px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+}
+#deleteBoard:hover{
+    width: 125px;
+    height: 30px;
+    background-color: white;
+    border-radius: 30px;
+    color: black;
+}
+#upgradeMember{
+    width: 125px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+}
+#upgradeMember:hover{
+    width: 125px;
+    height: 30px;
+    background-color: white;
+    border-radius: 30px;
+    color: black;
+}
+ 
+.deleteBoard{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+.memberBan{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+#member-btn{
+    width: 40px;
+    height: 36px;
+    background-color: #ccc;
+    border-radius: 15px;
+}
+#member-btn:hover{
+    width: 40px;
+    height: 36px;
+    background-color: white;
+    border-radius: 15px;
+    color: black;
+}
+#board-btn{
+    width: 40px;
+    height: 36px;
+    background-color: #ccc;
+    border-radius: 15px;
+}
+#board-btn:hover{
+    width: 40px;
+    height: 36px;
+    background-color: white;
+    border-radius: 15px;
+    color: black;
+}
+#manager-btn{
+    width: 40px;
+    height: 36px;
+    background-color: #ccc;
+    border-radius: 15px;
+}
+#manager-btn:hover{
+    width: 40px;
+    height: 36px;
+    background-color: white;
+    border-radius: 15px;
+    color: black;
+}
+
+#submit{
+    margin: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(0, 220, 244);
+    color: white;
+    border-radius: 10px;
+}
+#submit:hover{
+    margin: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    color: rgb(0, 220, 244);
+    border-radius: 10px;
+
+}
+
+.div{
+    width: 100%;
+    height: 100%;
+}
+
+.manager-area{
+    width: 73%;
 }

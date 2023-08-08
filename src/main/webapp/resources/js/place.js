@@ -16,6 +16,9 @@ function searchPlace(place) {
         dataType: "JSON",
         success: function(result) {
             result = JSON.parse(result);
+            let latLng;
+            let mapXSum = 0;
+            let mapYSum = 0;
             for (let i of result.items) {
                 let li = document.createElement("li");
                 li.innerHTML = `<img>
@@ -24,9 +27,10 @@ function searchPlace(place) {
                                 <p>`+ i.address + `</p>
                                 <a href='` + i.link + `'>` + i.link + `</a>`;
                 e.append(li);
-                latLng = naver.maps.TransCoord.fromTM128ToLatLng(new naver.maps.Point(i.mapx, i.mapy));
+                mapXSum += Number(i.mapx);
+                mapYSum += Number(i.mapy);
                 let marker = new naver.maps.Marker({
-                    position: new naver.maps.LatLng(latLng),
+                    position: new naver.maps.LatLng(naver.maps.TransCoord.fromTM128ToLatLng(new naver.maps.Point(i.mapx, i.mapy))),
                     map: map,
                     title: i.title,
                     icon: {
@@ -35,8 +39,8 @@ function searchPlace(place) {
                         anchor: new naver.maps.Point(19, 58)
                     }
                 });
-                map.setCenter(latLng);
             }
+            map.setCenter(naver.maps.TransCoord.fromTM128ToLatLng(new naver.maps.Point(mapXSum/5, mapYSum/5)));
         },
         error: function() {
             console.log("에러가 발생했습니다.")

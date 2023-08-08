@@ -31,8 +31,8 @@ public class FollowerListServlet extends HttpServlet {
 
 			List<Member> followers = service.selectFollowers(memberNo);
 
-			System.out.println("MM:"+followers);
-			System.out.println("ss:"+followers.size());
+			//System.out.println("MM:"+followers);
+			//System.out.println("ss:"+followers.size());
 
 			new Gson().toJson(followers, resp.getWriter());
 

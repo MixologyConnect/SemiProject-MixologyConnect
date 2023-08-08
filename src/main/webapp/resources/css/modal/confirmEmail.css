@@ -25,6 +25,10 @@
     filter: invert(1);
 }
 
+#modal-confirmEmail-alert {
+    text-align: center;
+}
+
 #modal-confirmEmail-inputVrfcode {
     width: 300px;
     padding: 10px 0;

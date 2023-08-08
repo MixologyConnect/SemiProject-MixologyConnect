@@ -1,5 +1,5 @@
 let timer;
-let mode = 0;
+let searchMode = 0;
 let page = 0;
 
 function thumbnails() {
@@ -37,7 +37,7 @@ $("#search > img").click(function() {
     if (!ingredients.length) {
         e.empty();
         thumbnails();
-        mode = 0;
+        searchMode = 0;
     }
     $.ajax({
         url : "list",
@@ -57,7 +57,7 @@ $("#search > img").click(function() {
                                 <div><p>` + i.cocktailName + `</p></div>
                                 </a>`;
                 e.append(li);
-                mode = 1;
+                searchMode = 1;
                 page = 0;
             }
         }
@@ -70,5 +70,5 @@ $("#search > img").click(function() {
 })();
 
 window.addEventListener("scroll", function(e) {
-    if(getScrollY() >= document.documentElement.scrollHeight - window.innerHeight - 30 && mode == 0) thumbnails();
+    if(getScrollY() >= document.documentElement.scrollHeight - window.innerHeight - 30 && searchMode == 0) thumbnails();
 });

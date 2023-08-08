@@ -13,7 +13,7 @@
             <a href="${contextPath}/myPage/myPage">
                 <label id="mypage-button" class="account-label">
                     <img class="account-image" src="${contextPath}/resources/images/user.png">
-                    <p class="account-text">마이페이지</p>
+                    <p class="account-text">${loginMember.memberName}</p>
                 </label>
             </a>
         </c:when>
@@ -37,6 +37,11 @@
         </a>
     </div>
     <div id="sub-nav">
+        <div>
+            <a href="${contextPath}">
+                <img src="${contextPath}/resources/images/logo.svg">
+            </a>
+        </div>
         <a href="${contextPath}/column/columnList?type=3">매거진</a>
         <a href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
         <a href="${contextPath}/cocktail/list">칵테일</a>
@@ -52,8 +57,32 @@
     <a href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
     <a href="${contextPath}/cocktail/list">칵테일</a>
     <a href="${contextPath}/cocktailTest/cocktailTest">칵테일 테스트</a>
-    <a href="${contextPath}/place">플레이스</a>
+    <a href="${contextPath}/place">플레이스asd</a>
     <c:if test="${loginMember.managerCode == 'Y'}">
         <a href="${contextPath}/manager/manager?type=2">관리자 모드</a>
     </c:if>
 </nav>
+
+<div id="theme-switch">
+    <img>
+</div>
+
+<input id="community-checkbox" type="checkbox" checked>
+<label for="community-checkbox">
+    <div id="community-switch">
+        <img src="${contextPath}/resources/images/chat.png">
+        <div id="community-alert"></div>
+    </div>
+</label>
+<div id="community">
+    <div id="community-header">
+        <h3>전체 채팅</h3>
+    </div>
+    <div id="community-message"></div>
+    <div id="community-input">
+        <input type="text">&nbsp;
+        <button onclick="sendMessage('${loginMember.memberNo}')">전송</button>
+    </div>
+</div>
+
+<input type="hidden" id="loginMemberNo" value="${loginMember.memberNo}">

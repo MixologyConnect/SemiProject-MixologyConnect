@@ -17,27 +17,27 @@ import com.javaba.mixologyconnect.board.model.vo.Pagination;
 
 
 public class ColumnDAO {
-	
+
 	private Statement stmt;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
+
 	private Properties prop;
-	
+
 	public ColumnDAO() {
-		
+
 		try {
 			prop = new Properties();
-			
+
 			String filePath = ColumnDAO.class.getResource("/com/javaba/mixologyconnect/sql/column-sql.xml").getPath();
-			
+
 			prop.loadFromXML(new FileInputStream(filePath));
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 
 	/** 컬럼 제목 DAO
 	 * @author 이미래 
@@ -49,27 +49,27 @@ public class ColumnDAO {
 	public String boardTitle(Connection conn, int type) throws Exception {
 
 		String boardTitle = null;
-		
+
 		try {
 			String sql = prop.getProperty("selectColumnAll");
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1,  type);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
 				boardTitle = rs.getString(1);
 			}
-			
-			
-			
+
+
+
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
-		
+
 		return boardTitle;
 	}
 
@@ -83,29 +83,29 @@ public class ColumnDAO {
 	public int getListCount(Connection conn, int type) throws Exception {
 
 		int listCount =0;
-		
+
 		try {
-		
+
 			String sql = prop.getProperty("getListCount");
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, type);
-			
+
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				listCount = rs.getInt(1);
 			}
-			
-			
+
+
 		} finally {
 
 			close(rs);
 			close(pstmt);
 		}
-		
-		
-		
+
+
+
 		return listCount;
 	}
 
@@ -122,47 +122,47 @@ public class ColumnDAO {
 	 */
 	public List<Board> selectColumnList(Connection conn, Pagination pagination, int type) throws Exception {
 		List<Board> columnList = new ArrayList<Board>();
-		
+
 		try {
-		
+
 			String sql = prop.getProperty("selectColumnList");
-			
+
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start + pagination.getLimit() - 2;
 
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, type);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			while(rs.next()) {
 				Board column = new Board();
-				
+
 				column.setThumbnail(rs.getString("IMG_RENAME"));
 				column.setBoardTitle(rs.getString("BOARD_TITLE"));
 				column.setMemberName(rs.getString("MEMBER_NM"));
 				column.setBoardNo(rs.getInt("BOARD_NO"));
-				
-				
-//				System.out.println(column.getBoardNo());
+
+
+				//				System.out.println(column.getBoardNo());
 				columnList.add(column);
-	
-			
-				
+
+
+
 			}
-			
-			
-			
-			
+
+
+
+
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
-		
-		
+
+
 
 		return columnList;
 	}
@@ -176,28 +176,28 @@ public class ColumnDAO {
 	 * @throws Exception
 	 */
 	public int searchListCount(Connection conn, int type, String condition) throws Exception {
-		
+
 		int listCount = 0;
-		
+
 		try {
-		
+
 			String sql = prop.getProperty("searchListCount") +condition;
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, type);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
 				listCount = rs.getInt(1);
 			}
-			
+
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
-		
+
 		return listCount;
 	}
 
@@ -211,52 +211,94 @@ public class ColumnDAO {
 	 * @throws Exception
 	 */
 	public List<Board> searchColumnList(Connection conn, Pagination pagination, int type, String condition) throws Exception{
-		
+
 		List<Board> columnList = new ArrayList();
-		
+
 		try {
-			
+
 			String sql = prop.getProperty("searchColumnList1")
-					   + condition	
-					   + prop.getProperty("searchColumnList2");
-			
+					+ condition	
+					+ prop.getProperty("searchColumnList2");
+
 			// BETWENN 구문에 들어갈 범위 계산
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit()+1;
 			int end = start + pagination.getLimit()-2;
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, type);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			while(rs.next()) {
 				Board column = new Board();
-				
+
 				column.setThumbnail(rs.getString("IMG_RENAME"));
 				column.setBoardTitle(rs.getString("BOARD_TITLE"));
 				column.setMemberName(rs.getString("MEMBER_NM"));
 				column.setBoardNo(rs.getInt("BOARD_NO"));
-				
+
 				columnList.add(column);
-	
+
 			}
-			
-			
-			
-			
+
+
+
+
 		} finally {
 			close(rs);
 			close(pstmt);
 
 		}
-		
+
 		return columnList;
 	}
-	
-	
-	
+
+
+	public List<Board> selectColumnList(Connection conn, int type) throws Exception{
+		List<Board> columnList = new ArrayList<Board>();
+
+		try {
+
+			String sql = prop.getProperty("selectColumnList4");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, type);
+
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+				Board column = new Board();
+
+				column.setThumbnail(rs.getString("IMG_RENAME"));
+				column.setBoardTitle(rs.getString("BOARD_TITLE"));
+				column.setMemberName(rs.getString("MEMBER_NM"));
+				column.setBoardNo(rs.getInt("BOARD_NO"));
+
+
+				//				System.out.println(column.getBoardNo());
+				columnList.add(column);
+
+
+
+			}
+
+
+
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+
+
+		return columnList;
+	}
+
+
+
 
 }
