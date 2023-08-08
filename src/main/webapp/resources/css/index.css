@@ -72,7 +72,7 @@ main {
 #ad {
 	display: flex;
 	width: 960px;
-	height: 80px;
+	height: 100px;
 	border-bottom: 0.5px solid rgb(180, 180, 180);
 	border-radius: 20px;
 	margin-bottom: 50px;
