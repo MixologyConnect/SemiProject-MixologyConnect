@@ -37,6 +37,11 @@
         </a>
     </div>
     <div id="sub-nav">
+        <div>
+            <a href="${contextPath}">
+                <img src="${contextPath}/resources/images/logo.svg">
+            </a>
+        </div>
         <a href="${contextPath}/column/columnList?type=3">매거진</a>
         <a href="${contextPath}/board/boardAll?type=1">커뮤니티</a>
         <a href="${contextPath}/cocktail/list">칵테일</a>

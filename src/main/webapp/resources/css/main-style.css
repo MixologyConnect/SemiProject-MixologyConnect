@@ -187,9 +187,10 @@ html.dark header { background-color: rgba(40, 40, 40, 0.9); }
     transition-duration: 0.8s;
 }
 
-#sub-nav > img {
-    width: 60px;
-    padding: 5px;
+#sub-nav img {
+    width: 50px;
+    padding-top: 4px;
+    padding-right: 18px;
 }
 
 #sub-nav > a {

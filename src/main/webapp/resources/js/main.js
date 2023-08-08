@@ -115,7 +115,7 @@ function receiveMessage(receiver) {
                                  <span>` + result[0].message + `</span>`
             const box = $("#community-message");
             box.append(message);
-            box.scrollTop(box.scrollHeight);
+            box.scrollTop(box[0].scrollHeight);
         }
     })
 }
