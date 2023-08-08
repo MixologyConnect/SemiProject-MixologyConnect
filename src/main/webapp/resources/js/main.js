@@ -1,5 +1,12 @@
+let adPage = 0;
+
 (() => {
     applyTheme();
+    $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + 0 + ".png')")
+    setInterval(() => {
+        if (adPage == 3) adPage = 0;
+        $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + adPage++ + ".png')")
+    }, 10000);
 })();
 
 document.getElementById("theme-switch").addEventListener("click",() => {
