@@ -301,7 +301,7 @@ input[type=range] {
     justify-content: center;
     align-items: center;
     background-color: white;
-    height: 570px;
+    height: 590px;
     width: 500px;
     border-radius: 10px;
 }
@@ -327,11 +327,22 @@ input[type=range] {
     padding: 10px 20px;
     letter-spacing: 1px;
     border-top: 1px solid #c3c2c2;
+    color: black;
 }
 
 .cocktail > div:nth-child(4){
     margin-right: 385px;
 
+}
+
+.cocktail button{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0;
+    color: black;
+    background-color: rgb(162, 167, 214);
+    width: 80px;
+    height: 25px;
 }
 
 /* 다시하기 버튼 */
