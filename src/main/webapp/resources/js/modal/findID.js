@@ -17,7 +17,7 @@ function verifyEmail2() {
         return;
     }
     $.ajax({
-        url: "member/findID",
+        url: getContextPath() + "/member/findID",
         type: "post",
         data: {"name": v1,
                "email": v2},
@@ -26,7 +26,7 @@ function verifyEmail2() {
                 showModal("findID", false);
                 showModal("confirmEmail", true);
                 $.ajax({
-                    url: "email/verify",
+                    url: getContextPath() + "/email/verify",
                     type: "post",
                     data: {"serv": "findID", "email": v2},
                     success: function(value) {

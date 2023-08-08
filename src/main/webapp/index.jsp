@@ -35,12 +35,14 @@
         <div id="populars">
             <p>Columns</p>
             <p>최근 칼럼</p>
-            <ul class="columnContents">
-                <li class="column"><a></a></li>
+            <ul class="contents-column">
+                <li><a>
+                    <img src="${contextPath}/resources/images/column/20230808171838_60172.png">
+                    <div>asdf</div>
+                </a></li>
                 <li><a></a></li>
-   
-
-               
+                <li><a></a></li>
+                <li><a></a></li>
             </ul>
         </div>
         <div id="populars">
@@ -58,7 +60,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <jsp:include page="/WEB-INF/views/common/modal.jsp"/>
     <script src="${contextPath}/resources/js/main.js"></script>
-    <script src="${contextPath}/resources/js/place.js"></script>
     <script src="${contextPath}/resources/js/index.js"></script>
 </body>
 </html>

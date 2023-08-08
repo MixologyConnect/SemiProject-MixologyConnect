@@ -1,11 +1,12 @@
 let adPage = 0;
+const adImage = ["0.png", "1.png", "2.png"];
 
 (() => {
     applyTheme();
-    $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + 0 + ".png')")
+    $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + adImage[0] + "')")
     setInterval(() => {
         if (adPage == 3) adPage = 0;
-        $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + adPage++ + ".png')")
+        $("#ad").css("background-image", "url('" + getContextPath() + "/resources/images/ad/" + adImage[adPage++] + "')")
     }, 10000);
 })();
 
@@ -184,36 +185,6 @@ $("#search-box").blur(function() {
                            "border-color": "",
                            "filter": "" });
 });
-
-(function(){
-
-    const column = document.querySelector(".columnContents")
-
-    $.ajax({
-        url : contextPath + "/column/columnList",
-        data : {"type":3},
-        type : "post",
-        dataType : "json",
-
-        success : function(columnList){
-            console.log(columnList);
-
-            for(let column of columnList){
-
-                console.log(column.boardTitle)
-
-            }
-            
-        },
-        error : function(columnList){
-            console.log("에러발생")
-            console.log(columnList)
-        }
-
-    })
-
-
-})();
 
 function searchValidate() {
     if ($("#search-box").val() == "") return false;
