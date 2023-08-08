@@ -26,11 +26,14 @@ public class columnServlet extends HttpServlet {
 			
 			req.setAttribute("detail", detail);
 			
+			
 			String path = "/WEB-INF/views/column/column.jsp";
+			
 			
 			//int type = Integer.parseInt(req.getParameter("type"));
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
+
 			dispatcher.forward(req, resp);
 		
 		} catch (Exception e) {
