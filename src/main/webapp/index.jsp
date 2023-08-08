@@ -21,11 +21,9 @@
             </p>
         </div>
         <div id="search">
-            <label for="search-button"><img src="${contextPath}/resources/images/magnifier.png"></label>
-            <form action="search">
-
+            <label for="search-button"><img id="search-img" src="${contextPath}/resources/images/magnifier.png"></label>
+            <form action="search" onsubmit="return searchValidate()">
         	    <input id="search-box" type="text" name="query" placeholder="칵테일, 게시글">
-
                 <button id="search-button">검색</button>
             </form>
         </div>
