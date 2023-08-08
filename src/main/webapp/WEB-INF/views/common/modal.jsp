@@ -316,6 +316,9 @@
 	<c:remove var="message" scope="session"/>
 </c:if>
 
+<script>
+    const contextPath="${contextPath}";
+</script>
 <script src="${contextPath}/resources/js/modal/modal.js"></script>
 <script src="${contextPath}/resources/js/modal/login.js"></script>
 <script src="${contextPath}/resources/js/modal/contract.js"></script>

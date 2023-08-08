@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.javaba.mixologyconnect.board.model.service.ReplyService;
 import com.javaba.mixologyconnect.board.model.vo.Reply;
-
+import com.javaba.mixologyconnect.common.Util;
 import com.google.gson.Gson;
 
 @WebServlet("/reply/*")
@@ -31,14 +31,11 @@ public class ReplyController extends HttpServlet{
 			
 			if (command.equals("selectReplyList")) {
 
-				// 파라미터를 얻어와 정수 형태로 파싱
 				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 
-				// 댓글 목록 조회 서비스 호출 후 결과 반환 받기
 				List<Reply> rList = service.selectReplyList(boardNo);
 				
 
-				// JSON 변환 + 응답
 				new Gson().toJson(rList, resp.getWriter());
 			}
 			
@@ -70,6 +67,9 @@ public class ReplyController extends HttpServlet{
 			if(command.equals("update")) {
 				int replyNo = Integer.parseInt(req.getParameter("replyNo"));
 				String replyContent = req.getParameter("replyContent");
+				
+				replyContent = Util.XSSHandling(replyContent);
+				replyContent = Util.newLineHandling(replyContent);
 				
 				int result = service.updateReply(replyNo, replyContent);
 				resp.getWriter().print(result);
