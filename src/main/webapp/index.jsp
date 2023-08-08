@@ -36,23 +36,12 @@
             <p>Columns</p>
             <p>최근 칼럼</p>
             <ul class="contents-column">
-                <li><a>
-                    <img src="${contextPath}/resources/images/column/20230808171838_60172.png">
-                    <div>asdf</div>
-                </a></li>
-                <li><a></a></li>
-                <li><a></a></li>
-                <li><a></a></li>
             </ul>
         </div>
         <div id="populars">
             <p>Trending</p>
             <p>실시간 인기 게시글</p>
-            <ul class="contents">
-                <li><a></a></li>
-            	<li><a></a></li>
-            	<li><a></a></li>
-            	<li><a></a></li>
+            <ul class="contents-board">
             </ul>
         </div>
     </main>

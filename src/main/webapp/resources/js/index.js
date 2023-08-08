@@ -6,8 +6,16 @@
         dataType : "JSON",
     
         success : function(Top4Board){
+            let l = 0;
             for (let i of Top4Board) {
-                console.log(i);
+                if (l == 4) break;
+                let li = document.createElement("li");
+                li.innerHTML = `<li><a>
+                                <img src="` + getContextPath() + i.thumbnail + `">
+                                <div>` + i.boardTitle + `</div>
+                                </a></li>`;
+                $(".contents-board").append(li);
+                l++;
             }
         },
     
@@ -25,9 +33,16 @@
         type : "post",
         dataType : "json",
         success : function(columnList){
-            console.log(columnList);
-            for(let column of columnList){
-                console.log(column.boardTitle)
+            let l = 0;
+            for (let i of columnList) {
+                if (l == 4) break;
+                let li = document.createElement("li");
+                li.innerHTML = `<li><a>
+                                <img src="` + getContextPath() + i.thumbnail + `">
+                                <div>` + i.boardTitle + `</div>
+                                </a></li>`;
+                $(".contents-column").append(li);
+                l++;
             }
         },
         error : function(columnList){

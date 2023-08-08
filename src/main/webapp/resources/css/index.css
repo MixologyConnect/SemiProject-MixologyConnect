@@ -84,7 +84,15 @@ main {
 	color: rgb(180, 180, 180)
 }
 
-.contents {
+.contents-column {
+	display: flex;
+	box-sizing: border-box;
+	width: 960px;
+	padding: 0;
+	justify-content: space-between;
+}
+
+.contents-board {
 	display: flex;
 	box-sizing: border-box;
 	width: 960px;
@@ -125,11 +133,11 @@ main {
 	background-color: rgba(0, 0, 0, 0.5);
 	transform: translateY(-75px);
 	font-weight: bold;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	padding: 5px 10px;
 }
 
-.contents > li {
+.contents-board > li {
 	list-style: none;
 	width: 225px;
 	height: 280px;
@@ -140,6 +148,24 @@ main {
 	overflow: hidden;
 }
 
-.contents > li:hover {
+.contents-board > li img{
+	position: relative;
+	height: 280px;
+	float:none;
+}
+
+.contents-board > li div {
+	position: absolute;
+	z-index: 1;
+	width: 225px;
+	height: 70px;
+	background-color: rgba(0, 0, 0, 0.5);
+	transform: translateY(-75px);
+	font-weight: bold;
+	font-size: 1.2rem;
+	padding: 5px 10px;
+}
+
+.contents-column > li:hover, .contents-board > li:hover {
 	box-shadow: inset 0 0 30px rgba(0, 220, 244, 0.3);
 }
