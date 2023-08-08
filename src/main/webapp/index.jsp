@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="boardName" value="${map.boardName}"/>
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="columnList" value="${map.columnList}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,11 +35,12 @@
         <div id="populars">
             <p>Columns</p>
             <p>최근 칼럼</p>
-            <ul class="contents">
+            <ul class="columnContents">
+                <li class="column"><a></a></li>
                 <li><a></a></li>
-            	<li><a></a></li>
-            	<li><a></a></li>
-            	<li><a></a></li>
+   
+
+               
             </ul>
         </div>
         <div id="populars">
