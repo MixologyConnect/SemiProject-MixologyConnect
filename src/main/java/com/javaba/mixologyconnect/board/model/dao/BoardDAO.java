@@ -1016,4 +1016,27 @@ public class BoardDAO {
 	}
 
 	
+
+
+	public List<Board> selectTop4(Connection conn) throws Exception {
+
+		List<Board> Top4Board = new ArrayList<Board>();
+
+		try {
+			String sql = prop.getProperty("selectTop4");
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Board board = new Board();
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setBoardTitle(rs.getNString("BOARD_TITLE"));
+				board.setThumbnail(rs.getNString("IMG_RENAME"));
+				Top4Board.add(board);
+			}
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return Top4Board;
+	}
 }
