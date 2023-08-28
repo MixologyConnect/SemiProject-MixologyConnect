@@ -27,9 +27,9 @@ public class userFollow extends HttpServlet {
 		
 		MemberService service = new MemberService();
 		
-		Map<String, Integer> follow = service.userFollowInsertDelete(loginMemberNo, memberNo, followCheck);
+		//Map<String, Integer> follow = service.userFollowInsertDelete(loginMemberNo, memberNo, followCheck);
 		
-		new Gson().toJson(follow,resp.getWriter());
+		//new Gson().toJson(follow,resp.getWriter());
 		
 	}catch (Exception e) {
 		e.printStackTrace();
