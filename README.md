@@ -1,11 +1,13 @@
-![header](https://capsule-render.vercel.app/api?type=slice&color=387BFF&height=180&text=Hi,%20there👋&fontAlign=70&fontColor=fff&rotate=13&fontAlignY=25&&section=header&fontSize=60)
+![header](https://capsule-render.vercel.app/api?type=waving&color=99E1ED&height=200&text=MixologyConneect🍸&fontAlign=50&fontColor=fff&section=header&fontSize=60)
+
 
 <div align=center>
 
-  <img width="400px" src="file:///C:/Users/jy041/Documents/SemiProject/src/main/webapp/resources/images/logo.svg">
+  <img width="400px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/85cefaab-5f07-4703-8c73-ed5fabc17c46">
 
   <br>[▶️ 믹스올로지 사이트 바로 가기 ◀️](http://121.181.209.126:8080/SemiProject-MixologyConnect/)
   <br>▶️ [믹스올로지 PPT](https://github.com/MixologyConnect/SemiProject-MixologyConnect/files/12877730/MixologyConnect.pdf) ◀️
+  <br>
   <br>
   
  # 🍹 칵테일 덕후를 위한 공유 플랫폼 🍸
@@ -30,18 +32,20 @@
   ## 💡 기획 의도
   <a name="기획-의도"></a>
   
-  <img src="https://github.com/DeuggeunJeonsu/DeuggeunJeonsu/assets/137850727/89dca324-aa22-49fa-afb6-2cb1852d52ac"><br>
+  <img src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/50719b48-7eb1-4427-9bd1-cb79cd6a46d9"><br>
 
-  헬스에 도전하고 싶으나 아는 운동은 없고 너무 많은 운동 정보들에 혼란스러움을 겪는 <b>A 씨</b> 🙅‍♀️<br>
-  늘어났다 줄었다 변화가 잦은 유지어터 <b>B 씨</b> 🤷‍♂️<br>
+
+
+  많은 칵테일 종류에 고민에 빠진 32살 <b>칵테일 덕후 김쁘띠 씨</b> 🍹🤔<br>
+  복잡한 주류 문화 대신 혼자 만의 시간을 즐기고 싶은 26세 <b>자취생 나홀로씨</b> 🏠🥃<br>
+  특별한 레시피를 공유하고 싶은 45세 <b>칵테일 마스터 백덴더씨</b> 🍸🧙‍♂️<br>
+  <br>
+  이런 '미래의 칵테일 고수'들을 위해 우리 크루는 직관적이고 편리한 사용자 경험을 제공하면서 동시에 재미를 놓치지 않는<br>
+  웹 플랫폼 <b>믹스올로지</b>를 개발하게 되었습니다. 🌐🍹
   
-  이러한 '미래의 득근왕'들을 위해 우리 크루는 직관적이고 편리한 사용자 경험을 제공하면서 동시에 재미를 놓치지 않는<br>
-  웹 플랫폼 <b>득근전수</b>를 개발하게 되었습니다.<br>
+  이 커뮤니티는 칵테일 정보를 쉽게 얻을 수 있는 UX/UI, 효율적인 검색 시스템, 칵테일 취향테스트, 전체 채팅,<br>
+  그리고 팔로잉 팔로워을 포함한 다양한 기능을 통해 사용자 중심의 반응형 웹을 제공합니다.<br>
   
-  이 커뮤니티는 운동 정보를 쉽게 얻을 수 있는 UX/UI, 효율적인 TodoList, 뱃지 제공 시스템, BMI 계산 도구, 설문조사 기능,<br>
-  그리고 마켓을 포함한 다양한 기능을 통해 사용자 중심의 반응형 웹을 제공합니다.<br>
-  
-  이를 통해 운동 동기 부여를 <b>UP! UP!</b> 할 수 있도록 도와줍니다.
   
   <br><br>
 
@@ -50,18 +54,20 @@
 
   <table>
     <tr>
-      <td><img src="https://github.com/DeuggeunJeonsu/DeuggeunJeonsu/assets/137850727/ffeb3f99-2a0a-4af1-af98-efc7c34ad87a"></td>
-      <td><img src="https://github.com/DeuggeunJeonsu/DeuggeunJeonsu/assets/137850727/b918f857-0283-4d4b-a4e8-8fc0ae0f45c6"></td>
-      <td><img src="https://github.com/DeuggeunJeonsu/DeuggeunJeonsu/assets/137850727/dd9fc525-b32b-4c64-94bd-386356574f37"></td>
-      <td><img src="https://github.com/DeuggeunJeonsu/DeuggeunJeonsu/assets/137850727/5b3700dc-8086-4363-bfbb-888e8ba4a53d"></td>
-      <td><img src="https://github.com/DeuggeunJeonsu/DeuggeunJeonsu/assets/137850727/e115669c-198e-4570-b36d-e61ac110bbdf"></td>
+      <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/3f70909d-1abf-471c-b26b-cfbdfc75a390"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
-      <th>안수현 (조장) <a href="https://github.com/ansoohyeon"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
-      <th>이지영 (부조장) <a href="https://github.com/complete0415Jiyoung"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
-      <th>김종수 (체육부장) <a href="https://github.com/js3720"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
-      <th>이민주 (아이디어대장) <a href="https://github.com/minjooo0116"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
-      <th>정호진 (응원단장)<a href="https://github.com/hojin1111"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
+      <th>이지영 (조장) <a href="https://github.com/complete0415Jiyoung"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
+      <th>오서현 (부조장) <a href="https://github.com/seohyun"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
+      <th>조성진 (체육부장) <a href="https://github.com/Sungjinchosj"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
+      <th>이미래 (응원단장) <a href="https://github.com/future2ee"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
+      <th>임성수 (기획단장)<a href="https://github.com/SeoungSlm"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
+       <th>조훈 (디자인대장)<a href="https://github.com/abs013r"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
     </tr>
   </table>
 
@@ -70,7 +76,7 @@
   ## 📆 개발 기간
   <a name="개발-기간"></a>
 
-  2023.08 ~ 2023.10
+  2023.06.13 ~ 2023.08.08
 
   <br><br>
   
@@ -84,7 +90,6 @@
   
   ![Apache Tomcat](https://img.shields.io/badge/apachetomcat-F8DC75?style=flat&logo=apachetomcat&logoColor=white)
   ![Oracle](https://img.shields.io/badge/oracle-F80000?style=flat&logo=oracle&logoColor=white)
-  ![Spring](https://img.shields.io/badge/spring-6DB33F?style=flat&logo=spring&logoColor=white)
   ![VSCode](https://img.shields.io/badge/visualstudiocode-007ACC?style=flat&logo=visualstudiocode&logoColor=white)
   ![JSON](https://img.shields.io/badge/json-000000?style=flat&logo=json&logoColor=white)
 
@@ -100,13 +105,21 @@
   ## 🔎 주요 기능
   <a name="주요-기능"></a>
 
-  <li>채팅으로 소통하기 💬</li>
-  <li>TodoList로 내 운동 기록하기 📝</li>
-  <li>뱃지 획득으로 성취감 UP! UP! 🏆</li>
-  <li>다른 사용자와 운동 정보 공유하기 💡</li>
-  <li>출석, 실천, 득근왕 랭킹으로 운동 의지 불태우기 💪</li>
-  <li>득근마켓에서 운동 용품 득템하기 👟</li>
+
+  <li><b>팔로잉과 팔로워</b> 🤝</li>
+    <p>다른 칵테일 팬들과 연결하고, 그들의 활동을 따라가세요.</p>
+  <li><b>게시판 컬럼 및 자유게시판</b> 📝</li>
+    <p>칵테일 커뮤니티의 다양한 주제로 대화하고 의견을 공유하세요.</p>
+  <li><b>전체 회원과의 채팅</b> 💬</li>
+    <p>모든 멤버와 대화하며, 칵테일 레시피, 추천, 및 칵테일 세계에 대해 이야기하세요.</p>
+  <li><b>주변 칵테일바 찾아보기</b> 🍸</li>
+    <p>지역 내의 칵테일 바를 찾아보고, 주변에서 어떤 특별한 칵테일을 즐길 수 있는지 확인하세요.</p>
+  <li><b>칵테일 취향테스트</b> 🍹</li>
+    <p>자신의 칵테일 취향을 자문하고, 새로운 칵테일 추천을 받아보세요.</p>
+  <li><b>레시피 공유</b> 🍹</li>
+    <p>자신만의 칵테일 레시피를 공유하고, 다른 회원들의 창의적인 아이디어를 받아보세요.</p>
+
   
 </div>
 
-![footer](https://capsule-render.vercel.app/api?type=slice&color=0253A2&height=180&section=footer&fontSize=60)
+![footer](https://capsule-render.vercel.app/api?type=waving&color=99E1ED&height=200&section=footer&fontSize=60)
