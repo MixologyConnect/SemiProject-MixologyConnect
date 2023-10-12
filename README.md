@@ -6,10 +6,10 @@
 
   <br>[▶️ 믹스올로지 사이트 바로 가기 ◀️](http://121.181.209.126:8080/SemiProject-MixologyConnect/)
   <br>▶️ [믹스올로지 PPT](https://github.com/MixologyConnect/SemiProject-MixologyConnect/files/12877730/MixologyConnect.pdf) ◀️
-  <br
->
+  <br>
   
- #🍹 칵테일 덕후를 위한 공유 플랫폼 🍸
+ # 🍹 칵테일 덕후를 위한 공유 플랫폼 🍸
+ 
 🍹 칵테일 레시피를 찾고, 의견을 공유하며, 커뮤니티를 형성하는 곳, 바로 <b>'칵테일 커뮤니티 웹페이지'</b>입니다.<br>
 우리의 목표는 칵테일을 사랑하는 모든 이들이 모여 레시피와 경험을 나누며, 함께 성장하는 공간을 만드는 것입니다. 🍹🤝
 <br><br>
