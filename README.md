@@ -57,8 +57,8 @@
     <tr>
       <td><img width="155px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/cf538225-88bf-4ff0-97ee-20535f91308e"></td>
       <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/8442f023-7dc3-4337-9438-795997461b7c"></td>
-      <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/bd209712-dcf6-4d82-88a2-f708808df44b"></td>
-      <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/f4df29eb-926a-4abd-a492-a7189c33759c"></td>
+      <td><img width="170px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/bd209712-dcf6-4d82-88a2-f708808df44b"></td>
+      <td><img width="180px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/f4df29eb-926a-4abd-a492-a7189c33759c"></td>
       <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/318d7cc4-9dff-4b14-bb20-764fc98fdacb)"></td></td>
       <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/e0aba318-ee64-4e41-807c-9d40afd90767"></td>
     </tr>
