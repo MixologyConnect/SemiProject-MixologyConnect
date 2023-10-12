@@ -54,11 +54,11 @@
 
   <table>
     <tr>
-      <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/3f70909d-1abf-471c-b26b-cfbdfc75a390"></td>
+      <td><img width="155px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/3f70909d-1abf-471c-b26b-cfbdfc75a390"></td>
+      <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/f3fa6f44-0d61-4869-932a-9aa5dd597887"></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/32bb4a0a-7b05-42e0-9ea8-e8bc7b7c57f0"></td></td>
       <td></td>
     </tr>
     <tr>
