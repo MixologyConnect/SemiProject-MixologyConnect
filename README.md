@@ -3,13 +3,14 @@
 
 <div align=center>
 
-  <img width="400px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/85cefaab-5f07-4703-8c73-ed5fabc17c46">
+  <img width="400px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/cb3dac19-1c46-4336-bab6-11e2f13146b96">
 
   <br>[▶️ 믹스올로지 사이트 바로 가기 ◀️](http://121.181.209.126:8080/SemiProject-MixologyConnect/)
   <br>▶️ [믹스올로지 PPT](https://github.com/MixologyConnect/SemiProject-MixologyConnect/files/12877730/MixologyConnect.pdf) ◀️
   <br>
   <br>
-  
+ 
+
  # 🍹 칵테일 덕후를 위한 공유 플랫폼 🍸
  
 🍹 칵테일 레시피를 찾고, 의견을 공유하며, 커뮤니티를 형성하는 곳, 바로 <b>'칵테일 커뮤니티 웹페이지'</b>입니다.<br>
@@ -32,7 +33,7 @@
   ## 💡 기획 의도
   <a name="기획-의도"></a>
   
-  <img src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/50719b48-7eb1-4427-9bd1-cb79cd6a46d9"><br>
+  <img src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/0c0b717a-a690-4cf4-91f8-4f843ba522ac"><br>
 
 
 
@@ -54,11 +55,11 @@
 
   <table>
     <tr>
-      <td><img width="155px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/3f70909d-1abf-471c-b26b-cfbdfc75a390"></td>
-      <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/f3fa6f44-0d61-4869-932a-9aa5dd597887"></td>
+      <td><img width="155px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/39bd66b9-e668-47b1-8b63-42846a01dbc3"></td>
+      <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/8442f023-7dc3-4337-9438-795997461b7c"></td>
       <td></td>
       <td></td>
-      <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/32bb4a0a-7b05-42e0-9ea8-e8bc7b7c57f0"></td></td>
+      <td><img width="150px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/318d7cc4-9dff-4b14-bb20-764fc98fdacb)"></td></td>
       <td></td>
     </tr>
     <tr>
