@@ -64,7 +64,7 @@
     </tr>
     <tr>
       <th>이지영 (조장) <a href="https://github.com/complete0415Jiyoung"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
-      <th>오서현 (부조장) <a href="https://github.com/seohyun"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
+      <th>오서현 (부조장) <a href="https://github.com/seewisee"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
       <th>조성진 (체육부장) <a href="https://github.com/Sungjinchosj"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
       <th>이미래 (응원단장) <a href="https://github.com/future2ee"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
       <th>임성수 (기획단장)<a href="https://github.com/SeoungSlm"><br><img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/></a></th>
