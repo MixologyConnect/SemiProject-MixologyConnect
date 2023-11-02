@@ -5,7 +5,7 @@
 
   <img width="400px" src="https://github.com/MixologyConnect/SemiProject-MixologyConnect/assets/137850782/cb3dac19-1c46-4336-bab6-11e2f13146b96">
 
-  <br>[▶️ 믹스올로지 사이트 바로 가기 ◀️](http://121.181.209.126:8080/SemiProject-MixologyConnect/)
+  <br>[▶️ 믹스올로지 사이트 바로 가기 ◀️](http://lnx.iptime.org:8080/)
   <br>▶️ [믹스올로지 PPT](https://github.com/MixologyConnect/SemiProject-MixologyConnect/files/12877730/MixologyConnect.pdf) ◀️
   <br>
   <br>
